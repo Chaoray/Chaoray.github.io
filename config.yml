@@ -1,0 +1,49 @@
+baseURL: https://www.example.org/
+languageCode: zh-tw
+title: 高中筆記整理
+theme: PaperMod
+
+defaultContentLanguage: en # 最顶部首先展示的语言页面
+defaultContentLanguageInSubdir: true
+
+languages:
+    en:
+      languageName: "English"
+      weight: 1
+      profileMode:
+        enabled: true
+        title: 高中筆記整理
+        imageUrl: "img/Jiang.jfif"
+        imageWidth: 150
+        imageHeight: 150
+        buttons:
+          - name: 國文
+            url: post/chinese
+          - name: 英文
+            url: post/english
+          - name: 數學
+            url: post/math
+          - name: 自然
+            url: post/science
+          - name: 社會
+            url: post/society
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
+
+params:
+    author: ["郭凱明", "姜承恩", "趙文睿"]
+    ShowPostNavLinks: true
+    defaultTheme: auto  # defaultTheme: light or  dark 
+    disableThemeToggle: false
+    ShowShareButtons: true
+    ShowReadingTime: true
+
+
+    label:
+      text: "高中筆記整理"
+      icon: "img/Jiang.jfif"
+      iconHeight: 35
