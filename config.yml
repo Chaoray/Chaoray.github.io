@@ -1,4 +1,4 @@
-baseURL: /
+baseURL: "https://chaoray.github.io/"
 languageCode: zh-tw
 title: 高中筆記整理
 theme: PaperMod
