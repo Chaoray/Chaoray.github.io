@@ -1,8 +1,7 @@
 ---
-title: "Search" # in any language you want
+title: "搜尋" # in any language you want
 layout: "search" # is necessary
-# url: "/archive"
-# description: "Description for Search"
+url: "search/"
 summary: "search"
-placeholder: "placeholder text in search input box"
+placeholder: "輸入關鍵字..."
 ---
