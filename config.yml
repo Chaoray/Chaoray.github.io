@@ -13,7 +13,7 @@ languages:
     profileMode:
       enabled: true
       title: 高中筆記整理
-      imageUrl: "img/Jiang.webp"
+      imageUrl: "img/icon.webp"
       imageWidth: 150
       imageHeight: 150
       buttons:
@@ -74,7 +74,7 @@ params:
 
   label:
     text: "高中筆記整理"
-    icon: "img/Jiang.webp"
+    icon: "img/icon.webp"
     iconHeight: 35
 
   taxonomies:
