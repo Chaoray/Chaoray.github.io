@@ -13,7 +13,7 @@ languages:
     profileMode:
       enabled: true
       title: 高中筆記整理
-      imageUrl: "img/Jiang.jfif"
+      imageUrl: "img/Jiang.webp"
       imageWidth: 150
       imageHeight: 150
       buttons:
@@ -33,7 +33,7 @@ languages:
           name: 主頁
           url: /
           weight: 1
-        - identifier: posts
+        - identifier: post
           name: 文章
           url: post
           weight: 2
@@ -70,11 +70,11 @@ params:
 
   socialIcons:
     - name: github
-      url: "https://github.com/Chaoray"
+      url: "https://github.com/Chaoray/Chaoray.github.io"
 
   label:
     text: "高中筆記整理"
-    icon: "img/Jiang.jfif"
+    icon: "img/Jiang.webp"
     iconHeight: 35
 
   taxonomies:
