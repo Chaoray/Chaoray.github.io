@@ -1,4 +1,4 @@
-baseURL: https://www.example.org/
+baseURL: /
 languageCode: zh-tw
 title: 高中筆記整理
 theme: PaperMod
