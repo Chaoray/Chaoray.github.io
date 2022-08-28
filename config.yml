@@ -3,11 +3,11 @@ languageCode: zh-tw
 title: 高中筆記整理
 theme: PaperMod
 
-defaultContentLanguage: zn-tw # 最顶部首先展示的语言页面
+defaultContentLanguage: zh-tw
 defaultContentLanguageInSubdir: true
 
 languages:
-  zn-tw:
+  zh-tw:
     languageName: "Traditional-Chinese"
     weight: 1
     profileMode:
@@ -34,17 +34,25 @@ languages:
           url: /
           weight: 1
         - identifier: post
-          name: 文章
+          name: 筆記
           url: post
           weight: 2
         - identifier: search
           name: 搜尋
           url: search
-          weight: 3
+          weight: 4
+        - identifier: fastuse
+          name: 快速使用
+          url: fastuse
+          weight: 5
         - identifier: about
           name: 關於
           url: about
-          weight: 4
+          weight: 6
+        - identifier: archives
+          name: 總覽
+          url: archives
+          weight: 7
 
 outputs:
   home:
@@ -70,7 +78,7 @@ params:
 
   socialIcons:
     - name: github
-      url: "https://github.com/Chaoray/Chaoray.github.io"
+      url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 
   label:
     text: "高中筆記整理"
@@ -89,3 +97,8 @@ params:
     threshold: 1
     minMatchCharLength: 0
     keys: ["title", "permalink", "summary"]
+
+markup:
+    goldmark:
+        renderer:
+            unsafe: true

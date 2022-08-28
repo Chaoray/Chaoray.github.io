@@ -3,6 +3,7 @@ title: "關於"
 date: 2022-08-27T15:14:31+08:00
 draft: false
 hidemeta: true
+searchHidden: true
 ---
 
 ### 這群人很懶，甚麼都沒留下...
