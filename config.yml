@@ -61,7 +61,7 @@ outputs:
     - JSON
 
 params:
-  author: ["郭凱明", "姜承恩", "趙文睿"]
+  # author: ["郭凱明", "姜承恩", "趙文睿"]
 
   defaultTheme: light
   disableThemeToggle: false
@@ -85,6 +85,13 @@ params:
     icon: "img/icon.webp"
     iconHeight: 35
 
+  assets:
+    favicon: "img/icon.webp"
+    favicon16x16: "img/icon.webp"
+    favicon32x32: "img/icon.webp"
+    apple_touch_icon: "img/icon.webp"
+    safari_pinned_tab: "img/icon.webp"
+
   taxonomies:
     category: categories
     tag: tags
@@ -99,6 +106,6 @@ params:
     keys: ["title", "permalink", "summary"]
 
 markup:
-    goldmark:
-        renderer:
-            unsafe: true
+  goldmark:
+    renderer:
+      unsafe: true
