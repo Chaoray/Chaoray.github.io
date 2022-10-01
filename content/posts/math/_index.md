@@ -6,5 +6,3 @@ weight: 3
 hidemeta: true
 ---
 
-{{< section >}}
-

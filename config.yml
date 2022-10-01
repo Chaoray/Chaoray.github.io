@@ -1,7 +1,7 @@
 baseURL: "https://chaoray.github.io/"
 languageCode: zh-tw
 title: 高中筆記整理
-theme: hugo-geekdoc
+theme: "PaperModX"
 
 defaultContentLanguage: zh-tw
 defaultContentLanguageInSubdir: true
@@ -18,15 +18,19 @@ languages:
       imageHeight: 150
       buttons:
         - name: 國文
-          url: post/chinese
+          url: posts/chinese
         - name: 英文
-          url: post/english
+          url: posts/english
         - name: 數學
-          url: post/math
-        - name: 自然
-          url: post/science
-        - name: 社會
-          url: post/society
+          url: posts/math
+        - name: 物理
+          url: posts/physics
+        - name: 地科
+          url: posts/earth
+        - name: 歷史
+          url: posts/history
+        - name: 公民
+          url: posts/civics
     menu:
       main:
         - identifier: home
@@ -35,7 +39,7 @@ languages:
           weight: 1
         - identifier: post
           name: 筆記
-          url: post
+          url: posts
           weight: 2
         - identifier: search
           name: 搜尋
@@ -67,7 +71,7 @@ params:
   disableThemeToggle: false
 
   ShowPostNavLinks: true
-  ShowShareButtons: false
+  ShowShareButtons: true
   ShowReadingTime: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
@@ -75,6 +79,9 @@ params:
   ShowLastMod: true
   VisitCount: true
   hideFooter: false
+  TocSide: 'left'  # or 'right'
+  TocOpen: true
+  EnableInstantClick: true
 
   socialIcons:
     - name: github

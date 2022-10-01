@@ -5,5 +5,3 @@ draft: false
 hidemeta: true
 weight: 1
 ---
-
-{{< section >}}
