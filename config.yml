@@ -65,7 +65,7 @@ outputs:
     - JSON
 
 params:
-  # author: ["郭凱明", "姜承恩", "趙文睿"]
+  author: ["郭凱明", "姜承恩", "趙文睿"]
 
   defaultTheme: light
   disableThemeToggle: false
@@ -102,15 +102,6 @@ params:
   taxonomies:
     category: categories
     tag: tags
-
-  # fuseOpts:
-  #   isCaseSensitive: false
-  #   shouldSort: true
-  #   location: 0
-  #   distance: 1000
-  #   threshold: 1
-  #   minMatchCharLength: 0
-  #   keys: ["title", "permalink", "summary"]
 
 markup:
   goldmark:
