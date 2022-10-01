@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>L1 on 高中筆記整理</title><link>https://chaoray.github.io/tags/l1/</link><description>Recent content in L1 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Tue, 30 Aug 2022 21:55:37 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/l1/index.xml" rel="self" type="application/rss+xml"/><item><title>L1 筆記</title><link>https://chaoray.github.io/posts/physics/l1_1/</link><pubDate>Tue, 30 Aug 2022 21:55:37 +0800</pubDate><guid>https://chaoray.github.io/posts/physics/l1_1/</guid><description>物理量 = 數字 + 單位 1. 單位：基本單位(七個)及導出單位(多個) 基本量 長度 質量 時間 光度 溫度 電流 數量 單位 公尺(m) 公斤(m) 秒(s) 燭光(cd.) 克氏溫標(k) 安培(A) 莫耳(mol) 導出單位:可用數個基本單位拼湊而成的單位 ex:
+加速度(m/s^2) dv / dt
+力(kg*m/s^2) = (牛頓N) F = ma
+動能(kg*m^2/s^2) = (焦耳J) K = 1/2 * mv
+功(kg*m^2/s^2) = (焦耳J) W = FS
+功率(kg*m^2/s^3) = (瓦特W) P = W / t
+電量(A*s) = (庫倫C) Q = It 2. 基準 早期 最新 一秒 1 / 86400太陽日 銫原子振動週期的9192631770倍 一公尺 北極到赤道的距離的一千萬分之一 利用光速在真空中的不變性，取其走一秒距離除以299792458 一公斤 國際標準局鉑銥合金塊質量 利用普朗克常數及秒和公尺定義</description><content:encoded><![CDATA[<h2 id="物理量--數字--單位">物理量 = 數字 + 單位</h2>
+<h3 id="1-單位基本單位七個及導出單位多個">1. 單位：基本單位(七個)及導出單位(多個)</h3>
+<table>
+<thead>
+<tr>
+<th>基本量</th>
+<th>長度</th>
+<th>質量</th>
+<th>時間</th>
+<th>光度</th>
+<th>溫度</th>
+<th>電流</th>
+<th>數量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>單位</td>
+<td>公尺(m)</td>
+<td>公斤(m)</td>
+<td>秒(s)</td>
+<td>燭光(cd.)</td>
+<td>克氏溫標(k)</td>
+<td>安培(A)</td>
+<td>莫耳(mol)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>導出單位:可用數個基本單位拼湊而成的單位
+ex:<br>
+加速度(m/s^2)  <code>dv / dt</code><br>
+力(kg*m/s^2) = (牛頓N) <code>F = ma</code><br>
+動能(kg*m^2/s^2) = (焦耳J) <code>K = 1/2 * mv</code><br>
+功(kg*m^2/s^2) = (焦耳J) <code>W = FS</code><br>
+功率(kg*m^2/s^3) = (瓦特W) <code>P = W / t</code><br>
+電量(A*s) = (庫倫C) <code>Q = It</code></li>
+</ul>
+<h3 id="2-基準">2. 基準</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>早期</th>
+<th>最新</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一秒</td>
+<td>1 / 86400太陽日</td>
+<td>銫原子振動週期的9192631770倍</td>
+</tr>
+<tr>
+<td>一公尺</td>
+<td>北極到赤道的距離的一千萬分之一</td>
+<td>利用光速在真空中的不變性，取其走一秒距離除以299792458</td>
+</tr>
+<tr>
+<td>一公斤</td>
+<td>國際標準局鉑銥合金塊質量</td>
+<td>利用<a href="https://zh.wikipedia.org/zh-tw/%E6%99%AE%E6%9C%97%E5%85%8B%E5%B8%B8%E6%95%B0">普朗克常數</a>及秒和公尺定義</td>
+</tr>
+</tbody>
+</table>
+]]></content:encoded></item></channel></rss>
