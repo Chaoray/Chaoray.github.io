@@ -4,4 +4,5 @@ layout: "search" # is necessary
 url: "search/"
 summary: "search"
 placeholder: "輸入關鍵字..."
+draft: true
 ---
