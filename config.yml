@@ -12,10 +12,11 @@ languages:
     weight: 1
     profileMode:
       enabled: true
-      title: 高中筆記整理
+      title: 🛐考前一拜，分數一百🛐
       imageUrl: "img/icon.webp"
       imageWidth: 150
       imageHeight: 150
+      subtitle: 「你去問別人啦，我無德無能幫你宣揚文化」by大佬
       buttons:
         - name: 國文
           url: posts/chinese
