@@ -13,10 +13,10 @@ languages:
     profileMode:
       enabled: true
       title: 🛐考前一拜，分數一百🛐
-      imageUrl: "img/icon.webp"
+      imageUrl: "img/four.gif"
       imageWidth: 150
       imageHeight: 150
-      subtitle: 「你去問別人啦，我無德無能幫你宣揚文化」by大佬
+      subtitle: 「你去問別人啦，我無德無能幫你宣揚文化」by 崴民大佬
       buttons:
         - name: 國文
           url: posts/chinese
