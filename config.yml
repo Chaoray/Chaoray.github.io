@@ -13,9 +13,15 @@ languages:
     profileMode:
       enabled: true
       title: 🛐考前一拜，分數一百🛐
-      imageUrl: "img/four.gif"
-      imageWidth: 150
-      imageHeight: 150
+      imageUrls:
+        - url: "img/four.gif"
+          title: "跪拜"
+        - url: "img/weimin.jpg"
+          title: "大佬"
+          width: 220
+          height: 220
+        - url: "img/four.gif"
+          title: "跪拜"
       subtitle: 「你去問別人啦，我無德無能幫你宣揚文化」by 崴民大佬
       buttons:
         - name: 國文
