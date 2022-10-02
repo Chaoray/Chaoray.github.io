@@ -22,3 +22,5 @@ bookToc: false
 姜丞恩：[Github](https://github.com/anyon6)
 
 ### 友情贊助
+
+藍靖傑
