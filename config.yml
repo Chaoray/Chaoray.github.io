@@ -12,15 +12,16 @@ languages:
     weight: 1
     profileMode:
       enabled: true
-      title: 🛐考前一拜，分數一百🛐
+      title: 考前一拜，分數一百
       imageUrls:
-        - url: "img/four.gif"
+        - url: "img/pray_for_da_lao.gif"
           title: "跪拜"
+          id: "reverse_pray"
         - url: "img/weimin.jpg"
           title: "大佬"
           width: 220
           height: 220
-        - url: "img/four.gif"
+        - url: "img/pray_for_da_lao.gif"
           title: "跪拜"
       subtitle: 「你去問別人啦，我無德無能幫你宣揚文化」by 崴民大佬
       buttons:
