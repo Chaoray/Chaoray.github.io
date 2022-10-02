@@ -1,0 +1,8 @@
+.dark #menu a.active {
+    color: var(--secondary);
+    box-shadow: 0 2px 0 var(--secondary);
+}
+
+.dark #menu a.active:hover {
+    color: var(--primary);
+}

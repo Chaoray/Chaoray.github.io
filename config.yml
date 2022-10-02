@@ -40,23 +40,23 @@ languages:
           weight: 1
         - identifier: post
           name: 筆記
-          url: posts
+          url: /posts
           weight: 2
         - identifier: search
           name: 搜尋
-          url: search
+          url: /search
           weight: 4
         - identifier: fastuse
           name: 快速使用
-          url: fastuse
+          url: /fastuse
           weight: 5
         - identifier: about
           name: 關於
-          url: about
+          url: /about
           weight: 6
         - identifier: archives
           name: 總覽
-          url: archives
+          url: /archives
           weight: 7
 
 outputs:
