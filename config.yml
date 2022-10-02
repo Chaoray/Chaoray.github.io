@@ -73,6 +73,7 @@ outputs:
 
 params:
   author: ["郭凱明", "姜承恩", "趙文睿"]
+  version: "v4.0.5"
 
   defaultTheme: light
   disableThemeToggle: false
@@ -86,7 +87,7 @@ params:
   ShowLastMod: true
   VisitCount: true
   hideFooter: false
-  TocSide: 'left'  # or 'right'
+  TocSide: 'left'
   TocOpen: true
   EnableInstantClick: true
 

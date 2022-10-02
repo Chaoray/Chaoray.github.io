@@ -7,52 +7,18 @@ searchHidden: true
 bookToc: false
 ---
 
-### 這群人很懶，甚麼都沒留下...
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-### 才怪！！  
 
-姜承恩：[Github](https://github.com/anyon6)
+```
+俗話說:「何謂自由?」自由應該是能隨興所欲的吧，然而我現在在仍在
+```
+
+## 成員資訊
+### 主要人員
+
+趙文睿：[Github](https://github.com/Chaoray)
 
 郭凱明：[Github](https://github.com/ThatShark)
 
-趙文睿：[Github](https://github.com/Chaoray)
+姜承恩：[Github](https://github.com/anyon6)
+
+### 友情贊助
