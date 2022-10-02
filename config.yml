@@ -12,7 +12,7 @@ languages:
     weight: 1
     profileMode:
       enabled: true
-      title: 🛐考前一拜，分數一百🛐
+      title: 考前一拜，分數一百
       imageUrls:
         - url: "img/four.gif"
           title: "跪拜"
