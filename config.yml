@@ -86,7 +86,7 @@ params:
   ShowLastMod: true
   VisitCount: true
   hideFooter: false
-  TocSide: 'left'  # or 'right'
+  TocSide: 'left'
   TocOpen: true
   EnableInstantClick: true
 
