@@ -4,7 +4,7 @@ date: 2022-08-27T15:14:31+08:00
 draft: false
 hidemeta: true
 searchHidden: true
-bookToc: false
+showtoc: false
 ---
 
 
@@ -33,12 +33,22 @@ bookToc: false
 ## 成員資訊
 ### 主要人員
 
-趙文睿：[Github](https://github.com/Chaoray)
+趙文睿：整天摸魚，只懂得程式皮毛，被大佬電爆，依舊繼續摸魚(害羞的虎鯨)  
+[Github](https://github.com/Chaoray)  
+[Discord](https://discord.com/users/731018913097449533)
 
-郭凱明：[Github](https://github.com/ThatShark)
+郭凱明：一個整天宅在家的鯊魚(明明喜歡的是魟魚)，有一天想到好玩點子於是交給大佬們來做  
+[Github](https://github.com/ThatShark)  
+[Discord](https://discord.com/users/779305775088402454) 
 
-姜丞恩：[Github](https://github.com/anyon6)
+姜丞恩：一個程式亂學的星詠者(星街的老公)/LA牙/6年死忠邦寶/喜歡釣魚(網路)，專門躺分  
+事情都交給大佬(或林益全)去坦。    
+[Github](https://github.com/anyon6)  
+[Discord](https://discord.com/users/887327376135057488)  
 
 ### 友情贊助
 
-藍靖傑
+藍靖傑：神秘的藍色兔子，行蹤無人知曉  
+實際上是筆記供應商
+
+
