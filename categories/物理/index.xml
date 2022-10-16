@@ -1,72 +1,199 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>物理 on 高中筆記整理</title><link>https://chaoray.github.io/categories/%E7%89%A9%E7%90%86/</link><description>Recent content in 物理 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Tue, 30 Aug 2022 21:55:37 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/categories/%E7%89%A9%E7%90%86/index.xml" rel="self" type="application/rss+xml"/><item><title>L1 筆記</title><link>https://chaoray.github.io/posts/physics/l1_1/</link><pubDate>Tue, 30 Aug 2022 21:55:37 +0800</pubDate><guid>https://chaoray.github.io/posts/physics/l1_1/</guid><description>物理量 = 數字 + 單位 1. 單位：基本單位(七個)及導出單位(多個) 基本量 長度 質量 時間 光度 溫度 電流 數量 單位 公尺(m) 公斤(m) 秒(s) 燭光(cd.) 克氏溫標(k) 安培(A) 莫耳(mol) 導出單位:可用數個基本單位拼湊而成的單位 ex:
-加速度(m/s^2) dv / dt
-力(kg*m/s^2) = (牛頓N) F = ma
-動能(kg*m^2/s^2) = (焦耳J) K = 1/2 * mv
-功(kg*m^2/s^2) = (焦耳J) W = FS
-功率(kg*m^2/s^3) = (瓦特W) P = W / t
-電量(A*s) = (庫倫C) Q = It 2. 基準 早期 最新 一秒 1 / 86400太陽日 銫原子振動週期的9192631770倍 一公尺 北極到赤道的距離的一千萬分之一 利用光速在真空中的不變性，取其走一秒距離除以299792458 一公斤 國際標準局鉑銥合金塊質量 利用普朗克常數及秒和公尺定義</description><content:encoded><![CDATA[<h2 id="物理量--數字--單位">物理量 = 數字 + 單位</h2>
-<h3 id="1-單位基本單位七個及導出單位多個">1. 單位：基本單位(七個)及導出單位(多個)</h3>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>物理 on 高中筆記整理</title><link>https://chaoray.github.io/categories/%E7%89%A9%E7%90%86/</link><description>Recent content in 物理 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sun, 16 Oct 2022 22:03:20 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/categories/%E7%89%A9%E7%90%86/index.xml" rel="self" type="application/rss+xml"/><item><title>L1 筆記</title><link>https://chaoray.github.io/posts/physics/l1/</link><pubDate>Sun, 16 Oct 2022 22:03:20 +0800</pubDate><guid>https://chaoray.github.io/posts/physics/l1/</guid><description>*科學方法與態度 *基本量 *物理學發展史</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
+<ul>
+<li>1-1 科學方法與態度</li>
+<li>1-2 基本單位與導出單位</li>
+<li>1-3 物理學發展史</li>
+</ul>
+<hr>
+<h1 id="科學方法與態度">科學方法與態度</h1>
+<p>
+  <img loading="lazy" src="https://igt.nssh.ntpc.edu.tw/assets/avatars/191/small/2d83ec199f90f5aaf6b83fda4f7d56e0.jpg" alt=""  />
+物理老師:好我們來看1-2，圖自己看一看阿</p>
+<h1 id="基本單位">基本單位</h1>
+<ul>
+<li>基本量 = 數值 + 物理量</li>
+</ul>
+<h2 id="數值-----數量級">數值 &mdash; 數量級</h2>
+<p>若有一數可表示成「$a \times b ^ {10}$」($1 \leq a &lt; 10$)</p>
+<ul>
+<li>若$a \geq \sqrt{10}$，數量級為<span style="color:red">$b + 1$</span></li>
+<li>若$a &lt; \sqrt{10}$，數量級為$b$</li>
+</ul>
+<h2 id="單位-----輔助字首">單位 &mdash; 輔助字首</h2>
 <table>
-<thead>
-<tr>
-<th>基本量</th>
-<th>長度</th>
-<th>質量</th>
-<th>時間</th>
-<th>光度</th>
-<th>溫度</th>
-<th>電流</th>
-<th>數量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>單位</td>
-<td>公尺(m)</td>
-<td>公斤(m)</td>
-<td>秒(s)</td>
-<td>燭光(cd.)</td>
-<td>克氏溫標(k)</td>
-<td>安培(A)</td>
-<td>莫耳(mol)</td>
-</tr>
-</tbody>
+    <tr>
+        <td>英文</td>
+        <td>中文</td>
+        <td>代表數字</td>
+    </tr>
+    <tr>
+        <td>T</td>
+        <td>兆</td>
+        <td>$10 ^ {12}$</td>
+    </tr>
+    <tr>
+        <td>G</td>
+        <td>吉(十億)</td>
+        <td>$10 ^ {9}$</td>
+    </tr>
+    <tr>
+        <td>M</td>
+        <td>百萬</td>
+        <td>$10 ^ {6}$</td>
+    </tr>
+    <tr>
+        <td>k</td>
+        <td>千</td>
+        <td>$10 ^ {3}$</td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td>c</td>
+        <td>釐</td>
+        <td>$10 ^ {-2}$</td>
+    </tr>
+    <tr>
+        <td>m</td>
+        <td>毫</td>
+        <td>$10 ^ {-3}$</td>
+    </tr>
+    <tr>
+        <td>μ</td>
+        <td>微</td>
+        <td>$10 ^ {-6}$</td>
+    </tr>
+    <tr>
+        <td>n</td>
+        <td>奈</td>
+        <td>$10 ^ {-9}$</td>
+    </tr>
+    <tr>
+        <td>p</td>
+        <td>皮</td>
+        <td>$10 ^ {-12}$</td>
+    </tr>
+    <tr>
+        <td>f</td>
+        <td>飛</td>
+        <td>$10 ^ {-15}$</td>
+    </tr>
 </table>
 <ul>
-<li>導出單位:可用數個基本單位拼湊而成的單位
-ex:<br>
-加速度(m/s^2)  <code>dv / dt</code><br>
-力(kg*m/s^2) = (牛頓N) <code>F = ma</code><br>
-動能(kg*m^2/s^2) = (焦耳J) <code>K = 1/2 * mv</code><br>
-功(kg*m^2/s^2) = (焦耳J) <code>W = FS</code><br>
-功率(kg*m^2/s^3) = (瓦特W) <code>P = W / t</code><br>
-電量(A*s) = (庫倫C) <code>Q = It</code></li>
+<li>公釐 = 毫米</li>
+<li>一埃(Å) = $10 ^ {-10}$m</li>
 </ul>
-<h3 id="2-基準">2. 基準</h3>
+<h2 id="單位-----基本單位與導出單位">單位 &mdash; 基本單位與導出單位</h2>
+<h3 id="基本單位-1">基本單位</h3>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>早期</th>
-<th>最新</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>一秒</td>
-<td>1 / 86400太陽日</td>
-<td>銫原子振動週期的9192631770倍</td>
-</tr>
-<tr>
-<td>一公尺</td>
-<td>北極到赤道的距離的一千萬分之一</td>
-<td>利用光速在真空中的不變性，取其走一秒距離除以299792458</td>
-</tr>
-<tr>
-<td>一公斤</td>
-<td>國際標準局鉑銥合金塊質量</td>
-<td>利用<a href="https://zh.wikipedia.org/zh-tw/%E6%99%AE%E6%9C%97%E5%85%8B%E5%B8%B8%E6%95%B0">普朗克常數</a>及秒和公尺定義</td>
-</tr>
-</tbody>
+    <tr>
+        <td>基本量</td>
+        <td>基本單位</td>
+        <td>現代定義</td>
+    </tr>
+    <tr>
+        <td>時間</td>
+        <td>秒(s)</td>
+        <td>銫原子振動週期的$9192631770$倍</td>
+    </tr>
+    <tr>
+        <td>長度</td>
+        <td>公尺(m)</td>
+        <td>利用光速在真空中的不變性，取其走一秒的距離除以${299792458}$</td>
+    </tr>
+    <tr>
+        <td>質量</td>
+        <td>公斤(kg)</td>
+        <td>利用<a href="https://zh.wikipedia.org/zh-tw/%E6%99%AE%E6%9C%97%E5%85%8B%E5%B8%B8%E6%95%B0">普朗克常數</a>在已知時間和長度的情形下定義</td>
+    </tr>
+    <tr>
+        <td>電流</td>
+        <td>安培(A)</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>溫度</td>
+        <td>克爾文(K)</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>光強度</td>
+        <td>燭光(cd)</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>數量</td>
+        <td>莫耳(mol)</td>
+        <td>亞佛加厥數</td>
+    </tr>
 </table>
+<h3 id="導出單位">導出單位</h3>
+<p>導出量 ; 公式 ; 導出單位 ; 以SI單位表示<br>
+力 ; $F = ma$ ; 牛頓(N) ; $kg \times m/{s ^ {2}}$<br>
+壓力 ; $P = F / A$ ; 帕斯卡(Pa) ; $kg/{ms ^ {2}}$<br>
+功、能量 ; $W = F \times S$ ; 焦耳(J) ; $kg \times m ^ {2} / s ^ {2}$<br>
+頻率 ; $f = \frac{1}{s}$ ; 赫茲(Hz) ; $1 / s$<br>
+功率 ; $P = W / t$ 瓦特(W) ; $kg \times m ^ {2} / s ^ {3}$<br>
+電量 ; $Q = I \times t$ ; 庫侖(C) ; $A \times s$<br>
+電壓 ; $V = Q / I$ ; 伏特(V) ; $(kg \times m ^ {2}) / (A \times s ^ {3})$<br>
+電阻 ; $R = V / I$ ; 歐姆(Ω) ; $(kg \times m ^ {2}) / (A  ^ {2} \times s ^ {3})$<br>
+面積 ; $A = L ^ {2}$ ; 無 ; $m ^ {2}$<br>
+體積 ; $V = L ^ {3}$ ; 無 ; $m ^ {3}$<br>
+密度 ; $D = \frac{M}{V}$ ; 無 ; $kg / m ^ {3}$<br>
+加速度 ; $a = v / t$ ; 無 ; $m / s ^ {2}$<br>
+力矩 ; $L = F \times d$ ; 無 ; $kg \times m ^ {2} / s ^ {2}$</p>
+<p>特殊 ; 公式 ; 計算過程 ; 以SI單位表示<br>
+單擺週期公式 ; $T = \sqrt{\frac{L}{g}}$ ; $\sqrt{\frac{m}{m \times s ^ {2}}}$ ; $s$<br>
+重力常數 ; $G = \frac{F \times r ^ {2}}{M_1 \times M_2}$ ; $\frac{(kg \times m/{s ^ {2}}) \times m ^ {2}}{kg ^ {2}}$ ; $m ^ {3} / (kg \times s ^ {2})$<br>
+庫侖力常數 ; $k = \frac{F \times r ^ {2}}{Q_1 \times Q_2}$ ; $\frac{(kg \times m/{s ^ {2}}) \times m ^ {2}}{(A \times s) ^ {2}}$ ; $\frac{kg \times m ^ {3}}{A ^ {2} \times s ^ {4}}$</p>
+<h1 id="科學家們">科學家們(?)</h1>
+<h2 id="古典物理-----天文學">古典物理 &mdash; 天文學</h2>
+<h2 id="古典物理-----力學">古典物理 &mdash; 力學</h2>
+<ul>
+<li>被伽利略打臉 - 亞里斯多德
+<ul>
+<li>ejhuewirhw</li>
+</ul>
+</li>
+<li>實驗物理之父 - 伽利略
+<ul>
+<li>wefeffef</li>
+</ul>
+</li>
+<li>科學界大Boss - 牛頓
+<ul>
+<li>ewfewf</li>
+</ul>
+</li>
+</ul>
+<h2 id="古典物理-----光學">古典物理 &mdash; 光學</h2>
+<h2 id="古典物理-----熱學">古典物理 &mdash; 熱學</h2>
+<ul>
+<li>&ldquo;熱&quot;血科學家 - 焦耳
+<ul>
+<li>ewfew</li>
+</ul>
+</li>
+</ul>
+<h2 id="古典物理-----電磁學">古典物理 &mdash; 電磁學</h2>
+<ul>
+<li>電磁統一 - 馬克士威
+<ul>
+<li>wef</li>
+</ul>
+</li>
+</ul>
+<h2 id="現代物理-----量子力學">現代物理 &mdash; 量子力學</h2>
+<ul>
+<li>敲開量子世界的大門 - 普朗克
+<ul>
+<li>wef</li>
+</ul>
+</li>
+</ul>
+<h2 id="現代物理-----相對論">現代物理 &mdash; 相對論</h2>
+<ul>
+<li>大佬-愛因斯坦</li>
+</ul>
 ]]></content:encoded></item></channel></rss>
