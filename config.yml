@@ -93,7 +93,7 @@ params:
   hideFooter: false
   TocSide: 'left'
   TocOpen: true
-  EnableInstantClick: true
+  EnableInstantClick: false
 
   socialIcons:
     - name: github
