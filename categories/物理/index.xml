@@ -129,24 +129,8 @@
     </tr>
 </table>
 <h3 id="導出單位">導出單位</h3>
-<p>導出量 ; 公式 ; 導出單位 ; 以SI單位表示<br>
-力 ; $F = ma$ ; 牛頓(N) ; $kg \times m/{s ^ {2}}$<br>
-壓力 ; $P = F / A$ ; 帕斯卡(Pa) ; $kg/{ms ^ {2}}$<br>
-功、能量 ; $W = F \times S$ ; 焦耳(J) ; $kg \times m ^ {2} / s ^ {2}$<br>
-頻率 ; $f = \frac{1}{s}$ ; 赫茲(Hz) ; $1 / s$<br>
-功率 ; $P = W / t$ 瓦特(W) ; $kg \times m ^ {2} / s ^ {3}$<br>
-電量 ; $Q = I \times t$ ; 庫侖(C) ; $A \times s$<br>
-電壓 ; $V = Q / I$ ; 伏特(V) ; $(kg \times m ^ {2}) / (A \times s ^ {3})$<br>
-電阻 ; $R = V / I$ ; 歐姆(Ω) ; $(kg \times m ^ {2}) / (A  ^ {2} \times s ^ {3})$<br>
-面積 ; $A = L ^ {2}$ ; 無 ; $m ^ {2}$<br>
-體積 ; $V = L ^ {3}$ ; 無 ; $m ^ {3}$<br>
-密度 ; $D = \frac{M}{V}$ ; 無 ; $kg / m ^ {3}$<br>
-加速度 ; $a = v / t$ ; 無 ; $m / s ^ {2}$<br>
-力矩 ; $L = F \times d$ ; 無 ; $kg \times m ^ {2} / s ^ {2}$</p>
-<p>特殊 ; 公式 ; 計算過程 ; 以SI單位表示<br>
-單擺週期公式 ; $T = \sqrt{\frac{L}{g}}$ ; $\sqrt{\frac{m}{m \times s ^ {2}}}$ ; $s$<br>
-重力常數 ; $G = \frac{F \times r ^ {2}}{M_1 \times M_2}$ ; $\frac{(kg \times m/{s ^ {2}}) \times m ^ {2}}{kg ^ {2}}$ ; $m ^ {3} / (kg \times s ^ {2})$<br>
-庫侖力常數 ; $k = \frac{F \times r ^ {2}}{Q_1 \times Q_2}$ ; $\frac{(kg \times m/{s ^ {2}}) \times m ^ {2}}{(A \times s) ^ {2}}$ ; $\frac{kg \times m ^ {3}}{A ^ {2} \times s ^ {4}}$</p>
+<table><tr><td>導出量 </td><td> 公式 </td><td> 導出單位 </td><td> 以SI單位表示  </td></tr><tr><td>力 </td><td> $F = ma$ </td><td> 牛頓(N) </td><td> $kg \times m/{s ^ {2}}$  </td></tr><tr><td>壓力 </td><td> $P = F / A$ </td><td> 帕斯卡(Pa) </td><td> $kg/{ms ^ {2}}$  </td></tr><tr><td>功、能量 </td><td> $W = F \times S$ </td><td> 焦耳(J) </td><td> $kg \times m ^ {2} / s ^ {2}$  </td></tr><tr><td>頻率 </td><td> $f = \frac{1}{s}$ </td><td> 赫茲(Hz) </td><td> $1 / s$  </td></tr><tr><td>功率 </td><td> $P = W / t$ </td><td> 瓦特(W) </td><td> $kg \times m ^ {2} / s ^ {3}$  </td></tr><tr><td>電量 </td><td> $Q = I \times t$ </td><td> 庫侖(C) </td><td> $A \times s$  </td></tr><tr><td>電壓 </td><td> $V = Q / I$ </td><td> 伏特(V) </td><td> $(kg \times m ^ {2}) / (A \times s ^ {3})$  </td></tr><tr><td>電阻 </td><td> $R = V / I$ </td><td> 歐姆(Ω) </td><td> $(kg \times m ^ {2}) / (A  ^ {2} \times s ^ {3})$  </td></tr><tr><td>面積 </td><td> $A = L ^ {2}$ </td><td> 無 </td><td> $m ^ {2}$  </td></tr><tr><td>體積 </td><td> $V = L ^ {3}$ </td><td> 無 </td><td> $m ^ {3}$  </td></tr><tr><td>密度 </td><td> $D = \frac{M}{V}$ </td><td> 無 </td><td> $kg / m ^ {3}$  </td></tr><tr><td>加速度 </td><td> $a = v / t$ </td><td> 無 </td><td> $m / s ^ {2}$  </td></tr><tr><td>力矩 </td><td> $L = F \times d$ </td><td> 無 </td><td> $kg \times m ^ {2} / s ^ {2}$  </td></tr><tr><td></td></tr></table>
+<table><tr><td>特殊 </td><td> 公式 </td><td> 計算過程 </td><td> 以SI單位表示  </td></tr><tr><td>單擺週期公式 </td><td> $T = \sqrt{\frac{L}{g}}$ </td><td> $\sqrt{\frac{m}{m \times s ^ {2}}}$ </td><td> $s$  </td></tr><tr><td>重力常數 </td><td> $G = \frac{F \times r ^ {2}}{M_1 \times M_2}$ </td><td> $\frac{(kg \times m/{s ^ {2}}) \times m ^ {2}}{kg ^ {2}}$ </td><td> $m ^ {3} / (kg \times s ^ {2})$  </td></tr><tr><td>庫侖力常數 </td><td> $k = \frac{F \times r ^ {2}}{Q_1 \times Q_2}$ </td><td> $\frac{(kg \times m/{s ^ {2}}) \times m ^ {2}}{(A \times s) ^ {2}}$ </td><td> $\frac{kg \times m ^ {3}}{A ^ {2} \times s ^ {4}}$  </td></tr></table>
 <h1 id="科學家們">科學家們(?)</h1>
 <h2 id="古典物理1900以前">古典物理(1900以前)</h2>
 <h3 id="天文學">天文學</h3>
