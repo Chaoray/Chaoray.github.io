@@ -16,7 +16,7 @@
 <h2 id="數值-----數量級">數值 &mdash; 數量級</h2>
 <p>有一數「$a \times b ^ {10}$」($1 \leq a &lt; 10$)</p>
 <ul>
-<li>若$a \geq \sqrt{10}$，數量級為<span style="color:red">$b + 1$</span></li>
+<li>若$a \geq \sqrt{10}$，數量級為<red>$b + 1$</red></li>
 <li>若$a &lt; \sqrt{10}$，數量級為$b$</li>
 </ul>
 <h2 id="單位-----輔助字首">單位 &mdash; 輔助字首</h2>
