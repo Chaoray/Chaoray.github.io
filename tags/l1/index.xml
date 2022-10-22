@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>L1 on 高中筆記整理</title><link>https://chaoray.github.io/tags/l1/</link><description>Recent content in L1 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 22 Oct 2022 13:48:26 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/l1/index.xml" rel="self" type="application/rss+xml"/><item><title>L1</title><link>https://chaoray.github.io/posts/civics/l1/</link><pubDate>Sat, 22 Oct 2022 13:48:26 +0800</pubDate><guid>https://chaoray.github.io/posts/civics/l1/</guid><description>*公民權利 *人權發展 *人權公約</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>L1 on 高中筆記整理</title><link>https://chaoray.github.io/tags/l1/</link><description>Recent content in L1 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 22 Oct 2022 13:48:26 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/l1/index.xml" rel="self" type="application/rss+xml"/><item><title>公民L1</title><link>https://chaoray.github.io/posts/civics/l1/</link><pubDate>Sat, 22 Oct 2022 13:48:26 +0800</pubDate><guid>https://chaoray.github.io/posts/civics/l1/</guid><description>*公民權利 *人權發展 *人權公約</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
 <ul>
 <li>1-1 公民身份與權利</li>
 <li>1-2 普世人權的實現</li>
@@ -19,22 +19,15 @@
   <tr>
     <td>年代</td>
     <td>17~18世紀</td>
-    <td colspan="2">19世紀</td>
+    <td colspan="2" style="text-align: center;">19世紀</td>
     <td>20世紀</td>
   </tr>
   <tr>
-    <td rowspan="2">權利內涵</td>
-    <td>自由權</td>
-    <td>參政權</td>
-    <td>社會權</td>
-    <td>文化權</td>
-  </tr>
-  <tr>
-    <td>起因</td>
-    <td>歷經長久的君主專制統治後，逐漸發展出「天賦人權」的思想</td>
-    <td>為落實自由權的保障</td>
-    <td>為改善19世紀工業發展造成的貧富差距問題 協助身心障礙者自立與發展</td>
-    <td>二戰後民族自決與普世人權思潮發展</td>
+    <td>權利名稱</td>
+    <td>自由</td>
+    <td>參政</td>
+    <td>社會</td>
+    <td>文化</td>
   </tr>
   <tr>
     <td>權利內涵</td>
@@ -42,6 +35,13 @@
     <td>參與國家政治的過程權利</td>
     <td>維持個人尊嚴與基本生活權利</td>
     <td>由特定族群所保有並發展自身文化的權利</td>
+  </tr>
+  <tr>
+  <td>起因</td>
+    <td>歷經長久的君主專制統治後，逐漸發展出「天賦人權」的思想</td>
+    <td>為落實自由權的保障</td>
+    <td>為改善19世紀工業發展造成的貧富差距問題 協助身心障礙者自立與發展</td>
+    <td>二戰後民族自決與普世人權思潮發展</td>
   </tr>
   <tr>
     <td>權利性質</td>
@@ -145,13 +145,13 @@
 </ul>
 </li>
 </ul>
-]]></content:encoded></item><item><title>L1</title><link>https://chaoray.github.io/posts/history/l1/</link><pubDate>Sat, 22 Oct 2022 13:42:41 +0800</pubDate><guid>https://chaoray.github.io/posts/history/l1/</guid><description>第一課 大綱 1-1 早期的住民們 1-2 原住民族與外來者的互動</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
+]]></content:encoded></item><item><title>歷史L1</title><link>https://chaoray.github.io/posts/history/l1/</link><pubDate>Sat, 22 Oct 2022 13:42:41 +0800</pubDate><guid>https://chaoray.github.io/posts/history/l1/</guid><description>第一課 大綱 1-1 早期的住民們 1-2 原住民族與外來者的互動</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
 <ul>
 <li>1-1 早期的住民們</li>
 <li>1-2 原住民族與外來者的互動</li>
 </ul>
 <hr>
-]]></content:encoded></item><item><title>地科L1 筆記</title><link>https://chaoray.github.io/posts/earth/l1/</link><pubDate>Wed, 19 Oct 2022 22:40:55 +0800</pubDate><guid>https://chaoray.github.io/posts/earth/l1/</guid><description>*太陽星雲學說 *原始地球演化 *地質年代</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
+]]></content:encoded></item><item><title>地科L1</title><link>https://chaoray.github.io/posts/earth/l1/</link><pubDate>Wed, 19 Oct 2022 22:40:55 +0800</pubDate><guid>https://chaoray.github.io/posts/earth/l1/</guid><description>*太陽星雲學說 *原始地球演化 *地質年代</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
 <ul>
 <li>1-1 地球的起源與演變</li>
 <li>1-2 開啟地球歷史的鑰匙</li>
@@ -265,7 +265,7 @@
 </ul>
 </li>
 </ul>
-]]></content:encoded></item><item><title>物理L1 筆記</title><link>https://chaoray.github.io/posts/physics/l1/</link><pubDate>Sun, 16 Oct 2022 22:03:20 +0800</pubDate><guid>https://chaoray.github.io/posts/physics/l1/</guid><description>*科學方法與態度 *基本量 *物理學發展史</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
+]]></content:encoded></item><item><title>物理L1</title><link>https://chaoray.github.io/posts/physics/l1/</link><pubDate>Sun, 16 Oct 2022 22:03:20 +0800</pubDate><guid>https://chaoray.github.io/posts/physics/l1/</guid><description>*科學方法與態度 *基本量 *物理學發展史</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
 <ul>
 <li>1-1 科學態度</li>
 <li>1-2 科學的方法</li>
