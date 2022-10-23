@@ -7,7 +7,7 @@ categories: ["歷史"]
 tags: ["L1", "原住民"]
 ShowToc: true
 ---
-# 台灣現代原住民
+# 台灣現代原住民族
 <table>
   <tr>
     <td>名稱</td>
@@ -113,7 +113,7 @@ ShowToc: true
   </tr>
 </table>
 
-# 尚未被承認為原住民
+# 尚未被承認為原住民族
 <table>
   <tr>
     <td>名稱</td>
