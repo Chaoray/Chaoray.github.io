@@ -7,20 +7,19 @@
   <tr>
     <td rowspan="2">perfect</td>
     <td>adj.</td>
-    <td>完美的</td>
+    <td>完美的 ; 最佳的</td>
+    <td>Practice makes perfect.</br>熟能生巧</td>
   </tr>
   <tr>
-    <td>adj.</td>
-    <td>最佳的</td>
+    <td>vt.</td>
+    <td>使...完美 <i>*補充</i></td>
+    <td></td>
   </tr>
   <tr>
     <td>perfection</td>
     <td>n.</td>
     <td>完美</td>
-  </tr>
-  <tr>
-    <td colspan="2">Practice makes perfect.</td>
-    <td> 熟能生巧</td>
+    <td></td>
   </tr>
 </table>
 <h2 id="reflection">reflection</h2>
@@ -29,56 +28,81 @@
     <td>reflection</td>
     <td>n(C).</td>
     <td>映出的影像 ; 反思</td>
+    <td>check one's reflection in the mirror</br>照鏡子</td>
   </tr>
   <tr>
-    <td rowspan="2">reflect</td>
-    <td>vt.</td>
+    <td rowspan="3">reflect</td>
+    <td rowspan="2">vt.</td>
     <td>映出(影像等)</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>顯示 ; 反映 <i>*補充</i></td>
+    <td></td>
   </tr>
   <tr>
     <td>vi.</td>
     <td>認真思考 ; 反思</td>
-  </tr>
-  <tr>
-    <td colspan="2">check one's reflection in the mirror</td>
-    <td>照鏡子</td>
-  </tr>
-  <tr>
-    <td colspan="3">reflect <u>on</u> sth</td>
+    <td>reflect <u>on</u> sth</td>
   </tr>
 </table>
 <h2 id="upset">upset</h2>
 <table>
-<tr>
-    <td rowspan="2">upset</td>
-    <td>adj.</td>
+  <tr>
+    <td rowspan="4">upset</td>
+    <td rowspan="2">adj.</td>
     <td>使難過 ; 使沮喪</td>
+    <td>be upset about</td>
   </tr>
   <tr>
-    <td>vt.</td>
+    <td>使腸胃不適 <i>*補充</i></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td rowspan="2">vt.</td>
     <td>難過的 ; 沮喪的</td>
+    <td rowspan="2">upset > upset > upset (upse<red>tt</red>ing)</td>
   </tr>
   <tr>
-    <td colspan="2">check one's reflection in the mirror</td>
-    <td>照鏡子</td>
-  </tr>
-  <tr>
-    <td colspan="3">upset > upset > upset (upse<red>tt</red>ing)</td>
+    <td>(腸胃)不適的 <i>*補充</i></td>
   </tr>
 </table>
 <h2 id="ruin">ruin</h2>
 <table>
-<tr>
+  <tr>
     <td rowspan="3">ruin</td>
     <td>vt.</td>
     <td>破壞 ; 毀壞</td>
+    <td></td>
   </tr>
     <td>n(U).</td>
     <td>破壞 ; 毀壞</td>
+    <td>fall into ruin</br>毀壞 <i>*補充</i></td>
   </tr>
   <tr>
     <td>n(C).</td>
     <td>廢墟 ; 遺跡</td>
+    <td>in ruins</br>變成廢墟 <i>*補充</i></td>
+  </tr>
+</table>
+<h2 id="skip">skip</h2>
+<table>
+  <tr>
+    <td rowspan="3">skip</td>
+    <td>vt.</td>
+    <td>故意不參加 ; 不做(該做的事)</td>
+    <td>skip school</br>翹課</td>
+    <td rowspan="3">skip > skipped > skipped (skipping)</td>
+  </tr>
+  <tr>
+    <td>vt. vi.</td>
+    <td>略過 ; 跳過</td>
+    <td>skip from A to B</td>
+  </tr>
+  <tr>
+    <td>vi.</td>
+    <td>快速轉換話題 <i>*補充</i></td>
+    <td></td>
   </tr>
 </table>
 <h2 id="embarrassed">embarrassed</h2>
@@ -87,61 +111,313 @@
     <td>embarrassed</td>
     <td>adj.</td>
     <td>尷尬的 ; 難堪的</td>
+    <td>be embarrassed about</td>
   </tr>
   <tr>
     <td>embarrassing</td>
     <td>adj.</td>
     <td>令人尷尬的 ; 令人難堪的</td>
+    <td></td>
   </tr>
   <tr>
     <td>embarrass</td>
     <td>vt.</td>
     <td>使尷尬 ; 使難堪</td>
+    <td></td>
   </tr>
   <tr>
     <td>embarrassment</td>
     <td>n(U).</td>
     <td>尷尬 ; 難堪</td>
-  </tr>
-  <tr>
-    <td colspan="2">be embarrassed about...</td>
-    <td>對...感到尷尬</td>
-  </tr>
-  <tr>
-    <td colspan="2">To one's embarrassment</td>
-    <td>令...尷尬的是</td>
-  </tr>
-</table>
-<h2 id="skip">skip</h2>
-<table>
-  <tr>
-    <td rowspan="2">skip</td>
-    <td>vt.</td>
-    <td>故意不參加 ; 不做(該做的事)</td>
-  </tr>
-  <tr>
-    <td>vt. vi.</td>
-    <td>略過 ; 跳過</td>
-  </tr>
-  <tr>
-    <td colspan="3">skip > skipped > skipped (skipping)</td>
-  </tr>
-  <tr>
-    <td colspan="2">skip school</td>
-    <td>翹課</td>
+    <td>To one's embarrassment</br>令...尷尬的是</td>
   </tr>
 </table>
 <h2 id="depressing">depressing</h2>
+<table>
+  <tr>
+    <td>depressing</td>
+    <td>adj.</td>
+    <td>令人沮喪的</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>depressed</td>
+    <td>adj.</td>
+    <td>沮喪的</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>depress</td>
+    <td>vt.</td>
+    <td>使沮喪</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>depression</td>
+    <td>n(U).</td>
+    <td>沮喪 ; 憂鬱症</td>
+    <td>economic depression</br>經濟衰退 <i>*補充</i></td>
+  </tr>
+</table>
 <h2 id="fortunately">fortunately</h2>
+<table>
+  <tr>
+    <td>fortunately</td>
+    <td>adv.</td>
+    <td>幸運地</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>fortunate</td>
+    <td>adj.</td>
+    <td>幸運的</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td rowspan="2">fortune</td>
+    <td rowspan="2">n(U).</td>
+    <td rowspan="2">幸運 ; 命運</td>
+    <td>fortune teller</br>算命師</td>
+  </tr>
+  <tr>
+    <td>fortune cookie</br>幸運餅乾 <i>*補充</i></td>
+  </tr>
+  <tr>
+    <td>unfortunately</td>
+    <td>adv.</td>
+    <td>不幸地</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>unfortunate</td>
+    <td>adj.</td>
+    <td>不幸的</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>misfortune</td>
+    <td>n(U).</td>
+    <td>不幸</td>
+    <td></td>
+  </tr>
+</table>
 <h2 id="reply">reply</h2>
+<table>
+  <tr>
+    <td rowspan="2">reply</td>
+    <td>vi.</td>
+    <td>回答</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>n.</td>
+    <td>答覆</td>
+    <td>in reply to</td>
+  </tr>
+</table>
 <h2 id="yell">yell</h2>
+<table>
+  <tr>
+    <td rowspan="2">yell</td>
+    <td>vi.</td>
+    <td>大喊</td>
+    <td>yell at</td>
+  </tr>
+  <tr>
+    <td>n.</td>
+    <td>喊叫</td>
+    <td></td>
+  </tr>
+</table>
 <h2 id="disgusting">disgusting</h2>
+<table>
+  <tr>
+    <td>disgusting</td>
+    <td>adj.</td>
+    <td>噁心的</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td rowspan="2">disgust</td>
+    <td>vt.</td>
+    <td>使作嘔</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>n.</td>
+    <td>噁心</td>
+    <td>much to one's disgust</br>使某人感到極度噁心</td>
+  </tr>
+</table>
 <h2 id="pause">pause</h2>
+<table>
+  <tr>
+    <td rowspan="3">pause</td>
+    <td>vi.</td>
+    <td>暫停</td>
+    <td>pause to V</br>停下來去做...</td>
+  </tr>
+  <tr>
+    <td>n(C).</td>
+    <td>停頓</td>
+    <td>take a pause</br>暫停</td>
+  </tr>
+  <tr>
+    <td>n(C).</td>
+    <td>(播放器)暫停鍵</td>
+    <td></td>
+  </tr>
+</table>
 <h2 id="realize">realize</h2>
+<table>
+  <tr>
+    <td rowspan="2">realize</td>
+    <td rowspan="2">vt.</td>
+    <td>實現 ; 發揮</td>
+    <td>realize one's dream of Ving</br>實現某人的...夢想</td>
+  </tr>
+  <tr>
+    <td>了解</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>realized</td>
+    <td>adj.</td>
+    <td>突然知道、豁然開朗</td>
+  </tr>
+  <tr>
+    <td rowspan="2">realization</td>
+    <td rowspan="2">n.</td>
+    <td>了解</td>
+    <td>come to the sudden realization</br>逐漸了解到</td>
+  </tr>
+  <tr>
+    <td>實現</td>
+    <td>sth is the realization of one's dreams</br>我不知道這是甚麼</td>
+    <td></td>
+  </tr>
+</table>
 <h2 id="recall">recall</h2>
+<table>
+  <tr>
+    <td rowspan="4">recall</td>
+    <td rowspan="2">vt. vi.</td>
+    <td rowspan="2">回想起</td>
+    <td>If I recall correctly</br>如果我沒記錯的話</td>
+  </tr>
+  <tr>
+    <td>recall sth to sb</td>
+  </tr>
+  <tr>
+    <td>vt.</td>
+    <td>召回(殘損貨物) <i>*補充</i></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>n(U).</td>
+    <td>回憶</td>
+    <td>power of recall</br>記憶</td>
+  </tr>
+</table>
 <h2 id="memory">memory</h2>
+<table>
+  <tr>
+    <td rowspan="3">memory</td>
+    <td rowspan="3">n.</td>
+    <td rowspan="2">回憶</td>
+    <td>in memory of</br>作為對某人的紀念</td>
+  </tr>
+  <tr>
+    <td>If my memory serves ma well/correctly</br>如果我沒記錯的話</td>
+  </tr>
+  <tr>
+    <td>記憶力</td>
+    <td>have a good memory for sth</td>
+  </tr>
+  <tr>
+    <td>memorize</td>
+    <td>vt.</td>
+    <td>記憶</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>memorable</td>
+    <td>adj.</td>
+    <td>難忘的</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>memorial</td>
+    <td>n.</td>
+    <td>紀念碑 <i>*補充</i></td>
+    <td></td>
+  </tr>
+</table>
 <h2 id="remind">remind</h2>
+<table>
+  <tr>
+    <td rowspan="3">remind</td>
+    <td rowspan="3">v.</td>
+    <td rowspan="3">提醒</td>
+    <td>remind sb of sth</td>
+  </tr>
+  <tr>
+    <td>remind sb to V</td>
+  </tr>
+  <tr>
+    <td>remind sb that</td>
+  </tr>
+  <tr>
+    <td rowspan="2">reminder</td>
+    <td rowspan="2">n.</td>
+    <td>引起回憶的事物 <i>*補充</i></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>通知單 <i>*補充</i></td>
+    <td></td>
+  </tr>
+</table>
 <h1 id="片語">片語</h1>
+<h2 id="make-sure">make sure</h2>
+<ul>
+<li>確保</li>
+<li>= ensure</li>
+</ul>
+<h2 id="let-out發出尖叫叫喊">let out發出尖叫/叫喊</h2>
+<table>
+  <tr>
+    <td>let out a cry</td>
+    <td>大叫</td>
+  </tr>
+  <tr>
+    <td>let out a roar</td>
+    <td>發出吼叫</td>
+  </tr>
+  <tr>
+    <td>let out a scream</td>
+    <td>發出尖叫</td>
+  </tr>
+  <tr>
+    <td>let out a yell</td>
+    <td>發出喊叫</td>
+  </tr>
+</table>
+<h2 id="the-rest-of">the rest of</h2>
+<ul>
+<li>剩餘的</li>
+<li>the rest of 可數名詞(負數)</li>
+</ul>
+<h2 id="notanynore">..not&hellip;anynore</h2>
+<ul>
+<li>再也沒有</li>
+<li>= not&hellip;any longer</li>
+<li>= no longer</li>
+</ul>
+<h2 id="beget-off-to-a-good-start">be/get off to a good start</h2>
+<ul>
+<li>有好的開始</li>
+</ul>
 <h1 id="文法">文法</h1>
 <h1 id="課外">課外</h1>
 ]]></content:encoded></item><item><title>公民L1</title><link>https://chaoray.github.io/posts/civics/l1/</link><pubDate>Sat, 22 Oct 2022 13:48:26 +0800</pubDate><guid>https://chaoray.github.io/posts/civics/l1/</guid><description>*公民權利 *人權發展 *人權公約</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
