@@ -19,7 +19,6 @@ showtoc: false
       let timer = timers[i];
       let title = document.createElement('h2');
       let timeDHMS = document.createElement('p');
-      timeDHMS.innerHTML = '00:00:00:00';
       title.innerHTML = timer.title;
       timer.appendChild(title);
       timer.appendChild(timeDHMS);
@@ -36,6 +35,7 @@ showtoc: false
       let m = Math.floor(Math.floor(differenceInSeconds % 3600) / 60);
       let s = differenceInSeconds % 60;
       ele.innerHTML = `
+        Time Remain: 
         <b>${d}day</b>
         <b>${h}hour</b>
         <b>${m}min</b>
