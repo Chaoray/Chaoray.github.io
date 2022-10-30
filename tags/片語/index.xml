@@ -31,7 +31,7 @@
     <td>check one's reflection in the mirror</br>照鏡子</td>
   </tr>
   <tr>
-    <td rowspan="3">reflect</td>
+    <td rowspan="4">reflect</td>
     <td rowspan="2">vt.</td>
     <td>映出(影像等)</td>
     <td></td>
@@ -41,18 +41,24 @@
     <td></td>
   </tr>
   <tr>
-    <td>vi.</td>
-    <td>認真思考 ; 反思</td>
+    <td rowspan="2">vi.</td>
+    <td rowspan="2">認真思考 ; 反思</td>
     <td>reflect <u>on</u> sth</td>
+  </tr>
+  <tr>
+    <td>同義：deliberate (v.) 深思熟慮</td>
   </tr>
 </table>
 <h2 id="upset">upset</h2>
 <table>
   <tr>
-    <td rowspan="4">upset</td>
-    <td rowspan="2">adj.</td>
-    <td>使難過 ; 使沮喪</td>
+    <td rowspan="5">upset</td>
+    <td rowspan="3">adj.</td>
+    <td rowspan="2">難過的 ; 沮喪的</td>
     <td>be upset about</td>
+  </tr>
+  <tr>
+    <td>同義：disappointed (adj.) 失望的 ; 沮喪的</td>
   </tr>
   <tr>
     <td>使腸胃不適 <i>*補充</i></td>
@@ -60,7 +66,7 @@
   </tr>
   <tr>
     <td rowspan="2">vt.</td>
-    <td>難過的 ; 沮喪的</td>
+    <td>使難過 ; 使沮喪</td>
     <td rowspan="2">upset > upset > upset (upse<red>tt</red>ing)</td>
   </tr>
   <tr>
@@ -83,26 +89,6 @@
     <td>n(C).</td>
     <td>廢墟 ; 遺跡</td>
     <td>in ruins</br>變成廢墟 <i>*補充</i></td>
-  </tr>
-</table>
-<h2 id="skip">skip</h2>
-<table>
-  <tr>
-    <td rowspan="3">skip</td>
-    <td>vt.</td>
-    <td>故意不參加 ; 不做(該做的事)</td>
-    <td>skip school</br>翹課</td>
-    <td rowspan="3">skip > skipped > skipped (skipping)</td>
-  </tr>
-  <tr>
-    <td>vt. vi.</td>
-    <td>略過 ; 跳過</td>
-    <td>skip from A to B</td>
-  </tr>
-  <tr>
-    <td>vi.</td>
-    <td>快速轉換話題 <i>*補充</i></td>
-    <td></td>
   </tr>
 </table>
 <h2 id="embarrassed">embarrassed</h2>
@@ -129,7 +115,27 @@
     <td>embarrassment</td>
     <td>n(U).</td>
     <td>尷尬 ; 難堪</td>
-    <td>To one's embarrassment</br>令...尷尬的是</td>
+    <td>To one's embarrassment</br>令...感到尷尬的是</td>
+  </tr>
+</table>
+<h2 id="skip">skip</h2>
+<table>
+  <tr>
+    <td rowspan="3">skip</td>
+    <td>vt.</td>
+    <td>故意不參加 ; 不做(該做的事)</td>
+    <td>skip school</br>翹課</td>
+    <td rowspan="3">skip > skipped > skipped (skipping)</td>
+  </tr>
+  <tr>
+    <td>vt. vi.</td>
+    <td>略過 ; 跳過</td>
+    <td>skip from A to B</td>
+  </tr>
+  <tr>
+    <td>vi.</td>
+    <td>快速轉換話題 <i>*補充</i></td>
+    <td></td>
   </tr>
 </table>
 <h2 id="depressing">depressing</h2>
@@ -137,25 +143,25 @@
   <tr>
     <td>depressing</td>
     <td>adj.</td>
-    <td>令人沮喪的</td>
-    <td></td>
+    <td>令人沮喪的 ; 令人消沉的</td>
+    <td>反義：encouraging (adj.) 令人鼓舞的</td>
   </tr>
   <tr>
     <td>depressed</td>
     <td>adj.</td>
-    <td>沮喪的</td>
+    <td>沮喪的 ; 消沉的</td>
     <td></td>
   </tr>
   <tr>
     <td>depress</td>
     <td>vt.</td>
-    <td>使沮喪</td>
+    <td>使沮喪 ; 使消沉</td>
     <td></td>
   </tr>
   <tr>
     <td>depression</td>
     <td>n(U).</td>
-    <td>沮喪 ; 憂鬱症</td>
+    <td>沮喪 ; 消沉 ; 憂鬱症</td>
     <td>economic depression</br>經濟衰退 <i>*補充</i></td>
   </tr>
 </table>
