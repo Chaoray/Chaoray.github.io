@@ -1,4 +1,230 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>L1 on 高中筆記整理</title><link>https://chaoray.github.io/tags/l1/</link><description>Recent content in L1 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sun, 30 Oct 2022 12:53:09 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/l1/index.xml" rel="self" type="application/rss+xml"/><item><title>數學L1</title><link>https://chaoray.github.io/posts/math/l1/</link><pubDate>Sun, 30 Oct 2022 12:53:09 +0800</pubDate><guid>https://chaoray.github.io/posts/math/l1/</guid><description/><content:encoded></content:encoded></item><item><title>英文L1</title><link>https://chaoray.github.io/posts/english/l1/</link><pubDate>Mon, 24 Oct 2022 18:45:41 +0800</pubDate><guid>https://chaoray.github.io/posts/english/l1/</guid><description>*單字 *片語 *文法</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>L1 on 高中筆記整理</title><link>https://chaoray.github.io/tags/l1/</link><description>Recent content in L1 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sun, 30 Oct 2022 12:53:09 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/l1/index.xml" rel="self" type="application/rss+xml"/><item><title>數學L1</title><link>https://chaoray.github.io/posts/math/l1/</link><pubDate>Sun, 30 Oct 2022 12:53:09 +0800</pubDate><guid>https://chaoray.github.io/posts/math/l1/</guid><description>第一課 大綱 甲 有理數
+乙 無理數與實數
+丙 乘法公式
+丁 根式與分式運算
+有理數 定義 設$p$、$q$為整數，且$p\neq0$，可以表示成$\frac{q}{p}$的數 整數也是有理數 運算 任意兩有理數相加、減、乘、除(0不能當除數)仍然是有理數 有限小數與循環小數 有限小數 化減至最簡分數時，若分母的質因數只有2或5，則為有限小數 循環小數 分數換成循環小數 直接分子除以分母 例：$1/7=0.142857142857&amp;hellip; = 0.\overline{142857}$ 分數換成循環小數 方法 範例 小數點後都有循環 例：$0.\overline{123}$ 循環裡有3位所以分母要有3個9分子部分為循環內數字 $\frac{123}{999} = \frac{41}{333}$ 小數點後前端數字不在循環內 例：$0.1\overline{23}$ 循環裡有2位所以分母要有2個9，而有一個位數在循環外所以後面再補一個0，分子部分為循環內數字$-$循環外數字 $\frac{123 - 1}{99\color{red}0} = \frac{122}{99\color{red}0} = \frac{61}{495}$ 整數、有限小數、循環小數構成有理數 稠密姓 兩有理數之間，至少有一個有理數存在 無理數 定義 設$p$、$q$為整數，且$p\neq0$，不能表示成$\frac{q}{p}$的數 例：$\pi$、帶有根號的數 運算 若$a$為有理數，$b$為無理數 $a + b$ 無理數 $a - b$ 無理數 $a \times b$ 不一定，需判斷$a$是否為$0$ $\frac{a}{b}$ $\frac{b}{a}$ - 若$c$為無理數，$d$為無理數 $c + d$ $c - d$ $c \times d$ $\frac{c}{d}$ 實數 定義 設$p$、$q$為整數，且$p\neq0$，可以表示成$\frac{q}{p}$的數 整數也是有理數 運算 任意兩有理數相加、減、乘、除(0不能當除數)仍然是有理數 乘法公式 平方公式 和的平方公式 $(a + b) ^ {2} = a ^ {2} + 2ab + b ^ {2}$ 差的平方公式 $(a - b) ^ {2} = a ^ {2} - 2ab + b ^ {2}$ 平方差公式 $a ^ {2} - b ^ {2} = (a + b)(a - b)$ 三數和的平方公式 $(a + b + c) ^ {2} = a ^ {2} + b ^ {2} + c ^ {2} + 2ab + 2bc + 2ca$ 立方公式 和的立方公式 $(a + b) ^ {3} = a ^ {3} + 3a ^ {2}b + 3ab ^ {2} + b ^ {3}$ 差的立方公式 $(a - b) ^ {3} = a ^ {3} - 3a ^ {2}b + 3ab ^ {2} - b ^ {3}$ 立方和公式 $a ^ {3} + b ^ {3} = (a + b)(a ^ {2} - ab + b ^ {2})$ $a ^ {3} + b ^ {3} = (a + b) ^ {3} - 3ab(a + b)$ 立方差公式 $a ^ {3} - b ^ {3} = (a - b)(a ^ {2} + ab + b ^ {2})$ $a ^ {3} - b ^ {3} = (a - b) ^ {3} + 3ab(a - b)$ 根式 概述 $\sqrt{a} \times \sqrt{b} = \sqrt{ab}$ $\sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}$ 化簡與有理化 通常會將平方根寫成$\frac{p\sqrt{n}}{q}$，其中$\frac{p}{q}$為最簡分數，$n$為大於1的整數，且不為完全平方數的倍數 例：$\sqrt{\frac{12}{25}} = \frac{\sqrt{12}}{\sqrt{25}} = \frac{\sqrt{2 ^ {2} \times 3}}{5} = \frac{2\sqrt{3}}{5}$ 分母有理化 分母只有一個根號：分母分子都乘以分母的數字 例：$\frac{1}{\sqrt{2}} = \frac{1 \times \sqrt{2}}{\sqrt{2} \times \sqrt{2}} = \frac{\sqrt{2}}{2}$ 分母有兩個根號或一個根號與一個整數：分母分子都乘以分母的式子，但正負號要相反 例：$\frac{1}{\sqrt{3} + \sqrt{2}} = \frac{1 \times (\sqrt{3} {\color{red}-} \sqrt{2})}{(\sqrt{3} + \sqrt{2})(\sqrt{3} {\color{red}-} \sqrt{2})} = \frac{\sqrt{3} - \sqrt{2}}{(\sqrt{3}) ^ {2} - (\sqrt{2}) ^ {2}} = \frac{\sqrt{3} - \sqrt{2}}{3 - 2} = \sqrt{3} - \sqrt{2}$ 雙重根式 $\sqrt{(a + b) + 2\sqrt{ab}} = \sqrt{a} + \sqrt{b}$ 例：$\sqrt{5 + 2\sqrt{6}} = \sqrt{(3 + 2) + 2\sqrt{3 \times 2}} = \sqrt{3} + \sqrt{2}$ $\sqrt{(a + b) - 2\sqrt{ab}} = \sqrt{a} - \sqrt{b}$ 例：$\sqrt{5 - 2\sqrt{6}} = \sqrt{(3 + 2) - 2\sqrt{3 \times 2}} = \sqrt{3} - \sqrt{2}$ 算幾不等式 當$a$、$b$為非負的實數，則$\frac{a+b}{2}\geq\sqrt{ab}$ 當等號成立時，$a = b$</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
+<p>甲 有理數<br>
+乙 無理數與實數<br>
+丙 乘法公式<br>
+丁 根式與分式運算</p>
+<hr>
+<h1 id="有理數">有理數</h1>
+<h2 id="定義">定義</h2>
+<ul>
+<li>設$p$、$q$為整數，且$p\neq0$，可以表示成$\frac{q}{p}$的數
+<ul>
+<li>整數也是有理數</li>
+</ul>
+</li>
+</ul>
+<h2 id="運算">運算</h2>
+<ul>
+<li>任意兩有理數相加、減、乘、除<mark>(0不能當除數)</mark>仍然是有理數</li>
+</ul>
+<h2 id="有限小數與循環小數">有限小數與循環小數</h2>
+<h3 id="有限小數">有限小數</h3>
+<ul>
+<li>化減至最簡分數時，若分母的質因數只有2或5，則為有限小數</li>
+</ul>
+<h3 id="循環小數">循環小數</h3>
+<h4 id="分數換成循環小數">分數換成循環小數</h4>
+<ul>
+<li>直接分子除以分母
+<ul>
+<li>例：$1/7=0.142857142857&hellip; = 0.\overline{142857}$</li>
+</ul>
+</li>
+</ul>
+<h4 id="分數換成循環小數-1">分數換成循環小數</h4>
+<table>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>方法</td>
+    <td>範例</td>
+  </tr>
+  <tr>
+    <td>小數點後都有循環</td>
+    <td>例：$0.\overline{123}$</td>
+    <td>循環裡有3位所以分母要有3個9</br>分子部分為循環內數字</td>
+    <td>$\frac{123}{999} = \frac{41}{333}$</td>
+  </tr>
+  <tr>
+    <td>小數點後前端數字不在循環內</td>
+    <td>例：$0.1\overline{23}$</td>
+    <td>循環裡有2位所以分母要有2個9，而有一個位數在循環外所以後面再補一個0，</br>分子部分為循環內數字$-$循環外數字</td>
+    <td style="width: 10em;">$\frac{123 - 1}{99\color{red}0} = \frac{122}{99\color{red}0} = \frac{61}{495}$</td>
+  </tr>
+</table>
+<ul>
+<li>整數、有限小數、循環小數構成有理數</li>
+</ul>
+<h2 id="稠密姓">稠密姓</h2>
+<ul>
+<li>兩有理數之間，至少有一個有理數存在</li>
+</ul>
+<h1 id="無理數">無理數</h1>
+<h2 id="定義-1">定義</h2>
+<ul>
+<li>設$p$、$q$為整數，且$p\neq0$，不能表示成$\frac{q}{p}$的數
+<ul>
+<li>例：$\pi$、帶有根號的數</li>
+</ul>
+</li>
+</ul>
+<h2 id="運算-1">運算</h2>
+<ul>
+<li>若$a$為有理數，$b$為無理數</li>
+</ul>
+<table>
+  <tr>
+    <td>$a + b$</td>
+    <td>無理數</td>
+  </tr>
+  <tr>
+    <td>$a - b$</td>
+    <td>無理數</td>
+  </tr>
+  <tr>
+    <td>$a \times b$</td>
+    <td><red>不一定</red>，需判斷$a$是否為$0$</td>
+  </tr>
+  <tr>
+    <td>$\frac{a}{b}$</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>$\frac{b}{a}$</td>
+    <td></td>
+  </tr>
+</table>
+- 若$c$為無理數，$d$為無理數
+<table>
+  <tr>
+    <td>$c + d$</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>$c - d$</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>$c \times d$</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>$\frac{c}{d}$</td>
+    <td></td>
+  </tr>
+</table>
+<h1 id="實數">實數</h1>
+<h2 id="定義-2">定義</h2>
+<ul>
+<li>設$p$、$q$為整數，且$p\neq0$，可以表示成$\frac{q}{p}$的數
+<ul>
+<li>整數也是有理數</li>
+</ul>
+</li>
+</ul>
+<h2 id="運算-2">運算</h2>
+<ul>
+<li>任意兩有理數相加、減、乘、除<mark>(0不能當除數)</mark>仍然是有理數</li>
+</ul>
+<h1 id="乘法公式">乘法公式</h1>
+<h2 id="平方公式">平方公式</h2>
+<table>
+  <tr>
+    <td>和的平方公式</td>
+    <td>$(a + b) ^ {2} = a ^ {2} + 2ab + b ^ {2}$</td>
+  </tr>
+  <tr>
+    <td>差的平方公式</td>
+    <td>$(a - b) ^ {2} = a ^ {2} - 2ab + b ^ {2}$</td>
+  </tr>
+  <tr>
+    <td>平方差公式</td>
+    <td>$a ^ {2} - b ^ {2} = (a + b)(a - b)$</td>
+  </tr>
+  <tr>
+    <td>三數和的平方公式</td>
+    <td>$(a + b + c) ^ {2} = a ^ {2} + b ^ {2} + c ^ {2} + 2ab + 2bc + 2ca$</td>
+  </tr>
+</table>
+<h2 id="立方公式">立方公式</h2>
+<table>
+  <tr>
+    <td>和的立方公式</td>
+    <td>$(a + b) ^ {3} = a ^ {3} + 3a ^ {2}b + 3ab ^ {2} + b ^ {3}$</td>
+  </tr>
+  <tr>
+    <td>差的立方公式</td>
+    <td>$(a - b) ^ {3} = a ^ {3} - 3a ^ {2}b + 3ab ^ {2} - b ^ {3}$</td>
+  </tr>
+  <tr>
+    <td rowspan="2">立方和公式</td>
+    <td>$a ^ {3} + b ^ {3} = (a + b)(a ^ {2} - ab + b ^ {2})$</td>
+  </tr>
+  <tr>
+    <td>$a ^ {3} + b ^ {3} = (a + b) ^ {3} - 3ab(a + b)$</td>
+  </tr>
+  <tr>
+    <td rowspan="2">立方差公式</td>
+    <td>$a ^ {3} - b ^ {3} = (a - b)(a ^ {2} + ab + b ^ {2})$</td>
+  </tr>
+  <tr>
+    <td>$a ^ {3} - b ^ {3} = (a - b) ^ {3} + 3ab(a - b)$</td>
+  </tr>
+</table>
+<h1 id="根式">根式</h1>
+<h2 id="概述">概述</h2>
+<ul>
+<li>$\sqrt{a} \times \sqrt{b} = \sqrt{ab}$</li>
+<li>$\sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}$</li>
+</ul>
+<h2 id="化簡與有理化">化簡與有理化</h2>
+<ul>
+<li>通常會將平方根寫成$\frac{p\sqrt{n}}{q}$，其中$\frac{p}{q}$為最簡分數，$n$為大於1的整數，且不為完全平方數的倍數
+<ul>
+<li>例：$\sqrt{\frac{12}{25}} = \frac{\sqrt{12}}{\sqrt{25}} = \frac{\sqrt{2 ^ {2} \times 3}}{5} = \frac{2\sqrt{3}}{5}$</li>
+</ul>
+</li>
+<li>分母有理化
+<ul>
+<li>分母只有一個根號：分母分子都乘以分母的數字
+<ul>
+<li>例：$\frac{1}{\sqrt{2}} = \frac{1 \times \sqrt{2}}{\sqrt{2} \times \sqrt{2}} = \frac{\sqrt{2}}{2}$</li>
+</ul>
+</li>
+<li>分母有兩個根號或一個根號與一個整數：分母分子都乘以分母的式子，但<red>正負號要相反</red>
+<ul>
+<li>例：$\frac{1}{\sqrt{3} + \sqrt{2}} = \frac{1 \times (\sqrt{3} {\color{red}-} \sqrt{2})}{(\sqrt{3} + \sqrt{2})(\sqrt{3} {\color{red}-} \sqrt{2})} = \frac{\sqrt{3} - \sqrt{2}}{(\sqrt{3}) ^ {2} - (\sqrt{2}) ^ {2}} = \frac{\sqrt{3} - \sqrt{2}}{3 - 2} = \sqrt{3} - \sqrt{2}$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="雙重根式">雙重根式</h2>
+<ul>
+<li>$\sqrt{(a + b) + 2\sqrt{ab}} = \sqrt{a} + \sqrt{b}$
+<ul>
+<li>例：$\sqrt{5 + 2\sqrt{6}} = \sqrt{(3 + 2) + 2\sqrt{3 \times 2}} = \sqrt{3} + \sqrt{2}$</li>
+</ul>
+</li>
+<li>$\sqrt{(a + b) - 2\sqrt{ab}} = \sqrt{a} - \sqrt{b}$
+<ul>
+<li>例：$\sqrt{5 - 2\sqrt{6}} = \sqrt{(3 + 2) - 2\sqrt{3 \times 2}} = \sqrt{3} - \sqrt{2}$</li>
+</ul>
+</li>
+</ul>
+<h1 id="算幾不等式">算幾不等式</h1>
+<ul>
+<li>當$a$、$b$為<red>非負的實數</red>，則$\frac{a+b}{2}\geq\sqrt{ab}$
+<ul>
+<li>當等號成立時，$a = b$</li>
+</ul>
+</li>
+</ul>
+]]></content:encoded></item><item><title>英文L1</title><link>https://chaoray.github.io/posts/english/l1/</link><pubDate>Mon, 24 Oct 2022 18:45:41 +0800</pubDate><guid>https://chaoray.github.io/posts/english/l1/</guid><description>*單字 *片語 *文法</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
 <p>英文哪來的大綱啦</p>
 <hr>
 <h1 id="單字">單字</h1>
