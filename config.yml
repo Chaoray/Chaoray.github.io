@@ -57,6 +57,10 @@ languages:
           name: 快速使用
           url: /fastuse
           weight: 40
+        - identifier: info
+          name: 重要資訊
+          url: /info
+          weight: 41
         - identifier: about
           name: 關於
           url: /about
