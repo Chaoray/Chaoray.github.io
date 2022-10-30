@@ -35,11 +35,11 @@ showtoc: false
       let m = Math.floor(Math.floor(differenceInSeconds % 3600) / 60);
       let s = differenceInSeconds % 60;
       ele.innerHTML = `
-        Time Remain: 
-        <b>${d}day</b>
-        <b>${h}hour</b>
-        <b>${m}min</b>
-        <b>${s}sec</b>`;
+        剩餘時間: 
+        <b>${d}日</b>
+        <b>${h}時</b>
+        <b>${m}分</b>
+        <b>${s}秒</b>`;
   }
 </script>
 

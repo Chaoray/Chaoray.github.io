@@ -37,7 +37,7 @@ showtoc: false
 [Github](https://github.com/Chaoray)  
 [Discord](https://discord.com/users/731018913097449533)
 
-郭凱明：一個整天宅在家的鯊魚(明明喜歡的是魟魚)，有一天想到好玩點子於是交給大佬們來做  
+郭凱明：一個整天宅在家的鯊魚(明明喜歡的是魟魚)，想著要躺分結果最後卻淪為爆肝員工  
 [Github](https://github.com/ThatShark)  
 [Discord](https://discord.com/users/779305775088402454) 
 
@@ -48,6 +48,12 @@ showtoc: false
 
 ### 友情贊助
 
+林騰志(貓虎皮)：是貓是虎<s>還是皮</s>沒人知，只知他是超級大佬  
+[Github](https://github.com/maohupi)  
+[Discord](https://discord.com/users/661343103013224486)  
+[Youtube](https://www.youtube.com/channel/UCp4UdxeDQO7VXSIe4Qk3aig)  
+[Website](https://maohupi.github.io)   
+  
 藍靖傑：神秘的藍色兔子，行蹤無人知曉  
 實際上是筆記供應商
 
