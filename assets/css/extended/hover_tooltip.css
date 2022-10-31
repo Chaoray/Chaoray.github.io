@@ -4,7 +4,7 @@
     transition: all 0.2s ease;
 }
 
-.tooltip:hover {
+.tooltip[hovered] {
     border-bottom-width: 2px;
 }
 
@@ -12,11 +12,11 @@ body.dark .tooltip {
     border-bottom: 1px solid var(--secondary);
 }
 
-body.dark .tooltip:hover {
+body.dark .tooltip[hovered] {
     border-bottom-width: 2px;
 }
 
-.tooltip .tooltip-text {
+.tooltip > .tooltip-text {
     visibility: hidden;
     opacity: 0;
     border: 1px solid black;
@@ -33,12 +33,12 @@ body.dark .tooltip:hover {
     transition: all 0.3s ease-in-out;
 }
 
-.tooltip:hover .tooltip-text {
+.tooltip[hovered] > .tooltip-text {
     visibility: visible;
     opacity: 1;
 }
 
-body.dark .tooltip .tooltip-text {
+body.dark .tooltip > .tooltip-text {
     border: 1px solid #fff;
     background-color: var(--secondary);
     color: #112;
