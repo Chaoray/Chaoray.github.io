@@ -13,4 +13,13 @@ for (let i = 0; i < tips.length; i++) {
     }
 
     tip.appendChild(span);
+
+    tip.addEventListener('mouseover', (e) => {
+        e.stopPropagation();
+        e.target.toggleAttribute('hovered');
+    });
+    tip.addEventListener('mouseleave', (e) => {
+        e.stopPropagation();
+        e.target.toggleAttribute('hovered');
+    });
 }
