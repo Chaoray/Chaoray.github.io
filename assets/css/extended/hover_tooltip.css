@@ -17,29 +17,36 @@ body.dark .tooltip[hovered] {
 }
 
 .tooltip > .tooltip-text {
-    visibility: hidden;
-    opacity: 0;
-    border: 1px solid black;
-    background-color: #fff;
-    color: #000;
-    border-radius: 3px;
-    text-align: center;
-    position: absolute;
-    bottom: 120%;
-    left: 0%;
-    z-index: 1;
-    width: max-content;
     padding: 0.2em;
+    width: max-content;
+    /* height: 2em; */
+    position: absolute;
+    left: 0%;
+    bottom: 120%;
+    color: #000;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 3px;
     transition: all 0.3s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .tooltip[hovered] > .tooltip-text {
-    visibility: visible;
     opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-0.5em);
+    z-index: 999;
 }
 
 body.dark .tooltip > .tooltip-text {
     border: 1px solid #fff;
     background-color: var(--secondary);
     color: #112;
+}
+
+.tooltip > .tooltip-text {
+    position: fixed;
+    bottom: unset;
 }
