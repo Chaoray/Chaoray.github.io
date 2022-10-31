@@ -1,7 +1,7 @@
 ---
 title: "數學L1"
 date: 2022-10-30T12:53:09+08:00
-draft: false
+draft: true
 description: ""
 ShowToc: true
 katex: true
