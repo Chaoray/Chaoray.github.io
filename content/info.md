@@ -7,7 +7,7 @@ showtoc: false
 ---
 
 <timer data-deadline="1668441600000" title="二抽 2022/11/15"></timer>
-<table><tr><td>國文</td><td>L5~L6</td></tr><tr><td>英文</td><td>L4~L5</td></tr><tr><td>英聽</td><td></td></tr><tr><td>數學</td><td></td></tr><tr><td>歷史</td><td></td></tr><tr><td>公民</td><td></td></tr><tr><td>地科</td><td></td></tr><tr><td>物理</td><td>3-3~4-2</td></tr></table>
+<table><tr><td>國文</td><td>L5 ~ L6</td></tr><tr><td>英文</td><td>L4 ~ L5</td></tr><tr><td>英聽</td><td></td></tr><tr><td>數學</td><td>L5 ~ L6</td></tr><tr><td>歷史</td><td>L3</td></tr><tr><td>公民</td><td>L3</td></tr><tr><td>地科</td><td></td></tr><tr><td>物理</td><td>3-3 ~ 4-2</td></tr></table>
 
 <timer data-deadline="1669737600000" title="二段 2022/11/30"></timer>
 <timer data-deadline="1672761600000" title="三抽 2023/01/04"></timer>
