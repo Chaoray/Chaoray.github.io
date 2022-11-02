@@ -6,19 +6,19 @@
 <table>
   <tr>
     <td>custom</td>
-    <td>n(C).</td>
+    <td>n[C].</td>
     <td>習俗</td>
     <td></td>
   </tr>
   <tr>
     <td>customs</td>
-    <td>n(C).</td>
+    <td>n[C].</td>
     <td>海關</td>
     <td></td>
   </tr>
   <tr>
     <td>costume</td>
-    <td>n(C).</td>
+    <td>n[C].</td>
     <td>戲服</td>
     <td></td>
   </tr>
@@ -45,7 +45,7 @@
   </tr>
   <tr>
     <td>astonishment</td>
-    <td>n(U).</td>
+    <td>n[U].</td>
     <td>驚訝</td>
     <td></td>
   </tr>
@@ -54,7 +54,7 @@
 <table>
   <tr>
     <td>culture</td>
-    <td>n(U).</td>
+    <td>n[U].</td>
     <td>文化</td>
     <td>be embarrassed at</td>
   </tr>
@@ -72,9 +72,9 @@
 <table>
   <tr>
     <td>greeting</td>
-    <td>n<red>(C)</red>.</td>
+    <td>n<red>[C]</red>.</td>
     <td>招呼 ; 迎接</td>
-    <td>greeting card (n(C).) 問候卡</td>
+    <td>greeting card (n[C].) 問候卡</td>
   </tr>
   <tr>
     <td>greet</td>
@@ -139,8 +139,17 @@
   </tr>
   <tr>
     <td>disappearance</td>
-    <td>n(U).</td>
+    <td>n[U].</td>
     <td>消失</td>
+    <td></td>
+  </tr>
+</table>
+<h2 id="afterward">afterward</h2>
+<table>
+  <tr>
+    <td>afterward(美)/afterwards(英)</td>
+    <td>adv.</td>
+    <td>以後 ; 後來</td>
     <td></td>
   </tr>
 </table>
@@ -175,7 +184,7 @@
 <table>
   <tr>
     <td rowspan="2">schedule</td>
-    <td>n(C).</td>
+    <td>n[C].</td>
     <td>行程</td>
     <td>have a busy/tight/loose schedule</td>
   </tr>
@@ -219,7 +228,7 @@
 <table>
   <tr>
     <td>difference</td>
-    <td>n(C).</td>
+    <td>n[C].</td>
     <td>差異 ; 不同之處</td>
     <td>make a difference 有所影響 ; 作用</td>
   </tr>
@@ -238,7 +247,7 @@
     <td></td>
   </tr>
   <tr>
-    <td>n(C).</td>
+    <td>n[C].</td>
     <td>擁抱</td>
     <td></td>
   </tr>
@@ -361,6 +370,85 @@
   </tr>
 </table>
 <h1 id="課外補充">課外補充</h1>
+<ul>
+<li>
+<p>costume (n[C].) 戲服</p>
+</li>
+<li>
+<p>go through 通過</p>
+</li>
+<li>
+<p>win the lottery 中彩券</p>
+</li>
+<li>
+<p>speechless (adj.) 說不出話</p>
+</li>
+<li>
+<p>banish (vt.) 放逐</p>
+</li>
+<li>
+<p>scare (vt.) 使害怕</p>
+</li>
+<li>
+<p>scared (adj.) 害怕的</p>
+</li>
+<li>
+<p>scarce (adj.) 稀少的</p>
+</li>
+<li>
+<p>scarcely (adv.) 稀少地</p>
+</li>
+<li>
+<p>scarf (n[C].) 圍巾</p>
+</li>
+<li>
+<p>scar (n[C].) 傷疤</p>
+</li>
+<li>
+<p>be regard as 被認為</p>
+</li>
+<li>
+<p>Hindus (n[C].) 印度人</p>
+</li>
+<li>
+<p>represent (vt.) 代表</p>
+</li>
+<li>
+<p>examine (vt.) 檢查</p>
+</li>
+<li>
+<p>job offer (n[C].) 工作機會</p>
+</li>
+<li>
+<p>salary (n[C]/[U].) 薪資</p>
+</li>
+<li>
+<p>wage (n[C].) 工資</p>
+</li>
+<li>
+<p>famous/noted/well-known/renowned (adj.) 有名的</p>
+</li>
+<li>
+<p>notorios (adj.) 惡名昭彰的</p>
+</li>
+<li>
+<p>journalist (n[C].) 記者</p>
+</li>
+<li>
+<p>in + one&rsquo;s + number</p>
+<ul>
+<li>in her early twenties 在她二十初頭時</li>
+<li>in her twenties 在她二十多歲時</li>
+<li>in her late twenties 在她快三十歲時</li>
+</ul>
+</li>
+<li>
+<p>get along 相處</p>
+<ul>
+<li>get along with sb.</li>
+</ul>
+</li>
+</ul>
 ]]></content:encoded></item><item><title>英文L1</title><link>https://chaoray.github.io/posts/english/l1/</link><pubDate>Mon, 24 Oct 2022 18:45:41 +0800</pubDate><guid>https://chaoray.github.io/posts/english/l1/</guid><description>*單字 *片語 *文法</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
 <p>英文哪來的大綱啦</p>
 <hr>
@@ -389,7 +477,7 @@
 <table>
   <tr>
     <td>reflection</td>
-    <td>n(C).</td>
+    <td>n[C].</td>
     <td>映出的影像 ; 反思</td>
     <td>check one's reflection in the mirror</br>照鏡子</td>
   </tr>
@@ -444,12 +532,12 @@
     <td>破壞 ; 毀壞</td>
     <td>同義：destroy (vt.) 毀壞 ; 損毀</td>
   </tr>
-    <td>n(U).</td>
+    <td>n[U].</td>
     <td>破壞 ; 毀壞</td>
     <td>fall into ruin</br>毀壞 <i>*補充</i></td>
   </tr>
   <tr>
-    <td>n(C).</td>
+    <td>n[C].</td>
     <td>廢墟 ; 遺跡</td>
     <td>in ruins</br>變成廢墟 <i>*補充</i></td>
   </tr>
@@ -479,7 +567,7 @@
   </tr>
   <tr>
     <td>embarrassment</td>
-    <td>n(U).</td>
+    <td>n[U].</td>
     <td>尷尬 ; 難堪</td>
     <td>To one's embarrassment</br>令...感到尷尬的是</td>
   </tr>
@@ -526,7 +614,7 @@
   </tr>
   <tr>
     <td>depression</td>
-    <td>n(U).</td>
+    <td>n[U].</td>
     <td>沮喪 ; 消沉 ; 憂鬱症</td>
     <td>economic depression</br>經濟衰退 <i>*補充</i></td>
   </tr>
@@ -547,7 +635,7 @@
   </tr>
   <tr>
     <td rowspan="5">fortune</td>
-    <td rowspan="5">n(U).</td>
+    <td rowspan="5">n[U].</td>
     <td rowspan="5">機會 ; 運氣 ; 財富</td>
     <td>cost a fortune</br>昂貴的</td>
   </tr>
@@ -561,7 +649,7 @@
     <td>fortune cookie</br>幸運餅乾 <i>*補充</i></td>
   </tr>
   <tr>
-    <td>反義：misfortune (n(U).) 不幸</td>
+    <td>反義：misfortune (n[U].) 不幸</td>
   </tr>
 </table>
 <h2 id="reply">reply</h2>
@@ -596,7 +684,7 @@
     <td>同義：shout (v.) 大喊</td>
   </tr>
   <tr>
-    <td>n(C).</td>
+    <td>n[C].</td>
     <td>喊叫</td>
     <td></td>
   </tr>
@@ -633,12 +721,12 @@
     <td>同義：stop (v.) 停止</td>
   </tr>
   <tr>
-    <td>n(C).</td>
+    <td>n[C].</td>
     <td>暫停 ; 停頓的時間</td>
     <td>take a pause</br>暫停</td>
   </tr>
   <tr>
-    <td>n(C).</td>
+    <td>n[C].</td>
     <td>(播放器)暫停鍵 <i>*補充</i></td>
     <td></td>
   </tr>
@@ -662,7 +750,7 @@
   </tr>
   <tr>
     <td>realization</td>
-    <td>n(C).</td>
+    <td>n[C].</td>
     <td>了解 ; 領會</td>
     <td>come to the sudden realization</br>逐漸了解到</td>
   </tr>
@@ -687,7 +775,7 @@
     <td></td>
   </tr>
   <tr>
-    <td>n(U).</td>
+    <td>n[U].</td>
     <td>回憶 <i>*補充</i></td>
     <td>power of recall</br>記憶</td>
   </tr>
