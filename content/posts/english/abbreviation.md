@@ -152,10 +152,12 @@ katex: true
     <td>ex.</td>
     <td>exercise</td>
     <td>練習</td>
+    <td></td>
   </tr>
   <tr>
     <td>i.e.</td>
     <td>id est</td>
     <td>換句話說</td>
+    <td></td>
   </tr>
 </table>
