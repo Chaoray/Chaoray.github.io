@@ -6,6 +6,10 @@ blue {
     color: blue;
 }
 
+body.dark blue {
+    color: rgb(70, 70, 255);
+}
+
 green {
     color: green;
 }

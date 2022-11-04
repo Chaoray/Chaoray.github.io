@@ -4,6 +4,7 @@ draft: false
 hidemeta: true
 searchHidden: true
 showtoc: false
+noTips: true
 ---
 
 <timer data-deadline="1668441600000" title="二抽 2022/11/15"></timer>
@@ -43,32 +44,31 @@ showtoc: false
 <timer data-deadline="1673884800000" title="三段 2023/01/17"></timer>
 
 <script>
-  let timers = document.getElementsByTagName('timer');
-  for (let i = 0; i < timers.length; i++) {
-      let timer = timers[i];
-      let title = document.createElement('h2');
-      let timeDHMS = document.createElement('p');
-      title.innerHTML = timer.title;
-      timer.appendChild(title);
-      timer.appendChild(timeDHMS);
-      let deadline = new Date(parseInt(timer.dataset['deadline'])).getTime();
-      setInterval(() => {
-          timerEvent(timeDHMS, deadline)
-      }, 999);
-  }
-  function timerEvent(ele, date) {
-      let difference = date - new Date().getTime();
-      let differenceInSeconds = Math.floor(difference / 1000);
-      let d = Math.floor(differenceInSeconds / 86400);
-      let h = Math.floor(Math.floor(differenceInSeconds % 86400) / 3600);
-      let m = Math.floor(Math.floor(differenceInSeconds % 3600) / 60);
-      let s = differenceInSeconds % 60;
-      ele.innerHTML = `
+let timers = document.getElementsByTagName('timer');
+for (let i = 0; i < timers.length; i++) {
+    let timer = timers[i];
+    let title = document.createElement('h2');
+    let timeDHMS = document.createElement('p');
+    title.innerHTML = timer.title;
+    timer.appendChild(title);
+    timer.appendChild(timeDHMS);
+    let deadline = new Date(parseInt(timer.dataset['deadline'])).getTime();
+    setInterval(() => {
+        timerEvent(timeDHMS, deadline)
+    }, 999);
+}
+function timerEvent(ele, date) {
+    let difference = date - new Date().getTime();
+    let differenceInSeconds = Math.floor(difference / 1000);
+    let d = Math.floor(differenceInSeconds / 86400);
+    let h = Math.floor(Math.floor(differenceInSeconds % 86400) / 3600);
+    let m = Math.floor(Math.floor(differenceInSeconds % 3600) / 60);
+    let s = differenceInSeconds % 60;
+    ele.innerHTML = `
         剩餘時間： 
         <b>${d}日</b>
         <b>${h}時</b>
         <b>${m}分</b>
         <b>${s}秒</b>`;
-  }
+}
 </script>
-
