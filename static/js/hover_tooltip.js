@@ -1,26 +1,38 @@
-let tips = document.getElementsByTagName('tips');
-// Object.prototype.offset = (type = 'all') => {
-//     let e = this; let d = { height: this.offsetHeight, width: this.offsetWidth, top: 0, left: 0 };
-//     while (e !== document.body && e.offsetParent) {
-//         d.left += e.offsetLeft;
-//         d.top += e.offsetTop;
-//         e = e.offsetParent;
-//     }
-//     return (type in d ? d[type] : d);
-// }
-
-for (let tip of tips) {
+let postContent = document.querySelector('div.post-content');
+postContent.innerHTML = postContent.innerHTML.replace(/{([^,]+),([^,}]+),{0,1}([^,]{0,})}/gm, (match, p1, p2, p3, offset, string) => {
+    let tip = document.createElement('tips');
     tip.classList.add('tooltip');
+    tip.innerHTML = p1;
 
     let span = document.createElement('span');
     span.className = 'tooltip-text';
-    span.innerHTML = tip.dataset.c;
+    span.innerHTML = p2;
+    tip.title = p2.replace(/<\/{0,1}\w{0,}>/gm, ' ');  // considering removing?
 
-    if (tip.dataset.u) {
-        tip.style.borderColor = tip.dataset.u;
+    if (p3 !== "") {
+        tip.style.borderColor = p3;
     }
 
     tip.appendChild(span);
+    return tip.outerHTML;
+});
+
+let tips = document.getElementsByTagName('tips');
+for (let tip of tips) {
+    if (!hasChildNodesExcludingText(tip)) {
+        tip.classList.add('tooltip');
+
+        let span = document.createElement('span');
+        span.className = 'tooltip-text';
+        span.innerHTML = tip.dataset.c;
+        tip.title = tip.dataset.c.replace(/<\/{0,1}\w{0,}>/gm, ' ');  // considering removing?
+
+        if (tip.dataset.u) {
+            tip.style.borderColor = tip.dataset.u;
+        }
+
+        tip.appendChild(span);
+    }
 
     tip.addEventListener('mouseover', (e) => {
         e.stopPropagation();
@@ -32,13 +44,13 @@ for (let tip of tips) {
     });
 }
 
-let html = document.querySelector('html');
-setTimeout(() => {//這樣
-    for (let tip of tips) {
-        let tipText = tip.querySelector('.tooltip-text');
-        console.log(tipText.getBoundingClientRect().top - html.scrollTop);
-        // 測試捲動後是否為定值..............
-        tipText.style.top = `calc(${tipText.getBoundingClientRect().top - 17/* tip高 */ - html.scrollTop}px - 0.4em)`;
-        tipText.style.left = `${tipText.getBoundingClientRect().left - html.scrollLeft}px`;
+function hasChildNodesExcludingText(node) {
+    let hasChildElements = false, child;
+    for (child = node.firstChild; child; child = child.nextSibling) {
+        if (child.nodeType == 1) {
+            hasChildElements = true;
+            break;
+        }
     }
-}, 1e3);
+    return hasChildElements;
+}

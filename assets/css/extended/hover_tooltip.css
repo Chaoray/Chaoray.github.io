@@ -1,7 +1,6 @@
 .tooltip {
     position: relative;
     border-bottom: 1px solid black;
-    transition: all 0.2s ease;
 }
 
 .tooltip[hovered] {
@@ -19,7 +18,6 @@ body.dark .tooltip[hovered] {
 .tooltip > .tooltip-text {
     padding: 0.2em;
     width: max-content;
-    /* height: 2em; */
     position: absolute;
     left: 0%;
     bottom: 120%;
@@ -30,23 +28,17 @@ body.dark .tooltip[hovered] {
     border-radius: 3px;
     transition: all 0.3s ease-in-out;
     opacity: 0;
+    z-index: 1;
     pointer-events: none;
 }
 
 .tooltip[hovered] > .tooltip-text {
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(-0.5em);
-    z-index: 999;
 }
 
 body.dark .tooltip > .tooltip-text {
     border: 1px solid #fff;
     background-color: var(--secondary);
     color: #112;
-}
-
-.tooltip > .tooltip-text {
-    position: fixed;
-    bottom: unset;
 }

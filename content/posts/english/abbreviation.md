@@ -160,4 +160,16 @@ katex: true
     <td>換句話說</td>
     <td></td>
   </tr>
+  <tr>
+    <td>vs.</td>
+    <td>versus</td>
+    <td>對抗</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>v.s.</td>
+    <td>vide supra</td>
+    <td>見上文</td>
+    <td></td>
+  </tr>
 </table>
