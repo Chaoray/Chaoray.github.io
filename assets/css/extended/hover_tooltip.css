@@ -15,6 +15,10 @@ body.dark .tooltip[hovered] {
     border-bottom-width: 2px;
 }
 
+body.dark .tooltip[style*="color: blue"] {
+    border-color: rgb(80, 80, 255) !important;
+}
+
 .tooltip > .tooltip-text {
     padding: 0.2em;
     width: max-content;

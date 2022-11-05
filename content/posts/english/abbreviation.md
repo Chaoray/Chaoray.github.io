@@ -96,6 +96,21 @@ katex: true
     <td>主詞</td>
   </tr>
   <tr>
+    <td>VR</td>
+    <td>verb root</td>
+    <td>原型動詞</td>
+  </tr>
+  <tr>
+    <td>V-ing</td>
+    <td></td>
+    <td>動詞(現在分詞)</td>
+  </tr>
+  <tr>
+    <td>Ved</td>
+    <td></td>
+    <td>動詞(過去分詞)</td>
+  </tr>
+  <tr>
     <td>O.</td>
     <td>object</td>
     <td>受詞</td>
