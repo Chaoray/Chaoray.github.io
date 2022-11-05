@@ -86,6 +86,11 @@ katex: true
     <td>interjection</td>
     <td>感嘆詞</td>
   </tr>
+  <tr>
+    <td>ph.</td>
+    <td>phrace</td>
+    <td>片語</td>
+  </tr>
 </table>
 
 # 句型
