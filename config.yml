@@ -81,7 +81,7 @@ outputs:
 
 params:
   author: ["郭凱明", "姜丞恩", "趙文睿"]
-  version: "v4.3.16"
+  version: "v4.3.17"
 
   defaultTheme: light
   disableThemeToggle: false
