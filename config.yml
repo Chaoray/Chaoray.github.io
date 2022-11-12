@@ -5,7 +5,6 @@ theme: "PaperModX"
 
 defaultContentLanguage: zh-tw
 defaultContentLanguageInSubdir: true
-
 languages:
   zh-tw:
     languageName: "Traditional-Chinese"
@@ -81,7 +80,7 @@ outputs:
 
 params:
   author: ["郭凱明", "姜丞恩", "趙文睿"]
-  version: "v4.3.17"
+  version: "v4.3.18"
 
   defaultTheme: light
   disableThemeToggle: false

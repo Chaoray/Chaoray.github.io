@@ -1,5 +1,5 @@
 let postContent = document.querySelector('div.post-content');
-postContent.innerHTML = postContent.innerHTML.replace(/{([^,]+),([^,}]+),{0,1}([^,]{0,})}/gm, (match, p1, p2, p3) => {
+postContent.innerHTML = postContent.innerHTML.replace(/{([^,{]+),([^,}]+),{0,1}([^,}]{0,})}/gm, (match, p1, p2, p3) => {
     let tip = document.createElement('tips');
     tip.classList.add('tooltip');
     tip.innerHTML = p1;
@@ -7,7 +7,7 @@ postContent.innerHTML = postContent.innerHTML.replace(/{([^,]+),([^,}]+),{0,1}([
     let span = document.createElement('span');
     span.className = 'tooltip-text';
     span.innerHTML = p2;
-    tip.title = p2.replace(/<\/{0,1}\w{0,}>/gm, (match, p1) => {
+    tip.title = p2.replace(/<\/{0,1}\w{0,}>/gm, (match) => {
         if (match === '<br>')
             return '\n';
         return '';
@@ -29,7 +29,7 @@ for (let tip of tips) {
         let span = document.createElement('span');
         span.className = 'tooltip-text';
         span.innerHTML = tip.dataset.c;
-        tip.title = tip.dataset.c.replace(/<\/{0,1}\w{0,}>/gm, (match, p1, offset, string) => {
+        tip.title = tip.dataset.c.replace(/<\/{0,1}\w{0,}>/gm, (match) => {
             if (match === '<br>')
                 return '\n';
             return '';
