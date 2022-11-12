@@ -1,4 +1,73 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>L3 on 高中筆記整理</title><link>https://chaoray.github.io/tags/l3/</link><description>Recent content in L3 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sun, 06 Nov 2022 20:18:03 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/l3/index.xml" rel="self" type="application/rss+xml"/><item><title>歷史L3</title><link>https://chaoray.github.io/posts/history/l3/</link><pubDate>Sun, 06 Nov 2022 20:18:03 +0800</pubDate><guid>https://chaoray.github.io/posts/history/l3/</guid><description>第三課 大綱 3-1 從邊陲到中央
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>L3 on 高中筆記整理</title><link>https://chaoray.github.io/tags/l3/</link><description>Recent content in L3 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 12 Nov 2022 19:42:11 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/l3/index.xml" rel="self" type="application/rss+xml"/><item><title>物理L3</title><link>https://chaoray.github.io/posts/physics/l3/</link><pubDate>Sat, 12 Nov 2022 19:42:11 +0800</pubDate><guid>https://chaoray.github.io/posts/physics/l3/</guid><description>*克卜勒行星運動定律</description><content:encoded><![CDATA[<h1 id="第三課-大綱">第三課 大綱</h1>
+<blockquote>
+<p>3-1 對物體運動的研究歷程<br>
+3-2 牛頓運動定律<br>
+3-3 天體運動</p>
+</blockquote>
+<hr>
+<h1 id="克卜勒行星運動定律">克卜勒行星運動定律</h1>
+<h2 id="過程">過程</h2>
+<ul>
+<li>地心說擁護者<u>第谷</u>觀星後留下大量數據遇證實地心說未果</li>
+<li><red>克卜勒</red>運用資料證實<red>日心說</red></li>
+</ul>
+<h2 id="第一定律橢圓定律">第一定律：橢圓定律</h2>
+<ul>
+<li>內容：行星繞太陽的軌道為一橢圓，且太陽位於橢圓的其中一個焦點上</li>
+<li>近日點、遠日點
+<ul>
+<li>軌道上有一點與太陽最近，稱為近日點</li>
+<li>軌道上有一點與太陽最遠，稱為遠日點</li>
+<li>$\small軌道半徑 = \frac{近日距 + 遠日距}{2}$</li>
+</ul>
+</li>
+</ul>
+<h2 id="第二定律面積定律">第二定律：面積定律</h2>
+<ul>
+<li>內容：<red>{同一顆,備註:很愛考,red}</red>行星與太陽的連線，在相同時間內掃過相同的面積，即其面積速率相等</li>
+<li>應用：近日點處軌道速率最快，遠日點處軌道速率最慢
+<ul>
+<li>近日點與遠日點切向速率和近日距與遠日距成反比</li>
+</ul>
+</li>
+<li>$\small 面積速率 = \frac{A}{\Delta t_1} = \frac{B}{\Delta t_2}$</li>
+</ul>
+<h2 id="第三定律週期定律">第三定律：週期定律</h2>
+<ul>
+<li>內容：繞太陽的所有行星，其軌道半徑<mark>立方</mark>與其公轉週期的<mark>平方</mark>為一定值</li>
+<li>$\frac{{R_1}^3}{{T_1}^2} = \frac{{R_2}^3}{{T_2}^2} = &hellip; = K$</li>
+</ul>
+<img src="/img/physics/L3/八大行星繞日運行數據.png">
+<ul>
+<li>延伸：<mark>繞同一天體</mark>的所有天體也皆符合週期定律<br>
+例：月球和人造衛星繞地球的$\frac{{R}^3}{{T}^2}$相等</li>
+</ul>
+<h2 id="演繹法與歸納法">演繹法與歸納法</h2>
+<ul>
+<li>牛頓推倒出三大行星定律概念
+<ul>
+<li>從第二運動定律出發，提出：若物體受到向心作用，則該物體運動必會滿足面積定律<br></li>
+<li>滿足面積定律做等速率圓周運動的物體，若滿足克卜勒第三運動定律，所受向心力會與半徑平方成反比</li>
+</ul>
+</li>
+</ul>
+<table>
+  <tr>
+    <td>名稱</td>
+    <td>演繹法</td>
+    <td>歸納法</td>
+  </tr>
+  <tr>
+    <td>解釋</td>
+    <td>由基本的定律或公理出發，經過合理的推導，得出正確結果的方法</td>
+    <td>從觀測或實驗的資料出發，不加任何假設，找出現象後隱藏的共同規律</td>
+  </tr>
+  <tr>
+    <td>人物</td>
+    <td>牛頓</td>
+    <td>克卜勒</td>
+  </tr>
+</table>]]></content:encoded></item><item><title>歷史L3</title><link>https://chaoray.github.io/posts/history/l3/</link><pubDate>Sun, 06 Nov 2022 20:18:03 +0800</pubDate><guid>https://chaoray.github.io/posts/history/l3/</guid><description>第三課 大綱 3-1 從邊陲到中央
 3-2 國際局勢與台灣地位的演變
 3-3 現代國家基礎條件的發展
 行政區規劃 鄭氏以前 鄭成功 改赤崁為東都明京。普羅民遮城改承天府
@@ -243,7 +312,7 @@
         <td>1895 ~ 1902 林少貓事件</td>
         <td>林少貓</td>
         <td>
-            林少貓領導日軍抗日，後受日人招撫，於後壁林庄墾殖。<br>
+            林少貓領導義軍抗日，後受日人招撫，於後壁林庄墾殖。<br>
             日人待台灣局勢較穩定後，伺機殺害林少貓
         </td>
     </tr>

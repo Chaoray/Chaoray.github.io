@@ -1878,7 +1878,8 @@
 </blockquote>
 <hr>
 <h1 id="地球科學研究範圍">地球科學研究範圍</h1>
-<p>我是被地科老師遺忘的一張圖，嗯對，不要懷疑</p>
+<p>我是被地科老師遺忘的一張圖，嗯對，不要懷疑
+<img src="/img/earth/L1/地球科學研究範圍.png"></p>
 <h1 id="太陽星雲學說">太陽星雲學說</h1>
 <ol>
 <li>太陽星雲中的氫、氦和塵埃組成的雲氣，因萬有引力聚集逐漸形成中間凸起的扁平圓盤狀</li>
@@ -1993,9 +1994,8 @@
 </blockquote>
 <hr>
 <h1 id="科學方法與態度">科學方法與態度</h1>
-<p>
-  <img loading="lazy" src="https://igt.nssh.ntpc.edu.tw/assets/avatars/191/small/2d83ec199f90f5aaf6b83fda4f7d56e0.jpg" alt=""  />
-物理老師:這地方老師就跳過了，圖自己看一看阿</p>
+<img src="/img/physics/L1/科學方法與態度.png">
+物理老師:這地方老師就跳過了，圖自己看一看阿
 <h1 id="基本單位">基本單位</h1>
 <ul>
 <li>基本量 = 數值 + 物理量</li>
@@ -2097,17 +2097,15 @@
     <tr>
         <td>電流</td>
         <td>安培(A)</td>
-        <td></td>
+        <td rowspan="3">(等級不足，尚未解鎖)</td>
     </tr>
     <tr>
         <td>溫度</td>
         <td>克爾文(K)</td>
-        <td></td>
     </tr>
     <tr>
         <td>光強度</td>
         <td>燭光(cd)</td>
-        <td></td>
     </tr>
     <tr>
         <td>數量</td>
@@ -2133,7 +2131,7 @@
 <li>萬物皆可以數字呈現</li>
 </ul>
 </li>
-<li>克卜勒
+<li><a href="/posts/physics/l3/#克卜勒行星運動定律/">克卜勒</a>
 <ul>
 <li>行星三大運動定律</li>
 </ul>
@@ -2166,7 +2164,7 @@
 <li>粒子說(後影響愛因斯坦)</li>
 </ul>
 </li>
-<li>惠更斯
+<li><a href="/posts/physics/l4/##微粒說與波動說/">惠更斯</a>
 <ul>
 <li>波動說(後影響馬克士威)</li>
 </ul>

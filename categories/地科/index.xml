@@ -1,11 +1,353 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>地科 on 高中筆記整理</title><link>https://chaoray.github.io/categories/%E5%9C%B0%E7%A7%91/</link><description>Recent content in 地科 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Wed, 19 Oct 2022 22:40:55 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/categories/%E5%9C%B0%E7%A7%91/index.xml" rel="self" type="application/rss+xml"/><item><title>地科L1</title><link>https://chaoray.github.io/posts/earth/l1/</link><pubDate>Wed, 19 Oct 2022 22:40:55 +0800</pubDate><guid>https://chaoray.github.io/posts/earth/l1/</guid><description>*太陽星雲學說 *原始地球演化 *地質年代</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>地科 on 高中筆記整理</title><link>https://chaoray.github.io/categories/%E5%9C%B0%E7%A7%91/</link><description>Recent content in 地科 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 12 Nov 2022 15:30:55 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/categories/%E5%9C%B0%E7%A7%91/index.xml" rel="self" type="application/rss+xml"/><item><title>地科L4</title><link>https://chaoray.github.io/posts/earth/l4/</link><pubDate>Sat, 12 Nov 2022 15:30:55 +0800</pubDate><guid>https://chaoray.github.io/posts/earth/l4/</guid><description>*氣溫 *氣壓 *水氣 *風</description><content:encoded><![CDATA[<h1 id="第四課-大綱">第四課 大綱</h1>
+<blockquote>
+<p>4-1 大氣的垂直結構
+4-2 水循環與天氣變化
+4-3 大氣的水平運動<br>
+4-4 判讀天氣圖</p>
+</blockquote>
+<hr>
+<h1 id="氣壓">氣壓</h1>
+<ul>
+<li>
+<p>意義：垂直於單位面積上的空氣柱重量，稱為大氣壓力，簡稱氣壓</p>
+</li>
+<li>
+<p>1 atm(大氣壓)<br>
+= <mark>1013 hPa(百帕)</mark><br>
+= 101300 Pa(帕)<br>
+= 1013 mb(毫巴)<br>
+= <mark>760 mmHg(毫米汞柱)</mark><br>
+= 101300 牛頓/米<sup>2</sup>(N/m<sup>2</sup>)</p>
+</li>
+<li>
+<p>垂直大氣壓分布</p>
+<ul>
+<li>高度升高</li>
+<li>氣壓下降 (在幾公里內的大氣：1hPa/10m)</li>
+<li><mark>氣壓遞減率下降</mark></li>
+<li><mark>99%的空氣分子集中於離地30km距離內</mark></li>
+</ul>
+</li>
+</ul>
+<h1 id="氣溫">氣溫</h1>
+<ul>
+<li>依氣溫垂直變化分層</li>
+</ul>
+<table>
+  <tr>
+    <td>名稱</td>
+    <td>高度</td>
+    <td>氣溫變化</td>
+    <td>其他</td>
+  </tr>
+  <tr>
+    <td>增溫層</td>
+    <td>85~500公里</td>
+    <td>
+        隨高度上升 (溫度最高溫區域)<br>
+        主要熱量來源：大氣吸收Ｘ光和紫外線
+    </td>
+    <td>
+        受太陽輻射，此區域頂部可達1000~2000K<br>
+        但由於空氣稀薄，<mark>人體感受十分寒冷</mark>
+    </td>
+  </tr>
+  <tr>
+    <td>中氣層</td>
+    <td>50~85公里</td>
+    <td>隨高度下降 (溫度最低溫區域)</td>
+    <td>甚麼都少w，氣溫下達-90℃</td>
+  </tr>
+  <tr>
+    <td>平流層</td>
+    <td>11~50公里</td>
+    <td>
+        隨高度上升<br>
+        <mark>主要熱量來源：臭氧層吸收紫外線</mark>
+    </td>
+    <td>
+        大氣流動平穩，空氣以水平方向流動，長飛機在此層飛行<br>
+        <mark>臭氧層：位於25公里上下，吸收紫外線散發熱量</mark>
+    </td>
+  </tr>
+  <tr>
+    <td>對流層</td>
+    <td>0~11公里</td>
+    <td>
+        隨高度下降<br>
+        <mark>主要熱量來源：溫室氣體吸收紅外線</mark>
+    </td>
+    <td>
+      天氣變化主要發生區域(90%水氣)<br>
+      每上升1公里，氣溫下降6.5℃<br>
+      厚度受季節、緯度影響：夏季較冬季厚，低緯度較高緯度厚
+    </td>
+  </tr>
+</table>
+<ul>
+<li>冷知識：電離層於上表中不算一層
+<ul>
+<li>若按照空氣電離層度分層，50公里以上電離層，以下為非電離層</li>
+<li>電離層功用
+<ul>
+<li>反射和傳送高頻無線電信號</li>
+<li>阻擋高速電子形成極光</li>
+<li>阻隔X光、超紫外光和紫外光</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="水氣">水氣</h1>
+<h2 id="水循環">水循環</h2>
+<ul>
+<li>蒸發</li>
+<li>凝結</li>
+<li>降水</li>
+</ul>
+<h2 id="飽和與濕度">飽和與濕度</h2>
+<ul>
+<li>雲是由<mark>水滴</mark>和<mark>冰晶</mark>組成</li>
+<li>飽和水氣壓：各溫度下能容納的水氣量</li>
+<li>飽和曲線：將各溫度下的飽和水氣壓繪成曲線</li>
+</ul>
+<img style="width: 15em; " src="/img/earth/L4/飽和曲線.png">
+<ul>
+<li>
+<p>A點達到飽和的辦法</p>
+<ul>
+<li>溫度不變時增加空氣中的水氣量(如圖中A點移至B點)</li>
+<li>水氣量不變時降低空氣的溫度(如圖中A點移至C點)。</li>
+</ul>
+</li>
+<li>
+<p>濕度</p>
+<ul>
+<li>絕對溼度：空氣中單位體積的水氣量，單位為g/m<sup>3</sup>或hPa</li>
+<li>相對溼度：$\small 實際水氣量 \div 飽和水氣量 \times 100％$
+<ul>
+<li><mark>該點水氣壓 ÷ 該點溫度飽和水氣壓 = 相對溼度</mark></li>
+<li>例：A點之相對濕度為 $15 \div 25 \times 100％ = 60％$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>露點溫度：藉由降溫達到飽和的溫度</p>
+<ul>
+<li><mark>$|\small露點溫度 - 該點溫度|$越小，相對濕度越高</mark></li>
+</ul>
+</li>
+</ul>
+<h2 id="凝結機制">凝結機制</h2>
+<ul>
+<li>條件
+<ul>
+<li>空氣中水氣量達飽和
+<ul>
+<li><mark>降低溫度(大氣中凝結主因)</mark></li>
+<li>增加水氣</li>
+</ul>
+</li>
+<li>空氣中有凝結核
+<ul>
+<li>例：灰塵、懸浮粒子、碘化銀、乾冰</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="天氣現象">天氣現象</h2>
+<ul>
+<li>雲、霧
+<ul>
+<li>小水滴 + 小冰晶</li>
+<li>空中 =&gt; 雲 / 地面 =&gt; 霧</li>
+</ul>
+</li>
+<li>露、霜
+<ul>
+<li>水氣在地表凝結</li>
+<li>有凝固 =&gt; 霜</li>
+</ul>
+</li>
+<li>雨、雪、雹
+<ul>
+<li>水滴、冰晶增大，受重力往下掉落</li>
+</ul>
+</li>
+<li>華、暈、虹、海市蜃樓、霞
+<ul>
+<li>太陽光經過水滴折射、反射後形成</li>
+</ul>
+</li>
+</ul>
+<h2 id="空氣降溫">空氣降溫</h2>
+<table>
+  <tr>
+    <td>{絕熱膨脹冷卻,若空氣下降時外界壓力增加，體積收縮，溫度上升，為絕熱收縮降溫<br>一般而言，水氣達飽和的濕空氣，每上升1公里，氣溫下降6.5℃；未達飽和的空氣，每上升1公里，氣溫下降10℃}</td>
+    <td>
+      未飽和空氣塊上升至露點溫度後形成雲<br>
+      空氣遇山坡迎風面而抬升，水氣凝結，形成「上坡霧」
+    </td>
+  </tr>
+  <tr>
+    <td>平流冷卻</td>
+    <td>濕濕暖空氣經冷地面或水面時，熱量向下傳遞，造成氣溫下降</td>
+    <td>
+      冬季海面暖濕空氣流經沿海低溫陸地，常發生濃霧，稱為「平流霧」<br>
+      <i>*補充</i>： 冷空氣流經比溫差較大的暖水面時，因氣壓差異而使得水氣不斷地從暖水面蒸發，與冷空氣相遇而形成「蒸氣霧」
+    </td>
+  </tr>
+  <tr>
+    <td>輻射冷卻</td>
+    <td>夜間地面藉由紅外線輻射，能量散失，造成氣溫下降</td>
+    <td>深夜至清晨常出現「輻射霧」，太陽出現後消失</td>
+  </tr>
+  <tr>
+    <td>混合冷卻</td>
+    <td>冷暖空氣塊相遇，因混合使暖空氣遇冷凝結</td>
+    <td>鋒面前緣常有「鋒面霧」</td>
+  </tr>
+</table>
+<h2 id="空氣上升運動">空氣上升運動</h2>
+<table>
+  <tr>
+    <td>方式</td>
+    <td>發生地區</td>
+    <td>降雨的成因</td>
+  </tr>
+  <tr>
+    <td>對流上升 <img style="height: 5em;" src="/img/earth/L4/對流上升.png"/></td>
+    <td>地面或海面的高溫地區</td>
+    <td>冷空氣吹過溫暖海面或夏季高溫地面時，空氣被加熱，使地面附近空氣對流上升發生造雲降雨，為對流雨，例：午後雷陣雨</td>
+  </tr>
+  <tr>
+    <td>地形舉升 <img style="height: 5em;" src="/img/earth/L4/地形舉升.png"/></td>
+    <td>山區<mark>迎風面</mark></td>
+    <td>水平氣流若遇高山地形，空氣抬升發生絕熱膨脹，成雲制雨，為地形雨</td>
+  </tr>
+  <tr>
+    <td>鋒面舉升 <img style="height: 5em;" src="/img/earth/L4/鋒面舉升.png"/></td>
+    <td>鋒面區</td>
+    <td>高溫空氣密度較低溫空氣小，在鋒面處暖空氣抬升造成降雨，為鋒面雨，例：梅雨</td>
+  </tr>
+  <tr>
+    <td>低壓輻合 <img style="height: 5em;" src="/img/earth/L4/低壓輻合.png"/></td>
+    <td>地面低壓中心附近</td>
+    <td>地面空氣向低氣壓中心聚集，空氣被迫上升發生造雲降雨，例如：颱風雨</td>
+  </tr>
+</table>
+<h1 id="風">風</h1>
+<h2 id="定義">定義</h2>
+<ul>
+<li>因水平氣壓不同而造成空氣流動
+<ul>
+<li><mark>空氣從高壓流向低壓</mark></li>
+</ul>
+</li>
+<li>風向：風的來向
+<ul>
+<li>台灣
+<ul>
+<li>夏季：西南季風</li>
+<li>冬季：東北季風</li>
+</ul>
+</li>
+<li>海陸
+<ul>
+<li>白天：海風</li>
+<li>晚上：陸風</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>風速：氣壓密度越大，風速越大</li>
+</ul>
+<h2 id="摩擦風近地面風與地轉風">摩擦風(近地面風)與地轉風</h2>
+<ul>
+<li>
+<p>科氏力 (假想力)</p>
+<ul>
+<li>原因：地球自轉</li>
+<li>北半球向右偏，南半球向左偏</li>
+<li>赤道無偏轉</li>
+<li>緯度越大，位移越大，速率越大，科氏力越大</li>
+<li>需遠距離運動才會顯現</li>
+</ul>
+</li>
+<li>
+<p>氣壓梯度力</p>
+<ul>
+<li>原因：水平氣壓差</li>
+<li>等壓線密度與氣壓梯度力成正比</li>
+</ul>
+</li>
+<li>
+<p>摩擦力</p>
+<ul>
+<li>原因：空氣流動與地面磨擦</li>
+</ul>
+</li>
+</ul>
+<img src="/img/earth/L4/摩擦風.jpg">
+<img src="/img/earth/L4/地轉風.jpg">
+<img style="height: 25em;" src="/img/earth/L4/地轉風&摩擦風.png">
+<ul>
+<li><mark>梯度力與氣壓線垂直</mark></li>
+<li><mark>科氏力與風向垂直(北半在右側，南半在左側)</mark></li>
+<li><mark>摩擦力與風向相反</mark></li>
+</ul>
+<h2 id="風與天氣變化">風與天氣變化</h2>
+<table>
+  <tr>
+    <td>氣壓中心</td>
+    <td>高氣壓(反氣旋)</td>
+    <td>低氣壓(氣旋)</td>
+  </tr>
+  <tr>
+    <td>符號</td>
+    <td>H</td>
+    <td>L</td>
+  </tr>
+  <tr>
+    <td>水平流動</td>
+    <td>輻散</td>
+    <td>輻合</td>
+  </tr>
+  <tr>
+    <td>空氣流動</td>
+    <td>順時鐘方向向外旋出</td>
+    <td>逆時鐘方向向內旋入</td>
+  </tr>
+  <tr>
+    <td>空氣垂直流動</td>
+    <td>氣流下降</td>
+    <td>氣流上升</td>
+  </tr>
+  <tr>
+    <td>天氣狀況</td>
+    <td>晴天</td>
+    <td>陰雨</td>
+  </tr>
+</table>
+<ul>
+<li>降水條件 (符合以下兩條件才有可能下雨)
+<ul>
+<li>上升運動</li>
+<li>水氣充沛</li>
+</ul>
+</li>
+</ul>
+]]></content:encoded></item><item><title>地科L1</title><link>https://chaoray.github.io/posts/earth/l1/</link><pubDate>Wed, 19 Oct 2022 22:40:55 +0800</pubDate><guid>https://chaoray.github.io/posts/earth/l1/</guid><description>*太陽星雲學說 *原始地球演化 *地質年代</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
 <blockquote>
 <p>1-1 地球的起源與演變<br>
 1-2 開啟地球歷史的鑰匙</p>
 </blockquote>
 <hr>
 <h1 id="地球科學研究範圍">地球科學研究範圍</h1>
-<p>我是被地科老師遺忘的一張圖，嗯對，不要懷疑</p>
+<p>我是被地科老師遺忘的一張圖，嗯對，不要懷疑
+<img src="/img/earth/L1/地球科學研究範圍.png"></p>
 <h1 id="太陽星雲學說">太陽星雲學說</h1>
 <ol>
 <li>太陽星雲中的氫、氦和塵埃組成的雲氣，因萬有引力聚集逐漸形成中間凸起的扁平圓盤狀</li>

@@ -1,4 +1,372 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>物理 on 高中筆記整理</title><link>https://chaoray.github.io/posts/physics/</link><description>Recent content in 物理 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sun, 28 Aug 2022 21:27:52 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/posts/physics/index.xml" rel="self" type="application/rss+xml"/><item><title>物理L1</title><link>https://chaoray.github.io/posts/physics/l1/</link><pubDate>Sun, 16 Oct 2022 22:03:20 +0800</pubDate><guid>https://chaoray.github.io/posts/physics/l1/</guid><description>*科學方法與態度 *基本量 *物理學發展史</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>物理 on 高中筆記整理</title><link>https://chaoray.github.io/posts/physics/</link><description>Recent content in 物理 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sun, 28 Aug 2022 21:27:52 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/posts/physics/index.xml" rel="self" type="application/rss+xml"/><item><title>物理L3</title><link>https://chaoray.github.io/posts/physics/l3/</link><pubDate>Sat, 12 Nov 2022 19:42:11 +0800</pubDate><guid>https://chaoray.github.io/posts/physics/l3/</guid><description>*克卜勒行星運動定律</description><content:encoded><![CDATA[<h1 id="第三課-大綱">第三課 大綱</h1>
+<blockquote>
+<p>3-1 對物體運動的研究歷程<br>
+3-2 牛頓運動定律<br>
+3-3 天體運動</p>
+</blockquote>
+<hr>
+<h1 id="克卜勒行星運動定律">克卜勒行星運動定律</h1>
+<h2 id="過程">過程</h2>
+<ul>
+<li>地心說擁護者<u>第谷</u>觀星後留下大量數據遇證實地心說未果</li>
+<li><red>克卜勒</red>運用資料證實<red>日心說</red></li>
+</ul>
+<h2 id="第一定律橢圓定律">第一定律：橢圓定律</h2>
+<ul>
+<li>內容：行星繞太陽的軌道為一橢圓，且太陽位於橢圓的其中一個焦點上</li>
+<li>近日點、遠日點
+<ul>
+<li>軌道上有一點與太陽最近，稱為近日點</li>
+<li>軌道上有一點與太陽最遠，稱為遠日點</li>
+<li>$\small軌道半徑 = \frac{近日距 + 遠日距}{2}$</li>
+</ul>
+</li>
+</ul>
+<h2 id="第二定律面積定律">第二定律：面積定律</h2>
+<ul>
+<li>內容：<red>{同一顆,備註:很愛考,red}</red>行星與太陽的連線，在相同時間內掃過相同的面積，即其面積速率相等</li>
+<li>應用：近日點處軌道速率最快，遠日點處軌道速率最慢
+<ul>
+<li>近日點與遠日點切向速率和近日距與遠日距成反比</li>
+</ul>
+</li>
+<li>$\small 面積速率 = \frac{A}{\Delta t_1} = \frac{B}{\Delta t_2}$</li>
+</ul>
+<h2 id="第三定律週期定律">第三定律：週期定律</h2>
+<ul>
+<li>內容：繞太陽的所有行星，其軌道半徑<mark>立方</mark>與其公轉週期的<mark>平方</mark>為一定值</li>
+<li>$\frac{{R_1}^3}{{T_1}^2} = \frac{{R_2}^3}{{T_2}^2} = &hellip; = K$</li>
+</ul>
+<img src="/img/physics/L3/八大行星繞日運行數據.png">
+<ul>
+<li>延伸：<mark>繞同一天體</mark>的所有天體也皆符合週期定律<br>
+例：月球和人造衛星繞地球的$\frac{{R}^3}{{T}^2}$相等</li>
+</ul>
+<h2 id="演繹法與歸納法">演繹法與歸納法</h2>
+<ul>
+<li>牛頓推倒出三大行星定律概念
+<ul>
+<li>從第二運動定律出發，提出：若物體受到向心作用，則該物體運動必會滿足面積定律<br></li>
+<li>滿足面積定律做等速率圓周運動的物體，若滿足克卜勒第三運動定律，所受向心力會與半徑平方成反比</li>
+</ul>
+</li>
+</ul>
+<table>
+  <tr>
+    <td>名稱</td>
+    <td>演繹法</td>
+    <td>歸納法</td>
+  </tr>
+  <tr>
+    <td>解釋</td>
+    <td>由基本的定律或公理出發，經過合理的推導，得出正確結果的方法</td>
+    <td>從觀測或實驗的資料出發，不加任何假設，找出現象後隱藏的共同規律</td>
+  </tr>
+  <tr>
+    <td>人物</td>
+    <td>牛頓</td>
+    <td>克卜勒</td>
+  </tr>
+</table>]]></content:encoded></item><item><title>物理L4</title><link>https://chaoray.github.io/posts/physics/l4/</link><pubDate>Sat, 12 Nov 2022 19:42:11 +0800</pubDate><guid>https://chaoray.github.io/posts/physics/l4/</guid><description>*光 *電流磁效應</description><content:encoded><![CDATA[<h1 id="第四課-大綱">第四課 大綱</h1>
+<blockquote>
+<p>4-1 光<br>
+4-2 電流的磁效應<br>
+4-3 電磁感應<br>
+4-4 電與磁的整合</p>
+</blockquote>
+<hr>
+<h1 id="光">光</h1>
+<h2 id="微粒說與波動說">微粒說與波動說</h2>
+<table>
+  <tr>
+    <td>理論</td>
+    <td>微粒說</td>
+    <td>波動說</td>
+  </tr>
+  <tr>
+    <td>提出者</td>
+    <td>牛頓</td>
+    <td>惠更斯</td>
+  </tr>
+  <tr>
+    <td>主要內容</td>
+    <td>光是由細小粒子組合</td>
+    <td>光是一種波動</td>
+  </tr>
+  <tr>
+    <td>可解釋現象</td>
+    <td>1.光的直進、反射、折射</td>
+    <td>
+        1. 光的直進、反射、折射、繞射、干涉<br>
+        2. 光速在空氣中比水快
+    </td>
+  </tr>
+  <tr>
+    <td>理論困境</td>
+    <td>
+        1. 無法解釋兩束光如何互不干擾交錯傳播<br>
+        2. 預測光速在水中比空氣中快(與事實不符)
+    </td>
+    <td>
+        1. 解釋反射、折射時較為複雜<br>
+        2. 找不到傳遞光波的{介質,<a href="https://zh.wikipedia.org/zh-tw/%E4%BB%A5%E5%A4%AA">乙太</a>}
+    </td>
+  </tr>
+</table>
+<h2 id="波">波</h2>
+<ul>
+<li>定義
+<ul>
+<li>傳遞能量的方式</li>
+<li>介質受到外力擾動，以擾動點為中心向外擴散的現象</li>
+<li>波只傳遞波形、能量和速度，不傳遞介質</li>
+<li>介質隨波形原地上下移動</li>
+</ul>
+</li>
+</ul>
+<h3 id="分類">分類</h3>
+<table>
+  <tr>
+    <td rowspan="3">介質振動方向</td>
+    <td>橫波(高低波)</td>
+    <td>例：繩波、水波、S波</td>
+  </tr>
+  <tr>
+    <td>縱波(疏密波)</td>
+    <td>例：聲波、彈簧波、P波</td>
+  </tr>
+  <tr>
+    <td>綜合波</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td rowspan="3">發生次數</td>
+    <td>脈衝波(只發生一次的波)</td>
+    <td rowspan="3"></td>
+  </tr>
+  <tr>
+    <td>連續波(發生多次的波)</td>
+  </tr>
+  <tr>
+    <td>週期波(有規律的週期波)</td>
+  </tr>
+  <tr>
+    <td rowspan="4">形狀</td>
+    <td>正弦波</td>
+    <td rowspan="4">
+      <img src="/img/physics/L4/Waveforms.png">
+      <p style="text-align: center; font-size: 0.5em;">Omegatron, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons</p>
+    </td>
+  </tr>
+  <tr>
+    <td>方波</td>
+  </tr>
+  <tr>
+    <td>三角波</td>
+  </tr>
+  <tr>
+    <td>鋸齒波</td>
+  </tr>
+  <tr>
+    <td rowspan="2">前進與否</td>
+    <td>行進波</td>
+    <td rowspan="2"></td>
+  </tr>
+  <tr>
+    <td>駐波</td>
+  </tr>
+</table>
+<h3 id="名詞與公式">名詞與公式</h3>
+<table>
+  <tr>
+    <td>波峰</td>
+    <td></td>
+    <td>波的最高點</td>
+  </tr>
+  <tr>
+    <td>波谷</td>
+    <td></td>
+    <td>波的最低點</td>
+  </tr>
+  <tr>
+    <td>振幅</td>
+    <td>$A$</td>
+    <td>中間平衡位置到波峰或波谷的距離</td>
+  </tr>
+  <tr>
+    <td>波長</td>
+    <td>$\lambda$</td>
+    <td>相鄰兩波峰或相鄰兩波谷之間的距離</td>
+  </tr>
+  <tr>
+    <td>週期</td>
+    <td>$T$</td>
+    <td>
+        1. 介質振動一次所需的時間<br>
+        2. 一個完整波形通過某定點所需的時間
+    </td>
+  </tr>
+  <tr>
+    <td>頻率</td>
+    <td>$f$</td>
+    <td>
+        1. 一秒內介質的震動次數<br>
+        2. 每秒通過某一點的完整形之數目
+    </td>
+  </tr>
+  <tr>
+    <td>波速</td>
+    <td>$v$</td>
+    <td>波動在空氣中傳播的速率</td>
+  </tr>
+  <tr>
+    <td>波前</td>
+    <td></td>
+    <td>母波上每個質點擴散出一個子波，子波同時到達的線</td>
+  </tr>
+</table>
+<ul>
+<li>$f = \frac{1}{T}$</li>
+<li>$v = \frac{\lambda}{T} = \lambda \times f$</li>
+</ul>
+<h2 id="反射定律">反射定律</h2>
+<ul>
+<li>入射線、法線、反射線<blue>共平面</blue></li>
+<li>$入射角\theta_1 = 反射角\theta_2$
+<ul>
+<li>$\theta_1$ 另一定義：入射波前與介面夾角</li>
+</ul>
+</li>
+<li>不論介面是否光滑，都必符合反射定律
+<ul>
+<li>若為平滑面：鏡面反射</li>
+<li>若為粗糙面：漫射</li>
+</ul>
+</li>
+</ul>
+<h2 id="折射定律司乃耳定律">折射定律(司乃耳定律)</h2>
+<ul>
+<li>入射線、法線、反射線<blue>共平面</blue></li>
+<li>角度改變，波速改變，波長改變，<mark>頻率不變，週期不變</mark></li>
+<li>$\frac{V_1}{V_2} = \frac{\lambda_1}{\lambda_2} = \frac{\sin{\theta_1}}{\sin{\theta_2}} = 定值$</li>
+<li>應用
+<ul>
+<li>視深改變(從外面往水裡看 =&gt; 變淺 ; 從水里往空中看 =&gt; 變深)</li>
+<li>日出&amp;日落(看到日出，尚未日出 ; 看到日落，早已日落)</li>
+<li>海市蜃樓(天邊有船)</li>
+<li>沙漠幻象(地上有小樹)</li>
+</ul>
+</li>
+</ul>
+<h2 id="繞射">繞射</h2>
+<ul>
+<li>光遇到單狹縫時<mark>偏離原來直線傳播</mark>的現象</li>
+<li>光繞射程度較小 =&gt; <blue>較接近直線前進</blue></li>
+<li>聲波和水波繞射較大</li>
+<li>若波長$\lambda$比狹縫寬$d$大越多，則<red>繞射越明顯</red>
+<ul>
+<li>但$\lambda$如果比$d$大太多，可能使通過的能量太低，故以$\lambda \approx d$為佳</li>
+</ul>
+</li>
+<li>寬度：中間為2單位，其餘為1單位
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Diffraction_of_a_single_slit.jpg"></li>
+</ul>
+<p style="text-align: center; font-size: 0.5em;">Gisling, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons</p>
+<h2 id="干涉">干涉</h2>
+<ul>
+<li>來源：楊氏(楊格)雙狹縫實驗</li>
+<li>建設性干涉：波峰相疊<blue>(腹線)</blue></li>
+<li>破壞性干涉：一波峰與另一波谷相疊<blue>(節線)</blue></li>
+<li>單光源通過雙狹縫會產生<red>等寬明暗相間</red>的條紋(皆為1單位)
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Ebohr1_IP.svg"></li>
+</ul>
+<p style="text-align: center; font-size: 0.5em;">Stannered, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons</p>
+<h1 id="電流磁效應電生磁">電流磁效應(電生磁)</h1>
+<ul>
+<li>發現者：<red>厄斯特</red></li>
+<li>找出電、磁方向關係：安培
+<ul>
+<li>右手螺旋定則：電流及所形成磁場方向</li>
+<li>右手開掌定則：電流、外界磁場及外界磁力方向</li>
+</ul>
+</li>
+</ul>
+<h2 id="安培右手定則">安培右手定則</h2>
+<ul>
+<li>長直流導線
+<ul>
+<li>磁場形狀：同心圓</li>
+<li>磁場大小：正比於$I$，反比於$R$
+<ul>
+<li>$B = k\frac{I}{R}$</li>
+</ul>
+</li>
+<li>圓周上任一點的切線方向為磁場方向</li>
+</ul>
+</li>
+</ul>
+<div class="horizontal">
+  <img style="width: 20em;" src="/img/physics/L4/長導線.png">
+  <img style="width: 20em;" src="/img/physics/L4/長導線手勢.png">
+</div>
+<ul>
+<li>圓導線
+<ul>
+<li>磁場大小：正比於$I$，反比於$R$
+<ul>
+<li>$B = k&rsquo;\frac{I}{R}$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="horizontal">
+  <img style="width: 20em;" src="/img/physics/L4/圓導線.png">
+  <img style="width: 20em;" src="/img/physics/L4/圓導線手勢.png">
+</div>
+<ul>
+<li>螺旋管
+<ul>
+<li>磁場大小：正比於$I$，正比於$n$(單位長度之匝數，又稱匝數密度)
+<ul>
+<li>$B = k&quot;In$</li>
+</ul>
+</li>
+<li>內部可視為均勻磁場(等大且平行)</li>
+<li>螺線管越密，磁場越強</li>
+<li>在螺線管內插入軟鐵芯，通電後，軟鐵芯會被磁化，製造出磁場很大的電磁鐵
+<ul>
+<li>插入的材質要選定可被磁化的物質，如：鐵、鈷、鎳</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="horizontal">
+  <img style="width: 20em;" src="/img/physics/L4/螺線管.png">
+  <img style="width: 20em;" src="/img/physics/L4/螺線管手勢.png">
+</div>
+<h2 id="右手開掌定則">右手開掌定則</h2>
+<ul>
+<li>公式：$\overrightarrow{F} = I\overrightarrow{\ell} \times \overrightarrow{B} = I \ell B \sin{\theta}$
+<img style="width: 20em;" src="/img/physics/L4/右手開掌定則.png"></li>
+</ul>
+<h2 id="應用">應用</h2>
+<ul>
+<li>
+<p>電磁鐵
+<img style="width: 20em;" src="/img/physics/L4/電磁鐵.png"></p>
+</li>
+<li>
+<p>繼電器
+<img style="width: 20em;" src="/img/physics/L4/繼電器.png"></p>
+</li>
+<li>
+<p>電動馬達
+<img style="width: 20em;" src="/img/physics/L4/電動馬達.png"></p>
+</li>
+</ul>
+]]></content:encoded></item><item><title>物理L1</title><link>https://chaoray.github.io/posts/physics/l1/</link><pubDate>Sun, 16 Oct 2022 22:03:20 +0800</pubDate><guid>https://chaoray.github.io/posts/physics/l1/</guid><description>*科學方法與態度 *基本量 *物理學發展史</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
 <blockquote>
 <p>1-1 科學態度<br>
 1-2 科學的方法<br>
@@ -6,9 +374,8 @@
 </blockquote>
 <hr>
 <h1 id="科學方法與態度">科學方法與態度</h1>
-<p>
-  <img loading="lazy" src="https://igt.nssh.ntpc.edu.tw/assets/avatars/191/small/2d83ec199f90f5aaf6b83fda4f7d56e0.jpg" alt=""  />
-物理老師:這地方老師就跳過了，圖自己看一看阿</p>
+<img src="/img/physics/L1/科學方法與態度.png">
+物理老師:這地方老師就跳過了，圖自己看一看阿
 <h1 id="基本單位">基本單位</h1>
 <ul>
 <li>基本量 = 數值 + 物理量</li>
@@ -110,17 +477,15 @@
     <tr>
         <td>電流</td>
         <td>安培(A)</td>
-        <td></td>
+        <td rowspan="3">(等級不足，尚未解鎖)</td>
     </tr>
     <tr>
         <td>溫度</td>
         <td>克爾文(K)</td>
-        <td></td>
     </tr>
     <tr>
         <td>光強度</td>
         <td>燭光(cd)</td>
-        <td></td>
     </tr>
     <tr>
         <td>數量</td>
@@ -146,7 +511,7 @@
 <li>萬物皆可以數字呈現</li>
 </ul>
 </li>
-<li>克卜勒
+<li><a href="/posts/physics/l3/#克卜勒行星運動定律/">克卜勒</a>
 <ul>
 <li>行星三大運動定律</li>
 </ul>
@@ -179,7 +544,7 @@
 <li>粒子說(後影響愛因斯坦)</li>
 </ul>
 </li>
-<li>惠更斯
+<li><a href="/posts/physics/l4/##微粒說與波動說/">惠更斯</a>
 <ul>
 <li>波動說(後影響馬克士威)</li>
 </ul>
