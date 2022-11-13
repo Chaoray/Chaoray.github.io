@@ -57,4 +57,6 @@ showtoc: false
 藍靖傑：神秘的藍色兔子，行蹤無人知曉  
 實際上是筆記供應商
 
-
+<p style="text-align: center;"><b>版權為趙文睿、郭凱明、姜丞恩共同所有</b></p>
+<img style="width:7em; height: auto;" src="https://upload.wikimedia.org/wikipedia/commons/7/70/CC_BY-NC-ND.svg">
+<p style="text-align: center; font-size: 0.5em;">Creative Commons, Public domain, via Wikimedia Commons</p>
