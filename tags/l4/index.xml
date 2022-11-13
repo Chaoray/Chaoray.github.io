@@ -334,13 +334,46 @@
 <li>
 <p>垂直大氣壓分布</p>
 <ul>
-<li>高度升高</li>
+<li>高度升高
+<ul>
 <li>氣壓下降 (在幾公里內的大氣：1hPa/10m)</li>
 <li><mark>氣壓遞減率下降</mark></li>
-<li><mark>99%的空氣分子集中於離地30km距離內</mark></li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+<table>
+  <tr>
+    <td>高度</td>
+    <td>氣壓</td>
+  </tr>
+  <tr>
+    <td>約30公里高</td>
+    <td>約$\frac{1}{100}$大氣壓</td>
+    <td><mark>99%的空氣分子集中於離地30km距離內</mark></td>
+  </tr>
+  <tr>
+    <td>約16公里高</td>
+    <td>約$\frac{1}{10}$大氣壓</td>
+    <td>90%的空氣分子集中於離地16km距離內</td>
+  </tr>
+  <tr>
+    <td>約10公里高</td>
+    <td>約$\frac{1}{4}$大氣壓</td>
+    <td>75%的空氣分子集中於離地10km距離內</td>
+  </tr>
+  <tr>
+    <td>約5.5公里高</td>
+    <td>約$\frac{1}{2}$大氣壓近</td>
+    <td>50%的空氣分子集中於離地5.5km距離內</td>
+  </tr>
+  <tr>
+    <td>地面</td>
+    <td>約1大氣壓</td>
+    <td></td>
+  </tr>
+</table>
 <h1 id="氣溫">氣溫</h1>
 <ul>
 <li>依氣溫垂直變化分層</li>
@@ -420,7 +453,11 @@
 <h2 id="飽和與濕度">飽和與濕度</h2>
 <ul>
 <li>雲是由<mark>水滴</mark>和<mark>冰晶</mark>組成</li>
-<li>飽和水氣壓：各溫度下能容納的水氣量</li>
+<li>飽和水氣壓：各溫度下能容納的水氣量
+<ul>
+<li><mark>溫度越高，飽和水氣壓越高</mark></li>
+</ul>
+</li>
 <li>飽和曲線：將各溫度下的飽和水氣壓繪成曲線</li>
 </ul>
 <img style="width: 15em; " src="/img/earth/L4/飽和曲線.png">
@@ -447,6 +484,7 @@
 <li>
 <p>露點溫度：藉由降溫達到飽和的溫度</p>
 <ul>
+<li><mark>露點溫度越高，實際水氣量越高</mark></li>
 <li><mark>$|\small露點溫度 - 該點溫度|$越小，相對濕度越高</mark></li>
 </ul>
 </li>
@@ -498,11 +536,12 @@
 <table>
   <tr>
     <td>絕熱膨脹冷卻</td>
+    <td>未飽和空氣塊上升至露點溫度後形成雲</td>
     <td>
-      未飽和空氣塊上升至露點溫度後形成雲<br>
-      空氣遇山坡迎風面而抬升，水氣凝結，形成「上坡霧」
+      空氣遇山坡迎風面而抬升，水氣凝結，形成「上坡霧」<br>
+      若空氣下降時外界壓力增加，體積收縮，溫度上升，為絕熱收縮降溫<br>
+      一般而言，水氣達飽和的濕空氣，<mark>每上升1公里，氣溫下降6.5℃</mark>；<mark>未達飽和的空氣，每上升1公里，氣溫下降10℃</mark>
     </td>
-    <td>若空氣下降時外界壓力增加，體積收縮，溫度上升，為絕熱收縮降溫<br>一般而言，水氣達飽和的濕空氣，<mark>每上升1公里，氣溫下降6.5℃</mark>；<mark>未達飽和的空氣，每上升1公里，氣溫下降10℃</mark></td>
   </tr>
   <tr>
     <td>平流冷卻</td>
@@ -610,6 +649,7 @@
 <li><mark>梯度力與氣壓線垂直</mark></li>
 <li><mark>科氏力與風向垂直(北半在右側，南半在左側)</mark></li>
 <li><mark>摩擦力與風向相反</mark></li>
+<li><mark>梯度力與摩擦力與科氏力的合力相反</mark></li>
 </ul>
 <h2 id="風與天氣變化">風與天氣變化</h2>
 <table>
@@ -747,15 +787,6 @@
     <td>同義：achievement (n[C].) 成就</td>
   </tr>
 </table>
-<h2 id="item-1">item</h2>
-<table>
-  <tr>
-    <td>item</td>
-    <td>n[C].</td>
-    <td>一項物品</td>
-    <td>be an item<br>談戀愛</td>
-  </tr>
-</table>
 <h2 id="disease">disease</h2>
 <table>
   <tr>
@@ -771,7 +802,7 @@
 <h2 id="reward">reward</h2>
 <table>
   <tr>
-    <td>reward</td>
+    <td rowspan="2">reward</td>
     <td>n[C/U].</td>
     <td>獎勵 ; 報酬</td>
     <td></td>
@@ -880,7 +911,7 @@
   <tr>
     <td>vt.</td>
     <td>明智地使用、管理(時間、金錢等)</td>
-    <td>make predictions about<br>預測</td>
+    <td></td>
   </tr>
   <tr>
     <td>manager</td>
@@ -933,7 +964,7 @@
     <td rowspan="2">expose</td>
     <td>vt.</td>
     <td>使接觸 ; 使體驗</td>
-    <td>expose sbb. to sth.</td>
+    <td>expose sb. to sth.</td>
   </tr>
   <tr>
     <td>vt.</td>
@@ -976,7 +1007,7 @@
     <td>performance</td>
     <td>n[C].</td>
     <td>表演 ; 表現</td>
-    <td>exposure to</td>
+    <td></td>
   </tr>
 </table>
 <h2 id="behavior">behavior</h2>
@@ -1041,13 +1072,16 @@
 <h2 id="assign">assign</h2>
 <table>
   <tr>
-    <td rowspan="2">assign</td>
-    <td rowspan="2">vt.</td>
-    <td rowspan="2">指派</td>
+    <td rowspan="3">assign</td>
+    <td rowspan="3">vt.</td>
+    <td rowspan="3">指派</td>
     <td>assign sb. to V</td>
   </tr>
   <tr>
     <td>assign sth. to sb.</td>
+  </tr>
+  <tr>
+    <td>同義：appoint (vt.) 指派</td>
   </tr>
   <tr>
     <td>assignment</td>
@@ -1117,7 +1151,7 @@
 </ul>
 <h2 id="turn-out">turn out</h2>
 <ul>
-<li>結果是 ; 最終成為</li>
+<li>結果<u>(居然)</u>是 ; 最終<u>(竟然)</u>成為</li>
 <li>turn out to be adj/N</li>
 <li>As it turns out, S + V&hellip;</li>
 <li>It turns out that S + V&hellip;</li>
@@ -1253,6 +1287,11 @@
 <li>一旦&hellip;就&hellip;</li>
 <li>可擺句中</li>
 <li>once子句未來式要以現在式代替</li>
+<li>同義
+<ul>
+<li>as soon as</li>
+</ul>
+</li>
 </ul>
 <h2 id="as-s--v-s--v">As S + V, S + V.</h2>
 <ul>
@@ -1364,16 +1403,6 @@
 <p>brown root rot disease 褐根病</p>
 <ul>
 <li>rot (adj.) 腐爛的</li>
-</ul>
-</li>
-<li>
-<p>once (conj.) 一旦</p>
-<ul>
-<li>同義
-<ul>
-<li>as soon as</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>

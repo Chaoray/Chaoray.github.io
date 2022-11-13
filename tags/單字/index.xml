@@ -93,15 +93,6 @@
     <td>同義：achievement (n[C].) 成就</td>
   </tr>
 </table>
-<h2 id="item-1">item</h2>
-<table>
-  <tr>
-    <td>item</td>
-    <td>n[C].</td>
-    <td>一項物品</td>
-    <td>be an item<br>談戀愛</td>
-  </tr>
-</table>
 <h2 id="disease">disease</h2>
 <table>
   <tr>
@@ -117,7 +108,7 @@
 <h2 id="reward">reward</h2>
 <table>
   <tr>
-    <td>reward</td>
+    <td rowspan="2">reward</td>
     <td>n[C/U].</td>
     <td>獎勵 ; 報酬</td>
     <td></td>
@@ -226,7 +217,7 @@
   <tr>
     <td>vt.</td>
     <td>明智地使用、管理(時間、金錢等)</td>
-    <td>make predictions about<br>預測</td>
+    <td></td>
   </tr>
   <tr>
     <td>manager</td>
@@ -279,7 +270,7 @@
     <td rowspan="2">expose</td>
     <td>vt.</td>
     <td>使接觸 ; 使體驗</td>
-    <td>expose sbb. to sth.</td>
+    <td>expose sb. to sth.</td>
   </tr>
   <tr>
     <td>vt.</td>
@@ -322,7 +313,7 @@
     <td>performance</td>
     <td>n[C].</td>
     <td>表演 ; 表現</td>
-    <td>exposure to</td>
+    <td></td>
   </tr>
 </table>
 <h2 id="behavior">behavior</h2>
@@ -387,13 +378,16 @@
 <h2 id="assign">assign</h2>
 <table>
   <tr>
-    <td rowspan="2">assign</td>
-    <td rowspan="2">vt.</td>
-    <td rowspan="2">指派</td>
+    <td rowspan="3">assign</td>
+    <td rowspan="3">vt.</td>
+    <td rowspan="3">指派</td>
     <td>assign sb. to V</td>
   </tr>
   <tr>
     <td>assign sth. to sb.</td>
+  </tr>
+  <tr>
+    <td>同義：appoint (vt.) 指派</td>
   </tr>
   <tr>
     <td>assignment</td>
@@ -463,7 +457,7 @@
 </ul>
 <h2 id="turn-out">turn out</h2>
 <ul>
-<li>結果是 ; 最終成為</li>
+<li>結果<u>(居然)</u>是 ; 最終<u>(竟然)</u>成為</li>
 <li>turn out to be adj/N</li>
 <li>As it turns out, S + V&hellip;</li>
 <li>It turns out that S + V&hellip;</li>
@@ -599,6 +593,11 @@
 <li>一旦&hellip;就&hellip;</li>
 <li>可擺句中</li>
 <li>once子句未來式要以現在式代替</li>
+<li>同義
+<ul>
+<li>as soon as</li>
+</ul>
+</li>
 </ul>
 <h2 id="as-s--v-s--v">As S + V, S + V.</h2>
 <ul>
@@ -710,16 +709,6 @@
 <p>brown root rot disease 褐根病</p>
 <ul>
 <li>rot (adj.) 腐爛的</li>
-</ul>
-</li>
-<li>
-<p>once (conj.) 一旦</p>
-<ul>
-<li>同義
-<ul>
-<li>as soon as</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>
@@ -1003,8 +992,8 @@
 <h2 id="consume">consume</h2>
 <table>
   <tr>
-    <td rwospan="2">consume</td>
-    <td rwospan="2">vt.</td>
+    <td rowspan="2">consume</td>
+    <td rowspan="2">vt.</td>
     <td>吃喝</td>
     <td>人 consume sth.</td>
   </tr>
