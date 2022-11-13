@@ -6,6 +6,9 @@ hidemeta: true
 searchHidden: true
 showtoc: true
 ---
+## 2022/11/13  v4.3.19 除蟲大師
+解決十餘處bug  
+
 ## 2022/11/12  v4.3.18 累到筆記都打不好了
 我要領導日軍抗日  
 新增地科L4筆記  
