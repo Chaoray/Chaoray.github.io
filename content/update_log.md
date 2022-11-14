@@ -6,6 +6,11 @@ hidemeta: true
 searchHidden: true
 showtoc: true
 ---
+## 2022/11/14  v4.3.20 二抽前最後補強
+補二抽最後的幾個筆記啦  
+
+<a>#速戰速決</a>
+
 ## 2022/11/13  v4.3.19 除蟲大師
 解決十餘處bug  
 
