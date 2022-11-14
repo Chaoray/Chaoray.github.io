@@ -113,7 +113,7 @@
     <td>
       天氣變化主要發生區域(90%水氣)<br>
       每上升1公里，氣溫下降6.5℃<br>
-      厚度受季節、緯度影響：夏季較冬季厚，低緯度較高緯度厚
+      厚度受季節、緯度，早晚影響：夏季較冬季厚，低緯度較高緯度厚，白天較晚上厚
     </td>
   </tr>
 </table>
@@ -174,6 +174,15 @@
 <ul>
 <li><mark>露點溫度越高，實際水氣量越高</mark></li>
 <li><mark>$|\small露點溫度 - 該點溫度|$越小，相對濕度越高</mark></li>
+</ul>
+</li>
+<li>
+<p>體感溫度影響條件</p>
+<ul>
+<li>氣溫</li>
+<li>日照</li>
+<li>風速</li>
+<li>相對溼度</li>
 </ul>
 </li>
 </ul>
@@ -380,4 +389,63 @@
 </ul>
 </li>
 </ul>
-]]></content:encoded></item></channel></rss>
+<h1 id="天氣圖">天氣圖</h1>
+<h2 id="氣象觀測">氣象觀測</h2>
+<h2 id="圖標">圖標</h2>
+<table>
+  <tr>
+    <td>名稱</td>
+    <td>符號</td>
+    <td colspan="2">說明</td>
+  </tr>
+  <tr>
+    <td>冷鋒</td>
+    <td>(圖)</td>
+    <td>為台灣常見鋒面(發生在秋天至隔年春天)</td>
+    <td rowspan="4">溫帶氣旋(逆時針)，皆會下雨</td>
+  </tr>
+  <tr>
+    <td>暖鋒</td>
+    <td>(圖)</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>滯留鋒</td>
+    <td>(圖)</td>
+    <td>冷暖勢力相當，為台灣常見鋒面(發生在春末夏初)，例：梅雨</td>
+  </tr>
+  <tr>
+    <td>囚錮鋒</td>
+    <td>(圖)</td>
+    <td>暖鋒被冷鋒追上</td>
+  </tr>
+  <tr>
+    <td>等壓線</td>
+    <td>(圖)</td>
+    <td colspan="2">每一條等壓線相隔4hpa</td>
+  </tr>
+  <tr>
+    <td>高氣壓</td>
+    <td>(圖)</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>低氣壓</td>
+    <td>(圖)</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>輕度颱風</td>
+    <td>(圖)</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>中度及強烈颱風</td>
+    <td>(圖)</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>]]></content:encoded></item></channel></rss>
