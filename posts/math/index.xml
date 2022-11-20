@@ -1,4 +1,45 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>數學 on 高中筆記整理</title><link>https://chaoray.github.io/posts/math/</link><description>Recent content in 數學 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 27 Aug 2022 13:34:42 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/posts/math/index.xml" rel="self" type="application/rss+xml"/><item><title>數學L6</title><link>https://chaoray.github.io/posts/math/l6/</link><pubDate>Sat, 12 Nov 2022 22:59:22 +0800</pubDate><guid>https://chaoray.github.io/posts/math/l6/</guid><description>*圓</description><content:encoded><![CDATA[<h1 id="第六課-大綱">第六課 大綱</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>數學 on 高中筆記整理</title><link>https://chaoray.github.io/posts/math/</link><description>Recent content in 數學 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 27 Aug 2022 13:34:42 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/posts/math/index.xml" rel="self" type="application/rss+xml"/><item><title>數學L7</title><link>https://chaoray.github.io/posts/math/l7/</link><pubDate>Sun, 20 Nov 2022 16:17:10 +0800</pubDate><guid>https://chaoray.github.io/posts/math/l7/</guid><description>*切線</description><content:encoded><![CDATA[<h1 id="第七課-大綱">第七課 大綱</h1>
+<blockquote>
+<p>甲 圓指直線關係的判定<br>
+乙 圓的的切線方程式</p>
+</blockquote>
+<hr>
+<h1 id="圓與直線的關係">圓與直線的關係</h1>
+<h2 id="代數判定法">代數判定法</h2>
+<h2 id="幾何判定法">幾何判定法</h2>
+<h2 id="統整">統整</h2>
+<table>
+  <tr>
+    <td></td>
+    <td>相割</td>
+    <td>相切</td>
+    <td>相離</td>
+  </tr>
+  <tr>
+    <td>定義</td>
+    <td>交於兩點</td>
+    <td>交於一點</td>
+    <td>沒有交點</td>
+  </tr>
+  <tr>
+    <td>代數</td>
+    <td>有相異實根<br>($b ^ {2} - 4ac > 0$)</td>
+    <td>有相等實根<br>($b ^ {2} - 4ac = 0$)</td>
+    <td>沒有實根<br>($b ^ {2} - 4ac < 0$)</td>
+  </tr>
+  <tr>
+    <td>幾何</td>
+    <td>$d < r$</td>
+    <td>$d = r$</td>
+    <td>$d > r$</td>
+  </tr>
+</table>
+<h1 id="切線方程式">切線方程式</h1>
+<h2 id="已知切線斜率求切線方程式">已知切線斜率求切線方程式</h2>
+<h2 id="過圓外一點求切線方程式">過圓外一點求切線方程式</h2>
+<h2 id="過圓上一點求切線方程式">過圓上一點求切線方程式</h2>
+<h2 id="應用">應用</h2>
+]]></content:encoded></item><item><title>數學L6</title><link>https://chaoray.github.io/posts/math/l6/</link><pubDate>Sat, 12 Nov 2022 22:59:22 +0800</pubDate><guid>https://chaoray.github.io/posts/math/l6/</guid><description>*圓</description><content:encoded><![CDATA[<h1 id="第六課-大綱">第六課 大綱</h1>
 <blockquote>
 <p>甲 圓的標準式<br>
 乙 圓的一般式<br>
