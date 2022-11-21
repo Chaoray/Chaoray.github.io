@@ -30,7 +30,7 @@ katex: true
 - bullet point (n) 項目符號
 - GPA(grade point average) (abbr.) 平均積分點
 - extracurricular (adj.) 課外的
-   
+  
 - to the point 扼要 ; 切題
   - simple and to the point 簡明扼要
 - and so on 等等 ; 諸如此類
