@@ -56,7 +56,7 @@ katex: true
 - days gone by 過往歲月
 
 ## 11/7-8
-- adeauate (adj.) 足夠的
+- adequate (adj.) 足夠的
 - furthermore (adv.) 此外 ; 而且
 - photography (n.) 攝影
 - passionate (adj.) 熱情的
