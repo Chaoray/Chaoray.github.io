@@ -85,7 +85,13 @@ katex: true
 - high-rise (n.) 高樓建築
 - maintenance (n.) 維護
 - evacuation (n.) 疏散
-- sprinkler system (n.) 自動噴水消防系統
+- sprinkler system (n.) 自動噴水消防系統  
+==============================  
+- catch up 了解最新狀況
+- why in the world 究竟
+- hop in 上車
+- plan ahead 事前計畫
+- feel like 感覺好像
 
 ## 補充
 - exact (adj.) 確切的
@@ -123,3 +129,10 @@ katex: true
 - strategy (n.) 策略
 - invest (v.) 投資  
 ==============================  
+- an elevator ride 搭一次電梯
+- squeeze (v.) 抽 ; 擠
+  - squeeze sth. in 把...擠進
+- workout (n.) 健身
+- story(美) (n.) 層
+  - storey(英)
+- rooftop (n.) 頂樓
