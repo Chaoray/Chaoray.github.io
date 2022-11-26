@@ -25,8 +25,9 @@ body.dark .tooltip[style*="color: blue"] {
     position: absolute;
     left: 0%;
     bottom: 120%;
+    line-break: auto;
     color: #000;
-    text-align: center;
+    /* text-align: center; */
     background-color: #fff;
     border: 1px solid black;
     border-radius: 3px;
