@@ -1,5 +1,5 @@
 let postContent = document.querySelector('div.post-content');
-postContent.innerHTML = postContent.innerHTML.replace(/{([^,{]+),([^,}]+),{0,1}([^,}]{0,})}/gm, (match, p1, p2, p3) => {
+postContent.innerHTML = postContent.innerHTML.replace(/{([^,{}]+),([^,}]+),{0,1}([^,}]{0,})}/gm, (match, p1, p2, p3) => {
     let tip = document.createElement('tips');
     tip.classList.add('tooltip');
     tip.innerHTML = p1;
