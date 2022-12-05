@@ -7,42 +7,38 @@ showtoc: false
 noTips: true
 ---
 
-<timer data-deadline="1669737600000" title="二段 2022/11/30"></timer>
+<timer data-deadline="1672761600000" title="三抽 2023/01/04"></timer>
 <table>
   <tr>
     <td>國文</td>
-    <td>L5 ~ 7 + 文教第2、3篇</td>
+    <td>L8 ~ 9</td>
   </tr>
   <tr>
     <td>英文</td>
-    <td>L4 ~ R2</td>
-  </tr>
-  <tr>
-    <td>英聽</td>
-    <td>10/21-22、10/24-25、11/7-8、11/21-22</td>
+    <td>L7 ~ L8</td>
   </tr>
   <tr>
     <td>數學</td>
-    <td>L5 ~ L8 綜合除法</td>
+    <td></td>
   </tr>
   <tr>
     <td>歷史</td>
-    <td>CH3 ~ 4</td>
+    <td></td>
   </tr>
   <tr>
     <td>公民</td>
-    <td>CH3 ~ 4</td>
+    <td></td>
   </tr>
   <tr>
     <td>地科</td>
-    <td>4-1 ~ 5-2</td>
+    <td></td>
   </tr>
   <tr>
     <td>物理</td>
-    <td>3-3 ~ 4-4</td>
+    <td></td>
   </tr>
 </table>
-<timer data-deadline="1672761600000" title="三抽 2023/01/04"></timer>
+
 <timer data-deadline="1673884800000" title="三段 2023/01/17"></timer>
 
 <script>
