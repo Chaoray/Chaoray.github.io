@@ -1,4 +1,278 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>物理 on 高中筆記整理</title><link>https://chaoray.github.io/categories/%E7%89%A9%E7%90%86/</link><description>Recent content in 物理 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 12 Nov 2022 19:42:11 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/categories/%E7%89%A9%E7%90%86/index.xml" rel="self" type="application/rss+xml"/><item><title>物理L3</title><link>https://chaoray.github.io/posts/physics/l3/</link><pubDate>Sat, 12 Nov 2022 19:42:11 +0800</pubDate><guid>https://chaoray.github.io/posts/physics/l3/</guid><description>*克卜勒行星運動定律</description><content:encoded><![CDATA[<h1 id="第三課-大綱">第三課 大綱</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>物理 on 高中筆記整理</title><link>https://chaoray.github.io/categories/%E7%89%A9%E7%90%86/</link><description>Recent content in 物理 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 12 Nov 2022 19:42:11 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/categories/%E7%89%A9%E7%90%86/index.xml" rel="self" type="application/rss+xml"/><item><title>物理L1</title><link>https://chaoray.github.io/posts/physics/l1/</link><pubDate>Sun, 16 Oct 2022 22:03:20 +0800</pubDate><guid>https://chaoray.github.io/posts/physics/l1/</guid><description>*科學方法與態度 *基本量 *物理學發展史</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
+<blockquote>
+<p>1-1 科學態度<br>
+1-2 科學的方法<br>
+1-3 物理學簡介</p>
+</blockquote>
+<hr>
+<h1 id="科學方法與態度">科學方法與態度</h1>
+<img src="/img/physics/L1/科學方法與態度.png">
+物理老師:這地方老師就跳過了，圖自己看一看阿
+<h1 id="基本單位">基本單位</h1>
+<ul>
+<li>基本量 = 數值 + 物理量</li>
+</ul>
+<h2 id="數值-----數量級">數值 &mdash; 數量級</h2>
+<p>有一數「$a \times b ^ {10}$」($1 \leq a &lt; 10$)</p>
+<ul>
+<li>若$a \geq \sqrt{10}$，數量級為<red>$b + 1$</red></li>
+<li>若$a &lt; \sqrt{10}$，數量級為$b$</li>
+</ul>
+<h2 id="單位-----輔助字首">單位 &mdash; 輔助字首</h2>
+<table>
+    <tr>
+        <td>英文</td>
+        <td>中文</td>
+        <td>代表數字</td>
+    </tr>
+    <tr>
+        <td>T</td>
+        <td>兆</td>
+        <td>$10 ^ {12}$</td>
+    </tr>
+    <tr>
+        <td>G</td>
+        <td>吉(十億)</td>
+        <td>$10 ^ {9}$</td>
+    </tr>
+    <tr>
+        <td>M</td>
+        <td>百萬</td>
+        <td>$10 ^ {6}$</td>
+    </tr>
+    <tr>
+        <td>k</td>
+        <td>千</td>
+        <td>$10 ^ {3}$</td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td>c</td>
+        <td>釐</td>
+        <td>$10 ^ {-2}$</td>
+    </tr>
+    <tr>
+        <td>m</td>
+        <td>毫</td>
+        <td>$10 ^ {-3}$</td>
+    </tr>
+    <tr>
+        <td>μ</td>
+        <td>微</td>
+        <td>$10 ^ {-6}$</td>
+    </tr>
+    <tr>
+        <td>n</td>
+        <td>奈</td>
+        <td>$10 ^ {-9}$</td>
+    </tr>
+    <tr>
+        <td>p</td>
+        <td>皮</td>
+        <td>$10 ^ {-12}$</td>
+    </tr>
+    <tr>
+        <td>f</td>
+        <td>飛</td>
+        <td>$10 ^ {-15}$</td>
+    </tr>
+</table>
+<ul>
+<li>公釐 = 毫米</li>
+<li>一埃(Å) = $10 ^ {-10}$m</li>
+</ul>
+<h2 id="單位-----基本單位與導出單位">單位 &mdash; 基本單位與導出單位</h2>
+<h3 id="基本單位-1">基本單位</h3>
+<table>
+    <tr>
+        <td>基本量</td>
+        <td>基本單位</td>
+        <td>現代定義</td>
+    </tr>
+    <tr>
+        <td>時間</td>
+        <td>秒(s)</td>
+        <td>銫原子振動週期的$9192631770$倍</td>
+    </tr>
+    <tr>
+        <td>長度</td>
+        <td>公尺(m)</td>
+        <td>利用光速在真空中的不變性，取其走一秒的距離除以${299792458}$</td>
+    </tr>
+    <tr>
+        <td>質量</td>
+        <td>公斤(kg)</td>
+        <td>利用<a href="https://zh.wikipedia.org/zh-tw/%E6%99%AE%E6%9C%97%E5%85%8B%E5%B8%B8%E6%95%B0">普朗克常數</a>在已知時間和長度的情形下定義</td>
+    </tr>
+    <tr>
+        <td>電流</td>
+        <td>安培(A)</td>
+        <td rowspan="3">(等級不足，尚未解鎖)</td>
+    </tr>
+    <tr>
+        <td>溫度</td>
+        <td>克爾文(K)</td>
+    </tr>
+    <tr>
+        <td>光強度</td>
+        <td>燭光(cd)</td>
+    </tr>
+    <tr>
+        <td>數量</td>
+        <td>莫耳(mol)</td>
+        <td>亞佛加厥數</td>
+    </tr>
+</table>
+<h3 id="導出單位">導出單位</h3>
+<table><tr><td>導出量 </td><td> 公式 </td><td> 導出單位 </td><td> 以SI單位表示  </td></tr><tr><td>力 </td><td> $F = ma$ </td><td> 牛頓(N) </td><td> $kg \times m/{s ^ {2}}$  </td></tr><tr><td>壓力 </td><td> $P = F / A$ </td><td> 帕斯卡(Pa) </td><td> $kg/{ms ^ {2}}$  </td></tr><tr><td>功、能量 </td><td> $W = F \times S$ </td><td> 焦耳(J) </td><td> $kg \times m ^ {2} / s ^ {2}$  </td></tr><tr><td>頻率 </td><td> $f = \frac{1}{s}$ </td><td> 赫茲(Hz) </td><td> $1 / s$  </td></tr><tr><td>功率 </td><td> $P = W / t$ </td><td> 瓦特(W) </td><td> $kg \times m ^ {2} / s ^ {3}$  </td></tr><tr><td>電量 </td><td> $Q = I \times t$ </td><td> 庫侖(C) </td><td> $A \times s$  </td></tr><tr><td>電壓 </td><td> $V = Q / I$ </td><td> 伏特(V) </td><td> $(kg \times m ^ {2}) / (A \times s ^ {3})$  </td></tr><tr><td>電阻 </td><td> $R = V / I$ </td><td> 歐姆(Ω) </td><td> $(kg \times m ^ {2}) / (A  ^ {2} \times s ^ {3})$  </td></tr><tr><td>面積 </td><td> $A = L ^ {2}$ </td><td> 無 </td><td> $m ^ {2}$  </td></tr><tr><td>體積 </td><td> $V = L ^ {3}$ </td><td> 無 </td><td> $m ^ {3}$  </td></tr><tr><td>密度 </td><td> $D = \frac{M}{V}$ </td><td> 無 </td><td> $kg / m ^ {3}$  </td></tr><tr><td>加速度 </td><td> $a = v / t$ </td><td> 無 </td><td> $m / s ^ {2}$  </td></tr><tr><td>力矩 </td><td> $L = F \times d$ </td><td> 無 </td><td> $kg \times m ^ {2} / s ^ {2}$  </td></tr><tr></tr></table>
+<table><tr><td>特殊 </td><td> 公式 </td><td> 計算過程 </td><td> 以SI單位表示  </td></tr><tr><td>單擺週期公式 </td><td> $T = \sqrt{\frac{L}{g}}$ </td><td> $\sqrt{\frac{m}{m \times s ^ {2}}}$ </td><td> $s$  </td></tr><tr><td>重力常數 </td><td> $G = \frac{F \times r ^ {2}}{M_1 \times M_2}$ </td><td> $\frac{(kg \times m/{s ^ {2}}) \times m ^ {2}}{kg ^ {2}}$ </td><td> $m ^ {3} / (kg \times s ^ {2})$  </td></tr><tr><td>庫侖力常數 </td><td> $k = \frac{F \times r ^ {2}}{Q_1 \times Q_2}$ </td><td> $\frac{(kg \times m/{s ^ {2}}) \times m ^ {2}}{(A \times s) ^ {2}}$ </td><td> $\frac{kg \times m ^ {3}}{A ^ {2} \times s ^ {4}}$  </td></tr></table>
+<h1 id="科學家們">科學家們(?)</h1>
+<h2 id="古典物理1900以前">古典物理(1900以前)</h2>
+<h3 id="天文學">天文學</h3>
+<ul>
+<li>托勒米
+<ul>
+<li>地心說</li>
+</ul>
+</li>
+<li>哥白尼
+<ul>
+<li>日心說</li>
+<li>萬物皆可以數字呈現</li>
+</ul>
+</li>
+<li><a href="/posts/physics/l3/#克卜勒行星運動定律/">克卜勒</a>
+<ul>
+<li>行星三大運動定律</li>
+</ul>
+</li>
+</ul>
+<h3 id="力學">力學</h3>
+<ul>
+<li>伽利略 &mdash; 實驗物理之父
+<ul>
+<li>斜面實驗證明速率與時間成正比</li>
+<li>數學觀</li>
+</ul>
+</li>
+<li>笛卡兒
+<ul>
+<li>機械論(質點、運動)</li>
+</ul>
+</li>
+<li>牛頓
+<ul>
+<li>三大運動定律</li>
+<li>萬有引力定律</li>
+</ul>
+</li>
+</ul>
+<h3 id="光學">光學</h3>
+<ul>
+<li>牛頓
+<ul>
+<li>粒子說(後影響愛因斯坦)</li>
+</ul>
+</li>
+<li><a href="/posts/physics/l4/##微粒說與波動說/">惠更斯</a>
+<ul>
+<li>波動說(後影響馬克士威)</li>
+</ul>
+</li>
+<li>都卜勒
+<ul>
+<li>都卜勒效應</li>
+</ul>
+</li>
+</ul>
+<h3 id="熱學">熱學</h3>
+<ul>
+<li>焦耳
+<ul>
+<li>熱是能量的一種</li>
+<li>熱功當量實驗
+<ul>
+<li>熱與能量可以互換</li>
+<li>$1$卡 $=$ $4.816$焦耳，$1$焦耳 $=$ $0.24$卡</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>克耳文 &mdash; 熱力學之父
+<ul>
+<li>絕對溫標</li>
+<li>絕對零度</li>
+</ul>
+</li>
+</ul>
+<h3 id="電磁學">電磁學</h3>
+<ul>
+<li>庫侖
+<ul>
+<li>庫倫定律</li>
+</ul>
+</li>
+<li>伏打
+<ul>
+<li>伏打電池</li>
+</ul>
+</li>
+<li>厄斯特
+<ul>
+<li>電流磁效應</li>
+</ul>
+</li>
+<li>安培
+<ul>
+<li>安培定律(磁場強度與導線中電流大小成正比)</li>
+<li>安培右手定則</li>
+</ul>
+</li>
+<li>歐姆
+<ul>
+<li>歐姆定律(流經電路的電流與兩端的電壓成正比)</li>
+</ul>
+</li>
+<li>法拉第
+<ul>
+<li>電磁感應</li>
+<li>提出磁力線、電力線概念解釋磁場、電場</li>
+</ul>
+</li>
+<li>冷次
+<ul>
+<li>冷次定律</li>
+</ul>
+</li>
+<li>馬克士威
+<ul>
+<li>馬克士威方程組統整電磁學理論</li>
+<li>預測電磁波存在，且光是電磁波，且光速$=$波速$=3 \times 10 ^ {8}(m/s)$</li>
+</ul>
+</li>
+</ul>
+<h2 id="現代物理1900年以後">現代物理(1900年以後)</h2>
+<ul>
+<li>普朗克
+<ul>
+<li>量子論(微觀下的物理學)</li>
+</ul>
+</li>
+<li>愛因斯坦
+<ul>
+<li>相對論
+<ul>
+<li>廣義相對論(高速下的物理學)</li>
+<li>狹義相對論(太空中巨大星系的時空扭曲現象)</li>
+</ul>
+</li>
+<li>光子說</li>
+</ul>
+</li>
+</ul>
+]]></content:encoded></item><item><title>物理L3</title><link>https://chaoray.github.io/posts/physics/l3/</link><pubDate>Sat, 12 Nov 2022 19:42:11 +0800</pubDate><guid>https://chaoray.github.io/posts/physics/l3/</guid><description>*克卜勒行星運動定律</description><content:encoded><![CDATA[<h1 id="第三課-大綱">第三課 大綱</h1>
 <blockquote>
 <p>3-1 對物體運動的研究歷程<br>
 3-2 牛頓運動定律<br>
@@ -472,280 +746,6 @@
 <ul>
 <li>光源$L$接近 =&gt; $f_r$增加，$\lambda_r$變短 =&gt; 藍移</li>
 <li>光源$L$遠離 =&gt; $f_r$減小，$\lambda_r$變長 =&gt; 紅移</li>
-</ul>
-</li>
-</ul>
-]]></content:encoded></item><item><title>物理L1</title><link>https://chaoray.github.io/posts/physics/l1/</link><pubDate>Sun, 16 Oct 2022 22:03:20 +0800</pubDate><guid>https://chaoray.github.io/posts/physics/l1/</guid><description>*科學方法與態度 *基本量 *物理學發展史</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
-<blockquote>
-<p>1-1 科學態度<br>
-1-2 科學的方法<br>
-1-3 物理學簡介</p>
-</blockquote>
-<hr>
-<h1 id="科學方法與態度">科學方法與態度</h1>
-<img src="/img/physics/L1/科學方法與態度.png">
-物理老師:這地方老師就跳過了，圖自己看一看阿
-<h1 id="基本單位">基本單位</h1>
-<ul>
-<li>基本量 = 數值 + 物理量</li>
-</ul>
-<h2 id="數值-----數量級">數值 &mdash; 數量級</h2>
-<p>有一數「$a \times b ^ {10}$」($1 \leq a &lt; 10$)</p>
-<ul>
-<li>若$a \geq \sqrt{10}$，數量級為<red>$b + 1$</red></li>
-<li>若$a &lt; \sqrt{10}$，數量級為$b$</li>
-</ul>
-<h2 id="單位-----輔助字首">單位 &mdash; 輔助字首</h2>
-<table>
-    <tr>
-        <td>英文</td>
-        <td>中文</td>
-        <td>代表數字</td>
-    </tr>
-    <tr>
-        <td>T</td>
-        <td>兆</td>
-        <td>$10 ^ {12}$</td>
-    </tr>
-    <tr>
-        <td>G</td>
-        <td>吉(十億)</td>
-        <td>$10 ^ {9}$</td>
-    </tr>
-    <tr>
-        <td>M</td>
-        <td>百萬</td>
-        <td>$10 ^ {6}$</td>
-    </tr>
-    <tr>
-        <td>k</td>
-        <td>千</td>
-        <td>$10 ^ {3}$</td>
-    </tr>
-    <tr>
-        <td></td><td></td><td></td>
-    </tr>
-    <tr>
-        <td>c</td>
-        <td>釐</td>
-        <td>$10 ^ {-2}$</td>
-    </tr>
-    <tr>
-        <td>m</td>
-        <td>毫</td>
-        <td>$10 ^ {-3}$</td>
-    </tr>
-    <tr>
-        <td>μ</td>
-        <td>微</td>
-        <td>$10 ^ {-6}$</td>
-    </tr>
-    <tr>
-        <td>n</td>
-        <td>奈</td>
-        <td>$10 ^ {-9}$</td>
-    </tr>
-    <tr>
-        <td>p</td>
-        <td>皮</td>
-        <td>$10 ^ {-12}$</td>
-    </tr>
-    <tr>
-        <td>f</td>
-        <td>飛</td>
-        <td>$10 ^ {-15}$</td>
-    </tr>
-</table>
-<ul>
-<li>公釐 = 毫米</li>
-<li>一埃(Å) = $10 ^ {-10}$m</li>
-</ul>
-<h2 id="單位-----基本單位與導出單位">單位 &mdash; 基本單位與導出單位</h2>
-<h3 id="基本單位-1">基本單位</h3>
-<table>
-    <tr>
-        <td>基本量</td>
-        <td>基本單位</td>
-        <td>現代定義</td>
-    </tr>
-    <tr>
-        <td>時間</td>
-        <td>秒(s)</td>
-        <td>銫原子振動週期的$9192631770$倍</td>
-    </tr>
-    <tr>
-        <td>長度</td>
-        <td>公尺(m)</td>
-        <td>利用光速在真空中的不變性，取其走一秒的距離除以${299792458}$</td>
-    </tr>
-    <tr>
-        <td>質量</td>
-        <td>公斤(kg)</td>
-        <td>利用<a href="https://zh.wikipedia.org/zh-tw/%E6%99%AE%E6%9C%97%E5%85%8B%E5%B8%B8%E6%95%B0">普朗克常數</a>在已知時間和長度的情形下定義</td>
-    </tr>
-    <tr>
-        <td>電流</td>
-        <td>安培(A)</td>
-        <td rowspan="3">(等級不足，尚未解鎖)</td>
-    </tr>
-    <tr>
-        <td>溫度</td>
-        <td>克爾文(K)</td>
-    </tr>
-    <tr>
-        <td>光強度</td>
-        <td>燭光(cd)</td>
-    </tr>
-    <tr>
-        <td>數量</td>
-        <td>莫耳(mol)</td>
-        <td>亞佛加厥數</td>
-    </tr>
-</table>
-<h3 id="導出單位">導出單位</h3>
-<table><tr><td>導出量 </td><td> 公式 </td><td> 導出單位 </td><td> 以SI單位表示  </td></tr><tr><td>力 </td><td> $F = ma$ </td><td> 牛頓(N) </td><td> $kg \times m/{s ^ {2}}$  </td></tr><tr><td>壓力 </td><td> $P = F / A$ </td><td> 帕斯卡(Pa) </td><td> $kg/{ms ^ {2}}$  </td></tr><tr><td>功、能量 </td><td> $W = F \times S$ </td><td> 焦耳(J) </td><td> $kg \times m ^ {2} / s ^ {2}$  </td></tr><tr><td>頻率 </td><td> $f = \frac{1}{s}$ </td><td> 赫茲(Hz) </td><td> $1 / s$  </td></tr><tr><td>功率 </td><td> $P = W / t$ </td><td> 瓦特(W) </td><td> $kg \times m ^ {2} / s ^ {3}$  </td></tr><tr><td>電量 </td><td> $Q = I \times t$ </td><td> 庫侖(C) </td><td> $A \times s$  </td></tr><tr><td>電壓 </td><td> $V = Q / I$ </td><td> 伏特(V) </td><td> $(kg \times m ^ {2}) / (A \times s ^ {3})$  </td></tr><tr><td>電阻 </td><td> $R = V / I$ </td><td> 歐姆(Ω) </td><td> $(kg \times m ^ {2}) / (A  ^ {2} \times s ^ {3})$  </td></tr><tr><td>面積 </td><td> $A = L ^ {2}$ </td><td> 無 </td><td> $m ^ {2}$  </td></tr><tr><td>體積 </td><td> $V = L ^ {3}$ </td><td> 無 </td><td> $m ^ {3}$  </td></tr><tr><td>密度 </td><td> $D = \frac{M}{V}$ </td><td> 無 </td><td> $kg / m ^ {3}$  </td></tr><tr><td>加速度 </td><td> $a = v / t$ </td><td> 無 </td><td> $m / s ^ {2}$  </td></tr><tr><td>力矩 </td><td> $L = F \times d$ </td><td> 無 </td><td> $kg \times m ^ {2} / s ^ {2}$  </td></tr><tr></tr></table>
-<table><tr><td>特殊 </td><td> 公式 </td><td> 計算過程 </td><td> 以SI單位表示  </td></tr><tr><td>單擺週期公式 </td><td> $T = \sqrt{\frac{L}{g}}$ </td><td> $\sqrt{\frac{m}{m \times s ^ {2}}}$ </td><td> $s$  </td></tr><tr><td>重力常數 </td><td> $G = \frac{F \times r ^ {2}}{M_1 \times M_2}$ </td><td> $\frac{(kg \times m/{s ^ {2}}) \times m ^ {2}}{kg ^ {2}}$ </td><td> $m ^ {3} / (kg \times s ^ {2})$  </td></tr><tr><td>庫侖力常數 </td><td> $k = \frac{F \times r ^ {2}}{Q_1 \times Q_2}$ </td><td> $\frac{(kg \times m/{s ^ {2}}) \times m ^ {2}}{(A \times s) ^ {2}}$ </td><td> $\frac{kg \times m ^ {3}}{A ^ {2} \times s ^ {4}}$  </td></tr></table>
-<h1 id="科學家們">科學家們(?)</h1>
-<h2 id="古典物理1900以前">古典物理(1900以前)</h2>
-<h3 id="天文學">天文學</h3>
-<ul>
-<li>托勒米
-<ul>
-<li>地心說</li>
-</ul>
-</li>
-<li>哥白尼
-<ul>
-<li>日心說</li>
-<li>萬物皆可以數字呈現</li>
-</ul>
-</li>
-<li><a href="/posts/physics/l3/#克卜勒行星運動定律/">克卜勒</a>
-<ul>
-<li>行星三大運動定律</li>
-</ul>
-</li>
-</ul>
-<h3 id="力學">力學</h3>
-<ul>
-<li>伽利略 &mdash; 實驗物理之父
-<ul>
-<li>斜面實驗證明速率與時間成正比</li>
-<li>數學觀</li>
-</ul>
-</li>
-<li>笛卡兒
-<ul>
-<li>機械論(質點、運動)</li>
-</ul>
-</li>
-<li>牛頓
-<ul>
-<li>三大運動定律</li>
-<li>萬有引力定律</li>
-</ul>
-</li>
-</ul>
-<h3 id="光學">光學</h3>
-<ul>
-<li>牛頓
-<ul>
-<li>粒子說(後影響愛因斯坦)</li>
-</ul>
-</li>
-<li><a href="/posts/physics/l4/##微粒說與波動說/">惠更斯</a>
-<ul>
-<li>波動說(後影響馬克士威)</li>
-</ul>
-</li>
-<li>都卜勒
-<ul>
-<li>都卜勒效應</li>
-</ul>
-</li>
-</ul>
-<h3 id="熱學">熱學</h3>
-<ul>
-<li>焦耳
-<ul>
-<li>熱是能量的一種</li>
-<li>熱功當量實驗
-<ul>
-<li>熱與能量可以互換</li>
-<li>$1$卡 $=$ $4.816$焦耳，$1$焦耳 $=$ $0.24$卡</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>克耳文 &mdash; 熱力學之父
-<ul>
-<li>絕對溫標</li>
-<li>絕對零度</li>
-</ul>
-</li>
-</ul>
-<h3 id="電磁學">電磁學</h3>
-<ul>
-<li>庫侖
-<ul>
-<li>庫倫定律</li>
-</ul>
-</li>
-<li>伏打
-<ul>
-<li>伏打電池</li>
-</ul>
-</li>
-<li>厄斯特
-<ul>
-<li>電流磁效應</li>
-</ul>
-</li>
-<li>安培
-<ul>
-<li>安培定律(磁場強度與導線中電流大小成正比)</li>
-<li>安培右手定則</li>
-</ul>
-</li>
-<li>歐姆
-<ul>
-<li>歐姆定律(流經電路的電流與兩端的電壓成正比)</li>
-</ul>
-</li>
-<li>法拉第
-<ul>
-<li>電磁感應</li>
-<li>提出磁力線、電力線概念解釋磁場、電場</li>
-</ul>
-</li>
-<li>冷次
-<ul>
-<li>冷次定律</li>
-</ul>
-</li>
-<li>馬克士威
-<ul>
-<li>馬克士威方程組統整電磁學理論</li>
-<li>預測電磁波存在，且光是電磁波，且光速$=$波速$=3 \times 10 ^ {8}(m/s)$</li>
-</ul>
-</li>
-</ul>
-<h2 id="現代物理1900年以後">現代物理(1900年以後)</h2>
-<ul>
-<li>普朗克
-<ul>
-<li>量子論(微觀下的物理學)</li>
-</ul>
-</li>
-<li>愛因斯坦
-<ul>
-<li>相對論
-<ul>
-<li>廣義相對論(高速下的物理學)</li>
-<li>狹義相對論(太空中巨大星系的時空扭曲現象)</li>
-</ul>
-</li>
-<li>光子說</li>
 </ul>
 </li>
 </ul>
