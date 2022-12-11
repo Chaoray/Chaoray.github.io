@@ -5,6 +5,7 @@ draft: false
 description: "*原住民族簡介"
 categories: ["歷史"]
 tags: ["L1", "原住民"]
+weight: 20
 ShowToc: true
 ---
 # 台灣現代原住民族

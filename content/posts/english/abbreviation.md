@@ -5,6 +5,7 @@ draft: false
 description: "*縮寫"
 categories: ["英文"]
 tags: ["縮寫"]
+weight: 10
 ShowToc: true
 katex: true
 ---
