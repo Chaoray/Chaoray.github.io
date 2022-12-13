@@ -15,7 +15,7 @@ noTips: true
   </tr>
   <tr>
     <td>英文</td>
-    <td>L7 ~ L8</td>
+    <td>L7 ~ 8</td>
   </tr>
   <tr>
     <td>數學</td>
