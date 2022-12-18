@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>英文 on 高中筆記整理</title><link>https://chaoray.github.io/categories/%E8%8B%B1%E6%96%87/</link><description>Recent content in 英文 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sun, 20 Nov 2022 16:40:01 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/categories/%E8%8B%B1%E6%96%87/index.xml" rel="self" type="application/rss+xml"/><item><title>英文縮寫</title><link>https://chaoray.github.io/posts/english/abbreviation/</link><pubDate>Wed, 02 Nov 2022 21:43:12 +0800</pubDate><guid>https://chaoray.github.io/posts/english/abbreviation/</guid><description>*縮寫</description><content:encoded><![CDATA[<h1 id="詞性">詞性</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>英文 on 高中筆記整理</title><link>https://chaoray.github.io/categories/%E8%8B%B1%E6%96%87/</link><description>Recent content in 英文 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sun, 18 Dec 2022 12:47:24 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/categories/%E8%8B%B1%E6%96%87/index.xml" rel="self" type="application/rss+xml"/><item><title>英文縮寫</title><link>https://chaoray.github.io/posts/english/abbreviation/</link><pubDate>Wed, 02 Nov 2022 21:43:12 +0800</pubDate><guid>https://chaoray.github.io/posts/english/abbreviation/</guid><description>*縮寫</description><content:encoded><![CDATA[<h1 id="詞性">詞性</h1>
 <table>
   <tr>
     <td>abbr.</td>
@@ -101,7 +101,11 @@
   <tr>
     <td>Ved</td>
     <td></td>
-    <td>動詞(過去分詞)</td>
+    <td rowspan="2">動詞(過去分詞)</td>
+  </tr>
+  <tr>
+    <td>p.p.</td>
+    <td>past participle</td>
   </tr>
   <tr>
     <td>O.</td>
@@ -3739,6 +3743,484 @@
 <li>avoid + V-ing 避免</li>
 <li>choose&hellip;over&hellip; 選擇&hellip;而不是</li>
 <li>by % 占百分之</li>
+</ul>
+]]></content:encoded></item><item><title>英文L7</title><link>https://chaoray.github.io/posts/english/l7/</link><pubDate>Sun, 18 Dec 2022 12:47:24 +0800</pubDate><guid>https://chaoray.github.io/posts/english/l7/</guid><description>*單字 *片語 *文法</description><content:encoded><![CDATA[<h1 id="l7-大綱">L7 大綱</h1>
+<p>英文哪來的大綱啦(老梗了啦)</p>
+<hr>
+<h1 id="單字">單字</h1>
+<h2 id="decoration">decoration</h2>
+<table>
+  <tr>
+    <td rowspan="2">decoration</td>
+    <td rowspan="2">n[C].</td>
+    <td>裝飾(品)</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>獎章 ; 勳章</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>decorate</td>
+    <td>vt.</td>
+    <td>裝飾</td>
+    <td>decorate...with... 用...裝飾</td>
+  </tr>
+</table>
+<h2 id="plain">plain</h2>
+<table>
+  <tr>
+    <td rowspan="2">plain</td>
+    <td rowspan="2">adj.</td>
+    <td>普通的 ; 樸素的</td>
+    <td>plain clothes 便衣</td>
+  </tr>
+  <tr>
+    <td>淺顯的</td>
+    <td></td>
+  </tr>
+</table>
+<h2 id="commercial">commercial</h2>
+<table>
+  <tr>
+    <td rowspan="3">commercial</td>
+    <td rowspan="2">adj.</td>
+    <td>商業化的</td>
+    <td>反義：non-commercial (adj.) 非商業用的</td>
+  </tr>
+  <tr>
+    <td>商業的</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>n[C].</td>
+    <td>(電視、廣播裡的)廣告</td>
+    <td></td>
+  </tr>
+</table>
+<h2 id="aspect">aspect</h2>
+<table>
+  <tr>
+    <td>aspect</td>
+    <td>n[C].</td>
+    <td>方面</td>
+    <td>all aspects of life 生活各個層面</td>
+  </tr>
+</table>
+<h2 id="match">match</h2>
+<table>
+  <tr>
+    <td rowspan="3">match</td>
+    <td rowspan="2">n[C].</td>
+    <td>比賽</td>
+    <td>a shouting match 大聲議論</td>
+  </tr>
+  <tr>
+    <td>火柴</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>vy. vi.</td>
+    <td>搭配 ; 相配</td>
+    <td></td>
+  </tr>
+</table>
+<h2 id="compete">compete</h2>
+<table>
+  <tr>
+    <td rwospan="3">compete</td>
+    <td rwospan="3">vi.</td>
+    <td rwospan="3">競爭</td>
+    <td>compete with/against + 人</td>
+  </tr>
+  <tr>
+    <td>compete for + 物</td>
+  </tr>
+  <tr>
+    <td>compete in 場合</td>
+  </tr>
+  <tr>
+    <td>competition</td>
+    <td>n[U].</td>
+    <td>競爭</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>competite</td>
+    <td>adj.</td>
+    <td>競爭激烈的</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>competitor</td>
+    <td>n[C].</td>
+    <td>競爭者</td>
+    <td></td>
+  </tr>
+</table>
+<h2 id="sponsor">sponsor</h2>
+<table>
+  <tr>
+    <td>sponsor</td>
+    <td>vt.</td>
+    <td>贊助</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>n[C].</td>
+    <td>贊助者 ; 贊助商</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>sponsorship</td>
+    <td>n[U].</td>
+    <td>贊助</td>
+    <td></td>
+  </tr>
+</table>
+<h2 id="protective">protective</h2>
+<table>
+  <tr>
+    <td>protective</td>
+    <td>adj.</td>
+    <td>保護的</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>protect</td>
+    <td>vt.</td>
+    <td>保護</td>
+    <td>protect...from... 保護...不被...</td>
+  </tr>
+  <tr>
+    <td>protection</td>
+    <td>n[U].</td>
+    <td>保護</td>
+    <td></td>
+  </tr>
+</table>
+<h2 id="potential">potential</h2>
+<table>
+  <tr>
+    <td rowspan="2">potential</td>
+    <td>n[U].</td>
+    <td>潛力</td>
+    <td>realize one's potential 發揮潛力</td>
+  </tr>
+  <tr>
+    <td>adj.</td>
+    <td>潛在的</td>
+    <td></td>
+  </tr>
+</table>
+<h2 id="coach">coach</h2>
+<table>
+  <tr>
+    <td rowspan="3">coach</td>
+    <td>vt.</td>
+    <td>訓練 ; 培訓</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>n[C].</td>
+    <td>教練</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>n[U].</td>
+    <td>經濟艙</td>
+    <td></td>
+  </tr>
+</table>
+<h2 id="goods">goods</h2>
+<table>
+  <tr>
+    <td>goods</td>
+    <td>n[C]. (pl.)</td>
+    <td>商品</td>
+    <td>deliver tthe goods 履行諾言 ; 不負眾望</td>
+  </tr>
+</table>
+<h2 id="helmet">helmet</h2>
+<table>
+  <tr>
+    <td>helmet</td>
+    <td>n[C].</td>
+    <td>頭盔 ; 安全帽</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>helmeted</td>
+    <td>adj.</td>
+    <td>戴著頭盔的</td>
+    <td></td>
+  </tr>
+</table>
+<h2 id="deliver">deliver</h2>
+<table>
+  <tr>
+    <td>deliver</td>
+    <td>vt.</td>
+    <td>遞送</td>
+    <td>deliver a speech 演講</td>
+  </tr>
+  <tr>
+    <td>delivery</td>
+    <td>n[C/U].</td>
+    <td>遞送</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>deliverer</td>
+    <td>n[C].</td>
+    <td>送貨員</td>
+    <td></td>
+  </tr>
+</table>
+<h2 id="annual">annual</h2>
+<table>
+  <tr>
+    <td>annual</td>
+    <td>adj.</td>
+    <td>每年的</td>
+    <td>annual event 年度盛事</td>
+  </tr>
+  <tr>
+    <td>annually</td>
+    <td>adv.</td>
+    <td>每年地</td>
+    <td></td>
+  </tr>
+</table>
+<h2 id="tradition">tradition</h2>
+<table>
+  <tr>
+    <td>tradition</td>
+    <td>n[C/U].</td>
+    <td>傳統</td>
+    <td>family tradition 家族傳統</td>
+  </tr>
+  <tr>
+    <td>traditional</td>
+    <td>adj.</td>
+    <td>傳統的</td>
+    <td></td>
+  </tr>
+</table>
+<h2 id="cancer">cancer</h2>
+<table>
+  <tr>
+    <td>cancer</td>
+    <td>n[C/U].</td>
+    <td>癌症</td>
+    <td>相似：Cancer (n[U].) 巨蟹座</td>
+  </tr>
+</table>
+<h2 id="barely">barely</h2>
+<table>
+  <tr>
+    <td>barely</td>
+    <td>adv.</td>
+    <td>幾乎無法</td>
+    <td>同義：hardly, scarcely (adv.) 幾乎不</td>
+  </tr>
+  <tr>
+    <td>bare</td>
+    <td>adj.</td>
+    <td>赤裸的</td>
+    <td></td>
+  </tr>
+</table>
+<h1 id="片語">片語</h1>
+<h2 id="light-up">light up</h2>
+<ul>
+<li>照亮 ; 使變亮 ; 使空間氣氛變歡樂</li>
+<li>light &gt; lit &gt; lit</li>
+</ul>
+<h2 id="then-and-there">then and there</h2>
+<ul>
+<li>當下</li>
+<li>同義
+<ul>
+<li>there and then</li>
+<li>immediately</li>
+</ul>
+</li>
+</ul>
+<h2 id="look-forward-to">look forward to</h2>
+<ul>
+<li>期待</li>
+<li>接V-ing</li>
+</ul>
+<h2 id="pass-away">pass away</h2>
+<ul>
+<li>過世 ; 死亡(委婉)</li>
+<li>同義
+<ul>
+<li>die</li>
+</ul>
+</li>
+<li>pass away from&hellip; 因&hellip;而過世
+<ul>
+<li>同義
+<ul>
+<li>be died of</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="come-around">come around</h2>
+<ul>
+<li>(如往常一般)到來</li>
+</ul>
+<h2 id="keep-up">keep up</h2>
+<ul>
+<li>繼續下去</li>
+</ul>
+<h2 id="ever-since">ever since</h2>
+<ul>
+<li>從那時起</li>
+<li>(Ever) since S + 過去式, S + 完成式</li>
+</ul>
+<h1 id="文法">文法</h1>
+<h2 id="s--have--o--pp-">S + have + O + p.p. &hellip;</h2>
+<ul>
+<li>S + have + O + p.p. 讓某人/某事被&hellip;</li>
+<li>S + have + O + VR 要某人做&hellip;(使役)</li>
+</ul>
+<h2 id="wh---to--vr">wh- + to + VR</h2>
+<ul>
+<li>= wwh- + S + should/could/can + VR</li>
+</ul>
+<h2 id="s--make--o--vr">S + make + O + VR</h2>
+<ul>
+<li>S + make + O + VR 使 某人/某物引起或導致某種反應</li>
+<li>S + make + O + N 使某人/某物成為&hellip;</li>
+<li>S + make + O + adj. 讓某人/某物&hellip;</li>
+</ul>
+<h2 id="s--will-be--v-ing">S + will be + V-ing</h2>
+<ul>
+<li>未來進行式</li>
+<li>表示在未來某時間點，依計畫或習慣，有個動作將正在進行中</li>
+</ul>
+<h1 id="課外補充">課外補充</h1>
+<ul>
+<li>
+<p>bravery (n[U].) 勇敢</p>
+<ul>
+<li>brave (adj.) 勇敢的</li>
+</ul>
+</li>
+<li>
+<p>speak in 用某語言說</p>
+<ul>
+<li>speak/spoke/spoken</li>
+</ul>
+</li>
+<li>
+<p>get sb. to VR 要某人去做某事</p>
+</li>
+<li>
+<p>choose from 選擇</p>
+<ul>
+<li>choose &gt; chose &gt; chosen</li>
+</ul>
+</li>
+<li>
+<p>take part in 參與</p>
+<ul>
+<li>同義
+<ul>
+<li>participate in
+<ul>
+<li>anticipate (vt.) 期望</li>
+</ul>
+</li>
+<li>join</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>provide 提供</p>
+<ul>
+<li>sb. with sth.</li>
+<li>sth. for sb.</li>
+</ul>
+</li>
+<li>
+<p>floor time 上場時間</p>
+</li>
+<li>
+<p>pose (vt.) 造成</p>
+</li>
+<li>
+<p>take over 接管 ; 取代</p>
+</li>
+<li>
+<p>ship (vt.) 運送</p>
+</li>
+<li>
+<p>candidate (n[C].) 候選人</p>
+</li>
+<li>
+<p>take place 舉行</p>
+</li>
+<li>
+<p>introduction (n[U].) 介紹 ; 引進 ; 帶來</p>
+</li>
+<li>
+<p>place (vi.) 放置</p>
+<ul>
+<li>同義
+<ul>
+<li>put</li>
+<li>lay</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>in the branches 在枝上</p>
+<ul>
+<li>in the tree 在樹上</li>
+</ul>
+</li>
+<li>
+<p>overshadow (vt.) 掩蓋</p>
+<ul>
+<li>be surrounded by</li>
+</ul>
+</li>
+<li>
+<p>wresting (adj.) 摔角的</p>
+</li>
+<li>
+<p>ragged (adj.) 破爛的</p>
+</li>
+<li>
+<p>sneakers (n[C].) 運動鞋</p>
+</li>
+<li>
+<p>headgear (n[C].) 頭盔</p>
+</li>
+<li>
+<p>amomymously (adv.) 匿名地</p>
+</li>
+<li>
+<p>share&hellip;with&hellip; 把&hellip;分享給&hellip;</p>
+</li>
+<li>
+<p>sit (vi.) 放在</p>
+</li>
+<li>
+<p>hang</p>
+<ul>
+<li>hang &gt; hung &gt; hung (vi.) 懸掛</li>
+<li>hanged &gt; hanged &gt; hanged (vt.) 吊死</li>
+</ul>
+</li>
 </ul>
 ]]></content:encoded></item><item><title>空英 -二段範圍</title><link>https://chaoray.github.io/posts/english/conging_2nd_exam/</link><pubDate>Sun, 20 Nov 2022 16:40:01 +0800</pubDate><guid>https://chaoray.github.io/posts/english/conging_2nd_exam/</guid><description>*單字 *片語</description><content:encoded><![CDATA[<h1 id="大綱">大綱</h1>
 <p>空英也沒有大綱啦</p>
