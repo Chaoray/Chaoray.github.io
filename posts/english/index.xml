@@ -4403,7 +4403,6 @@
     <td></td>
   </tr>
   <tr>
-    <td>n[C].</td>
     <td>主動提議 ; 建議</td>
     <td></td>
   </tr>
@@ -4458,8 +4457,8 @@
 <h2 id="trap">trap</h2>
 <table>
   <tr>
-    <td rowwspan="3">trap</td>
-    <td rowwspan="2">n[C].</td>
+    <td rowspan="3">trap</td>
+    <td rowspan="2">n[C].</td>
     <td>圈套</td>
     <td>fall into the trap of 落入...的圈套</td>
   </tr>
