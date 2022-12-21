@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>切線 on 高中筆記整理</title><link>https://chaoray.github.io/tags/%E5%88%87%E7%B7%9A/</link><description>Recent content in 切線 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sun, 20 Nov 2022 16:17:10 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/%E5%88%87%E7%B7%9A/index.xml" rel="self" type="application/rss+xml"/><item><title>數學L7</title><link>https://chaoray.github.io/posts/math/l7/</link><pubDate>Sun, 20 Nov 2022 16:17:10 +0800</pubDate><guid>https://chaoray.github.io/posts/math/l7/</guid><description>*切線</description><content:encoded><![CDATA[<h1 id="第七課-大綱">第七課 大綱</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>切線 on 高中筆記整理</title>
+    <link>https://chaoray.github.io/tags/%E5%88%87%E7%B7%9A/</link>
+    <description>Recent content in 切線 on 高中筆記整理</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sun, 20 Nov 2022 16:17:10 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/%E5%88%87%E7%B7%9A/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>數學L7</title>
+      <link>https://chaoray.github.io/posts/math/l7/</link>
+      <pubDate>Sun, 20 Nov 2022 16:17:10 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/math/l7/</guid>
+      <description>*切線</description>
+      <content:encoded><![CDATA[<h1 id="第七課-大綱">第七課 大綱</h1>
 <blockquote>
 <p>甲 圓指直線關係的判定<br>
 乙 圓的的切線方程式</p>
@@ -148,4 +164,8 @@ $\frac{|mh - k - mx_1 + y_1|}{\sqrt{m^2 + (-1)^2}} = r$</p>
 將P點對稱X/Y軸之後求切線方程式，然後判斷有兩條還是一條</p>
 <h3 id="一光線經過p點求xy軸陰影長度">一光線經過P點，求X/Y軸陰影長度</h3>
 <p>求兩切線之後，解出與X/Y軸的交點，兩交點相減加絕對值就是陰影長度</p>
-]]></content:encoded></item></channel></rss>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

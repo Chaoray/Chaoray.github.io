@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>L7 on 高中筆記整理</title><link>https://chaoray.github.io/tags/l7/</link><description>Recent content in L7 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sun, 18 Dec 2022 12:47:24 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/l7/index.xml" rel="self" type="application/rss+xml"/><item><title>數學L7</title><link>https://chaoray.github.io/posts/math/l7/</link><pubDate>Sun, 20 Nov 2022 16:17:10 +0800</pubDate><guid>https://chaoray.github.io/posts/math/l7/</guid><description>*切線</description><content:encoded><![CDATA[<h1 id="第七課-大綱">第七課 大綱</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>L7 on 高中筆記整理</title>
+    <link>https://chaoray.github.io/tags/l7/</link>
+    <description>Recent content in L7 on 高中筆記整理</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sun, 18 Dec 2022 12:47:24 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/l7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>數學L7</title>
+      <link>https://chaoray.github.io/posts/math/l7/</link>
+      <pubDate>Sun, 20 Nov 2022 16:17:10 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/math/l7/</guid>
+      <description>*切線</description>
+      <content:encoded><![CDATA[<h1 id="第七課-大綱">第七課 大綱</h1>
 <blockquote>
 <p>甲 圓指直線關係的判定<br>
 乙 圓的的切線方程式</p>
@@ -148,7 +164,17 @@ $\frac{|mh - k - mx_1 + y_1|}{\sqrt{m^2 + (-1)^2}} = r$</p>
 將P點對稱X/Y軸之後求切線方程式，然後判斷有兩條還是一條</p>
 <h3 id="一光線經過p點求xy軸陰影長度">一光線經過P點，求X/Y軸陰影長度</h3>
 <p>求兩切線之後，解出與X/Y軸的交點，兩交點相減加絕對值就是陰影長度</p>
-]]></content:encoded></item><item><title>國文L7</title><link>https://chaoray.github.io/posts/chinese/l7/</link><pubDate>Sun, 20 Nov 2022 12:31:51 +0800</pubDate><guid>https://chaoray.github.io/posts/chinese/l7/</guid><description>*范進中舉</description><content:encoded><![CDATA[<h1 id="題解">題解</h1>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>國文L7</title>
+      <link>https://chaoray.github.io/posts/chinese/l7/</link>
+      <pubDate>Sun, 20 Nov 2022 12:31:51 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/chinese/l7/</guid>
+      <description>*范進中舉</description>
+      <content:encoded><![CDATA[<h1 id="題解">題解</h1>
 <ul>
 <li>出處：《儒林外史》第三回 「周學道校士拔真才，胡屠戶行兇鬧捷報」</li>
 <li>文體：章回體諷刺小說
@@ -648,7 +674,17 @@ $\frac{|mh - k - mx_1 + y_1|}{\sqrt{m^2 + (-1)^2}} = r$</p>
 <li>六才子書：《莊子》、屈原《離騷》、司馬遷《史記》、杜甫《杜詩》、《水滸傳》、《西廂記》</li>
 <li>四大奇書：《水滸傳》、《三國演義》、《西遊記》、《金瓶梅》</li>
 </ul>
-]]></content:encoded></item><item><title>英文L7</title><link>https://chaoray.github.io/posts/english/l7/</link><pubDate>Sun, 18 Dec 2022 12:47:24 +0800</pubDate><guid>https://chaoray.github.io/posts/english/l7/</guid><description>*單字 *片語 *文法</description><content:encoded><![CDATA[<h1 id="l7-大綱">L7 大綱</h1>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>英文L7</title>
+      <link>https://chaoray.github.io/posts/english/l7/</link>
+      <pubDate>Sun, 18 Dec 2022 12:47:24 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/english/l7/</guid>
+      <description>*單字 *片語 *文法</description>
+      <content:encoded><![CDATA[<h1 id="l7-大綱">L7 大綱</h1>
 <p>英文哪來的大綱啦(老梗了啦)</p>
 <hr>
 <h1 id="單字">單字</h1>
@@ -1126,4 +1162,8 @@ $\frac{|mh - k - mx_1 + y_1|}{\sqrt{m^2 + (-1)^2}} = r$</p>
 </ul>
 </li>
 </ul>
-]]></content:encoded></item></channel></rss>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

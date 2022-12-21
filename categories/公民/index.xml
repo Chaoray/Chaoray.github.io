@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>公民 on 高中筆記整理</title><link>https://chaoray.github.io/categories/%E5%85%AC%E6%B0%91/</link><description>Recent content in 公民 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Fri, 25 Nov 2022 20:25:20 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/categories/%E5%85%AC%E6%B0%91/index.xml" rel="self" type="application/rss+xml"/><item><title>公民L1</title><link>https://chaoray.github.io/posts/civics/l1/</link><pubDate>Sat, 22 Oct 2022 13:48:26 +0800</pubDate><guid>https://chaoray.github.io/posts/civics/l1/</guid><description>*公民權利 *人權發展 *人權公約</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>公民 on 高中筆記整理</title>
+    <link>https://chaoray.github.io/categories/%E5%85%AC%E6%B0%91/</link>
+    <description>Recent content in 公民 on 高中筆記整理</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Fri, 25 Nov 2022 20:25:20 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/categories/%E5%85%AC%E6%B0%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>公民L1</title>
+      <link>https://chaoray.github.io/posts/civics/l1/</link>
+      <pubDate>Sat, 22 Oct 2022 13:48:26 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/civics/l1/</guid>
+      <description>*公民權利 *人權發展 *人權公約</description>
+      <content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
 <blockquote>
 <p>1-1 公民身份與權利<br>
 1-2 普世人權的實現</p>
@@ -145,7 +161,17 @@
 </ul>
 </li>
 </ul>
-]]></content:encoded></item><item><title>公民L3</title><link>https://chaoray.github.io/posts/civics/l3/</link><pubDate>Sat, 05 Nov 2022 14:27:54 +0800</pubDate><guid>https://chaoray.github.io/posts/civics/l3/</guid><description>*媒體</description><content:encoded><![CDATA[<h1 id="第三課-大綱">第三課 大綱</h1>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>公民L3</title>
+      <link>https://chaoray.github.io/posts/civics/l3/</link>
+      <pubDate>Sat, 05 Nov 2022 14:27:54 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/civics/l3/</guid>
+      <description>*媒體</description>
+      <content:encoded><![CDATA[<h1 id="第三課-大綱">第三課 大綱</h1>
 <blockquote>
 <p>3-1 媒體與公共意見<br>
 3-2 媒體素養與監督</p>
@@ -374,7 +400,17 @@
     </td>
     <td></td>
   </tr>
-</table>]]></content:encoded></item><item><title>公民L4</title><link>https://chaoray.github.io/posts/civics/l4/</link><pubDate>Fri, 25 Nov 2022 20:25:20 +0800</pubDate><guid>https://chaoray.github.io/posts/civics/l4/</guid><description>*民主治理 *課責監督 *選舉 *政治參與</description><content:encoded><![CDATA[<h1 id="第四課-大綱">第四課 大綱</h1>
+</table>]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>公民L4</title>
+      <link>https://chaoray.github.io/posts/civics/l4/</link>
+      <pubDate>Fri, 25 Nov 2022 20:25:20 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/civics/l4/</guid>
+      <description>*民主治理 *課責監督 *選舉 *政治參與</description>
+      <content:encoded><![CDATA[<h1 id="第四課-大綱">第四課 大綱</h1>
 <blockquote>
 <p>4-1 民主治理的發展與實踐<br>
 4-2 民主治理的課責<br>
@@ -1063,4 +1099,8 @@
 <li>結合相同立場的群眾，發揮超越個人的集體性力量，產生對公共事務較大的影響力</li>
 <li>彌補選舉罷免及公投等參與形式的時間與空間限制</li>
 </ul>
-]]></content:encoded></item></channel></rss>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

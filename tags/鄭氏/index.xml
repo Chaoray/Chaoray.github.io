@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>鄭氏 on 高中筆記整理</title><link>https://chaoray.github.io/tags/%E9%84%AD%E6%B0%8F/</link><description>Recent content in 鄭氏 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 22 Oct 2022 13:42:41 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/%E9%84%AD%E6%B0%8F/index.xml" rel="self" type="application/rss+xml"/><item><title>歷史L1</title><link>https://chaoray.github.io/posts/history/l1/</link><pubDate>Sat, 22 Oct 2022 13:42:41 +0800</pubDate><guid>https://chaoray.github.io/posts/history/l1/</guid><description>原住民族 *名稱變化 *生活型態 *外來者互動</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>鄭氏 on 高中筆記整理</title>
+    <link>https://chaoray.github.io/tags/%E9%84%AD%E6%B0%8F/</link>
+    <description>Recent content in 鄭氏 on 高中筆記整理</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sat, 22 Oct 2022 13:42:41 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/%E9%84%AD%E6%B0%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>歷史L1</title>
+      <link>https://chaoray.github.io/posts/history/l1/</link>
+      <pubDate>Sat, 22 Oct 2022 13:42:41 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/history/l1/</guid>
+      <description>原住民族 *名稱變化 *生活型態 *外來者互動</description>
+      <content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
 <blockquote>
 <p>1-1 早期的住民們<br>
 1-2 原住民族與外來者的互動</p>
@@ -341,4 +357,8 @@
 </ul>
 </li>
 </ul>
-]]></content:encoded></item></channel></rss>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

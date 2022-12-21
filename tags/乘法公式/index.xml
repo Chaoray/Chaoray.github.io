@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>乘法公式 on 高中筆記整理</title><link>https://chaoray.github.io/tags/%E4%B9%98%E6%B3%95%E5%85%AC%E5%BC%8F/</link><description>Recent content in 乘法公式 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sun, 30 Oct 2022 12:53:09 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/%E4%B9%98%E6%B3%95%E5%85%AC%E5%BC%8F/index.xml" rel="self" type="application/rss+xml"/><item><title>數學L1</title><link>https://chaoray.github.io/posts/math/l1/</link><pubDate>Sun, 30 Oct 2022 12:53:09 +0800</pubDate><guid>https://chaoray.github.io/posts/math/l1/</guid><description>*實數 *乘法公式 *根號</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>乘法公式 on 高中筆記整理</title>
+    <link>https://chaoray.github.io/tags/%E4%B9%98%E6%B3%95%E5%85%AC%E5%BC%8F/</link>
+    <description>Recent content in 乘法公式 on 高中筆記整理</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sun, 30 Oct 2022 12:53:09 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/%E4%B9%98%E6%B3%95%E5%85%AC%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>數學L1</title>
+      <link>https://chaoray.github.io/posts/math/l1/</link>
+      <pubDate>Sun, 30 Oct 2022 12:53:09 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/math/l1/</guid>
+      <description>*實數 *乘法公式 *根號</description>
+      <content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
 <blockquote>
 <p>甲 有理數<br>
 乙 無理數與實數<br>
@@ -311,4 +327,8 @@
 </ul>
 </li>
 </ul>
-]]></content:encoded></item></channel></rss>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>L1 on 高中筆記整理</title><link>https://chaoray.github.io/tags/l1/</link><description>Recent content in L1 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sun, 30 Oct 2022 16:05:35 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/l1/index.xml" rel="self" type="application/rss+xml"/><item><title>國文L1</title><link>https://chaoray.github.io/posts/chinese/l1/</link><pubDate>Sun, 30 Oct 2022 16:05:35 +0800</pubDate><guid>https://chaoray.github.io/posts/chinese/l1/</guid><description>*桃花源記</description><content:encoded><![CDATA[<p>國文筆記食用辦法：<br>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>L1 on 高中筆記整理</title>
+    <link>https://chaoray.github.io/tags/l1/</link>
+    <description>Recent content in L1 on 高中筆記整理</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sun, 30 Oct 2022 16:05:35 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/l1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>國文L1</title>
+      <link>https://chaoray.github.io/posts/chinese/l1/</link>
+      <pubDate>Sun, 30 Oct 2022 16:05:35 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/chinese/l1/</guid>
+      <description>*桃花源記</description>
+      <content:encoded><![CDATA[<p>國文筆記食用辦法：<br>
 <red>紅色</red>: 課文註解<br>
 <blue>藍色</blue>: 修辭<br>
 黑(白)色: 字詞解釋</p>
@@ -282,7 +298,17 @@
     <td>100歲以上</td>
     <td>多指有德行或高壽的人</td>
   </tr>
-</table>]]></content:encoded></item><item><title>數學L1</title><link>https://chaoray.github.io/posts/math/l1/</link><pubDate>Sun, 30 Oct 2022 12:53:09 +0800</pubDate><guid>https://chaoray.github.io/posts/math/l1/</guid><description>*實數 *乘法公式 *根號</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
+</table>]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>數學L1</title>
+      <link>https://chaoray.github.io/posts/math/l1/</link>
+      <pubDate>Sun, 30 Oct 2022 12:53:09 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/math/l1/</guid>
+      <description>*實數 *乘法公式 *根號</description>
+      <content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
 <blockquote>
 <p>甲 有理數<br>
 乙 無理數與實數<br>
@@ -595,7 +621,17 @@
 </ul>
 </li>
 </ul>
-]]></content:encoded></item><item><title>公民L1</title><link>https://chaoray.github.io/posts/civics/l1/</link><pubDate>Sat, 22 Oct 2022 13:48:26 +0800</pubDate><guid>https://chaoray.github.io/posts/civics/l1/</guid><description>*公民權利 *人權發展 *人權公約</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>公民L1</title>
+      <link>https://chaoray.github.io/posts/civics/l1/</link>
+      <pubDate>Sat, 22 Oct 2022 13:48:26 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/civics/l1/</guid>
+      <description>*公民權利 *人權發展 *人權公約</description>
+      <content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
 <blockquote>
 <p>1-1 公民身份與權利<br>
 1-2 普世人權的實現</p>
@@ -742,7 +778,17 @@
 </ul>
 </li>
 </ul>
-]]></content:encoded></item><item><title>歷史L1</title><link>https://chaoray.github.io/posts/history/l1/</link><pubDate>Sat, 22 Oct 2022 13:42:41 +0800</pubDate><guid>https://chaoray.github.io/posts/history/l1/</guid><description>原住民族 *名稱變化 *生活型態 *外來者互動</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>歷史L1</title>
+      <link>https://chaoray.github.io/posts/history/l1/</link>
+      <pubDate>Sat, 22 Oct 2022 13:42:41 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/history/l1/</guid>
+      <description>原住民族 *名稱變化 *生活型態 *外來者互動</description>
+      <content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
 <blockquote>
 <p>1-1 早期的住民們<br>
 1-2 原住民族與外來者的互動</p>
@@ -1085,7 +1131,17 @@
 </ul>
 </li>
 </ul>
-]]></content:encoded></item><item><title>地科L1</title><link>https://chaoray.github.io/posts/earth/l1/</link><pubDate>Wed, 19 Oct 2022 22:40:55 +0800</pubDate><guid>https://chaoray.github.io/posts/earth/l1/</guid><description>*太陽星雲學說 *原始地球演化 *地質年代</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>地科L1</title>
+      <link>https://chaoray.github.io/posts/earth/l1/</link>
+      <pubDate>Wed, 19 Oct 2022 22:40:55 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/earth/l1/</guid>
+      <description>*太陽星雲學說 *原始地球演化 *地質年代</description>
+      <content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
 <blockquote>
 <p>1-1 地球的起源與演變<br>
 1-2 開啟地球歷史的鑰匙</p>
@@ -1200,7 +1256,17 @@
 </ul>
 </li>
 </ul>
-]]></content:encoded></item><item><title>物理L1</title><link>https://chaoray.github.io/posts/physics/l1/</link><pubDate>Sun, 16 Oct 2022 22:03:20 +0800</pubDate><guid>https://chaoray.github.io/posts/physics/l1/</guid><description>*科學方法與態度 *基本量 *物理學發展史</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>物理L1</title>
+      <link>https://chaoray.github.io/posts/physics/l1/</link>
+      <pubDate>Sun, 16 Oct 2022 22:03:20 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/physics/l1/</guid>
+      <description>*科學方法與態度 *基本量 *物理學發展史</description>
+      <content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
 <blockquote>
 <p>1-1 科學態度<br>
 1-2 科學的方法<br>
@@ -1474,7 +1540,17 @@
 </ul>
 </li>
 </ul>
-]]></content:encoded></item><item><title>英文L1</title><link>https://chaoray.github.io/posts/english/l1/</link><pubDate>Mon, 24 Oct 2022 18:45:41 +0800</pubDate><guid>https://chaoray.github.io/posts/english/l1/</guid><description>*單字 *片語 *文法</description><content:encoded><![CDATA[<h1 id="l1-大綱">L1 大綱</h1>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>英文L1</title>
+      <link>https://chaoray.github.io/posts/english/l1/</link>
+      <pubDate>Mon, 24 Oct 2022 18:45:41 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/english/l1/</guid>
+      <description>*單字 *片語 *文法</description>
+      <content:encoded><![CDATA[<h1 id="l1-大綱">L1 大綱</h1>
 <p>英文哪來的大綱啦</p>
 <hr>
 <h1 id="單字">單字</h1>
@@ -2116,7 +2192,17 @@
 </ul>
 </li>
 </ul>
-]]></content:encoded></item><item><title>歷史L1 - 原住民族</title><link>https://chaoray.github.io/posts/history/l1_aborigines/</link><pubDate>Sat, 22 Oct 2022 13:42:41 +0800</pubDate><guid>https://chaoray.github.io/posts/history/l1_aborigines/</guid><description>*原住民族簡介</description><content:encoded><![CDATA[<h1 id="台灣現代原住民族">台灣現代原住民族</h1>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>歷史L1 - 原住民族</title>
+      <link>https://chaoray.github.io/posts/history/l1_aborigines/</link>
+      <pubDate>Sat, 22 Oct 2022 13:42:41 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/history/l1_aborigines/</guid>
+      <description>*原住民族簡介</description>
+      <content:encoded><![CDATA[<h1 id="台灣現代原住民族">台灣現代原住民族</h1>
 <table>
   <tr>
     <td>名稱</td>
@@ -2235,4 +2321,8 @@
     <td>母系</td>
     <td>夜祭</br>拜壺的民族</br>公廨是部落中心</br>祖先稱為阿立祖</br>最早與外人接觸並留下文字紀錄</br>靈媒稱為尪`ㄨㄤˉ`姨</td>
   </tr>
-</table>]]></content:encoded></item></channel></rss>
+</table>]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

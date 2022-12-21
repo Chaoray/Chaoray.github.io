@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>吳敬梓 on 高中筆記整理</title><link>https://chaoray.github.io/tags/%E5%90%B3%E6%95%AC%E6%A2%93/</link><description>Recent content in 吳敬梓 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sun, 20 Nov 2022 12:31:51 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/%E5%90%B3%E6%95%AC%E6%A2%93/index.xml" rel="self" type="application/rss+xml"/><item><title>國文L7</title><link>https://chaoray.github.io/posts/chinese/l7/</link><pubDate>Sun, 20 Nov 2022 12:31:51 +0800</pubDate><guid>https://chaoray.github.io/posts/chinese/l7/</guid><description>*范進中舉</description><content:encoded><![CDATA[<h1 id="題解">題解</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>吳敬梓 on 高中筆記整理</title>
+    <link>https://chaoray.github.io/tags/%E5%90%B3%E6%95%AC%E6%A2%93/</link>
+    <description>Recent content in 吳敬梓 on 高中筆記整理</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sun, 20 Nov 2022 12:31:51 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/%E5%90%B3%E6%95%AC%E6%A2%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>國文L7</title>
+      <link>https://chaoray.github.io/posts/chinese/l7/</link>
+      <pubDate>Sun, 20 Nov 2022 12:31:51 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/chinese/l7/</guid>
+      <description>*范進中舉</description>
+      <content:encoded><![CDATA[<h1 id="題解">題解</h1>
 <ul>
 <li>出處：《儒林外史》第三回 「周學道校士拔真才，胡屠戶行兇鬧捷報」</li>
 <li>文體：章回體諷刺小說
@@ -498,4 +514,8 @@
 <li>六才子書：《莊子》、屈原《離騷》、司馬遷《史記》、杜甫《杜詩》、《水滸傳》、《西廂記》</li>
 <li>四大奇書：《水滸傳》、《三國演義》、《西遊記》、《金瓶梅》</li>
 </ul>
-]]></content:encoded></item></channel></rss>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

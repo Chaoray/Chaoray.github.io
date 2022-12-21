@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>L8 on 高中筆記整理</title><link>https://chaoray.github.io/tags/l8/</link><description>Recent content in L8 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sun, 18 Dec 2022 12:47:24 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/l8/index.xml" rel="self" type="application/rss+xml"/><item><title>數學L8</title><link>https://chaoray.github.io/posts/math/l8/</link><pubDate>Sun, 27 Nov 2022 10:47:31 +0800</pubDate><guid>https://chaoray.github.io/posts/math/l8/</guid><description>*多項式</description><content:encoded><![CDATA[<h1 id="第八課-大綱">第八課 大綱</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>L8 on 高中筆記整理</title>
+    <link>https://chaoray.github.io/tags/l8/</link>
+    <description>Recent content in L8 on 高中筆記整理</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sun, 18 Dec 2022 12:47:24 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/l8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>數學L8</title>
+      <link>https://chaoray.github.io/posts/math/l8/</link>
+      <pubDate>Sun, 27 Nov 2022 10:47:31 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/math/l8/</guid>
+      <description>*多項式</description>
+      <content:encoded><![CDATA[<h1 id="第八課-大綱">第八課 大綱</h1>
 <blockquote>
 <p>甲 多項式的基本概念<br>
 乙 多項式的四則運算<br>
@@ -70,7 +86,17 @@ $f(x)$為被除式，$g(x)$為除式，$q(x)$為商式，$r(x)$為餘式</p>
 <h1 id="因式定理">因式定理</h1>
 <p>㊙🈲❗🔒付費解鎖高清無碼「教學」，美女老師帶你成績「起飛」<br>
 <a href="https://cn.pornhub.com/view_video.php?viewkey=ph62ac5dde8f1d6">👉點擊進入👈</a></p>
-]]></content:encoded></item><item><title>英文L8</title><link>https://chaoray.github.io/posts/english/l8/</link><pubDate>Sun, 18 Dec 2022 12:47:24 +0800</pubDate><guid>https://chaoray.github.io/posts/english/l8/</guid><description>*單字 *片語 *文法</description><content:encoded><![CDATA[<h1 id="l8-大綱">L8 大綱</h1>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>英文L8</title>
+      <link>https://chaoray.github.io/posts/english/l8/</link>
+      <pubDate>Sun, 18 Dec 2022 12:47:24 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/english/l8/</guid>
+      <description>*單字 *片語 *文法</description>
+      <content:encoded><![CDATA[<h1 id="l8-大綱">L8 大綱</h1>
 <p>英文哪來的大綱啦(老梗了啦)</p>
 <hr>
 <h1 id="單字">單字</h1>
@@ -552,4 +578,8 @@ $f(x)$為被除式，$g(x)$為除式，$q(x)$為商式，$r(x)$為餘式</p>
 <p>level (n[C].) 高度</p>
 </li>
 </ul>
-]]></content:encoded></item></channel></rss>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

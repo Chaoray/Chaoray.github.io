@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>數學 on 高中筆記整理</title><link>https://chaoray.github.io/posts/math/</link><description>Recent content in 數學 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 27 Aug 2022 13:34:42 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/posts/math/index.xml" rel="self" type="application/rss+xml"/><item><title>數學L1</title><link>https://chaoray.github.io/posts/math/l1/</link><pubDate>Sun, 30 Oct 2022 12:53:09 +0800</pubDate><guid>https://chaoray.github.io/posts/math/l1/</guid><description>*實數 *乘法公式 *根號</description><content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>數學 on 高中筆記整理</title>
+    <link>https://chaoray.github.io/posts/math/</link>
+    <description>Recent content in 數學 on 高中筆記整理</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sat, 27 Aug 2022 13:34:42 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/posts/math/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>數學L1</title>
+      <link>https://chaoray.github.io/posts/math/l1/</link>
+      <pubDate>Sun, 30 Oct 2022 12:53:09 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/math/l1/</guid>
+      <description>*實數 *乘法公式 *根號</description>
+      <content:encoded><![CDATA[<h1 id="第一課-大綱">第一課 大綱</h1>
 <blockquote>
 <p>甲 有理數<br>
 乙 無理數與實數<br>
@@ -311,7 +327,17 @@
 </ul>
 </li>
 </ul>
-]]></content:encoded></item><item><title>數學L5</title><link>https://chaoray.github.io/posts/math/l5/</link><pubDate>Wed, 02 Nov 2022 21:43:12 +0800</pubDate><guid>https://chaoray.github.io/posts/math/l5/</guid><description>*斜率 *直線方程式 *二元一次不等式</description><content:encoded><![CDATA[<h1 id="第五課-大綱">第五課 大綱</h1>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>數學L5</title>
+      <link>https://chaoray.github.io/posts/math/l5/</link>
+      <pubDate>Wed, 02 Nov 2022 21:43:12 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/math/l5/</guid>
+      <description>*斜率 *直線方程式 *二元一次不等式</description>
+      <content:encoded><![CDATA[<h1 id="第五課-大綱">第五課 大綱</h1>
 <blockquote>
 <p>甲 直線的斜率<br>
 乙 直線方程式<br>
@@ -456,7 +482,17 @@ $x$座標位移$h$、$y$座標位移$k$</p>
 </li>
 </ul>
 <h2 id="剩下的我們將留待12年級選修數學乙再探討ww">剩下的我們將留待12年級選修數學乙再探討ww</h2>
-]]></content:encoded></item><item><title>數學L6</title><link>https://chaoray.github.io/posts/math/l6/</link><pubDate>Sat, 12 Nov 2022 22:59:22 +0800</pubDate><guid>https://chaoray.github.io/posts/math/l6/</guid><description>*圓</description><content:encoded><![CDATA[<h1 id="第六課-大綱">第六課 大綱</h1>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>數學L6</title>
+      <link>https://chaoray.github.io/posts/math/l6/</link>
+      <pubDate>Sat, 12 Nov 2022 22:59:22 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/math/l6/</guid>
+      <description>*圓</description>
+      <content:encoded><![CDATA[<h1 id="第六課-大綱">第六課 大綱</h1>
 <blockquote>
 <p>甲 圓的標準式<br>
 乙 圓的一般式<br>
@@ -647,7 +683,17 @@ $=&gt; (x_1 - h)^2 + {y_1}^2 = (x_2 - h)^2 + {y_2}^2$<br>
 可列出：$(r - a)^2 + b^2 = r^2$</p>
 </li>
 </ul>
-]]></content:encoded></item><item><title>數學L7</title><link>https://chaoray.github.io/posts/math/l7/</link><pubDate>Sun, 20 Nov 2022 16:17:10 +0800</pubDate><guid>https://chaoray.github.io/posts/math/l7/</guid><description>*切線</description><content:encoded><![CDATA[<h1 id="第七課-大綱">第七課 大綱</h1>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>數學L7</title>
+      <link>https://chaoray.github.io/posts/math/l7/</link>
+      <pubDate>Sun, 20 Nov 2022 16:17:10 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/math/l7/</guid>
+      <description>*切線</description>
+      <content:encoded><![CDATA[<h1 id="第七課-大綱">第七課 大綱</h1>
 <blockquote>
 <p>甲 圓指直線關係的判定<br>
 乙 圓的的切線方程式</p>
@@ -797,7 +843,17 @@ $\frac{|mh - k - mx_1 + y_1|}{\sqrt{m^2 + (-1)^2}} = r$</p>
 將P點對稱X/Y軸之後求切線方程式，然後判斷有兩條還是一條</p>
 <h3 id="一光線經過p點求xy軸陰影長度">一光線經過P點，求X/Y軸陰影長度</h3>
 <p>求兩切線之後，解出與X/Y軸的交點，兩交點相減加絕對值就是陰影長度</p>
-]]></content:encoded></item><item><title>數學L8</title><link>https://chaoray.github.io/posts/math/l8/</link><pubDate>Sun, 27 Nov 2022 10:47:31 +0800</pubDate><guid>https://chaoray.github.io/posts/math/l8/</guid><description>*多項式</description><content:encoded><![CDATA[<h1 id="第八課-大綱">第八課 大綱</h1>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>數學L8</title>
+      <link>https://chaoray.github.io/posts/math/l8/</link>
+      <pubDate>Sun, 27 Nov 2022 10:47:31 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/math/l8/</guid>
+      <description>*多項式</description>
+      <content:encoded><![CDATA[<h1 id="第八課-大綱">第八課 大綱</h1>
 <blockquote>
 <p>甲 多項式的基本概念<br>
 乙 多項式的四則運算<br>
@@ -869,4 +925,8 @@ $f(x)$為被除式，$g(x)$為除式，$q(x)$為商式，$r(x)$為餘式</p>
 <h1 id="因式定理">因式定理</h1>
 <p>㊙🈲❗🔒付費解鎖高清無碼「教學」，美女老師帶你成績「起飛」<br>
 <a href="https://cn.pornhub.com/view_video.php?viewkey=ph62ac5dde8f1d6">👉點擊進入👈</a></p>
-]]></content:encoded></item></channel></rss>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

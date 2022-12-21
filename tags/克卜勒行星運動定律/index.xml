@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>克卜勒行星運動定律 on 高中筆記整理</title><link>https://chaoray.github.io/tags/%E5%85%8B%E5%8D%9C%E5%8B%92%E8%A1%8C%E6%98%9F%E9%81%8B%E5%8B%95%E5%AE%9A%E5%BE%8B/</link><description>Recent content in 克卜勒行星運動定律 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 12 Nov 2022 19:42:11 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/%E5%85%8B%E5%8D%9C%E5%8B%92%E8%A1%8C%E6%98%9F%E9%81%8B%E5%8B%95%E5%AE%9A%E5%BE%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>物理L3</title><link>https://chaoray.github.io/posts/physics/l3/</link><pubDate>Sat, 12 Nov 2022 19:42:11 +0800</pubDate><guid>https://chaoray.github.io/posts/physics/l3/</guid><description>*克卜勒行星運動定律</description><content:encoded><![CDATA[<h1 id="第三課-大綱">第三課 大綱</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>克卜勒行星運動定律 on 高中筆記整理</title>
+    <link>https://chaoray.github.io/tags/%E5%85%8B%E5%8D%9C%E5%8B%92%E8%A1%8C%E6%98%9F%E9%81%8B%E5%8B%95%E5%AE%9A%E5%BE%8B/</link>
+    <description>Recent content in 克卜勒行星運動定律 on 高中筆記整理</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sat, 12 Nov 2022 19:42:11 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/%E5%85%8B%E5%8D%9C%E5%8B%92%E8%A1%8C%E6%98%9F%E9%81%8B%E5%8B%95%E5%AE%9A%E5%BE%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>物理L3</title>
+      <link>https://chaoray.github.io/posts/physics/l3/</link>
+      <pubDate>Sat, 12 Nov 2022 19:42:11 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/physics/l3/</guid>
+      <description>*克卜勒行星運動定律</description>
+      <content:encoded><![CDATA[<h1 id="第三課-大綱">第三課 大綱</h1>
 <blockquote>
 <p>3-1 對物體運動的研究歷程<br>
 3-2 牛頓運動定律<br>
@@ -67,4 +83,8 @@
     <td>牛頓</td>
     <td>克卜勒</td>
   </tr>
-</table>]]></content:encoded></item></channel></rss>
+</table>]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

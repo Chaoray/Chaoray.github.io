@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>縮寫 on 高中筆記整理</title><link>https://chaoray.github.io/tags/%E7%B8%AE%E5%AF%AB/</link><description>Recent content in 縮寫 on 高中筆記整理</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Wed, 02 Nov 2022 21:43:12 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/%E7%B8%AE%E5%AF%AB/index.xml" rel="self" type="application/rss+xml"/><item><title>英文縮寫</title><link>https://chaoray.github.io/posts/english/abbreviation/</link><pubDate>Wed, 02 Nov 2022 21:43:12 +0800</pubDate><guid>https://chaoray.github.io/posts/english/abbreviation/</guid><description>*縮寫</description><content:encoded><![CDATA[<h1 id="詞性">詞性</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>縮寫 on 高中筆記整理</title>
+    <link>https://chaoray.github.io/tags/%E7%B8%AE%E5%AF%AB/</link>
+    <description>Recent content in 縮寫 on 高中筆記整理</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Wed, 02 Nov 2022 21:43:12 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/%E7%B8%AE%E5%AF%AB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>英文縮寫</title>
+      <link>https://chaoray.github.io/posts/english/abbreviation/</link>
+      <pubDate>Wed, 02 Nov 2022 21:43:12 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/english/abbreviation/</guid>
+      <description>*縮寫</description>
+      <content:encoded><![CDATA[<h1 id="詞性">詞性</h1>
 <table>
   <tr>
     <td>abbr.</td>
@@ -183,4 +199,8 @@
     <td>見上文</td>
     <td></td>
   </tr>
-</table>]]></content:encoded></item></channel></rss>
+</table>]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
