@@ -21,7 +21,7 @@ jobs:
           extended: true  # 有用擴充套件則將 # 移除
 
       - name: Build
-        run: hugo --minify
+        run: hugo
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
