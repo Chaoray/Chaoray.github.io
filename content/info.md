@@ -19,23 +19,23 @@ noTips: true
   </tr>
   <tr>
     <td>數學</td>
-    <td></td>
+    <td>U8~U9</td>
   </tr>
   <tr>
     <td>歷史</td>
-    <td></td>
+    <td>Ch5</td>
   </tr>
   <tr>
     <td>公民</td>
-    <td></td>
+    <td>Ch5</td>
   </tr>
   <tr>
     <td>地科</td>
-    <td></td>
+    <td>5-3~6-4</td>
   </tr>
   <tr>
     <td>物理</td>
-    <td></td>
+    <td>5-1~6-1</td>
   </tr>
 </table>
 
