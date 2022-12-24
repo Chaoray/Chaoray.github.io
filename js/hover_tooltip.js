@@ -1,46 +1,36 @@
 let postContent = document.querySelector('div.post-content');
-postContent.innerHTML = postContent.innerHTML.replace(/{([^,{}]+),([^,}]+),{0,1}([^,}]{0,})}/gm, (match, p1, p2, p3) => {
+postContent.innerHTML = postContent.innerHTML.replace(/{([^,{}]+),([^,}]+),{0,1}([^,}]{0,})}/g, (match, p1, p2, p3) => {
     let tip = document.createElement('tips');
     tip.classList.add('tooltip');
     tip.innerHTML = p1;
 
-    let span = document.createElement('span');
-    span.className = 'tooltip-text';
-    span.innerHTML = p2;
-    tip.title = p2.replace(/<\/{0,1}\w{0,}>/gm, (match) => {
-        if (match === '<br>')
-            return '\n';
-        return '';
-    });  // considering removing?
+    tip.dataset.c = p2;
 
     if (p3 !== "") {
-        tip.style.borderColor = p3;
+        tip.dataset.u = p3;
     }
 
-    tip.appendChild(span);
     return tip.outerHTML;
 });
 
 let tips = document.getElementsByTagName('tips');
 for (let tip of tips) {
-    if (!hasChildNodesExcludingText(tip)) {
-        tip.classList.add('tooltip');
+    tip.classList.add('tooltip');
 
-        let span = document.createElement('span');
-        span.className = 'tooltip-text';
-        span.innerHTML = tip.dataset.c;
-        tip.title = tip.dataset.c.replace(/<\/{0,1}\w{0,}>/gm, (match) => {
-            if (match === '<br>')
-                return '\n';
-            return '';
-        });  // considering removing?
+    let span = document.createElement('span');
+    span.className = 'tooltip-text';
+    span.innerHTML = tip.dataset.c;
+    tip.title = tip.dataset.c.replace(/<\/{0,1}\w{0,}>/gm, (match) => {
+        if (match === '<br>')
+            return '\n';
+        return '';
+    });
 
-        if (tip.dataset.u) {
-            tip.style.borderColor = tip.dataset.u;
-        }
-
-        tip.appendChild(span);
+    if (tip.dataset.u) {
+        tip.style.borderColor = tip.dataset.u;
     }
+
+    tip.appendChild(span);
 
     tip.addEventListener('mouseover', (e) => {
         e.stopPropagation();
