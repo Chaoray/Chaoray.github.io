@@ -1,0 +1,16 @@
+@font-face {
+    font-family: TaipeiSansTCBeta;
+    src: url("../../../font/TaipeiSansTCBeta/TaipeiSansTCBeta-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: TaipeiSansTCBeta;
+    font-weight: bold;
+    src: url("../../../font/TaipeiSansTCBeta/TaipeiSansTCBeta-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: TaipeiSansTCBeta;
+    font-weight: lighter;
+    src: url("../../../font/TaipeiSansTCBeta/TaipeiSansTCBeta-Light.ttf") format("truetype");
+}

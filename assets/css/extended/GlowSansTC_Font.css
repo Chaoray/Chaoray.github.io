@@ -1,0 +1,46 @@
+@font-face {
+    font-family: GlowSansTC;
+    src: url("../../../font/GlowSansTC/GlowSansTC-Extended-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: GlowSansTC;
+    font-weight: 100;
+    src: url("../../../font/GlowSansTC/GlowSansTC-Extended-ExtraLight.otf") format("opentype");
+}
+
+@font-face {
+    font-family: GlowSansTC;
+    font-weight: 200;
+    src: url("../../../font/GlowSansTC/GlowSansTC-Extended-Light.otf") format("opentype");
+}
+
+@font-face {
+    font-family: GlowSansTC;
+    font-weight: 300;
+    src: url("../../../font/GlowSansTC/GlowSansTC-Extended-Thin.otf") format("opentype");
+}
+
+@font-face {
+    font-family: GlowSansTC;
+    font-weight: 500;
+    src: url("../../../font/GlowSansTC/GlowSansTC-Extended-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: GlowSansTC;
+    font-weight: 700;
+    src: url("../../../font/GlowSansTC/GlowSansTC-Extended-Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: GlowSansTC;
+    font-weight: 800;
+    src: url("../../../font/GlowSansTC/GlowSansTC-Extended-Medium.otf") format("opentype");
+}
+
+@font-face {
+    font-family: GlowSansTC;
+    font-weight: 900;
+    src: url("../../../font/GlowSansTC/GlowSansTC-Extended-Heavy.otf") format("opentype");
+}
