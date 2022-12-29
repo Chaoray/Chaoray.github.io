@@ -6,7 +6,7 @@
     <description>Recent content in 數學 on 高中筆記整理</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sun, 27 Nov 2022 10:47:31 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/categories/%E6%95%B8%E5%AD%B8/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Dec 2022 22:16:04 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/categories/%E6%95%B8%E5%AD%B8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>數學L1</title>
       <link>https://chaoray.github.io/posts/math/l1/</link>
@@ -916,15 +916,163 @@ $\frac{|mh - k - mx_1 + y_1|}{\sqrt{m^2 + (-1)^2}} = r$</p>
 <h4 id="綜合除法">綜合除法</h4>
 <img src="/img/math/L8/多項式綜合除法步驟一.png">
 <img src="/img/math/L8/多項式綜合除法步驟二.png">
+<ul>
+<li>展開</li>
+</ul>
+<p>將$3x^3 + 2x^2 - x + 5$以$(x-1)$展開
+<img src="/img/math/L8/連續綜合除法.png">
+結果：$3(x-1)^3 + 11(x-1)^2 + 12(x-1) + 9$</p>
 <h1 id="除法原理">除法原理</h1>
 <p>$f(x) = g(x) * q(x) + r(x)$<br>
 $f(x)$為被除式，$g(x)$為除式，$q(x)$為商式，$r(x)$為餘式</p>
 <h1 id="餘式定理">餘式定理</h1>
-<p>㊙🈲❗🔒付費解鎖高清無碼「視頻」，精靈帥哥高超技巧讓你學業「一步登天」<br>
-<a href="https://www.youtube.com/shorts/5m1ZvKylg9I">👉點擊進入👈</a></p>
+<p>$f(x) = g(x) * q(x) + r(x)$<br>
+且$g(x) = (ax - b)$<br>
+於是餘式$r(x) = f(\frac{b}{a})$</p>
 <h1 id="因式定理">因式定理</h1>
-<p>㊙🈲❗🔒付費解鎖高清無碼「教學」，美女老師帶你成績「起飛」<br>
-<a href="https://cn.pornhub.com/view_video.php?viewkey=ph62ac5dde8f1d6">👉點擊進入👈</a></p>
+<p>設$f(x)$為一多項式，若$ax-b$為$f(x)$之因式，即$f(x) = (ax-b) \times q(x)$，<br>
+則$f(\frac{b}{a}) = 0$</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>數學L9</title>
+      <link>https://chaoray.github.io/posts/math/l9/</link>
+      <pubDate>Wed, 28 Dec 2022 22:06:04 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/math/l9/</guid>
+      <description>*一次函數 *二次函數</description>
+      <content:encoded><![CDATA[<h1 id="第九課-大綱">第九課 大綱</h1>
+<blockquote>
+<p>甲 函數的概念<br>
+乙 一次函數<br>
+丙 二次函數</p>
+</blockquote>
+<hr>
+<h1 id="函數定義">函數定義</h1>
+<ul>
+<li>對於每一個$x$，都恰有有一個$y$與之對應，則$y$為$x$的函數以$y=f(x)$
+<ul>
+<li>$x$稱為自變數</li>
+<li>$y$稱為應變數</li>
+<li>$f(a)$表示$x=a$所對應的含式</li>
+<li>所有點$(x, f(x))$所構成的圖形，稱為函數$f(x)$的圖形</li>
+</ul>
+</li>
+<li>線型函數</li>
+</ul>
+<table>
+  <tr>
+    <td rowspan="2">常數函數</td>
+    <td>零函數</td>
+    <td>$y=f(x)=0$</td>
+  </tr>
+  <tr>
+    <td>零次函數</td>
+    <td>$y=f(x)=c, c\neq 0$</td>
+  </tr>
+  <tr>
+    <td colspan="2">一次函數</td>
+    <td>$y=f(x)=ax+b, a\neq 0$</td>
+  </tr>
+</table>
+<h1 id="一次函數">一次函數</h1>
+<p>$y = ax + b$</p>
+<ul>
+<li><a href="https://chaoray.github.io/posts/math/l5/">反正之前就學過了，詳見第五課</a></li>
+</ul>
+<h1 id="二次函數">二次函數</h1>
+<p>$y = a(x - h)^2 + k$<br>
+$y = ax^2 + bx + c$<br>
+配方後：$y=a(x+\frac{b}{2a})^2 + c - \frac{b^2}{4a}$</p>
+<ul>
+<li>當$a &gt; 0$
+<ul>
+<li>開口向上，有最小值</li>
+</ul>
+</li>
+<li>當$a &lt; 0$
+<ul>
+<li>開口向下，有最大值</li>
+</ul>
+</li>
+<li>頂點：$(h, k)$</li>
+<li>平移
+<ul>
+<li>水平移動$m$
+<ul>
+<li>$y = a(x - h - m)^2 + k$</li>
+</ul>
+</li>
+<li>垂直移動$n$
+<ul>
+<li>$y = a(x - h)^2 + k + n$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="判斷a-b-c正負">判斷a, b, c正負</h2>
+<ul>
+<li>
+<p>$a$</p>
+<ul>
+<li>看開口方向
+<ul>
+<li>向上$a &gt; 0$</li>
+<li>向下$a &lt; 0$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>$b$</p>
+<ul>
+<li>透過$\frac{b}{2a}$、$a$的正負決定</li>
+</ul>
+</li>
+<li>
+<p>$c$</p>
+<ul>
+<li>當$x=0$時的$y$</li>
+<li>與$y$軸交點</li>
+</ul>
+</li>
+<li>
+<p>$a + b + c = f(1)$</p>
+</li>
+<li>
+<p>$a - b + c = f(-1)$</p>
+</li>
+</ul>
+<h2 id="與x軸交點個數">與x軸交點個數</h2>
+<p>$D = b^2 - 4ac$</p>
+<ul>
+<li>$D &gt; 0$ 兩交點</li>
+<li>$D = 0$ 一交點</li>
+<li>$D &lt; 0$ 無交點</li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>數學L10</title>
+      <link>https://chaoray.github.io/posts/math/l10/</link>
+      <pubDate>Wed, 28 Dec 2022 22:16:04 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/math/l10/</guid>
+      <description>*三次函數</description>
+      <content:encoded><![CDATA[<h1 id="第十課-大綱">第十課 大綱</h1>
+<blockquote>
+<p>甲 三次函數的圖形<br>
+乙 廣域特徵與局部特徵</p>
+</blockquote>
+<hr>
+<h1 id="三次函數">三次函數</h1>
+<p>$y = a(x - h)^3 + p(x - h) + k$</p>
+<h1 id="廣域特徵與局部特徵">廣域特徵與局部特徵</h1>
+<h2 id="廣域特徵">廣域特徵</h2>
+<h2 id="局部特徵">局部特徵</h2>
 ]]></content:encoded>
     </item>
     

@@ -77,15 +77,22 @@
 <h4 id="綜合除法">綜合除法</h4>
 <img src="/img/math/L8/多項式綜合除法步驟一.png">
 <img src="/img/math/L8/多項式綜合除法步驟二.png">
+<ul>
+<li>展開</li>
+</ul>
+<p>將$3x^3 + 2x^2 - x + 5$以$(x-1)$展開
+<img src="/img/math/L8/連續綜合除法.png">
+結果：$3(x-1)^3 + 11(x-1)^2 + 12(x-1) + 9$</p>
 <h1 id="除法原理">除法原理</h1>
 <p>$f(x) = g(x) * q(x) + r(x)$<br>
 $f(x)$為被除式，$g(x)$為除式，$q(x)$為商式，$r(x)$為餘式</p>
 <h1 id="餘式定理">餘式定理</h1>
-<p>㊙🈲❗🔒付費解鎖高清無碼「視頻」，精靈帥哥高超技巧讓你學業「一步登天」<br>
-<a href="https://www.youtube.com/shorts/5m1ZvKylg9I">👉點擊進入👈</a></p>
+<p>$f(x) = g(x) * q(x) + r(x)$<br>
+且$g(x) = (ax - b)$<br>
+於是餘式$r(x) = f(\frac{b}{a})$</p>
 <h1 id="因式定理">因式定理</h1>
-<p>㊙🈲❗🔒付費解鎖高清無碼「教學」，美女老師帶你成績「起飛」<br>
-<a href="https://cn.pornhub.com/view_video.php?viewkey=ph62ac5dde8f1d6">👉點擊進入👈</a></p>
+<p>設$f(x)$為一多項式，若$ax-b$為$f(x)$之因式，即$f(x) = (ax-b) \times q(x)$，<br>
+則$f(\frac{b}{a}) = 0$</p>
 ]]></content:encoded>
     </item>
     

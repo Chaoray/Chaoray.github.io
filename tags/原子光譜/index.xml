@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>原子光譜 on 高中筆記整理</title>
+    <link>https://chaoray.github.io/tags/%E5%8E%9F%E5%AD%90%E5%85%89%E8%AD%9C/</link>
+    <description>Recent content in 原子光譜 on 高中筆記整理</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Wed, 28 Dec 2022 22:51:32 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/%E5%8E%9F%E5%AD%90%E5%85%89%E8%AD%9C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>物理L6</title>
+      <link>https://chaoray.github.io/posts/physics/l6/</link>
+      <pubDate>Wed, 28 Dec 2022 22:51:32 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/physics/l6/</guid>
+      <description>*量子論</description>
+      <content:encoded><![CDATA[<h1 id="第六課-大綱">第六課 大綱</h1>
+<blockquote>
+<p>6-1 光電效應<br>
+6-2 波粒二象姓<br>
+6-3 原子光譜</p>
+</blockquote>
+<hr>
+<ul>
+<li>1900年普朗克提出量子論
+<ul>
+<li>將熱輻射視為具有粒子性，稱為輻射量子</li>
+</ul>
+</li>
+</ul>
+<h1 id="光電效應">光電效應</h1>
+<ul>
+<li>光照射在金屬上，使其表面釋放出電子的現象
+<ul>
+<li>光電子：釋放出的電子</li>
+</ul>
+</li>
+<li>赫茲：首次實驗提出</li>
+<li>雷納：完整光電效應實驗
+<ol>
+<li>當的頻率超過低限頻率，便會有光電子射出</li>
+<li>若頻率太低，則即使照射時間再大，也不會有光電流
+<ul>
+<li><mark>光能量無法累積</mark></li>
+</ul>
+</li>
+<li>同頻率的光，當強度愈大，則光電流的量也愈大，即電子數量較多</li>
+</ol>
+<ul>
+<li>1+2+3
+<ul>
+<li>有無電子 &gt; 看頻率</li>
+<li>電子數量 &gt; 看強度</li>
+<li>由結果看，完全與光的波動說矛盾，必須用粒子說才能解釋</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>愛因斯坦：參考普朗克的量子論，提出<red>光子論</red>去解釋光電效應 (得到生涯唯一一座諾貝爾爾獎)
+<ul>
+<li>光是粒子，稱為光子</li>
+<li>一顆光子$E=hf = h \cdot \frac{c}{\lambda}$
+<ul>
+<li>$E_總 = n \cdot hf = n \cdot h \cdot \frac{c}{\lambda}$</li>
+<li>$h$：普朗克常數$=6.63 \times 10^{-34} (J\cdot S)$</li>
+</ul>
+</li>
+<li>若能量使用「電子伏特」($eV$)
+<ul>
+<li>光子公式$\frac{hc}{\lambda} = \frac{12400(eV \cdot Å)}{\lambda (Å)} = \frac{1240(eV \cdot nm)}{\lambda (nm)}$
+<ul>
+<li>$1eV = 1.9 \times 10 ^ {-19} J$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>光電效應中，必須遵守<red>一對一</red>是多對一或一對多
+<ul>
+<li>故只要一顆能量不足，便無法使電子脫離，光子數量多(強度強)，可打出較多電子</li>
+</ul>
+</li>
+<li>應用
+<ul>
+<li>太陽能計算機、太陽能熱水器</li>
+<li>光電閘門(保護功用)</li>
+</ul>
+</li>
+</ul>
+<h1 id="波粒二象性">波粒二象性</h1>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
