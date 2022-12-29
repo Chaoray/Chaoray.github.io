@@ -34,31 +34,32 @@ noTips: true
 ## 成員資訊
 ### 主要人員
 
-> 趙文睿：整天摸魚，只懂得程式皮毛，被大佬電爆，依舊繼續摸魚(害羞的虎鯨)
-> [Github](https://github.com/Chaoray)
+> 趙文睿：整天摸魚，只懂得程式皮毛，被大佬電爆，依舊繼續摸魚(害羞的虎鯨)  
+> [Github](https://github.com/Chaoray)  
 > [Discord](https://discord.com/users/731018913097449533)
 
-> 郭凱明：一個整天宅在家的鯊魚(明明喜歡的是魟魚)，想著要躺分結果最後卻淪為爆肝員工
-> [Github](https://github.com/ThatShark)
+> 郭凱明：一個整天宅在家的鯊魚(明明喜歡的是魟魚)，想著要躺分結果最後卻淪為爆肝員工  
+> [Github](https://github.com/ThatShark)  
 > [Discord](https://discord.com/users/779305775088402454)
 
 > 姜丞恩：一個程式亂學的星詠者(星街的老公)/LA牙/6年死忠邦寶/喜歡釣魚(網路)，專門躺分
-事情都交給大佬(或林益全)去坦。
-> [Github](https://github.com/anyon6)
+事情都交給大佬(或林益全)去坦。  
+> [Github](https://github.com/anyon6)  
 > [Discord](https://discord.com/users/887327376135057488)
 
 ### 友情贊助
 
-> 林騰志(貓虎皮)：是貓是虎<s>還是皮</s>沒人知，只知他是超級大佬
-> [Github](https://github.com/maohupi)
-> [Discord](https://discord.com/users/661343103013224486)
-> [Youtube](https://www.youtube.com/channel/UCp4UdxeDQO7VXSIe4Qk3aig)
+> 林騰志(貓虎皮)：是貓是虎<s>還是皮</s>沒人知，只知他是超級大佬  
+> [Github](https://github.com/maohupi)  
+> [Discord](https://discord.com/users/661343103013224486)  
+> [Youtube](https://www.youtube.com/channel/UCp4UdxeDQO7VXSIe4Qk3aig)  
 > [Website](https://maohupi.github.io)
-
-> 藍靖傑：神秘的藍色兔子，行蹤無人知曉，實際上是筆記供應商
-
-> 吳晉綸：紗霧我婆大好き，Grandmasterあにき
-> [Github](https://github.com/XxAlanXDxX)
+  
+> 藍靖傑：神秘的藍色兔子，行蹤無人知曉，實際上是筆記供應商peko  
+> [Discord](https://discord.com/users/716185169727455293)
+  
+> 吳晉綸：紗霧我婆大好き，Grandmasterあにき  
+> [Github](https://github.com/XxAlanXDxX)  
 > [Discord](https://discord.com/users/867183033236848681)
 
 <p style="text-align: center;"><b>版權為趙文睿、郭凱明、姜丞恩共同所有</b></p>
