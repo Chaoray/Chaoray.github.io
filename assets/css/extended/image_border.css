@@ -1,9 +1,0 @@
-.profile img {
-    display: inline-table;
-    border-radius: 15%;
-    pointer-events: none;
-}
-
-#reverse_pray {
-    transform: scaleX(-1);
-}

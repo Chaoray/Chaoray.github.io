@@ -1,9 +1,0 @@
-div.post-content div.horizontal {
-    display: flex;
-    flex-direction: row;
-}
-
-div.post-content div.vertical {
-    display: flex;
-    flex-direction: column;
-}
