@@ -6,7 +6,7 @@
 {{ end }}
 <div class="post-meta hori">
     {{ if .Date }}
-    <span class="post-date">Date Written: {{ .Date.Format "2006-01-02" }}</span>
+    <span class="post-date">Date: {{ .Date.Format "2006-01-02" }}</span>
     {{ end }}
     <div class="post-tags">
         {{ range .Params.tags }}

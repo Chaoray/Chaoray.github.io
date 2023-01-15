@@ -8,12 +8,14 @@
         <h1>Tags</h1>
         <hr>
         {{ $data := .Data }}
-        {{ range .Data.Terms.ByCount }}
+        <div class="tags">
+            {{ range .Data.Terms.ByCount }}
             {{ $termLink := printf "/%s/%s/" $data.Plural .Term | urlize }}
             <span class="tag">
                 <a href="{{ $termLink }}"><span>{{ .Term }} <sup>{{ .Count }}</sup></span></a>
             </span>
         {{ end }}
+        </div>
     </div>
     {{- partial "footer.html" . -}}
 </body>
