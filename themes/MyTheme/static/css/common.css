@@ -41,6 +41,15 @@ header {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
+.announcement {
+    position: absolute;
+    right: 2em;
+}
+
+.announcement p {
+    margin: 0;
+}
+
 .title {
     font-size: 2em;
     margin: 0.5em 0.5em;
