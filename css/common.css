@@ -68,6 +68,7 @@ header {
 
 #content {
     margin: 0em 5em;
+    margin-bottom: auto;
 }
 
 .meta {
@@ -131,8 +132,8 @@ header {
 }
 
 .footer {
-    margin-top: 1em;
-    margin-bottom: 2em;
+    margin-top: auto;
+    margin-bottom: 1em;
     min-height: 1em;
     width: 100%;
 }
