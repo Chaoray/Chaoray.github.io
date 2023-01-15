@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html><!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-utilities.min.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <script src="/js/lib/bootstrap.min.js"></script>
+    <script src="/js/lib/bootstrap.bundle.min.js"></script>
+    <script src="/js/lib/SmoothScroll.js"></script>
+    <title> C&#43;&#43; Class回傳自己 | Hyno&#39;s Blog</title>
+</head><body><header id="header" class="horizontal">
+    <div class="nav">
+        <a href="https://chaoray.github.io/">
+            <div id="title">
+                <span class="title">Hyno&#39;s Blog</span>
+            </div>
+        </a>
+        <div class="nav-items">
+            
+            <a class="nav-item" href="/posts">貼文</a>
+            
+            <a class="nav-item" href="/about">關於</a>
+            
+            <a class="nav-item" href="/tags">標籤</a>
+            
+        </div>
+    </div>
+</header>
+<script>SmoothScroll(document, 100, 12);</script>
+
+<hr>
+<div id="content">
+
+
+<h1>C&#43;&#43; Class回傳自己</h1>
+<hr>
+
+<div class="post-meta hori">
+    
+    <span class="post-date">Date Written: 2023-01-15</span>
+    
+    <div class="post-tags">
+        
+        <a href="https://chaoray.github.io/tags/c&#43;&#43;"><span class="post-tag">#C&#43;&#43;</span></a>
+        
+        <a href="https://chaoray.github.io/tags/class"><span class="post-tag">#Class</span></a>
+        
+    </div>
+</div>
+<br>
+<p>想要讓Class可以一直擴展下去</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TextBox</span> {
+</span></span><span style="display:flex;"><span>    string text;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    TextBox <span style="color:#a6e22e">addText</span>(<span style="color:#66d9ef">const</span> string<span style="color:#f92672">&amp;</span> append) {
+</span></span><span style="display:flex;"><span>        text <span style="color:#f92672">+=</span> append;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>TextBox <span style="color:#a6e22e">textBox1</span>();
+</span></span><span style="display:flex;"><span>textBox1.addText(<span style="color:#e6db74">&#34;Text1&#34;</span>).addText(<span style="color:#e6db74">&#34;Text2&#34;</span>).addText(<span style="color:#e6db74">&#34;Text3&#34;</span>);
+</span></span></code></pre></div><p>結果？報錯，在C++中這樣寫行不通</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TextBox</span> {
+</span></span><span style="display:flex;"><span>    string text;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    TextBox<span style="color:#f92672">&amp;</span> addText(<span style="color:#66d9ef">const</span> string<span style="color:#f92672">&amp;</span> append) {
+</span></span><span style="display:flex;"><span>        text <span style="color:#f92672">+=</span> append;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>改成這樣就可以</p>
+
+
+        </div><div class="footer hori hori-center">
+    <span>Copyright &copy; 2023. All rights reserved.</span>
+</div></body>
+</html>
