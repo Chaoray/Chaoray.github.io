@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ $base := .Site.BaseURL }}
-<h1>Welcome</h1>
+<h1 class="title">Welcome</h1>
 <hr>
 <ul class="vert">
     {{ range first .Site.Params.showPostCount (.Site.RegularPages.ByPublishDate.Reverse) }}
