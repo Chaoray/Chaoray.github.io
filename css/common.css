@@ -33,7 +33,7 @@ a:hover {
     color: midnightblue;
 }
 
-ul {
+.post ul {
     list-style-type: none;
 }
 
@@ -43,7 +43,7 @@ header {
 
 .title {
     font-size: 2em;
-    margin: 0 0.5em;
+    margin: 0.5em 0.5em;
 }
 
 .nav {
@@ -122,6 +122,8 @@ header {
 }
 
 .footer {
+    margin-top: 1em;
+    margin-bottom: 2em;
     min-height: 1em;
     width: 100%;
 }
