@@ -1,0 +1,19 @@
+{{ define "main" }}
+{{ $base := .Site.BaseURL }}
+{{ if .Title }}
+<h1>{{ .Title }}</h1>
+<hr>
+{{ end }}
+<div class="post-meta hori">
+    {{ if .Date }}
+    <span class="post-date">Date Written: {{ .Date.Format "2006-01-02" }}</span>
+    {{ end }}
+    <div class="post-tags">
+        {{ range .Params.tags }}
+        <a href="{{ $base }}tags/{{ . | lower | urlize }}"><span class="post-tag">#{{ . }}</span></a>
+        {{ end }}
+    </div>
+</div>
+<br>
+{{ .Content }}
+{{ end }}

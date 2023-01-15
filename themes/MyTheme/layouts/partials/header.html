@@ -1,0 +1,17 @@
+<header id="header" class="horizontal">
+    <div class="nav">
+        <a href="{{ .Site.BaseURL }}">
+            <div id="title">
+                <span class="title">{{ .Site.Title }}</span>
+            </div>
+        </a>
+        <div class="nav-items">
+            {{ range .Site.Params.navbar }}
+            <a class="nav-item" href="{{ .url }}">{{ .name }}</a>
+            {{ end }}
+        </div>
+    </div>
+</header>
+<script>SmoothScroll(document, 100, 12);</script>
+
+<hr>

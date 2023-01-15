@@ -1,0 +1,19 @@
+baseURL: https://chaoray.github.io/
+title: Hyno's Blog
+theme: MyTheme
+
+params:
+  navbar:
+    - name: 貼文
+      url: /posts
+    - name: 關於
+      url: /about
+    - name: 標籤
+      url: /tags
+
+  showPostCount: 5
+
+taxonomies:
+  tag: tags
+  series: series
+  category: categories
