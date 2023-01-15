@@ -37,6 +37,10 @@ ul {
     list-style-type: none;
 }
 
+header {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
 .title {
     font-size: 2em;
     margin: 0 0.5em;
@@ -100,7 +104,12 @@ ul {
     font-style: italic;
 }
 
+.tags {
+    margin: 1em 0;
+}
+
 .tag {
+    margin: 0 0.5em;
     padding: 0.5em 1em;
     border: 1px solid #000;
 }
@@ -115,5 +124,4 @@ ul {
 .footer {
     min-height: 1em;
     width: 100%;
-    margin-bottom: 1em;
 }
