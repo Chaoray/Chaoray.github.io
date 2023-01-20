@@ -7,9 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Hyno">
     
+    <meta name="description" content="用管理員開啟cmd後，輸入
+bcdedit -set TESTSIGNING OFF 重啟電腦後就消失了~">
+    
     <link rel="stylesheet" href="/css/common.css">
     <script src="/js/lib/SmoothScroll.js"></script>
-    <title>Hyno&#39;s Blog</title>
+    <title> 去掉啟用Windows浮水印 | Hyno&#39;s Blog</title>
 </head><body><header id="header" class="horizontal">
     <div class="nav">
         <a href="https://chaoray.github.io/">
@@ -35,14 +38,31 @@
 </header>
 <script>SmoothScroll(document, 100, 12);</script>
 <div id="content">
-        <h1>Tags</h1>
-        <hr>
+
+
+<h1>去掉啟用Windows浮水印</h1>
+<hr>
+
+<div class="post-meta hori">
+    
+    <span class="post-date">Date: 2023-01-20</span>
+    
+    <div class="post-tags">
         
-        <div class="tags">
-            
-        </div>
-    </div><div class="footer hori hori-center">
+        <a href="https://chaoray.github.io/tags/windows"><span class="post-tag">#windows</span></a>
+        
+        <a href="https://chaoray.github.io/tags/trick"><span class="post-tag">#trick</span></a>
+        
+    </div>
+</div>
+<br>
+<p>用<strong>管理員</strong>開啟cmd後，輸入</p>
+<pre tabindex="0"><code>bcdedit -set TESTSIGNING OFF
+</code></pre><p>重啟電腦後就消失了~</p>
+<img src="/watermark-removed.jpg">
+
+
+        </div><div class="footer hori hori-center">
     <span>Copyright &copy; 2023. All rights reserved.</span>
 </div></body>
-
 </html>
