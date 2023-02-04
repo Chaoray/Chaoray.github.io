@@ -5,7 +5,18 @@
     <link>https://chaoray.github.io/tags/class/</link>
     <description>Recent content in Class on Hyno&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 15 Jan 2023 10:44:46 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/class/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Feb 2023 21:35:56 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/class/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OOP - Static Member</title>
+      <link>https://chaoray.github.io/posts/c&#43;&#43;/static-member/</link>
+      <pubDate>Sat, 04 Feb 2023 21:35:56 +0800</pubDate>
+      
+      <guid>https://chaoray.github.io/posts/c&#43;&#43;/static-member/</guid>
+      <description>Preface I wondered, what if a class, for example A, has two methods, one that can only be call when A is not a instance, but the other one can only be call when A is an instance.
+Pseudo Code
+class A; A.do1(); A.do2(); // error a = new A(); a.do1(); // error a.do2(); I looked up for a while on the Internet, and I found there is actually a thing called Static Member.</description>
+    </item>
+    
     <item>
       <title>C&#43;&#43; Class回傳自己</title>
       <link>https://chaoray.github.io/posts/c&#43;&#43;/class-return-self/</link>
