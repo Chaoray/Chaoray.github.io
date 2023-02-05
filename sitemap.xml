@@ -2,16 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://chaoray.github.io/tags/discord/</loc>
+    <lastmod>2023-02-05T17:32:11+08:00</lastmod>
+  </url><url>
+    <loc>https://chaoray.github.io/posts/js/discord-bot-template/</loc>
+    <lastmod>2023-02-05T17:32:11+08:00</lastmod>
+  </url><url>
+    <loc>https://chaoray.github.io/</loc>
+    <lastmod>2023-02-05T17:32:11+08:00</lastmod>
+  </url><url>
+    <loc>https://chaoray.github.io/tags/js/</loc>
+    <lastmod>2023-02-05T17:32:11+08:00</lastmod>
+  </url><url>
+    <loc>https://chaoray.github.io/tags/</loc>
+    <lastmod>2023-02-05T17:32:11+08:00</lastmod>
+  </url><url>
     <loc>https://chaoray.github.io/tags/class/</loc>
     <lastmod>2023-02-04T21:35:56+08:00</lastmod>
   </url><url>
-    <loc>https://chaoray.github.io/</loc>
-    <lastmod>2023-02-04T21:35:56+08:00</lastmod>
-  </url><url>
     <loc>https://chaoray.github.io/posts/c&#43;&#43;/static-member/</loc>
-    <lastmod>2023-02-04T21:35:56+08:00</lastmod>
-  </url><url>
-    <loc>https://chaoray.github.io/tags/</loc>
     <lastmod>2023-02-04T21:35:56+08:00</lastmod>
   </url><url>
     <loc>https://chaoray.github.io/tags/trick/</loc>

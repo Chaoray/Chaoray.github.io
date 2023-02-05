@@ -24,8 +24,8 @@ body {
 }
 
 a {
-    text-decoration: none;
-    color: #000000;
+    /* text-decoration: none; */
+    color: #000;
     transition: 250ms ease-in-out;
 }
 

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html><!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hyno">
+    
+    <meta name="description" content="從0開始做個dc機器人本來就蠻花時間，而且如果是初學者那更不知道要從哪開始
+所以把過往寫機器人的一些管理技巧整理整理，變成一個模板，不用直接from scratch
+我主要是朝向模組化開發，因為我看很多人在寫bot，都把event、command都塞在main.js裡面
+指令的判斷也是用if...else實作，不好管理還難閱讀
+用require，把每個指令拆成一個檔案，動態載入，刪減也很方便
+&#43;---commands | help.js | ping.js 然後slash command我沒有照一般application commands要註冊，而是在加入伺服器時直接設定
+離開再刪除
+// events\guildCreate.js const { Events, } = require(&#39;discord.js&#39;); module.exports = { name: Events.GuildCreate, async execute(guild) { guild.commands.set(guild.client.slashCommands.map((command) =&gt; command.data)); }, }; // events\guildDelete.js module.exports = { name: Events.GuildDelete, async execute(guild) { guild.commands.set([]); }, }; Repo連結：Chaoray/DiscordBotTemplate">
+    
+    <link rel="stylesheet" href="/css/common.css">
+    <script src="/js/lib/SmoothScroll.js"></script>
+    <title> Discord Bot 模板 | Hyno&#39;s Blog</title>
+</head><body><header id="header" class="horizontal">
+    <div class="nav">
+        <a href="https://chaoray.github.io/">
+            <div id="title">
+                <span class="title">Hyno&#39;s Blog</span>
+            </div>
+        </a>
+        <div class="nav-items">
+            
+            <a class="nav-item" href="/posts">貼文</a>
+            
+            <a class="nav-item" href="/about">關於</a>
+            
+            <a class="nav-item" href="/tags">標籤</a>
+            
+        </div>
+        <div class="announcement">
+            <a href="https://chaoray.github.io/SeniorHigh-Note-Website/">
+                <p>Looking for "高中筆記網站"?<br>-> Here</p>
+            </a>
+        </div>
+    </div>
+</header>
+<script>SmoothScroll(document, 100, 12);</script>
+<div id="content">
+
+
+<h1>Discord Bot 模板</h1>
+<hr>
+
+<div class="post-meta hori">
+    
+    <span class="post-date">Date: 2023-02-05</span>
+    
+    <div class="post-tags">
+        
+        <a href="https://chaoray.github.io/tags/js"><span class="post-tag">#js</span></a>
+        
+        <a href="https://chaoray.github.io/tags/discord"><span class="post-tag">#discord</span></a>
+        
+    </div>
+</div>
+<br>
+<p>從0開始做個dc機器人本來就蠻花時間，而且如果是初學者那更不知道要從哪開始<br>
+所以把過往寫機器人的一些管理技巧整理整理，變成一個模板，不用直接from scratch</p>
+<hr>
+<p>我主要是朝向模組化開發，因為我看很多人在寫bot，都把<code>event</code>、<code>command</code>都塞在<code>main.js</code>裡面<br>
+指令的判斷也是用<code>if...else</code>實作，不好管理還難閱讀</p>
+<p>用<code>require</code>，把每個指令拆成一個檔案，動態載入，刪減也很方便</p>
+<pre tabindex="0"><code>+---commands
+|       help.js
+|       ping.js
+</code></pre><p>然後slash command我沒有照一般application commands要註冊，而是在加入伺服器時直接設定<br>
+離開再刪除</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// events\guildCreate.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">Events</span>, } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;discord.js&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Events</span>.<span style="color:#a6e22e">GuildCreate</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">async</span> <span style="color:#a6e22e">execute</span>(<span style="color:#a6e22e">guild</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">guild</span>.<span style="color:#a6e22e">commands</span>.<span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">guild</span>.<span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">slashCommands</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">command</span>) =&gt; <span style="color:#a6e22e">command</span>.<span style="color:#a6e22e">data</span>));
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// events\guildDelete.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Events</span>.<span style="color:#a6e22e">GuildDelete</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">async</span> <span style="color:#a6e22e">execute</span>(<span style="color:#a6e22e">guild</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">guild</span>.<span style="color:#a6e22e">commands</span>.<span style="color:#a6e22e">set</span>([]);
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>Repo連結：<a href="https://github.com/Chaoray/DiscordBotTemplate">Chaoray/DiscordBotTemplate</a></p>
+
+
+        </div><div class="footer hori hori-center">
+    <span>Copyright &copy; 2023. All rights reserved.</span>
+</div></body>
+</html>
