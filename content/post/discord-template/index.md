@@ -2,7 +2,7 @@
 title: "Discord Bot 模板"
 date: 2023-02-05T17:32:11+08:00
 tags: ['js', 'discord']
-draft: false
+image: title.png
 ---
 
 從0開始做個dc機器人本來就蠻花時間，而且如果是初學者那更不知道要從哪開始  

@@ -2,7 +2,8 @@
 title: "Lorem Ipsum"
 date: 2023-01-15T13:43:28+08:00
 tags: ["Lorem", "Ipsum"]
-draft: false
+categories: []
+image: title.png
 ---
 
 # Lorem Ipsum

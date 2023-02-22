@@ -12,6 +12,8 @@ permalinks:
 params:
   mainSections:
     - post
+  featuredImageField: image
+  rssFullContent: true
 
   footer:
     since: 2023
