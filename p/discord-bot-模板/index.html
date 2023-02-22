@@ -24,7 +24,7 @@
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 // events\guildCreate.js const { Events, } = require(&amp;#39;discord.js&amp;#39;); module.exports = { name: Events.GuildCreate, async execute(guild) { guild.commands.set(guild.client.slashCommands.map((command) =&amp;gt; command.data)); }, }; // events\guildDelete.js module.exports = { name: Events.GuildDelete, async execute(guild) { guild.commands.set([]); }, }; Repo連結：Chaoray/DiscordBotTemplate'>
 <meta property='og:url' content='https://chaoray.github.io/p/discord-bot-%E6%A8%A1%E6%9D%BF/'>
 <meta property='og:site_name' content='Hyno&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='js' /><meta property='article:tag' content='discord' /><meta property='article:published_time' content='2023-02-05T17:32:11&#43;08:00'/><meta property='article:modified_time' content='2023-02-05T17:32:11&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='js' /><meta property='article:tag' content='discord' /><meta property='article:published_time' content='2023-02-05T17:32:11&#43;08:00'/><meta property='article:modified_time' content='2023-02-05T17:32:11&#43;08:00'/><meta property='og:image' content='https://chaoray.github.io/p/discord-bot-%E6%A8%A1%E6%9D%BF/title.png' />
 <meta name="twitter:title" content="Discord Bot 模板">
 <meta name="twitter:description" content="從0開始做個dc機器人本來就蠻花時間，而且如果是初學者那更不知道要從哪開始
 所以把過往寫機器人的一些管理技巧整理整理，變成一個模板，不用直接from scratch
@@ -33,7 +33,8 @@
 用require，把每個指令拆成一個檔案，動態載入，刪減也很方便
 1 2 3 &#43;---commands | help.js | ping.js 然後slash command我沒有照一般application commands要註冊，而是在加入伺服器時直接設定
 離開再刪除
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 // events\guildCreate.js const { Events, } = require(&amp;#39;discord.js&amp;#39;); module.exports = { name: Events.GuildCreate, async execute(guild) { guild.commands.set(guild.client.slashCommands.map((command) =&amp;gt; command.data)); }, }; // events\guildDelete.js module.exports = { name: Events.GuildDelete, async execute(guild) { guild.commands.set([]); }, }; Repo連結：Chaoray/DiscordBotTemplate">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 // events\guildCreate.js const { Events, } = require(&amp;#39;discord.js&amp;#39;); module.exports = { name: Events.GuildCreate, async execute(guild) { guild.commands.set(guild.client.slashCommands.map((command) =&amp;gt; command.data)); }, }; // events\guildDelete.js module.exports = { name: Events.GuildDelete, async execute(guild) { guild.commands.set([]); }, }; Repo連結：Chaoray/DiscordBotTemplate"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://chaoray.github.io/p/discord-bot-%E6%A8%A1%E6%9D%BF/title.png' />
     </head>
     <body class="
     article-page
@@ -225,8 +226,24 @@
     
 
             <main class="main full-width">
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/p/discord-bot-%E6%A8%A1%E6%9D%BF/">
+                
+                    
+                        
+                    <img src="/p/discord-bot-%E6%A8%A1%E6%9D%BF/title_hu9f508b376280e6ea0664b4bd3d37cee9_258059_800x0_resize_box_3.png"
+                        srcset="https://picsum.photos/800/450/"
+                        
+                        width="800"
+                        height="450"
+                        loading="lazy"
+                        alt="Featured image of post Discord Bot 模板" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     

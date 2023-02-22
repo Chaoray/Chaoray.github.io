@@ -30,7 +30,7 @@
         <pubDate>Sun, 05 Feb 2023 17:32:11 +0800</pubDate>
         
         <guid>https://chaoray.github.io/p/discord-bot-%E6%A8%A1%E6%9D%BF/</guid>
-        <description>&lt;p&gt;從0開始做個dc機器人本來就蠻花時間，而且如果是初學者那更不知道要從哪開始&lt;br&gt;
+        <description>&lt;img src="https://chaoray.github.io/p/discord-bot-%E6%A8%A1%E6%9D%BF/title.png" alt="Featured image of post Discord Bot 模板" /&gt;&lt;p&gt;從0開始做個dc機器人本來就蠻花時間，而且如果是初學者那更不知道要從哪開始&lt;br&gt;
 所以把過往寫機器人的一些管理技巧整理整理，變成一個模板，不用直接from scratch&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;我主要是朝向模組化開發，因為我看很多人在寫bot，都把&lt;code&gt;event&lt;/code&gt;、&lt;code&gt;command&lt;/code&gt;都塞在&lt;code&gt;main.js&lt;/code&gt;裡面&lt;br&gt;
@@ -260,7 +260,7 @@ However, it does belong to the class.&lt;/p&gt;
         <pubDate>Sun, 15 Jan 2023 13:43:28 +0800</pubDate>
         
         <guid>https://chaoray.github.io/p/lorem-ipsum/</guid>
-        <description>&lt;h1 id=&#34;lorem-ipsum&#34;&gt;Lorem Ipsum&lt;/h1&gt;
+        <description>&lt;img src="https://chaoray.github.io/p/lorem-ipsum/title.png" alt="Featured image of post Lorem Ipsum" /&gt;&lt;h1 id=&#34;lorem-ipsum&#34;&gt;Lorem Ipsum&lt;/h1&gt;
 &lt;h2 id=&#34;lorem-ipsum-1&#34;&gt;Lorem Ipsum&lt;/h2&gt;
 &lt;h3 id=&#34;lorem-ipsum-2&#34;&gt;Lorem Ipsum&lt;/h3&gt;
 &lt;h4 id=&#34;lorem-ipsum-3&#34;&gt;Lorem Ipsum&lt;/h4&gt;
