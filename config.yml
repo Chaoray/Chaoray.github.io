@@ -1,24 +1,98 @@
 baseURL: https://chaoray.github.io/
 title: Hyno's Blog
-theme: MyTheme
+theme: hugo-theme-stack
+paginate: 5
+
+hasCJKLanguage: false
+
+permalinks:
+  post: /p/:slug/
+  page: /:slug/
 
 params:
-  navbar:
-    - name: 貼文
-      url: /posts
-    - name: 關於
-      url: /about
-    - name: 標籤
-      url: /tags
+  mainSections:
+    - post
 
-  showPostCount: 5
+  footer:
+    since: 2023
+    customText: 祝你有個美好的一天
 
-taxonomies:
-  tag: tags
-  series: series
-  category: categories
+  dateFormat:
+    published: Jan 02, 2006
+    lastUpdated: Jan 02, 2006 15:04 MST
+
+  sidebar:
+    emoji: 😔
+    subtitle: Coding from Life.
+    avatar:
+      enabled: true
+      local: true
+      src: img/avatar.png
+
+  article:
+    math: false
+    toc: true
+    readingTime: true
+    license:
+      enabled: true
+      default: Licensed under CC BY-NC-SA 4.0
+
+  widgets:
+    homepage:
+      - type: search
+      - type: archives
+        params:
+          limit: 5
+      - type: categories
+        params:
+          limit: 10
+      - type: tag-cloud
+        params:
+          limit: 10
+    page:
+      - type: toc
+
+  imageProcessing:
+    cover:
+      enabled: true
+    content:
+      enabled: true
+
+related:
+  includeNewer: true
+  threshold: 60
+  toLower: false
+  indices:
+    - name: tags
+      weight: 100
+
+    - name: categories
+      weight: 200
+
+menu:
+  main: []
+
+  social:
+    - identifier: github
+      name: GitHub
+      url: https://github.com/Chaoray
+      params:
+        icon: brand-github
 
 markup:
   goldmark:
     renderer:
+      ## Set to true if you have HTML content inside Markdown
       unsafe: true
+  tableOfContents:
+    endLevel: 4
+    ordered: true
+    startLevel: 2
+  highlight:
+    noClasses: false
+    codeFences: true
+    guessSyntax: true
+    lineNoStart: 1
+    lineNos: true
+    lineNumbersInTable: true
+    tabWidth: 4
