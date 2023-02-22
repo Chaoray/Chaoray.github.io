@@ -1,19 +1,68 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Lorem on Hyno&#39;s Blog</title>
-    <link>https://chaoray.github.io/tags/lorem/</link>
-    <description>Recent content in Lorem on Hyno&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 15 Jan 2023 13:43:28 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/lorem/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Lorem Ipsum</title>
-      <link>https://chaoray.github.io/posts/uncategories/lorem-ipsum/</link>
-      <pubDate>Sun, 15 Jan 2023 13:43:28 +0800</pubDate>
-      
-      <guid>https://chaoray.github.io/posts/uncategories/lorem-ipsum/</guid>
-      <description>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultrices nisi a efficitur commodo. Maecenas ornare mauris nec risus finibus, vestibulum fringilla arcu egestas. Maecenas pharetra, libero eu condimentum euismod, velit arcu semper felis, eu porta sapien sem ac mauris. Sed id bibendum ligula, a iaculis nisl. Sed sit amet nulla elementum, auctor odio sagittis, hendrerit nunc. Ut vehicula orci ut leo blandit, vel mattis risus consequat.</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>Lorem on Hyno&#39;s Blog</title>
+        <link>https://chaoray.github.io/tags/lorem/</link>
+        <description>Recent content in Lorem on Hyno&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <lastBuildDate>Sun, 15 Jan 2023 13:43:28 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/lorem/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Lorem Ipsum</title>
+        <link>https://chaoray.github.io/p/lorem-ipsum/</link>
+        <pubDate>Sun, 15 Jan 2023 13:43:28 +0800</pubDate>
+        
+        <guid>https://chaoray.github.io/p/lorem-ipsum/</guid>
+        <description>&lt;h1 id=&#34;lorem-ipsum&#34;&gt;Lorem Ipsum&lt;/h1&gt;
+&lt;h2 id=&#34;lorem-ipsum-1&#34;&gt;Lorem Ipsum&lt;/h2&gt;
+&lt;h3 id=&#34;lorem-ipsum-2&#34;&gt;Lorem Ipsum&lt;/h3&gt;
+&lt;h4 id=&#34;lorem-ipsum-3&#34;&gt;Lorem Ipsum&lt;/h4&gt;
+&lt;h5 id=&#34;lorem-ipsum-4&#34;&gt;Lorem Ipsum&lt;/h5&gt;
+&lt;h6 id=&#34;lorem-ipsum-5&#34;&gt;Lorem Ipsum&lt;/h6&gt;
+&lt;p&gt;&lt;strong&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultrices nisi a efficitur commodo. Maecenas ornare mauris nec risus finibus, vestibulum fringilla arcu egestas. Maecenas pharetra, libero eu condimentum euismod, velit arcu semper felis, eu porta sapien sem ac mauris. Sed id bibendum ligula, a iaculis nisl. Sed sit amet nulla elementum, auctor odio sagittis, hendrerit nunc. Ut vehicula orci ut leo blandit, vel mattis risus consequat. Ut sit amet ante aliquam, congue metus vel, congue tellus. Suspendisse cursus feugiat quam in euismod. Curabitur eros ligula, scelerisque eu suscipit in, tincidunt quis urna. Integer rutrum porttitor bibendum. Nam commodo pulvinar felis et feugiat. Sed tincidunt luctus ullamcorper.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Donec odio mi, hendrerit non metus vel, consequat pellentesque nulla. Fusce interdum velit tortor, vitae interdum nulla aliquet vitae. Donec dapibus nulla eu auctor mollis. Fusce rutrum ipsum eget tincidunt gravida. Vivamus faucibus porttitor massa ut sagittis. Pellentesque pulvinar aliquam urna, bibendum auctor dolor auctor ut. Nullam efficitur ac metus vel consectetur. Nunc purus velit, rutrum ut magna euismod, maximus feugiat dolor. Curabitur rhoncus odio nec quam placerat venenatis. Donec tortor dolor, dapibus id leo interdum, mattis dignissim ipsum.&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Nulla scelerisque est est, id fermentum tellus feugiat ac. Phasellus pellentesque odio mattis tellus porttitor porttitor. Sed 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ullamcorper massa eget enim viverra, eget congue augue eleifend. Fusce posuere enim at sagittis blandit. Nullam dapibus lorem quis 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tortor ultrices lobortis eget quis odio. Pellentesque non urna ultricies, aliquam odio vitae, lacinia odio. Praesent ullamcorper id 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mauris et posuere. Integer sit amet efficitur ante, non eleifend tortor. Nunc sollicitudin lobortis tempor. In hendrerit sem id 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;massa egestas, tincidunt tincidunt libero tempus. Nulla vitae auctor elit, id auctor ligula. Donec eget porttitor elit. Praesent at 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;facilisis felis, ac consequat quam. Vestibulum consequat, neque eu dictum semper, libero tellus suscipit metus, quis finibus risus 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;quam a nisl. Quisque tempor laoreet odio nec ornare. Nulla facilisi.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Morbi eros est, convallis imperdiet urna et, sagittis feugiat ex. Proin laoreet rutrum turpis, eu pretium lorem placerat vestibulum.&lt;/li&gt;
+&lt;li&gt;Praesent a leo odio. Nam sed turpis massa. Sed eu lacus sed nunc bibendum tempor. Sed auctor elementum urna, vitae lacinia nunc tempor at.&lt;/li&gt;
+&lt;li&gt;Nam sed ornare est. Cras ullamcorper eget dui quis convallis.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;Morbi augue ante, dapibus ut semper sit amet, porta pharetra lacus. Sed est est, dictum sit amet finibus eget, iaculis posuere nunc.&lt;/li&gt;
+&lt;li&gt;Curabitur leo quam, congue eu arcu lobortis, cursus pellentesque tortor.&lt;/li&gt;
+&lt;li&gt;Morbi sit amet commodo odio. Integer eu sem eget odio semper mattis eget eu ante. Integer tempus arcu sed pretium pellentesque.&lt;/li&gt;
+&lt;li&gt;Vestibulum euismod euismod aliquam. Donec pretium sapien et ipsum pharetra, quis suscipit tortor tristique.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Aenean arcu libero, efficitur eget accumsan a, volutpat ut metus. Nulla eget auctor nunc, sit amet mollis dui. Aliquam egestas libero non lectus fermentum sollicitudin.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.lipsum.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Donec eget tellus in justo tincidunt consectetur sit amet sed purus.&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p style=&#34;color: red;&#34;&gt;Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer eleifend ultrices congue.&lt;/p&gt;
+&lt;p&gt;Aenean vulputate nibh quis sodales venenatis. Duis fermentum quam a ante fringilla, sit amet vestibulum diam faucibus. Proin gravida sed urna ac commodo. Phasellus libero massa, lobortis non enim nec, consequat mollis nunc. Fusce fringilla ultricies euismod. Nullam dignissim nulla id est convallis condimentum. Vivamus enim urna, rutrum at nisi ut, ullamcorper malesuada sapien. Integer vestibulum lobortis metus, nec tincidunt tortor pharetra sit amet.&lt;/p&gt;
+&lt;p style=&#34;text-align:center;&#34;&gt;
+    &lt;img src=&#34;https://chaoray.github.io/lorem-ipsum.jpg&#34;&gt;
+&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>
