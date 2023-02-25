@@ -2,6 +2,7 @@
 title: "Discord Bot 模板"
 date: 2023-02-05T17:32:11+08:00
 tags: ['js', 'discord']
+categories: ['project']
 image: title.png
 ---
 
