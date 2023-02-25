@@ -5,7 +5,356 @@
         <link>https://chaoray.github.io/tags/c&#43;&#43;/</link>
         <description>Recent content in C&#43;&#43; on Hyno&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
-        <lastBuildDate>Sun, 15 Jan 2023 10:44:46 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 25 Feb 2023 14:16:22 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>在Windows安裝GNU Compiler</title>
+        <link>https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/</link>
+        <pubDate>Sat, 25 Feb 2023 14:16:22 +0800</pubDate>
+        
+        <guid>https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/</guid>
+        <description>&lt;img src="https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/msg-intellisense.jpg" alt="Featured image of post 在Windows安裝GNU Compiler" /&gt;&lt;p&gt;在學寫C++的時候，不想用Visual Studio(太肥)，只好拿VSCode來練練手&lt;br&gt;
+這樣的話就要額外裝編譯器了&lt;br&gt;
+想當時裝個MinGW，就不知道如何下手，研究過後寫篇文章幫幫他人&lt;/p&gt;
+&lt;h2 id=&#34;msys2微軟官方推薦安裝&#34;&gt;MSYS2：微軟官方推薦安裝&lt;/h2&gt;
+&lt;p&gt;官網：&lt;a class=&#34;link&#34; href=&#34;https://www.msys2.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MSYS2 - Getting Started&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;先下載安裝檔，下載位置官網點進去就有，很大很亮眼&lt;br&gt;
+&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/download-installation.jpg&#34;
+	width=&#34;799&#34;
+	height=&#34;158&#34;
+	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/download-installation_hu6f1598d14b623a173fc779ff6b4f8a6f_19501_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/download-installation_hu6f1598d14b623a173fc779ff6b4f8a6f_19501_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;505&#34;
+		data-flex-basis=&#34;1213px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;打開後一直點Next即可，當然途中想改安裝位置也沒問題
+&lt;img src=&#34;https://www.msys2.org/images/install-2-path.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;按Finish後會跳出一個終端機視窗，請注意紅框中的UCRT64
+&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt.jpg&#34;
+	width=&#34;754&#34;
+	height=&#34;448&#34;
+	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;168&#34;
+		data-flex-basis=&#34;403px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;目前MSys2內的Mingw分七種版本：&lt;/p&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;名稱&lt;/td&gt;
+        &lt;td&gt;前綴&lt;/td&gt;
+        &lt;td&gt;工具鏈&lt;/td&gt;
+        &lt;td&gt;架構&lt;/td&gt;
+        &lt;td&gt;C 函式庫&lt;/td&gt;
+        &lt;td&gt;C++ 函式庫&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;MSYS&lt;/td&gt;
+        &lt;td&gt;/usr&lt;/td&gt;
+        &lt;td&gt;gcc&lt;/td&gt;
+        &lt;td&gt;x86_64&lt;/td&gt;
+        &lt;td&gt;cygwin&lt;/td&gt;
+        &lt;td&gt;libstdc++&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;UCRT64&lt;/td&gt;
+        &lt;td&gt;/ucrt64&lt;/td&gt;
+        &lt;td&gt;gcc&lt;/td&gt;
+        &lt;td&gt;x86_64&lt;/td&gt;
+        &lt;td&gt;ucrt&lt;/td&gt;
+        &lt;td&gt;libstdc++&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;CLANG64&lt;/td&gt;
+        &lt;td&gt;/clang64&lt;/td&gt;
+        &lt;td&gt;llvm&lt;/td&gt;
+        &lt;td&gt;x86_64&lt;/td&gt;
+        &lt;td&gt;ucrt&lt;/td&gt;
+        &lt;td&gt;libc++&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;CLANGARM64&lt;/td&gt;
+        &lt;td&gt;/clangarm64&lt;/td&gt;
+        &lt;td&gt;llvm&lt;/td&gt;
+        &lt;td&gt;aarch64&lt;/td&gt;
+        &lt;td&gt;ucrt&lt;/td&gt;
+        &lt;td&gt;libc++&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;CLANG32&lt;/td&gt;
+        &lt;td&gt;/clang32&lt;/td&gt;
+        &lt;td&gt;llvm&lt;/td&gt;
+        &lt;td&gt;i686&lt;/td&gt;
+        &lt;td&gt;ucrt&lt;/td&gt;
+        &lt;td&gt;libc++&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;MINGW64&lt;/td&gt;
+        &lt;td&gt;/mingw64&lt;/td&gt;
+        &lt;td&gt;gcc&lt;/td&gt;
+        &lt;td&gt;x86_64&lt;/td&gt;
+        &lt;td&gt;msvcrt&lt;/td&gt;
+        &lt;td&gt;libstdc++&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;MINGW32&lt;/td&gt;
+        &lt;td&gt;/mingw64&lt;/td&gt;
+        &lt;td&gt;gcc&lt;/td&gt;
+        &lt;td&gt;i686&lt;/td&gt;
+        &lt;td&gt;msvcrt&lt;/td&gt;
+        &lt;td&gt;libstdc++&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;而MSYS2本身，只能算是一個幫助你建置環境的工具&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;那剛剛提到的UCRT又是甚麼?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;UCRT的全名是&lt;code&gt;Universal C Runtime&lt;/code&gt;，被Microsoft Visual Studio採用&lt;br&gt;
+主打更好的相容性，用起來跟MSVCRT一樣&lt;/p&gt;
+&lt;p&gt;MinGW則採用MSVCRT，&lt;code&gt;Microsoft Visual C++ Runtime&lt;/code&gt;，看名字就知道跟微軟有關，可是聽MSYS2官網的介紹是缺點一堆阿&amp;hellip;&lt;br&gt;
+唯一的好處是只要你用Windows系統那就可以直接用，真不錯(?&lt;/p&gt;
+&lt;p&gt;原文連結：&lt;a class=&#34;link&#34; href=&#34;https://www.msys2.org/docs/environments/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Environments - MSYS2&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;我該安裝哪種&#34;&gt;我該安裝哪種?&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;如果你是在Windows系統上做開發，UCRT64跟MINGW64都可以&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;但是我推薦UCRT&lt;/p&gt;
+&lt;p&gt;接下來我會分兩種教學&lt;/p&gt;
+&lt;h3 id=&#34;安裝教學&#34;&gt;安裝教學&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;注意你用的終端機版本&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;這是UCRT64的
+&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt.jpg&#34;
+	width=&#34;754&#34;
+	height=&#34;448&#34;
+	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;168&#34;
+		data-flex-basis=&#34;403px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;這是MINGW64的
+&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/mingw.jpg&#34;
+	width=&#34;753&#34;
+	height=&#34;436&#34;
+	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/mingw_hu81559f0ee1974c479cf134515b3ad964_29147_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/mingw_hu81559f0ee1974c479cf134515b3ad964_29147_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;172&#34;
+		data-flex-basis=&#34;414px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;在終端機中打上&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;UCRT&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pacman -S mingw-w64-ucrt-x86_64-gcc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;MINGW&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pacman -S mingw-w64-x86_64-gcc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;確認安裝&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;:: Proceed with installation? [Y/n]  &amp;lt;-- 這裡輸入Y(大寫)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;等他載完即可，記得確認一下安裝是否正確&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;gcc --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# gcc --version
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;gcc.exe (Rev10, Built by MSYS2：2023-02-19
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Copyright (C) 2022 Free Software Foundation, Inc.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;This is free software; see the source for copying conditions.  There is NO
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;安裝工具包(可選)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;UCRT&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pacman -S mingw-w64-ucrt-x86_64-toolchain
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;MINGW&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pacman -S mingw-w64-x86_64-toolchain
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;因為是包，所以會跟你確認有哪些要裝&lt;br&gt;
+第一次安裝的大人請直接Enter略過，等之後有經驗了變成小孩再選擇&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Enter a selection (default=all):  &amp;lt;-- Enter
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;跑完就ok了~&lt;/p&gt;
+&lt;h3 id=&#34;重點加入系統路徑&#34;&gt;重點：加入系統路徑&lt;/h3&gt;
+&lt;p&gt;首先要知道你的MSYS2裝在哪裡&lt;br&gt;
+以剛剛安裝為例，應該是裝在&lt;code&gt;C:\msys64&lt;/code&gt;下&lt;/p&gt;
+&lt;p&gt;然後去資料夾內依照你安裝的版本，尋找&lt;code&gt;\ucrt64&lt;/code&gt;或&lt;code&gt;\mingw64&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/install-folder.jpg&#34;
+	width=&#34;137&#34;
+	height=&#34;157&#34;
+	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/install-folder_hub3f751866cb868302878cbdc92bfe749_6932_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/install-folder_hub3f751866cb868302878cbdc92bfe749_6932_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;87&#34;
+		data-flex-basis=&#34;209px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;以安裝&lt;code&gt;ucrt64&lt;/code&gt;為例：&lt;br&gt;
+裡面內有個名為bin的，請將此資料夾路徑複製下來&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;C:\msys64\ucrt64\bin
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;然後按Win+R，輸入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rundll32 sysdm.cpl,EditEnvironmentVariables
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;找到Path後按編輯&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env1.jpg&#34;
+	width=&#34;595&#34;
+	height=&#34;481&#34;
+	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env1_hu61710e0543d3a567e25f2bf4ba52ec26_83992_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env1_hu61710e0543d3a567e25f2bf4ba52ec26_83992_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;123&#34;
+		data-flex-basis=&#34;296px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;進去之後按新增-&amp;gt;貼上剛剛複製的路徑-&amp;gt;確定&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env2.jpg&#34;
+	width=&#34;514&#34;
+	height=&#34;485&#34;
+	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env2_hue16f418609d12936d6728390fbc8cee6_45760_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env2_hue16f418609d12936d6728390fbc8cee6_45760_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;105&#34;
+		data-flex-basis=&#34;254px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;如果你以上步驟都正確，沒有出現錯誤&lt;br&gt;
+那麼恭喜你，你可以開始學習C/C++之路了&lt;/p&gt;
+&lt;p&gt;編譯C&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;gcc main.c -o main.exe
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;編譯C++&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;g++ main.c -o main.exe
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;mingw-manager坊間古早味&#34;&gt;MinGW Manager：坊間古早味&lt;/h2&gt;
+&lt;p&gt;直接上Google搜尋&lt;code&gt;vscode 安裝c++&lt;/code&gt;，大概會找到MinGW Manager&lt;br&gt;
+它的優點：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;簡單快速&lt;/li&gt;
+&lt;li&gt;視覺化安裝&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;缺點：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;版本很舊&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;對比一下MSYS2跟MinGW Manager的最後更新時間 (截自文章發布)：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MinGW Manager： &lt;strong&gt;2017-09-06&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;MSYS2：2023-02-19&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;差太多了吧！本身很舊以外，&lt;strong&gt;裡面的安裝包還是2013年的&lt;/strong&gt;&lt;br&gt;
+所以不想被時代潮流汰換的話，還是安裝MSYS2會比較好&lt;/p&gt;
+&lt;p&gt;MinGW Manager載點：&lt;a class=&#34;link&#34; href=&#34;https://sourceforge.net/projects/mingw/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MinGW - Minimalist GNU for Windows&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;網路上教學很多，我只介紹一下&lt;br&gt;
+米爾大大教學：&lt;a class=&#34;link&#34; href=&#34;https://ithelp.ithome.com.tw/articles/10190235&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;[VSCode] Visual Studio Code 執行 C++ (1) - 安裝 VSCode + MinGW&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>C&#43;&#43; Class Return Self</title>
         <link>https://chaoray.github.io/p/c-class-return-self/</link>
         <pubDate>Sun, 15 Jan 2023 10:44:46 +0800</pubDate>

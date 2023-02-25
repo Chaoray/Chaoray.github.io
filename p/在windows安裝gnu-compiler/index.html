@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='在學寫C&#43;&#43;的時候，不想用Visual Studio(太肥)，只好拿VSCode來練練手
+這樣的話就要額外裝編譯器了
+想當時裝個MinGW，就不知道如何下手，研究過後寫篇文章幫幫他人
+MSYS2：微軟官方推薦安裝 官網：MSYS2 - Getting Started
+先下載安裝檔，下載位置官網點進去就有，很大很亮眼
+打開後一直點Next即可，當然途中想改安裝位置也沒問題 按Finish後會跳出一個終端機視窗，請注意紅框中的UCRT64 目前MSys2內的Mingw分七種版本：
+名稱 前綴 工具鏈 架構 C 函式庫 C&#43;&#43; 函式庫 MSYS /usr gcc x86_64 cygwin libstdc&#43;&#43; UCRT64 /ucrt64 gcc x86_64 ucrt libstdc&#43;&#43; CLANG64 /clang64 llvm x86_64 ucrt libc&#43;&#43; CLANGARM64 /clangarm64 llvm aarch64 ucrt libc&#43;&#43; CLANG32 /clang32 llvm i686 ucrt libc&#43;&#43; MINGW64 /mingw64 gcc x86_64 msvcrt libstdc&#43;&#43; MINGW32 /mingw64 gcc i686 msvcrt libstdc&#43;&#43; 而MSYS2本身，只能算是一個幫助你建置環境的工具
+那剛剛提到的UCRT又是甚麼?
+UCRT的全名是Universal C Runtime，被Microsoft Visual Studio採用'>
+<title>在Windows安裝GNU Compiler</title>
+
+<link rel='canonical' href='https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='在Windows安裝GNU Compiler'>
+<meta property='og:description' content='在學寫C&#43;&#43;的時候，不想用Visual Studio(太肥)，只好拿VSCode來練練手
+這樣的話就要額外裝編譯器了
+想當時裝個MinGW，就不知道如何下手，研究過後寫篇文章幫幫他人
+MSYS2：微軟官方推薦安裝 官網：MSYS2 - Getting Started
+先下載安裝檔，下載位置官網點進去就有，很大很亮眼
+打開後一直點Next即可，當然途中想改安裝位置也沒問題 按Finish後會跳出一個終端機視窗，請注意紅框中的UCRT64 目前MSys2內的Mingw分七種版本：
+名稱 前綴 工具鏈 架構 C 函式庫 C&#43;&#43; 函式庫 MSYS /usr gcc x86_64 cygwin libstdc&#43;&#43; UCRT64 /ucrt64 gcc x86_64 ucrt libstdc&#43;&#43; CLANG64 /clang64 llvm x86_64 ucrt libc&#43;&#43; CLANGARM64 /clangarm64 llvm aarch64 ucrt libc&#43;&#43; CLANG32 /clang32 llvm i686 ucrt libc&#43;&#43; MINGW64 /mingw64 gcc x86_64 msvcrt libstdc&#43;&#43; MINGW32 /mingw64 gcc i686 msvcrt libstdc&#43;&#43; 而MSYS2本身，只能算是一個幫助你建置環境的工具
+那剛剛提到的UCRT又是甚麼?
+UCRT的全名是Universal C Runtime，被Microsoft Visual Studio採用'>
+<meta property='og:url' content='https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/'>
+<meta property='og:site_name' content='Hyno&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='c&#43;&#43;' /><meta property='article:published_time' content='2023-02-25T14:16:22&#43;08:00'/><meta property='article:modified_time' content='2023-02-25T14:16:22&#43;08:00'/><meta property='og:image' content='https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/msg-intellisense.jpg' />
+<meta name="twitter:title" content="在Windows安裝GNU Compiler">
+<meta name="twitter:description" content="在學寫C&#43;&#43;的時候，不想用Visual Studio(太肥)，只好拿VSCode來練練手
+這樣的話就要額外裝編譯器了
+想當時裝個MinGW，就不知道如何下手，研究過後寫篇文章幫幫他人
+MSYS2：微軟官方推薦安裝 官網：MSYS2 - Getting Started
+先下載安裝檔，下載位置官網點進去就有，很大很亮眼
+打開後一直點Next即可，當然途中想改安裝位置也沒問題 按Finish後會跳出一個終端機視窗，請注意紅框中的UCRT64 目前MSys2內的Mingw分七種版本：
+名稱 前綴 工具鏈 架構 C 函式庫 C&#43;&#43; 函式庫 MSYS /usr gcc x86_64 cygwin libstdc&#43;&#43; UCRT64 /ucrt64 gcc x86_64 ucrt libstdc&#43;&#43; CLANG64 /clang64 llvm x86_64 ucrt libc&#43;&#43; CLANGARM64 /clangarm64 llvm aarch64 ucrt libc&#43;&#43; CLANG32 /clang32 llvm i686 ucrt libc&#43;&#43; MINGW64 /mingw64 gcc x86_64 msvcrt libstdc&#43;&#43; MINGW32 /mingw64 gcc i686 msvcrt libstdc&#43;&#43; 而MSYS2本身，只能算是一個幫助你建置環境的工具
+那剛剛提到的UCRT又是甚麼?
+UCRT的全名是Universal C Runtime，被Microsoft Visual Studio採用"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/msg-intellisense.jpg' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu1acf05f8135030e4a8407ee14a841768_318745_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😔</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Hyno&#39;s Blog</a></h1>
+            <h2 class="site-description">Coding from Life.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/Chaoray'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E9%AB%98%E4%B8%AD%E7%AD%86%E8%A8%98%E7%B6%B2%E7%AB%99/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"></path>
+  <line x1="10" y1="14" x2="20" y2="4"></line>
+  <polyline points="15 4 20 4 20 9"></polyline>
+</svg>
+                
+                <span>高中筆記網站</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#msys2微軟官方推薦安裝">MSYS2：微軟官方推薦安裝</a>
+      <ol>
+        <li><a href="#我該安裝哪種">我該安裝哪種?</a></li>
+        <li><a href="#安裝教學">安裝教學</a></li>
+        <li><a href="#重點加入系統路徑">重點：加入系統路徑</a></li>
+      </ol>
+    </li>
+    <li><a href="#mingw-manager坊間古早味">MinGW Manager：坊間古早味</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/">
+                
+                    
+                        
+                    <img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/msg-intellisense_hu1da1126b82c3201fcfa749294077f303_65014_800x0_resize_q75_box.jpg"
+                        srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/msg-intellisense_hu1da1126b82c3201fcfa749294077f303_65014_800x0_resize_q75_box.jpg 800w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/msg-intellisense_hu1da1126b82c3201fcfa749294077f303_65014_1600x0_resize_q75_box.jpg 1600w"
+                        width="800"
+                        height="484"
+                        loading="lazy"
+                        alt="Featured image of post 在Windows安裝GNU Compiler" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/tutorial/" >
+                tutorial
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/">在Windows安裝GNU Compiler</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 25, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>在學寫C++的時候，不想用Visual Studio(太肥)，只好拿VSCode來練練手<br>
+這樣的話就要額外裝編譯器了<br>
+想當時裝個MinGW，就不知道如何下手，研究過後寫篇文章幫幫他人</p>
+<h2 id="msys2微軟官方推薦安裝">MSYS2：微軟官方推薦安裝</h2>
+<p>官網：<a class="link" href="https://www.msys2.org/"  target="_blank" rel="noopener"
+    >MSYS2 - Getting Started</a></p>
+<p>先下載安裝檔，下載位置官網點進去就有，很大很亮眼<br>
+<img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/download-installation.jpg"
+	width="799"
+	height="158"
+	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/download-installation_hu6f1598d14b623a173fc779ff6b4f8a6f_19501_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/download-installation_hu6f1598d14b623a173fc779ff6b4f8a6f_19501_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="505"
+		data-flex-basis="1213px"
+	
+></p>
+<p>打開後一直點Next即可，當然途中想改安裝位置也沒問題
+<img src="https://www.msys2.org/images/install-2-path.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>按Finish後會跳出一個終端機視窗，請注意紅框中的UCRT64
+<img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt.jpg"
+	width="754"
+	height="448"
+	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="168"
+		data-flex-basis="403px"
+	
+></p>
+<p>目前MSys2內的Mingw分七種版本：</p>
+<div class="table-wrapper"><table>
+    <tr>
+        <td>名稱</td>
+        <td>前綴</td>
+        <td>工具鏈</td>
+        <td>架構</td>
+        <td>C 函式庫</td>
+        <td>C++ 函式庫</td>
+    </tr>
+    <tr>
+        <td>MSYS</td>
+        <td>/usr</td>
+        <td>gcc</td>
+        <td>x86_64</td>
+        <td>cygwin</td>
+        <td>libstdc++</td>
+    </tr>
+    <tr>
+        <td>UCRT64</td>
+        <td>/ucrt64</td>
+        <td>gcc</td>
+        <td>x86_64</td>
+        <td>ucrt</td>
+        <td>libstdc++</td>
+    </tr>
+    <tr>
+        <td>CLANG64</td>
+        <td>/clang64</td>
+        <td>llvm</td>
+        <td>x86_64</td>
+        <td>ucrt</td>
+        <td>libc++</td>
+    </tr>
+    <tr>
+        <td>CLANGARM64</td>
+        <td>/clangarm64</td>
+        <td>llvm</td>
+        <td>aarch64</td>
+        <td>ucrt</td>
+        <td>libc++</td>
+    </tr>
+    <tr>
+        <td>CLANG32</td>
+        <td>/clang32</td>
+        <td>llvm</td>
+        <td>i686</td>
+        <td>ucrt</td>
+        <td>libc++</td>
+    </tr>
+    <tr>
+        <td>MINGW64</td>
+        <td>/mingw64</td>
+        <td>gcc</td>
+        <td>x86_64</td>
+        <td>msvcrt</td>
+        <td>libstdc++</td>
+    </tr>
+    <tr>
+        <td>MINGW32</td>
+        <td>/mingw64</td>
+        <td>gcc</td>
+        <td>i686</td>
+        <td>msvcrt</td>
+        <td>libstdc++</td>
+    </tr>
+</table></div>
+<p>而MSYS2本身，只能算是一個幫助你建置環境的工具</p>
+<p><strong>那剛剛提到的UCRT又是甚麼?</strong></p>
+<p>UCRT的全名是<code>Universal C Runtime</code>，被Microsoft Visual Studio採用<br>
+主打更好的相容性，用起來跟MSVCRT一樣</p>
+<p>MinGW則採用MSVCRT，<code>Microsoft Visual C++ Runtime</code>，看名字就知道跟微軟有關，可是聽MSYS2官網的介紹是缺點一堆阿&hellip;<br>
+唯一的好處是只要你用Windows系統那就可以直接用，真不錯(?</p>
+<p>原文連結：<a class="link" href="https://www.msys2.org/docs/environments/"  target="_blank" rel="noopener"
+    >Environments - MSYS2</a></p>
+<h3 id="我該安裝哪種">我該安裝哪種?</h3>
+<p><strong>如果你是在Windows系統上做開發，UCRT64跟MINGW64都可以</strong></p>
+<p>但是我推薦UCRT</p>
+<p>接下來我會分兩種教學</p>
+<h3 id="安裝教學">安裝教學</h3>
+<ol>
+<li>注意你用的終端機版本</li>
+</ol>
+<p>這是UCRT64的
+<img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt.jpg"
+	width="754"
+	height="448"
+	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="168"
+		data-flex-basis="403px"
+	
+></p>
+<p>這是MINGW64的
+<img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/mingw.jpg"
+	width="753"
+	height="436"
+	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/mingw_hu81559f0ee1974c479cf134515b3ad964_29147_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/mingw_hu81559f0ee1974c479cf134515b3ad964_29147_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="172"
+		data-flex-basis="414px"
+	
+></p>
+<ol start="2">
+<li>在終端機中打上</li>
+</ol>
+<p>UCRT</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pacman -S mingw-w64-ucrt-x86_64-gcc
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>MINGW</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pacman -S mingw-w64-x86_64-gcc
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>確認安裝</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">:: Proceed with installation? [Y/n]  &lt;-- 這裡輸入Y(大寫)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>等他載完即可，記得確認一下安裝是否正確</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">gcc --version
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># gcc --version
+</span></span><span class="line"><span class="cl">gcc.exe (Rev10, Built by MSYS2：2023-02-19
+</span></span><span class="line"><span class="cl">Copyright (C) 2022 Free Software Foundation, Inc.
+</span></span><span class="line"><span class="cl">This is free software; see the source for copying conditions.  There is NO
+</span></span><span class="line"><span class="cl">warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>安裝工具包(可選)</li>
+</ol>
+<p>UCRT</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pacman -S mingw-w64-ucrt-x86_64-toolchain
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>MINGW</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pacman -S mingw-w64-x86_64-toolchain
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>因為是包，所以會跟你確認有哪些要裝<br>
+第一次安裝的大人請直接Enter略過，等之後有經驗了變成小孩再選擇</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Enter a selection (default=all):  &lt;-- Enter
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>跑完就ok了~</p>
+<h3 id="重點加入系統路徑">重點：加入系統路徑</h3>
+<p>首先要知道你的MSYS2裝在哪裡<br>
+以剛剛安裝為例，應該是裝在<code>C:\msys64</code>下</p>
+<p>然後去資料夾內依照你安裝的版本，尋找<code>\ucrt64</code>或<code>\mingw64</code></p>
+<p><img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/install-folder.jpg"
+	width="137"
+	height="157"
+	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/install-folder_hub3f751866cb868302878cbdc92bfe749_6932_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/install-folder_hub3f751866cb868302878cbdc92bfe749_6932_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="87"
+		data-flex-basis="209px"
+	
+></p>
+<p>以安裝<code>ucrt64</code>為例：<br>
+裡面內有個名為bin的，請將此資料夾路徑複製下來</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">C:\msys64\ucrt64\bin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然後按Win+R，輸入</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">rundll32 sysdm.cpl,EditEnvironmentVariables
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>找到Path後按編輯</p>
+<p><img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env1.jpg"
+	width="595"
+	height="481"
+	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env1_hu61710e0543d3a567e25f2bf4ba52ec26_83992_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env1_hu61710e0543d3a567e25f2bf4ba52ec26_83992_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="123"
+		data-flex-basis="296px"
+	
+></p>
+<p>進去之後按新增-&gt;貼上剛剛複製的路徑-&gt;確定</p>
+<p><img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env2.jpg"
+	width="514"
+	height="485"
+	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env2_hue16f418609d12936d6728390fbc8cee6_45760_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env2_hue16f418609d12936d6728390fbc8cee6_45760_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="105"
+		data-flex-basis="254px"
+	
+></p>
+<p>如果你以上步驟都正確，沒有出現錯誤<br>
+那麼恭喜你，你可以開始學習C/C++之路了</p>
+<p>編譯C</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">gcc main.c -o main.exe
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>編譯C++</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">g++ main.c -o main.exe
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mingw-manager坊間古早味">MinGW Manager：坊間古早味</h2>
+<p>直接上Google搜尋<code>vscode 安裝c++</code>，大概會找到MinGW Manager<br>
+它的優點：</p>
+<ul>
+<li>簡單快速</li>
+<li>視覺化安裝</li>
+</ul>
+<p>缺點：</p>
+<ul>
+<li>版本很舊</li>
+</ul>
+<p>對比一下MSYS2跟MinGW Manager的最後更新時間 (截自文章發布)：</p>
+<ul>
+<li>MinGW Manager： <strong>2017-09-06</strong></li>
+<li>MSYS2：2023-02-19</li>
+</ul>
+<p>差太多了吧！本身很舊以外，<strong>裡面的安裝包還是2013年的</strong><br>
+所以不想被時代潮流汰換的話，還是安裝MSYS2會比較好</p>
+<p>MinGW Manager載點：<a class="link" href="https://sourceforge.net/projects/mingw/"  target="_blank" rel="noopener"
+    >MinGW - Minimalist GNU for Windows</a></p>
+<p>網路上教學很多，我只介紹一下<br>
+米爾大大教學：<a class="link" href="https://ithelp.ithome.com.tw/articles/10190235"  target="_blank" rel="noopener"
+    >[VSCode] Visual Studio Code 執行 C++ (1) - 安裝 VSCode + MinGW</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2023 Hyno&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        
+            祝你有個美好的一天 <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
