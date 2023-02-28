@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='怎麼開始？ 不管甚麼原因致使你踏入這個領域，如果你不是非自願、沒有熱誠，我肯定你沒辦法在這條路上走下去
+只要你有一台能跑的電腦、能正常運作的編輯器，那很好，你已經開始一半了
+是甚麼念頭讓你對程式感興趣呢，就朝那個方向邁進吧
+善用網路 應該都聽過一句話：「You know google? You can google.」
+對，遇到不懂的，不管三七二十一直接丟上google就對了
+不懂的英文？可以翻譯
+在你未來繼續走下去的路上，網路絕對是你最好的夥伴
+假如我在一篇文章裡看到：「Currying」
+我唯一確定的是他跟程式有關
+丟上Google一查
+「Currying 程式」
+原來是柯里化||還想說是咖哩或是某個知名球星||
+然後，順著Currying這個名詞，我又額外查了很多名詞、找了很多資料，了解柯里化到底是甚麼
+這樣又學到了很多東西
+學甚麼語言？ 一個語言，在你對程式有點小懂開始，其實就會發現，等同於工具
+需要，用的到，所以學，所以寫
+對初學者來說，從簡單的語言開始絕對是康莊大道
+常見的有：Python、Java、JavaScript、HTML/CSS
+P.S.：如果不知道這是甚麼，請右轉Google
+如果你想問的是：這麼多選擇中，我該學哪一種會比較有幫助、比較好找工作？
+你看哪個順眼就學吧，不然靠抽籤也是可以的
+程式語言就像是方言，雖然聽起來很不一樣，但是同樣的概念會一再重複
+只要你能使用一個程式語言，那其他的對你來講只是轉個彎而已
+不過還是有特例啦，像COBOL、ASM ||上古時期的東西||
+如果你的學校還在教C、Scratch，我建議你直接自學
+好的習慣 很多習慣會影響你後來寫程式的好壞，只要習慣了，絕對不一樣
+好的命名 有天小明他爸透過聊天軟體問小明要吃甚麼，小明敲不定主意
+回了句：「IDK」
+小明他爸直接恍然大悟
+IDK是甚麼？是某種食物嗎？還是哪家店？還是罵人的話？||怎麼辦我是不是被他討厭了||
+於是接下來的時間小明爸沒再跟小明講過話 (x
+所以說，縮寫很容易造成誤會
+請參考以下事項：
+Reminds me of a post I read on either reddit or quora about a guy who read some old code of his and noticed there was a variable oddly named &amp;ldquo;feet&amp;rdquo;, then decided to investigate why this was and found out that, due to abbreviation, the original name &amp;ldquo;legacyHandles&amp;rdquo; came to be &amp;ldquo;legHands&amp;rdquo; which then ended up as &amp;ldquo;feet&amp;rdquo;.'>
+<title>怎麼樣學程式</title>
+
+<link rel='canonical' href='https://chaoray.github.io/p/%E6%80%8E%E9%BA%BC%E6%A8%A3%E5%AD%B8%E7%A8%8B%E5%BC%8F/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css">
+<link rel="stylesheet" href="/css/spoiler_tag.css">
+<link rel="stylesheet" href="/css/code_modify.css"><script src="/js/spoiler_tag.js"></script><meta property='og:title' content='怎麼樣學程式'>
+<meta property='og:description' content='怎麼開始？ 不管甚麼原因致使你踏入這個領域，如果你不是非自願、沒有熱誠，我肯定你沒辦法在這條路上走下去
+只要你有一台能跑的電腦、能正常運作的編輯器，那很好，你已經開始一半了
+是甚麼念頭讓你對程式感興趣呢，就朝那個方向邁進吧
+善用網路 應該都聽過一句話：「You know google? You can google.」
+對，遇到不懂的，不管三七二十一直接丟上google就對了
+不懂的英文？可以翻譯
+在你未來繼續走下去的路上，網路絕對是你最好的夥伴
+假如我在一篇文章裡看到：「Currying」
+我唯一確定的是他跟程式有關
+丟上Google一查
+「Currying 程式」
+原來是柯里化||還想說是咖哩或是某個知名球星||
+然後，順著Currying這個名詞，我又額外查了很多名詞、找了很多資料，了解柯里化到底是甚麼
+這樣又學到了很多東西
+學甚麼語言？ 一個語言，在你對程式有點小懂開始，其實就會發現，等同於工具
+需要，用的到，所以學，所以寫
+對初學者來說，從簡單的語言開始絕對是康莊大道
+常見的有：Python、Java、JavaScript、HTML/CSS
+P.S.：如果不知道這是甚麼，請右轉Google
+如果你想問的是：這麼多選擇中，我該學哪一種會比較有幫助、比較好找工作？
+你看哪個順眼就學吧，不然靠抽籤也是可以的
+程式語言就像是方言，雖然聽起來很不一樣，但是同樣的概念會一再重複
+只要你能使用一個程式語言，那其他的對你來講只是轉個彎而已
+不過還是有特例啦，像COBOL、ASM ||上古時期的東西||
+如果你的學校還在教C、Scratch，我建議你直接自學
+好的習慣 很多習慣會影響你後來寫程式的好壞，只要習慣了，絕對不一樣
+好的命名 有天小明他爸透過聊天軟體問小明要吃甚麼，小明敲不定主意
+回了句：「IDK」
+小明他爸直接恍然大悟
+IDK是甚麼？是某種食物嗎？還是哪家店？還是罵人的話？||怎麼辦我是不是被他討厭了||
+於是接下來的時間小明爸沒再跟小明講過話 (x
+所以說，縮寫很容易造成誤會
+請參考以下事項：
+Reminds me of a post I read on either reddit or quora about a guy who read some old code of his and noticed there was a variable oddly named &amp;ldquo;feet&amp;rdquo;, then decided to investigate why this was and found out that, due to abbreviation, the original name &amp;ldquo;legacyHandles&amp;rdquo; came to be &amp;ldquo;legHands&amp;rdquo; which then ended up as &amp;ldquo;feet&amp;rdquo;.'>
+<meta property='og:url' content='https://chaoray.github.io/p/%E6%80%8E%E9%BA%BC%E6%A8%A3%E5%AD%B8%E7%A8%8B%E5%BC%8F/'>
+<meta property='og:site_name' content='Hyno&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2023-02-28T22:23:08&#43;08:00'/><meta property='article:modified_time' content='2023-02-28T22:23:08&#43;08:00'/><meta property='og:image' content='https://chaoray.github.io/p/%E6%80%8E%E9%BA%BC%E6%A8%A3%E5%AD%B8%E7%A8%8B%E5%BC%8F/title.png' />
+<meta name="twitter:title" content="怎麼樣學程式">
+<meta name="twitter:description" content="怎麼開始？ 不管甚麼原因致使你踏入這個領域，如果你不是非自願、沒有熱誠，我肯定你沒辦法在這條路上走下去
+只要你有一台能跑的電腦、能正常運作的編輯器，那很好，你已經開始一半了
+是甚麼念頭讓你對程式感興趣呢，就朝那個方向邁進吧
+善用網路 應該都聽過一句話：「You know google? You can google.」
+對，遇到不懂的，不管三七二十一直接丟上google就對了
+不懂的英文？可以翻譯
+在你未來繼續走下去的路上，網路絕對是你最好的夥伴
+假如我在一篇文章裡看到：「Currying」
+我唯一確定的是他跟程式有關
+丟上Google一查
+「Currying 程式」
+原來是柯里化||還想說是咖哩或是某個知名球星||
+然後，順著Currying這個名詞，我又額外查了很多名詞、找了很多資料，了解柯里化到底是甚麼
+這樣又學到了很多東西
+學甚麼語言？ 一個語言，在你對程式有點小懂開始，其實就會發現，等同於工具
+需要，用的到，所以學，所以寫
+對初學者來說，從簡單的語言開始絕對是康莊大道
+常見的有：Python、Java、JavaScript、HTML/CSS
+P.S.：如果不知道這是甚麼，請右轉Google
+如果你想問的是：這麼多選擇中，我該學哪一種會比較有幫助、比較好找工作？
+你看哪個順眼就學吧，不然靠抽籤也是可以的
+程式語言就像是方言，雖然聽起來很不一樣，但是同樣的概念會一再重複
+只要你能使用一個程式語言，那其他的對你來講只是轉個彎而已
+不過還是有特例啦，像COBOL、ASM ||上古時期的東西||
+如果你的學校還在教C、Scratch，我建議你直接自學
+好的習慣 很多習慣會影響你後來寫程式的好壞，只要習慣了，絕對不一樣
+好的命名 有天小明他爸透過聊天軟體問小明要吃甚麼，小明敲不定主意
+回了句：「IDK」
+小明他爸直接恍然大悟
+IDK是甚麼？是某種食物嗎？還是哪家店？還是罵人的話？||怎麼辦我是不是被他討厭了||
+於是接下來的時間小明爸沒再跟小明講過話 (x
+所以說，縮寫很容易造成誤會
+請參考以下事項：
+Reminds me of a post I read on either reddit or quora about a guy who read some old code of his and noticed there was a variable oddly named &amp;ldquo;feet&amp;rdquo;, then decided to investigate why this was and found out that, due to abbreviation, the original name &amp;ldquo;legacyHandles&amp;rdquo; came to be &amp;ldquo;legHands&amp;rdquo; which then ended up as &amp;ldquo;feet&amp;rdquo;."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://chaoray.github.io/p/%E6%80%8E%E9%BA%BC%E6%A8%A3%E5%AD%B8%E7%A8%8B%E5%BC%8F/title.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu1acf05f8135030e4a8407ee14a841768_318745_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">👻</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Hyno&#39;s Blog</a></h1>
+            <h2 class="site-description">Coding from Life.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/Chaoray'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E9%AB%98%E4%B8%AD%E7%AD%86%E8%A8%98%E7%B6%B2%E7%AB%99/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"></path>
+  <line x1="10" y1="14" x2="20" y2="4"></line>
+  <polyline points="15 4 20 4 20 9"></polyline>
+</svg>
+                
+                <span>高中筆記網站</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#怎麼開始">怎麼開始？</a>
+      <ol>
+        <li><a href="#善用網路">善用網路</a></li>
+        <li><a href="#學甚麼語言">學甚麼語言？</a></li>
+      </ol>
+    </li>
+    <li><a href="#好的習慣">好的習慣</a>
+      <ol>
+        <li><a href="#好的命名">好的命名</a></li>
+        <li><a href="#限制參數傳入量">限制參數傳入量</a></li>
+        <li><a href="#一個函式做一件事">一個函式，做一件事</a></li>
+      </ol>
+    </li>
+    <li><a href="#關於程式實力">關於程式實力</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E6%80%8E%E9%BA%BC%E6%A8%A3%E5%AD%B8%E7%A8%8B%E5%BC%8F/">
+                
+                    
+                        
+                    <img src="/p/%E6%80%8E%E9%BA%BC%E6%A8%A3%E5%AD%B8%E7%A8%8B%E5%BC%8F/title_hu9118eb6b3860f9272d3bb699966fa402_2167154_800x0_resize_box_3.png"
+                        srcset="/p/%E6%80%8E%E9%BA%BC%E6%A8%A3%E5%AD%B8%E7%A8%8B%E5%BC%8F/title_hu9118eb6b3860f9272d3bb699966fa402_2167154_800x0_resize_box_3.png 800w, /p/%E6%80%8E%E9%BA%BC%E6%A8%A3%E5%AD%B8%E7%A8%8B%E5%BC%8F/title_hu9118eb6b3860f9272d3bb699966fa402_2167154_1600x0_resize_box_3.png 1600w"
+                        width="800"
+                        height="450"
+                        loading="lazy"
+                        alt="Featured image of post 怎麼樣學程式" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/casual/" >
+                casual
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E6%80%8E%E9%BA%BC%E6%A8%A3%E5%AD%B8%E7%A8%8B%E5%BC%8F/">怎麼樣學程式</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 28, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="怎麼開始">怎麼開始？</h2>
+<p>不管甚麼原因致使你踏入這個領域，如果你不是非自願、沒有熱誠，我肯定你沒辦法在這條路上走下去<br>
+<strong>只要你有一台能跑的電腦、能正常運作的編輯器</strong>，那很好，你已經開始一半了</p>
+<p>是甚麼念頭讓你對程式感興趣呢，就朝那個方向邁進吧</p>
+<h3 id="善用網路">善用網路</h3>
+<p>應該都聽過一句話：<strong>「You know google? You can google.」</strong><br>
+對，遇到不懂的，不管三七二十一直接丟上google就對了</p>
+<p>不懂的英文？可以翻譯<br>
+在你未來繼續走下去的路上，<strong>網路絕對是你最好的夥伴</strong></p>
+<p>假如我在一篇文章裡看到：「Currying」<br>
+我唯一確定的是他跟程式有關<br>
+丟上Google一查<br>
+「Currying 程式」<br>
+原來是柯里化||還想說是咖哩或是某個知名球星||</p>
+<p>然後，順著Currying這個名詞，我又額外查了很多名詞、找了很多資料，了解柯里化到底是甚麼<br>
+這樣又學到了很多東西</p>
+<h3 id="學甚麼語言">學甚麼語言？</h3>
+<p>一個語言，在你對程式有點小懂開始，其實就會發現，等同於工具<br>
+需要，用的到，所以學，所以寫</p>
+<p>對初學者來說，從簡單的語言開始絕對是康莊大道<br>
+常見的有：<code>Python</code>、<code>Java</code>、<code>JavaScript</code>、<code>HTML/CSS</code></p>
+<p>P.S.：如果不知道這是甚麼，請右轉Google</p>
+<p>如果你想問的是：這麼多選擇中，我該學哪一種會比較有幫助、比較好找工作？<br>
+<strong>你看哪個順眼就學吧</strong>，不然靠抽籤也是可以的</p>
+<p>程式語言就像是方言，雖然聽起來很不一樣，但是同樣的概念會一再重複<br>
+只要你能使用一個程式語言，那其他的對你來講只是轉個彎而已</p>
+<p>不過還是有特例啦，像<code>COBOL</code>、<code>ASM</code> ||上古時期的東西||</p>
+<p>如果你的學校還在教<code>C</code>、<code>Scratch</code>，我建議你直接自學</p>
+<h2 id="好的習慣">好的習慣</h2>
+<p>很多習慣會影響你後來寫程式的好壞，只要習慣了，絕對不一樣</p>
+<h3 id="好的命名">好的命名</h3>
+<p>有天小明他爸透過聊天軟體問小明要吃甚麼，小明敲不定主意<br>
+回了句：「IDK」<br>
+小明他爸直接恍然大悟</p>
+<p>IDK是甚麼？是某種食物嗎？還是哪家店？還是罵人的話？||<del>怎麼辦我是不是被他討厭了</del>||<br>
+於是接下來的時間小明爸沒再跟小明講過話 (x</p>
+<p>所以說，縮寫很容易造成誤會<br>
+請參考以下事項：<br>
+Reminds me of a post I read on either reddit or quora about a guy who read some old code of his and noticed there was a variable oddly named &ldquo;feet&rdquo;, then decided to investigate why this was and found out that, due to abbreviation, the original name &ldquo;legacyHandles&rdquo; came to be &ldquo;legHands&rdquo; which then ended up as &ldquo;feet&rdquo;.</p>
+<p>簡單翻譯一下，就是有人把一個原本跟&quot;腳&quot;搭不上邊的變數名稱，硬生生地變成了&quot;腿的手&quot;，也就是&quot;腳&quot;<br>
+<strong>縮寫就是斷章取義，就算只有一點縮寫也可能會讓後來看你的程式碼的人誤解</strong></p>
+<p>但其實有些縮寫可以，就是約定俗成，而且實在是太常用了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">string -&gt; str
+</span></span><span class="line"><span class="cl">object -&gt; obj
+</span></span><span class="line"><span class="cl">array -&gt; arr
+</span></span><span class="line"><span class="cl">error -&gt; err
+</span></span><span class="line"><span class="cl">length -&gt; len
+</span></span><span class="line"><span class="cl">message -&gt; msg
+</span></span><span class="line"><span class="cl">number -&gt; num
+</span></span><span class="line"><span class="cl">position -&gt; pos
+</span></span><span class="line"><span class="cl">address -&gt; addr
+</span></span><span class="line"><span class="cl">temporary -&gt; tmp
+</span></span><span class="line"><span class="cl">argument -&gt; arg
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以去看看別人整理的：<a class="link" href="https://blog.csdn.net/elegant__/article/details/9748835"  target="_blank" rel="noopener"
+    >编程常用缩写 by bill_20106029</a></p>
+<p>通常來說，主流有兩種變數名稱寫法：</p>
+<ol>
+<li><a class="link" href="https://zh.wikipedia.org/zh-tw/%E9%A7%9D%E5%B3%B0%E5%BC%8F%E5%A4%A7%E5%B0%8F%E5%AF%AB"  target="_blank" rel="noopener"
+    ><strong>駝峰命名法(Camel Case)</strong></a>：將每個單詞的開頭大寫</li>
+<li><a class="link" href="https://zh.wikipedia.org/zh-tw/%E8%9B%87%E5%BD%A2%E5%91%BD%E5%90%8D%E6%B3%95"  target="_blank" rel="noopener"
+    ><strong>蛇形命名法(Snake Case)</strong></a>：將每個單詞小寫後以底線分開</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 駝峰
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">camelCase</span>
+</span></span><span class="line"><span class="cl"><span class="n">CamelCase</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 蛇形
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">snake_case</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>比較古早味的Code或工程師，很常會看到<a class="link" href="https://zh.wikipedia.org/zh-tw/%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95"  target="_blank" rel="noopener"
+    >匈牙利命名法</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">fPrice</span> <span class="o">=</span> <span class="mf">10.0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">iCount</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="n">bBusy</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span><span class="o">*</span> <span class="n">fpPrice</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">fPrice</span><span class="p">;</span>  <span class="c1">// float point
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>也就是將變數型別納入變數名稱中，不過現在IDE很強大，根本不需要你做這種事</p>
+<p>一些我常用的命名規則：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 布林值：用Yes/No問句命名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="n">isBusy</span><span class="p">,</span> <span class="n">canBeDestroyed</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 或者有些語言支援問號在變數裡
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="n">isOverlapped</span><span class="o">?</span><span class="p">,</span> <span class="n">isArrayEmpty</span><span class="o">?</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 常數：全大寫
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">WINDOW_HEIGHT</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 函數：以動詞開頭
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">long</span> <span class="nf">createTimestamp</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="nf">checkIsClientReady</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 類別：開頭全大寫
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">FireMagician</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">JavascriptLanguageCompiler</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>選擇自己看起來舒服就好，記住，<strong>不要縮寫!!!</strong>，就算變數名稱再長，寫就對了!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">i_have_no_idea_what_this_variable_should_be_called_but_anyway_i_named_it</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="限制參數傳入量">限制參數傳入量</h3>
+<p>今天有個這樣的函式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createUserAccountInfo</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">address</span><span class="p">,</span> <span class="nx">birthday</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">email</span><span class="p">,</span> <span class="nx">phoneNumber</span><span class="p">,</span> <span class="nx">fbName</span><span class="p">,</span> <span class="nx">igId</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>你在用的時候</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">createUserAccountInfo</span><span class="p">(</span><span class="s2">&#34;John&#34;</span><span class="p">,</span> <span class="s2">&#34;my-email@mail.com&#34;</span><span class="p">,</span> <span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>阿，好像信箱地址不是擺這的，回去看看&hellip;&hellip;原來前面要先填地址</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">createUserAccountInfo</span><span class="p">(</span><span class="s2">&#34;John&#34;</span><span class="p">,</span> <span class="s2">&#34;ThisCity-ThatTown-ThatRoad&#34;</span><span class="p">,</span> <span class="s2">&#34;my-email@mail.com&#34;</span><span class="p">,</span> <span class="s2">&#34;0912345678&#34;</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>奇怪，IDE跳錯誤，怎麼要填整數，回去看看&hellip;&hellip;是要填年齡阿</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">createUserAccountInfo</span><span class="p">(</span><span class="s2">&#34;John&#34;</span><span class="p">,</span> <span class="s2">&#34;ThisCity-ThatTown-ThatRoad&#34;</span><span class="p">,</span> <span class="s2">&#34;my-email@mail.com&#34;</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="s2">&#34;0912345678&#34;</span><span class="p">,</span> <span class="s2">&#34;2000-1-1&#34;</span><span class="p">,</span> <span class="s2">&#34;i_am_john&#34;</span><span class="p">,</span> <span class="s2">&#34;john987123&#34;</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>當你以為一切安好，跑跑看的時候&hellip;<br>
+整個就是大災難</p>
+<p>原本該填生日的地方變成了信箱<br>
+該填電話號碼的地方變成了生日</p>
+<p>肯定當場氣到哭</p>
+<p>通常，如果超過三個變數，就建議拆成兩個以上函式<br>
+以剛剛的<code>createUserAccountInfo</code>舉例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createUserAccountInfo</span><span class="p">(</span><span class="nx">birthInfo</span><span class="p">,</span> <span class="nx">contactInfo</span><span class="p">,</span> <span class="nx">socialMediaInfo</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createAccountBirthInfo</span><span class="p">(</span><span class="nx">birthday</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createAccountContactInfo</span><span class="p">(</span><span class="nx">address</span><span class="p">,</span> <span class="nx">email</span><span class="p">,</span> <span class="nx">phoneNumber</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createAccountSocialMediaInfo</span><span class="p">(</span><span class="nx">fbName</span><span class="p">,</span> <span class="nx">igId</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>清爽多了，而且哪個函式有問題基本上都可以直接抓出來修<br>
+如果你真的要用到更多的變數，那請考慮將它們包成一個物件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">AccountInfo</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">address</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">birthday</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">age</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">email</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">phoneNumber</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fbName</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">igId</span><span class="o">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="一個函式做一件事">一個函式，做一件事</h3>
+<p>又叫單一職責原則，簡單來說就是，<strong>做函式名稱做的事，但只有一件事</strong></p>
+<p>考慮以下函式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createUserAccountInfo</span><span class="p">(</span><span class="nx">accountInfo</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">info</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UserAccountInfo</span><span class="p">(</span><span class="nx">accountInfo</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">sendInfo</span><span class="p">(</span><span class="nx">info</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">info</span><span class="p">.</span><span class="nx">balance</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">info</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>怎麼突然就跑去寄資料了？為甚麼又設定餘額為0？<br>
+然後過沒幾天你就會在後台發現不知為何多了很多筆使用者資料&hellip;</p>
+<p>那麼要如實寫出函式做了甚麼：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createUserAccountInfoAndSendInfoAndSetBalanceTo0</span><span class="p">(</span><span class="nx">accountInfo</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">info</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UserAccountInfo</span><span class="p">(</span><span class="nx">accountInfo</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">sendInfo</span><span class="p">(</span><span class="nx">info</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">info</span><span class="p">.</span><span class="nx">balance</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">info</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>很肯定的，沒有人知道我到底在寫甚麼，我也不知道<br>
+就算如實寫出來，那也違反了<strong>只做一件事</strong></p>
+<p>所以可以拆成</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">registerUserAccount</span><span class="p">(</span><span class="nx">infoObj</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">info</span> <span class="o">=</span> <span class="nx">createUserAccountInfo</span><span class="p">(</span><span class="nx">infoObj</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">info</span> <span class="o">=</span> <span class="nx">initUserAccountInfo</span><span class="p">(</span><span class="nx">info</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">sendUserAccountInfo</span><span class="p">(</span><span class="nx">info</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">info</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">&#34;Could not send user account&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createUserAccountInfo</span><span class="p">(</span><span class="nx">accountInfo</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">info</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UserAccountInfo</span><span class="p">(</span><span class="nx">accountInfo</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">info</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">sendUserAccountInfo</span><span class="p">(</span><span class="nx">accountInfo</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">sendInfo</span><span class="p">(</span><span class="nx">accountInfo</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">success</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">initUserAccountInfo</span><span class="p">(</span><span class="nx">accountInfo</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">accountInfo</span><span class="p">.</span><span class="nx">balance</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">accountInfo</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="關於程式實力">關於程式實力</h2>
+<p>我覺得程式的實力可以大致分成兩個部分</p>
+<ol>
+<li>內功：你的思考方式</li>
+<li>外功：你的知識</li>
+</ol>
+<p>內功好的人不代表外功好，像是你問一個寫程式競賽很厲害的人，甚麼是&quot;OOP&quot;，可能一問三不知</p>
+<p>也有可能你問一個看起來很博學多聞的人，甚麼是&quot;氣泡排序&quot;，他完全不知道怎麼解釋，只說得出來他是拿來排序的</p>
+<p>所以只有內外兼修，相輔相成，才能提升你的程式實力<br>
+but<br>
+上職場後，看重的又不全是你的程式實力了</p>
+<p>對於一個好的軟體工程師而言：<br>
+<code>實力 = 內功15% + 外功25% + 溝通能力25% + 規劃能力35%</code></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-ND-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2023 Hyno&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        
+            祝你有個美好的一天 <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
