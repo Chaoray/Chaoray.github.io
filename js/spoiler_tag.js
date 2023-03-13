@@ -1,5 +1,3 @@
-const $ = (s, t = document.body) => t.querySelector(s);
-
 window.addEventListener('load', () => {
     parseSpoilerTags($('article > section.article-content'));
 });
