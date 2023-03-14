@@ -12,18 +12,21 @@
 <link rel="stylesheet" href="/css/spoiler_tag.css">
 <link rel="stylesheet" href="/css/code_modify.css">
 <link rel="stylesheet" href="/css/live2d_canvas.css">
+<link rel="stylesheet" href="/css/nest_canvas.css">
 <script defer src="/js/utils.js"></script>
 
 
 <script defer src="/js/spoiler_tag.js"></script>
 
 
-
 <script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pixi.js@6.5.2/dist/browser/pixi.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/index.min.js"></script>
-<script src="/js/live2d.js"></script><meta property='og:title' content='C&#43;&#43; Class Return Self'>
+<script src="/js/live2d.js"></script>
+
+
+<script src="/js/nest_animation.js"></script><meta property='og:title' content='C&#43;&#43; Class Return Self'>
 <meta property='og:description' content='Wanna make the class be able to do a chain-call
 1 2 3 4 5 6 7 8 9 10 11 class TextBox { string text; TextBox addText(const string&amp;amp; append) { text &#43;= append; return this; } }; TextBox textBox1; textBox1.addText(&amp;#34;Text1&amp;#34;).addText(&amp;#34;Text2&amp;#34;).addText(&amp;#34;Text3&amp;#34;); This is not going to work :P
 1 2 3 4 5 6 7 8 9 10 11 class TextBox { string text; TextBox&amp;amp; addText(const string&amp;amp; append) { text &#43;= append; return *this; } }; TextBox textBox1; textBox1.'>

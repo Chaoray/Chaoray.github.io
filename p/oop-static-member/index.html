@@ -12,18 +12,21 @@ Pseudo Code
 <link rel="stylesheet" href="/css/spoiler_tag.css">
 <link rel="stylesheet" href="/css/code_modify.css">
 <link rel="stylesheet" href="/css/live2d_canvas.css">
+<link rel="stylesheet" href="/css/nest_canvas.css">
 <script defer src="/js/utils.js"></script>
 
 
 <script defer src="/js/spoiler_tag.js"></script>
 
 
-
 <script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pixi.js@6.5.2/dist/browser/pixi.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/index.min.js"></script>
-<script src="/js/live2d.js"></script><meta property='og:title' content='OOP - Static Member'>
+<script src="/js/live2d.js"></script>
+
+
+<script src="/js/nest_animation.js"></script><meta property='og:title' content='OOP - Static Member'>
 <meta property='og:description' content='Preface I wondered, what if a class, for example A, has two methods, one that can only be call when A is not a instance, but the other one can only be call when A is an instance.
 Pseudo Code
 1 2 3 4 5 6 7 class A; A.do1(); A.do2(); // error a = new A(); a.do1(); // error a.do2(); I looked up for a while on the Internet, and I found there is actually a thing called Static Member.'>
