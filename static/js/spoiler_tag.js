@@ -3,6 +3,8 @@ window.addEventListener('load', () => {
 });
 
 function parseSpoilerTags(element) {
+    if (!element) return;
+
     element.innerHTML = element.innerHTML.replaceAll(/\|\|(.+)\|\|/g, (match, content) => {
         return createSpoilerElement(content).outerHTML;
     });

@@ -35,7 +35,7 @@ function resizeModel() {
     const scaleY = window.app.view.clientHeight / window.model.height;
     window.model.scale.set(Math.min(scaleX, scaleY));
     window.model.x = (window.app.view.clientWidth - window.model.width) / 2;
-    window.model.y = (window.app.view.clientHeight - window.model.height) / 2;
+    window.model.y = window.app.view.clientHeight - window.model.height / 2;
 }
 
 function createCanvas() {
