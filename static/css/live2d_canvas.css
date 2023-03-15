@@ -8,6 +8,7 @@
 
     z-index: 999999;
     pointer-events: none;
+    user-select: none;
 }
 
 #live2d-canvas {
@@ -15,9 +16,13 @@
     right: 0;
     bottom: 0;
 
+    transform: translateY(50%);
+    /* Just half of body is enough... */
+
     width: 100%;
     height: 100%;
 
     z-index: inherit;
-    pointer-events: inherit;
+    pointer-events: auto;
+    user-select: none;
 }
