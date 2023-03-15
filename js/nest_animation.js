@@ -29,6 +29,8 @@
                 radius: mouseRadius,
                 graspSpeed: mouseGraspSpeed,
             };
+
+            this.init();
         }
 
         /**
@@ -37,11 +39,13 @@
         draw() {
             this.context.clearRect(0, 0, this.width, this.height);
 
-            let graspSpeed = this.mouseConfigs.graspSpeed;
             let length = this.squareConfigs.length;
             let color = this.squareConfigs.color;
+            let dx, dy, distance, ratio;
 
-            this.squares.forEach((curr) => {
+            this.context.fillStyle = `rgb(${color.r},${color.g},${color.b})`;
+
+            for (let curr of this.squares) {
                 curr.x += curr.xa;
                 curr.y += curr.ya;
 
@@ -51,11 +55,11 @@
                 this.context.fillRect(curr.x - length / 2, curr.y - length / 2, length, length);
 
                 for (let other of this.squares) {
-                    let dx = curr.x - other.x;
-                    let dy = curr.y - other.y;
-                    let distance = dx * dx + dy * dy;
+                    dx = curr.x - other.x;
+                    dy = curr.y - other.y;
+                    distance = dx * dx + dy * dy;
                     if (distance < other.radius) {
-                        let ratio = (other.radius - distance) / other.radius;
+                        ratio = (other.radius - distance) / other.radius;
                         this.context.beginPath();
                         this.context.lineWidth = ratio / 2;
                         this.context.strokeStyle = `rgba(${color.r},${color.g},${color.b},${ratio})`;
@@ -64,27 +68,7 @@
                         this.context.stroke();
                     }
                 }
-
-                if (this.mouse.x && this.mouse.y) {
-                    let mdx = this.mouse.x - curr.x;
-                    let mdy = this.mouse.y - curr.y;
-                    let dist = mdx * mdx + mdy * mdy;
-
-                    if (dist < this.mouse.radius) {
-                        if (dist > this.mouse.radius / 2) {
-                            curr.x += graspSpeed * mdx;
-                            curr.y += graspSpeed * mdy;
-
-                            let ratio = (this.mouse.radius - dist) / this.mouse.radius;
-                            this.context.beginPath();
-                            this.context.lineWidth = ratio / 2;
-                            this.context.moveTo(curr.x, curr.y);
-                            this.context.lineTo(this.mouse.x, this.mouse.y);
-                            this.context.stroke();
-                        }
-                    }
-                }
-            });
+            }
 
             window.requestAnimationFrame(this.draw.bind(this));
         }
@@ -95,9 +79,9 @@
             if (document.documentElement.dataset.scheme) {
                 let scheme = document.documentElement.dataset.scheme;
                 if (scheme == 'dark') {
-                    window.nest.setColor({ r: 255, g: 255, b: 255 });
+                    this.setColor({ r: 255, g: 255, b: 255 });
                 } else {
-                    window.nest.setColor({ r: 0, g: 0, b: 0 });
+                    this.setColor({ r: 0, g: 0, b: 0 });
                 }
             }
 
@@ -149,12 +133,14 @@
         }
     }
 
+    let nest;
+
     window.addEventListener('load', (e) => {
         let canvas = document.createElement('canvas');
         canvas.id = 'nest-canvas';
         $('body').appendChild(canvas);
 
-        window.nest = new NestAnimation(
+        nest = new NestAnimation(
             'nest-canvas',
             {
                 squareCount: 99,
@@ -170,25 +156,24 @@
                 mouseGraspSpeed: 0.03
             });
 
-        window.nest.init();
-        window.nest.applyAnimation();
+        nest.applyAnimation();
     });
 
     window.addEventListener('resize', (e) => {
-        if (!window.nest) return;
+        if (!nest) return;
 
-        window.nest.resize();
+        nest.resize();
     });
 
     let observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
-            if (!window.nest) return;
+            if (!nest) return;
             if (!mutation.target.dataset.scheme) return;
             let scheme = mutation.target.dataset.scheme;
             if (scheme == 'dark') {
-                window.nest.setColor({ r: 255, g: 255, b: 255 });
+                nest.setColor({ r: 255, g: 255, b: 255 });
             } else {
-                window.nest.setColor({ r: 0, g: 0, b: 0 });
+                nest.setColor({ r: 0, g: 0, b: 0 });
             }
 
         });
