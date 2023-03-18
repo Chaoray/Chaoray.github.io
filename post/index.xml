@@ -6,6 +6,40 @@
         <description>Recent content in Post on Hyno&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <lastBuildDate>Wed, 22 Feb 2023 22:01:56 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>跨域請求限制問題</title>
+        <link>https://chaoray.github.io/p/%E8%B7%A8%E5%9F%9F%E8%AB%8B%E6%B1%82%E9%99%90%E5%88%B6%E5%95%8F%E9%A1%8C/</link>
+        <pubDate>Sat, 18 Mar 2023 15:50:37 +0800</pubDate>
+        
+        <guid>https://chaoray.github.io/p/%E8%B7%A8%E5%9F%9F%E8%AB%8B%E6%B1%82%E9%99%90%E5%88%B6%E5%95%8F%E9%A1%8C/</guid>
+        <description>&lt;img src="https://chaoray.github.io/p/%E8%B7%A8%E5%9F%9F%E8%AB%8B%E6%B1%82%E9%99%90%E5%88%B6%E5%95%8F%E9%A1%8C/cred-req-updated.png" alt="Featured image of post 跨域請求限制問題" /&gt;&lt;p&gt;最近遇到一個問題：&lt;strong&gt;Cors (Cross-Origin Resource Sharing)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在瀏覽器中開Live-server，fetch其他網域的網站，會跳除如下錯誤&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Access to fetch at &amp;#39;https://example.com/&amp;#39; from origin &amp;#39;http://127.0.0.1:8080&amp;#39; has been blocked by CORS policy:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;No &amp;#39;Access-Control-Allow-Origin&amp;#39; header is present on the requested resource. 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;If an opaque response serves your needs, set the request&amp;#39;s mode to &amp;#39;no-cors&amp;#39; to fetch the resource with CORS disabled.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;被最後一句話騙，乖乖加上&lt;code&gt;no-cors&lt;/code&gt;後，response是空的&amp;hellip;.&lt;/p&gt;
+&lt;p&gt;其實這是瀏覽器內部的限制，為了資安疑慮所設的&lt;/p&gt;
+&lt;p&gt;目前有兩種主要解決辦法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;跟伺服器管理員溝通，讓他在response的header中加上&lt;code&gt;Access-Control-Allow-Origin&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;架個proxy，回傳時header加上&lt;code&gt;Access-Control-Allow-Origin&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;已經有人寫好proxy了，隨便找個託管(render、heroku)都可以架&lt;br&gt;
+連結：&lt;a class=&#34;link&#34; href=&#34;https://github.com/Rob--W/cors-anywhere/#documentation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Rob&amp;ndash;W/cors-anywhere&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;雖然說CORS對網頁開發者是惡夢，不過確實達到安全的目的&lt;br&gt;
+早有耳聞，但是第一次自己遇到還是很新鮮 (汗&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>std::thread 使用類別成員函式</title>
         <link>https://chaoray.github.io/p/stdthread-%E4%BD%BF%E7%94%A8%E9%A1%9E%E5%88%A5%E6%88%90%E5%93%A1%E5%87%BD%E5%BC%8F/</link>
         <pubDate>Mon, 13 Mar 2023 22:07:54 +0800</pubDate>

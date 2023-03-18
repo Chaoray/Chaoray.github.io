@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='最近剛好比較有機會碰OOP，想寫個thread卻噴一堆錯誤🙄
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 class Example { private: thread t1; void worker() { for (int i = 0; i &amp;lt; 10000000; i&#43;&#43;) { printf(&amp;#34;%d&amp;#34;, i); } } public: Example() { t1 = std::thread(worker); } }; 編譯之後悲劇：
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 In file included from C:/msys64/ucrt64/include/c&#43;&#43;/12.'>
-<title>std::thread 使用類別成員函式</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='最近遇到一個問題：Cors (Cross-Origin Resource Sharing)
+在瀏覽器中開Live-server，fetch其他網域的網站，會跳除如下錯誤
+1 2 3 Access to fetch at &amp;#39;https://example.com/&amp;#39; from origin &amp;#39;http://127.0.0.1:8080&amp;#39; has been blocked by CORS policy: No &amp;#39;Access-Control-Allow-Origin&amp;#39; header is present on the requested resource. If an opaque response serves your needs, set the request&amp;#39;s mode to &amp;#39;no-cors&amp;#39; to fetch the resource with CORS disabled. 被最後一句話騙，乖乖加上no-cors後，response是空的&amp;hellip;.
+其實這是瀏覽器內部的限制，為了資安疑慮所設的
+目前有兩種主要解決辦法：
+跟伺服器管理員溝通，讓他在response的header中加上Access-Control-Allow-Origin 架個proxy，回傳時header加上Access-Control-Allow-Origin 已經有人寫好proxy了，隨便找個託管(render、heroku)都可以架
+連結：Rob&amp;ndash;W/cors-anywhere
+雖然說CORS對網頁開發者是惡夢，不過確實達到安全的目的
+早有耳聞，但是第一次自己遇到還是很新鮮 (汗'>
+<title>跨域請求限制問題</title>
 
-<link rel='canonical' href='https://chaoray.github.io/p/stdthread-%E4%BD%BF%E7%94%A8%E9%A1%9E%E5%88%A5%E6%88%90%E5%93%A1%E5%87%BD%E5%BC%8F/'>
+<link rel='canonical' href='https://chaoray.github.io/p/%E8%B7%A8%E5%9F%9F%E8%AB%8B%E6%B1%82%E9%99%90%E5%88%B6%E5%95%8F%E9%A1%8C/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css">
 <link rel="stylesheet" href="/css/spoiler_tag.css">
@@ -26,18 +32,30 @@
 <script src="/js/live2d.js"></script>
 
 
-<script src="/js/nest_animation.js"></script><meta property='og:title' content='std::thread 使用類別成員函式'>
-<meta property='og:description' content='最近剛好比較有機會碰OOP，想寫個thread卻噴一堆錯誤🙄
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 class Example { private: thread t1; void worker() { for (int i = 0; i &amp;lt; 10000000; i&#43;&#43;) { printf(&amp;#34;%d&amp;#34;, i); } } public: Example() { t1 = std::thread(worker); } }; 編譯之後悲劇：
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 In file included from C:/msys64/ucrt64/include/c&#43;&#43;/12.'>
-<meta property='og:url' content='https://chaoray.github.io/p/stdthread-%E4%BD%BF%E7%94%A8%E9%A1%9E%E5%88%A5%E6%88%90%E5%93%A1%E5%87%BD%E5%BC%8F/'>
+<script src="/js/nest_animation.js"></script><meta property='og:title' content='跨域請求限制問題'>
+<meta property='og:description' content='最近遇到一個問題：Cors (Cross-Origin Resource Sharing)
+在瀏覽器中開Live-server，fetch其他網域的網站，會跳除如下錯誤
+1 2 3 Access to fetch at &amp;#39;https://example.com/&amp;#39; from origin &amp;#39;http://127.0.0.1:8080&amp;#39; has been blocked by CORS policy: No &amp;#39;Access-Control-Allow-Origin&amp;#39; header is present on the requested resource. If an opaque response serves your needs, set the request&amp;#39;s mode to &amp;#39;no-cors&amp;#39; to fetch the resource with CORS disabled. 被最後一句話騙，乖乖加上no-cors後，response是空的&amp;hellip;.
+其實這是瀏覽器內部的限制，為了資安疑慮所設的
+目前有兩種主要解決辦法：
+跟伺服器管理員溝通，讓他在response的header中加上Access-Control-Allow-Origin 架個proxy，回傳時header加上Access-Control-Allow-Origin 已經有人寫好proxy了，隨便找個託管(render、heroku)都可以架
+連結：Rob&amp;ndash;W/cors-anywhere
+雖然說CORS對網頁開發者是惡夢，不過確實達到安全的目的
+早有耳聞，但是第一次自己遇到還是很新鮮 (汗'>
+<meta property='og:url' content='https://chaoray.github.io/p/%E8%B7%A8%E5%9F%9F%E8%AB%8B%E6%B1%82%E9%99%90%E5%88%B6%E5%95%8F%E9%A1%8C/'>
 <meta property='og:site_name' content='Hyno&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='c&#43;&#43;' /><meta property='article:published_time' content='2023-03-13T22:07:54&#43;08:00'/><meta property='article:modified_time' content='2023-03-13T22:07:54&#43;08:00'/><meta property='og:image' content='https://chaoray.github.io/p/stdthread-%E4%BD%BF%E7%94%A8%E9%A1%9E%E5%88%A5%E6%88%90%E5%93%A1%E5%87%BD%E5%BC%8F/7c655da21b075c3b05a09c37e2b44e592f05bcd4f915f63340b94b68194470b8.jpg' />
-<meta name="twitter:title" content="std::thread 使用類別成員函式">
-<meta name="twitter:description" content="最近剛好比較有機會碰OOP，想寫個thread卻噴一堆錯誤🙄
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 class Example { private: thread t1; void worker() { for (int i = 0; i &amp;lt; 10000000; i&#43;&#43;) { printf(&amp;#34;%d&amp;#34;, i); } } public: Example() { t1 = std::thread(worker); } }; 編譯之後悲劇：
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 In file included from C:/msys64/ucrt64/include/c&#43;&#43;/12."><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://chaoray.github.io/p/stdthread-%E4%BD%BF%E7%94%A8%E9%A1%9E%E5%88%A5%E6%88%90%E5%93%A1%E5%87%BD%E5%BC%8F/7c655da21b075c3b05a09c37e2b44e592f05bcd4f915f63340b94b68194470b8.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2023-03-18T15:50:37&#43;08:00'/><meta property='article:modified_time' content='2023-03-18T15:50:37&#43;08:00'/><meta property='og:image' content='https://chaoray.github.io/p/%E8%B7%A8%E5%9F%9F%E8%AB%8B%E6%B1%82%E9%99%90%E5%88%B6%E5%95%8F%E9%A1%8C/cred-req-updated.png' />
+<meta name="twitter:title" content="跨域請求限制問題">
+<meta name="twitter:description" content="最近遇到一個問題：Cors (Cross-Origin Resource Sharing)
+在瀏覽器中開Live-server，fetch其他網域的網站，會跳除如下錯誤
+1 2 3 Access to fetch at &amp;#39;https://example.com/&amp;#39; from origin &amp;#39;http://127.0.0.1:8080&amp;#39; has been blocked by CORS policy: No &amp;#39;Access-Control-Allow-Origin&amp;#39; header is present on the requested resource. If an opaque response serves your needs, set the request&amp;#39;s mode to &amp;#39;no-cors&amp;#39; to fetch the resource with CORS disabled. 被最後一句話騙，乖乖加上no-cors後，response是空的&amp;hellip;.
+其實這是瀏覽器內部的限制，為了資安疑慮所設的
+目前有兩種主要解決辦法：
+跟伺服器管理員溝通，讓他在response的header中加上Access-Control-Allow-Origin 架個proxy，回傳時header加上Access-Control-Allow-Origin 已經有人寫好proxy了，隨便找個託管(render、heroku)都可以架
+連結：Rob&amp;ndash;W/cors-anywhere
+雖然說CORS對網頁開發者是惡夢，不過確實達到安全的目的
+早有耳聞，但是第一次自己遇到還是很新鮮 (汗"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://chaoray.github.io/p/%E8%B7%A8%E5%9F%9F%E8%AB%8B%E6%B1%82%E9%99%90%E5%88%B6%E5%95%8F%E9%A1%8C/cred-req-updated.png' />
     </head>
     <body class="
     article-page
@@ -232,16 +250,16 @@
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/stdthread-%E4%BD%BF%E7%94%A8%E9%A1%9E%E5%88%A5%E6%88%90%E5%93%A1%E5%87%BD%E5%BC%8F/">
+            <a href="/p/%E8%B7%A8%E5%9F%9F%E8%AB%8B%E6%B1%82%E9%99%90%E5%88%B6%E5%95%8F%E9%A1%8C/">
                 
                     
                         
-                    <img src="/p/stdthread-%E4%BD%BF%E7%94%A8%E9%A1%9E%E5%88%A5%E6%88%90%E5%93%A1%E5%87%BD%E5%BC%8F/_hu5fce2522ed51544b0a523eedb70d2a1f_1758880_910316a2a71a9ded7bce6f0e8446e86b.jpg"
-                        srcset="/p/stdthread-%E4%BD%BF%E7%94%A8%E9%A1%9E%E5%88%A5%E6%88%90%E5%93%A1%E5%87%BD%E5%BC%8F/_hu5fce2522ed51544b0a523eedb70d2a1f_1758880_910316a2a71a9ded7bce6f0e8446e86b.jpg 800w, /p/stdthread-%E4%BD%BF%E7%94%A8%E9%A1%9E%E5%88%A5%E6%88%90%E5%93%A1%E5%87%BD%E5%BC%8F/_hu5fce2522ed51544b0a523eedb70d2a1f_1758880_2192c4891fb33484977de3f48bcef60e.jpg 1600w"
+                    <img src="/p/%E8%B7%A8%E5%9F%9F%E8%AB%8B%E6%B1%82%E9%99%90%E5%88%B6%E5%95%8F%E9%A1%8C/cred-req-updated_hu25a6c481aa7bcbf69edaee2bc4b1b897_15187_800x0_resize_box_3.png"
+                        srcset="/p/%E8%B7%A8%E5%9F%9F%E8%AB%8B%E6%B1%82%E9%99%90%E5%88%B6%E5%95%8F%E9%A1%8C/cred-req-updated_hu25a6c481aa7bcbf69edaee2bc4b1b897_15187_800x0_resize_box_3.png 800w, /p/%E8%B7%A8%E5%9F%9F%E8%AB%8B%E6%B1%82%E9%99%90%E5%88%B6%E5%95%8F%E9%A1%8C/cred-req-updated_hu25a6c481aa7bcbf69edaee2bc4b1b897_15187_1600x0_resize_box_3.png 1600w"
                         width="800"
-                        height="450"
+                        height="383"
                         loading="lazy"
-                        alt="Featured image of post std::thread 使用類別成員函式" />
+                        alt="Featured image of post 跨域請求限制問題" />
                 
             </a>
         </div>
@@ -260,7 +278,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/stdthread-%E4%BD%BF%E7%94%A8%E9%A1%9E%E5%88%A5%E6%88%90%E5%93%A1%E5%87%BD%E5%BC%8F/">std::thread 使用類別成員函式</a>
+            <a href="/p/%E8%B7%A8%E5%9F%9F%E8%AB%8B%E6%B1%82%E9%99%90%E5%88%B6%E5%95%8F%E9%A1%8C/">跨域請求限制問題</a>
         </h2>
     
         
@@ -282,7 +300,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Mar 13, 2023</time>
+                <time class="article-time--published">Mar 18, 2023</time>
             </div>
         
 
@@ -297,7 +315,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    1 minute read
                 </time>
             </div>
         
@@ -312,133 +330,38 @@
     <section class="article-content">
     
     
-    <p>最近剛好比較有機會碰OOP，想寫個thread卻噴一堆錯誤🙄</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Example</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="k">private</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">    <span class="kr">thread</span> <span class="n">t1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">worker</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10000000</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">Example</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">t1</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="p">(</span><span class="n">worker</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>編譯之後悲劇：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">In file included from C:/msys64/ucrt64/include/c++/12.2.0/thread:43,
-</span></span><span class="line"><span class="cl">                 from C:\Users\...\test.cpp:2:
-</span></span><span class="line"><span class="cl">C:/msys64/ucrt64/include/c++/12.2.0/bits/std_thread.h: In instantiation of &#39;std::thread::thread(_Callable&amp;&amp;, _Args&amp;&amp; ...) [with _Callable = void (Example::*)(); _Args = {}; &lt;template-parameter-1-3&gt; = void]&#39;:
-</span></span><span class="line"><span class="cl">C:\Users\...\test.cpp:17:32:   required from here
-</span></span><span class="line"><span class="cl">C:/msys64/ucrt64/include/c++/12.2.0/bits/std_thread.h:129:72: error: static assertion failed: std::thread arguments must be invocable after conversion to rvalues
-</span></span><span class="line"><span class="cl">  129 |                                       typename decay&lt;_Args&gt;::type...&gt;::value,
-</span></span><span class="line"><span class="cl">      |                                                                        ^~~~~
-</span></span><span class="line"><span class="cl">C:/msys64/ucrt64/include/c++/12.2.0/bits/std_thread.h:129:72: note: &#39;std::integral_constant&lt;bool, false&gt;::value&#39; evaluates to false
-</span></span><span class="line"><span class="cl">C:/msys64/ucrt64/include/c++/12.2.0/bits/std_thread.h: In instantiation of &#39;struct std::thread::_Invoker&lt;std::tuple&lt;void (Example::*)()&gt; &gt;&#39;:
-</span></span><span class="line"><span class="cl">C:/msys64/ucrt64/include/c++/12.2.0/bits/std_thread.h:202:13:   required from &#39;struct std::thread::_State_impl&lt;std::thread::_Invoker&lt;std::tuple&lt;void (Example::*)()&gt; &gt; &gt;&#39;
-</span></span><span class="line"><span class="cl">C:/msys64/ucrt64/include/c++/12.2.0/bits/std_thread.h:142:29:   required from &#39;std::thread::thread(_Callable&amp;&amp;, _Args&amp;&amp; ...) [with _Callable = void (Example::*)(); _Args = {}; &lt;template-parameter-1-3&gt; = void]&#39;
-</span></span><span class="line"><span class="cl">C:\Users\...\test.cpp:17:32:   required from here
-</span></span><span class="line"><span class="cl">C:/msys64/ucrt64/include/c++/12.2.0/bits/std_thread.h:251:11: error: no type named &#39;type&#39; in &#39;struct std::thread::_Invoker&lt;std::tuple&lt;void (Example::*)()&gt; &gt;::__result&lt;std::tuple&lt;void (Example::*)()&gt; &gt;&#39;
-</span></span><span class="line"><span class="cl">  251 |           _M_invoke(_Index_tuple&lt;_Ind...&gt;)
-</span></span><span class="line"><span class="cl">      |           ^~~~~~~~~
-</span></span><span class="line"><span class="cl">C:/msys64/ucrt64/include/c++/12.2.0/bits/std_thread.h:255:9: error: no type named &#39;type&#39; in &#39;struct std::thread::_Invoker&lt;std::tuple&lt;void (Example::*)()&gt; &gt;::__result&lt;std::tuple&lt;void (Example::*)()&gt; &gt;&#39;
-</span></span><span class="line"><span class="cl">  255 |         operator()()
-</span></span><span class="line"><span class="cl">      |         ^~~~~~~~
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>std系列還真是讓人難以捉摸，把比較像錯誤的訊息找找看：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">error: static assertion failed: std::thread arguments must be invocable after conversion to rvalues
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>結果都跟我說是參數傳遞問題&hellip;<br>
-可是我沒有傳遞參數？</p>
+    <p>最近遇到一個問題：<strong>Cors (Cross-Origin Resource Sharing)</strong></p>
+<p>在瀏覽器中開Live-server，fetch其他網域的網站，會跳除如下錯誤</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
+</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">worker</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl"><span class="n">t1</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="p">(</span><span class="n">worker</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Access to fetch at &#39;https://example.com/&#39; from origin &#39;http://127.0.0.1:8080&#39; has been blocked by CORS policy:
+</span></span><span class="line"><span class="cl">No &#39;Access-Control-Allow-Origin&#39; header is present on the requested resource. 
+</span></span><span class="line"><span class="cl">If an opaque response serves your needs, set the request&#39;s mode to &#39;no-cors&#39; to fetch the resource with CORS disabled.
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>連回傳值都是void，這該怎麼辦？<br>
-想到它是在Class裡發生的，改變一下關鍵字</p>
-<p>解答：<a class="link" href="https://stackoverflow.com/questions/10673585/start-thread-with-member-function"  target="_blank" rel="noopener"
-    >Start thread with member function</a></p>
-<p>這樣就可以了</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">t1</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Example</span><span class="o">::</span><span class="n">worker</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>繼續Coding~</p>
+</div><p>被最後一句話騙，乖乖加上<code>no-cors</code>後，response是空的&hellip;.</p>
+<p>其實這是瀏覽器內部的限制，為了資安疑慮所設的</p>
+<p>目前有兩種主要解決辦法：</p>
+<ol>
+<li>跟伺服器管理員溝通，讓他在response的header中加上<code>Access-Control-Allow-Origin</code></li>
+<li>架個proxy，回傳時header加上<code>Access-Control-Allow-Origin</code></li>
+</ol>
+<p>已經有人寫好proxy了，隨便找個託管(render、heroku)都可以架<br>
+連結：<a class="link" href="https://github.com/Rob--W/cors-anywhere/#documentation"  target="_blank" rel="noopener"
+    >Rob&ndash;W/cors-anywhere</a></p>
+<p>雖然說CORS對網頁開發者是惡夢，不過確實達到安全的目的<br>
+早有耳聞，但是第一次自己遇到還是很新鮮 (汗</p>
 
 </section>
 
 
     <footer class="article-footer">
     
-    <section class="article-tags">
-        
-            <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
-        
-    </section>
-
 
     
     <section class="article-copyright">
@@ -469,6 +392,30 @@
             
                 
 <article class="has-image">
+    <a href="/p/stdthread-%E4%BD%BF%E7%94%A8%E9%A1%9E%E5%88%A5%E6%88%90%E5%93%A1%E5%87%BD%E5%BC%8F/">
+        
+        
+            <div class="article-image">
+                <img src="/p/stdthread-%E4%BD%BF%E7%94%A8%E9%A1%9E%E5%88%A5%E6%88%90%E5%93%A1%E5%87%BD%E5%BC%8F/_hu5fce2522ed51544b0a523eedb70d2a1f_1758880_fa49bafaaa0c1b2efbee6a408ccac384.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post std::thread 使用類別成員函式"
+                        
+                        data-hash="md5-1zIsttKgt3n3idVjV7LLIQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">std::thread 使用類別成員函式</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
     <a href="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/">
         
         
@@ -486,30 +433,6 @@
 
         <div class="article-details">
             <h2 class="article-title">在Windows安裝GNU Compiler</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/%E8%B7%A8%E5%9F%9F%E8%AB%8B%E6%B1%82%E9%99%90%E5%88%B6%E5%95%8F%E9%A1%8C/">
-        
-        
-            <div class="article-image">
-                <img src="/p/%E8%B7%A8%E5%9F%9F%E8%AB%8B%E6%B1%82%E9%99%90%E5%88%B6%E5%95%8F%E9%A1%8C/cred-req-updated.4b5192c237b29950e8bbd29f414589c5_hu25a6c481aa7bcbf69edaee2bc4b1b897_15187_250x150_fill_box_smart1_3.png" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post 跨域請求限制問題"
-                        
-                        data-hash="md5-S1GSwjeymVDou9KfQUWJxQ==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">跨域請求限制問題</h2>
         </div>
     </a>
 </article>
