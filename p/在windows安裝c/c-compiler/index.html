@@ -1,18 +1,10 @@
 <!DOCTYPE html>
 <html lang="" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='在學寫C&#43;&#43;的時候，不想用Visual Studio(太肥)，只好拿VSCode來練練手
-這樣的話就要額外裝編譯器了
-想當時裝個MinGW，就不知道如何下手，研究過後寫篇文章幫幫他人
-MSYS2：微軟官方推薦安裝 官網：MSYS2 - Getting Started
-先下載安裝檔，下載位置官網點進去就有，很大很亮眼
-打開後一直點Next即可，當然途中想改安裝位置也沒問題 按Finish後會跳出一個終端機視窗，請注意紅框中的UCRT64 目前MSys2內的Mingw分七種版本：
-名稱 前綴 工具鏈 架構 C 函式庫 C&#43;&#43; 函式庫 MSYS /usr gcc x86_64 cygwin libstdc&#43;&#43; UCRT64 /ucrt64 gcc x86_64 ucrt libstdc&#43;&#43; CLANG64 /clang64 llvm x86_64 ucrt libc&#43;&#43; CLANGARM64 /clangarm64 llvm aarch64 ucrt libc&#43;&#43; CLANG32 /clang32 llvm i686 ucrt libc&#43;&#43; MINGW64 /mingw64 gcc x86_64 msvcrt libstdc&#43;&#43; MINGW32 /mingw64 gcc i686 msvcrt libstdc&#43;&#43; 而MSYS2本身，只能算是一個幫助你建置環境的工具
-那剛剛提到的UCRT又是甚麼?
-UCRT的全名是Universal C Runtime，被Microsoft Visual Studio採用'>
-<title>在Windows安裝GNU Compiler</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='最近剛好有要重裝，紀錄紀錄'>
+<title>在Windows安裝C/C&#43;&#43; Compiler</title>
 
-<link rel='canonical' href='https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/'>
+<link rel='canonical' href='https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css">
 <link rel="stylesheet" href="/css/spoiler_tag.css">
@@ -32,30 +24,14 @@ UCRT的全名是Universal C Runtime，被Microsoft Visual Studio採用'>
 <script src="/js/live2d.js"></script>
 
 
-<script src="/js/nest_animation.js"></script><meta property='og:title' content='在Windows安裝GNU Compiler'>
-<meta property='og:description' content='在學寫C&#43;&#43;的時候，不想用Visual Studio(太肥)，只好拿VSCode來練練手
-這樣的話就要額外裝編譯器了
-想當時裝個MinGW，就不知道如何下手，研究過後寫篇文章幫幫他人
-MSYS2：微軟官方推薦安裝 官網：MSYS2 - Getting Started
-先下載安裝檔，下載位置官網點進去就有，很大很亮眼
-打開後一直點Next即可，當然途中想改安裝位置也沒問題 按Finish後會跳出一個終端機視窗，請注意紅框中的UCRT64 目前MSys2內的Mingw分七種版本：
-名稱 前綴 工具鏈 架構 C 函式庫 C&#43;&#43; 函式庫 MSYS /usr gcc x86_64 cygwin libstdc&#43;&#43; UCRT64 /ucrt64 gcc x86_64 ucrt libstdc&#43;&#43; CLANG64 /clang64 llvm x86_64 ucrt libc&#43;&#43; CLANGARM64 /clangarm64 llvm aarch64 ucrt libc&#43;&#43; CLANG32 /clang32 llvm i686 ucrt libc&#43;&#43; MINGW64 /mingw64 gcc x86_64 msvcrt libstdc&#43;&#43; MINGW32 /mingw64 gcc i686 msvcrt libstdc&#43;&#43; 而MSYS2本身，只能算是一個幫助你建置環境的工具
-那剛剛提到的UCRT又是甚麼?
-UCRT的全名是Universal C Runtime，被Microsoft Visual Studio採用'>
-<meta property='og:url' content='https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/'>
+<script src="/js/nest_animation.js"></script><meta property='og:title' content='在Windows安裝C/C&#43;&#43; Compiler'>
+<meta property='og:description' content='最近剛好有要重裝，紀錄紀錄'>
+<meta property='og:url' content='https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/'>
 <meta property='og:site_name' content='Hyno&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='c&#43;&#43;' /><meta property='article:published_time' content='2023-02-25T14:16:22&#43;08:00'/><meta property='article:modified_time' content='2023-02-25T14:16:22&#43;08:00'/><meta property='og:image' content='https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/msg-intellisense.jpg' />
-<meta name="twitter:title" content="在Windows安裝GNU Compiler">
-<meta name="twitter:description" content="在學寫C&#43;&#43;的時候，不想用Visual Studio(太肥)，只好拿VSCode來練練手
-這樣的話就要額外裝編譯器了
-想當時裝個MinGW，就不知道如何下手，研究過後寫篇文章幫幫他人
-MSYS2：微軟官方推薦安裝 官網：MSYS2 - Getting Started
-先下載安裝檔，下載位置官網點進去就有，很大很亮眼
-打開後一直點Next即可，當然途中想改安裝位置也沒問題 按Finish後會跳出一個終端機視窗，請注意紅框中的UCRT64 目前MSys2內的Mingw分七種版本：
-名稱 前綴 工具鏈 架構 C 函式庫 C&#43;&#43; 函式庫 MSYS /usr gcc x86_64 cygwin libstdc&#43;&#43; UCRT64 /ucrt64 gcc x86_64 ucrt libstdc&#43;&#43; CLANG64 /clang64 llvm x86_64 ucrt libc&#43;&#43; CLANGARM64 /clangarm64 llvm aarch64 ucrt libc&#43;&#43; CLANG32 /clang32 llvm i686 ucrt libc&#43;&#43; MINGW64 /mingw64 gcc x86_64 msvcrt libstdc&#43;&#43; MINGW32 /mingw64 gcc i686 msvcrt libstdc&#43;&#43; 而MSYS2本身，只能算是一個幫助你建置環境的工具
-那剛剛提到的UCRT又是甚麼?
-UCRT的全名是Universal C Runtime，被Microsoft Visual Studio採用"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/msg-intellisense.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='c&#43;&#43;' /><meta property='article:published_time' content='2023-02-25T14:16:22&#43;08:00'/><meta property='article:modified_time' content='2023-02-25T14:16:22&#43;08:00'/><meta property='og:image' content='https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/msg-intellisense.jpg' />
+<meta name="twitter:title" content="在Windows安裝C/C&#43;&#43; Compiler">
+<meta name="twitter:description" content="最近剛好有要重裝，紀錄紀錄"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/msg-intellisense.jpg' />
     </head>
     <body class="
     article-page
@@ -288,16 +264,16 @@ UCRT的全名是Universal C Runtime，被Microsoft Visual Studio採用"><meta na
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/">
+            <a href="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/">
                 
                     
                         
-                    <img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/msg-intellisense_hu1da1126b82c3201fcfa749294077f303_65014_800x0_resize_q75_box.jpg"
-                        srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/msg-intellisense_hu1da1126b82c3201fcfa749294077f303_65014_800x0_resize_q75_box.jpg 800w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/msg-intellisense_hu1da1126b82c3201fcfa749294077f303_65014_1600x0_resize_q75_box.jpg 1600w"
+                    <img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/msg-intellisense_hu1da1126b82c3201fcfa749294077f303_65014_800x0_resize_q75_box.jpg"
+                        srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/msg-intellisense_hu1da1126b82c3201fcfa749294077f303_65014_800x0_resize_q75_box.jpg 800w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/msg-intellisense_hu1da1126b82c3201fcfa749294077f303_65014_1600x0_resize_q75_box.jpg 1600w"
                         width="800"
                         height="484"
                         loading="lazy"
-                        alt="Featured image of post 在Windows安裝GNU Compiler" />
+                        alt="Featured image of post 在Windows安裝C/C&#43;&#43; Compiler" />
                 
             </a>
         </div>
@@ -316,9 +292,13 @@ UCRT的全名是Universal C Runtime，被Microsoft Visual Studio採用"><meta na
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/">在Windows安裝GNU Compiler</a>
+            <a href="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/">在Windows安裝C/C&#43;&#43; Compiler</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            最近剛好有要重裝，紀錄紀錄
+        </h3>
         
     </div>
 
@@ -375,10 +355,10 @@ UCRT的全名是Universal C Runtime，被Microsoft Visual Studio採用"><meta na
 <p>官網：<a class="link" href="https://www.msys2.org/"  target="_blank" rel="noopener"
     >MSYS2 - Getting Started</a></p>
 <p>先下載安裝檔，下載位置官網點進去就有，很大很亮眼<br>
-<img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/download-installation.jpg"
+<img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/download-installation.jpg"
 	width="799"
 	height="158"
-	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/download-installation_hu6f1598d14b623a173fc779ff6b4f8a6f_19501_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/download-installation_hu6f1598d14b623a173fc779ff6b4f8a6f_19501_1024x0_resize_q75_box.jpg 1024w"
+	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/download-installation_hu6f1598d14b623a173fc779ff6b4f8a6f_19501_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/download-installation_hu6f1598d14b623a173fc779ff6b4f8a6f_19501_1024x0_resize_q75_box.jpg 1024w"
 	loading="lazy"
 	
 	
@@ -397,10 +377,10 @@ UCRT的全名是Universal C Runtime，被Microsoft Visual Studio採用"><meta na
 	
 ></p>
 <p>按Finish後會跳出一個終端機視窗，請注意紅框中的UCRT64
-<img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt.jpg"
+<img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/ucrt.jpg"
 	width="754"
 	height="448"
-	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_1024x0_resize_q75_box.jpg 1024w"
+	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_1024x0_resize_q75_box.jpg 1024w"
 	loading="lazy"
 	
 	
@@ -493,10 +473,10 @@ UCRT的全名是Universal C Runtime，被Microsoft Visual Studio採用"><meta na
 <li>注意你用的終端機版本</li>
 </ol>
 <p>這是UCRT64的
-<img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt.jpg"
+<img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/ucrt.jpg"
 	width="754"
 	height="448"
-	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_1024x0_resize_q75_box.jpg 1024w"
+	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_1024x0_resize_q75_box.jpg 1024w"
 	loading="lazy"
 	
 	
@@ -506,10 +486,10 @@ UCRT的全名是Universal C Runtime，被Microsoft Visual Studio採用"><meta na
 	
 ></p>
 <p>這是MINGW64的
-<img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/mingw.jpg"
+<img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/mingw.jpg"
 	width="753"
 	height="436"
-	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/mingw_hu81559f0ee1974c479cf134515b3ad964_29147_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/mingw_hu81559f0ee1974c479cf134515b3ad964_29147_1024x0_resize_q75_box.jpg 1024w"
+	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/mingw_hu81559f0ee1974c479cf134515b3ad964_29147_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/mingw_hu81559f0ee1974c479cf134515b3ad964_29147_1024x0_resize_q75_box.jpg 1024w"
 	loading="lazy"
 	
 	
@@ -609,10 +589,10 @@ UCRT的全名是Universal C Runtime，被Microsoft Visual Studio採用"><meta na
 <p>首先要知道你的MSYS2裝在哪裡<br>
 以剛剛安裝為例，應該是裝在<code>C:\msys64</code>下</p>
 <p>然後去資料夾內依照你安裝的版本，尋找<code>\ucrt64</code>或<code>\mingw64</code></p>
-<p><img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/install-folder.jpg"
+<p><img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/install-folder.jpg"
 	width="137"
 	height="157"
-	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/install-folder_hub3f751866cb868302878cbdc92bfe749_6932_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/install-folder_hub3f751866cb868302878cbdc92bfe749_6932_1024x0_resize_q75_box.jpg 1024w"
+	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/install-folder_hub3f751866cb868302878cbdc92bfe749_6932_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/install-folder_hub3f751866cb868302878cbdc92bfe749_6932_1024x0_resize_q75_box.jpg 1024w"
 	loading="lazy"
 	
 	
@@ -641,10 +621,10 @@ UCRT的全名是Universal C Runtime，被Microsoft Visual Studio採用"><meta na
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>找到Path後按編輯</p>
-<p><img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env1.jpg"
+<p><img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/env1.jpg"
 	width="595"
 	height="481"
-	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env1_hu61710e0543d3a567e25f2bf4ba52ec26_83992_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env1_hu61710e0543d3a567e25f2bf4ba52ec26_83992_1024x0_resize_q75_box.jpg 1024w"
+	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/env1_hu61710e0543d3a567e25f2bf4ba52ec26_83992_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/env1_hu61710e0543d3a567e25f2bf4ba52ec26_83992_1024x0_resize_q75_box.jpg 1024w"
 	loading="lazy"
 	
 	
@@ -654,10 +634,10 @@ UCRT的全名是Universal C Runtime，被Microsoft Visual Studio採用"><meta na
 	
 ></p>
 <p>進去之後按新增-&gt;貼上剛剛複製的路徑-&gt;確定</p>
-<p><img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env2.jpg"
+<p><img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/env2.jpg"
 	width="514"
 	height="485"
-	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env2_hue16f418609d12936d6728390fbc8cee6_45760_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env2_hue16f418609d12936d6728390fbc8cee6_45760_1024x0_resize_q75_box.jpg 1024w"
+	srcset="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/env2_hue16f418609d12936d6728390fbc8cee6_45760_480x0_resize_q75_box.jpg 480w, /p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/env2_hue16f418609d12936d6728390fbc8cee6_45760_1024x0_resize_q75_box.jpg 1024w"
 	loading="lazy"
 	
 	
@@ -683,7 +663,7 @@ UCRT的全名是Universal C Runtime，被Microsoft Visual Studio採用"><meta na
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">g++ main.c -o main.exe
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">g++ main.cpp -o main.exe
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="mingw-manager坊間古早味">MinGW Manager：坊間古早味</h2>
@@ -717,7 +697,7 @@ UCRT的全名是Universal C Runtime，被Microsoft Visual Studio採用"><meta na
     
     <section class="article-tags">
         
-            <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
+            <a href="/tags/c&#43;&#43;/">c&#43;&#43;</a>
         
     </section>
 
@@ -768,6 +748,30 @@ UCRT的全名是Universal C Runtime，被Microsoft Visual Studio採用"><meta na
 
         <div class="article-details">
             <h2 class="article-title">std::thread 使用類別成員函式</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/">
+        
+        
+            <div class="article-image">
+                <img src="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/cover.f875cf586fd1c0f3ee2deed4fa68efbd_hu8c7fd172fb3edf68f8584e0253482f85_4423_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post JS中的巢狀Class"
+                        
+                        data-hash="md5-&#43;HXPWG/RwPPuLe7U&#43;mjvvQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">JS中的巢狀Class</h2>
         </div>
     </a>
 </article>

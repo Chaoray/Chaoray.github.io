@@ -5,7 +5,131 @@
         <link>https://chaoray.github.io/categories/tutorial/</link>
         <description>Recent content in tutorial on Hyno&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
-        <lastBuildDate>Sat, 18 Mar 2023 15:50:37 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/categories/tutorial/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 02 Apr 2023 00:04:03 +0800</lastBuildDate><atom:link href="https://chaoray.github.io/categories/tutorial/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>JS中的巢狀Class</title>
+        <link>https://chaoray.github.io/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/</link>
+        <pubDate>Sun, 02 Apr 2023 00:04:03 +0800</pubDate>
+        
+        <guid>https://chaoray.github.io/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/</guid>
+        <description>&lt;img src="https://chaoray.github.io/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/cover.png" alt="Featured image of post JS中的巢狀Class" /&gt;&lt;p&gt;自從JS推出Class之後，我就覺得他好原始(x&lt;br&gt;
+說真的，JS裡面的Class真的不成熟，很多東西都沒有&lt;br&gt;
+甚麼public、private、override、virtual&lt;br&gt;
+雖說TS都有，但有些情況下TS開發是災難&lt;br&gt;
+寫起JS的物件導向會掉根頭髮&lt;/p&gt;
+&lt;h2 id=&#34;寫法&#34;&gt;寫法&lt;/h2&gt;
+&lt;h3 id=&#34;靜態&#34;&gt;靜態&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Skill&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Character&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;skill&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Skill&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Adventurer&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Character&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kr&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;AdventurerSkill&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Skill&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Healing&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nx&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;HP+100&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;skill&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Adventurer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;AdventurerSkill&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;動態&#34;&gt;動態&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Magician&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Character&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;MagicianSkill&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;constructor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;MagicianSkill&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Skill&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Strengthening&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nx&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;ATK+100&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;skill&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;MagicianSkill&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;個人覺得這種寫法很酷，而且可以提高通用性，到時候只要統一呼叫&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;character&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;skill&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;有趣的是，當VSCode在推斷型別的時候：
+&lt;img src=&#34;https://chaoray.github.io/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/img/static_class.png&#34;
+	width=&#34;847&#34;
+	height=&#34;158&#34;
+	srcset=&#34;https://chaoray.github.io/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/img/static_class_hud8e8be6a112a447914be1b76512aa856_5180_480x0_resize_box_3.png 480w, https://chaoray.github.io/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/img/static_class_hud8e8be6a112a447914be1b76512aa856_5180_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;536&#34;
+		data-flex-basis=&#34;1286px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://chaoray.github.io/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/img/dyamic_class.png&#34;
+	width=&#34;732&#34;
+	height=&#34;135&#34;
+	srcset=&#34;https://chaoray.github.io/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/img/dyamic_class_hu344b3d28c6c590ef41a8df82828a480e_3453_480x0_resize_box_3.png 480w, https://chaoray.github.io/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/img/dyamic_class_hu344b3d28c6c590ef41a8df82828a480e_3453_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;542&#34;
+		data-flex-basis=&#34;1301px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>跨域請求限制問題</title>
         <link>https://chaoray.github.io/p/%E8%B7%A8%E5%9F%9F%E8%AB%8B%E6%B1%82%E9%99%90%E5%88%B6%E5%95%8F%E9%A1%8C/</link>
         <pubDate>Sat, 18 Mar 2023 15:50:37 +0800</pubDate>
@@ -163,22 +287,22 @@
 </description>
         </item>
         <item>
-        <title>在Windows安裝GNU Compiler</title>
-        <link>https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/</link>
+        <title>在Windows安裝C/C&#43;&#43; Compiler</title>
+        <link>https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/</link>
         <pubDate>Sat, 25 Feb 2023 14:16:22 +0800</pubDate>
         
-        <guid>https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/</guid>
-        <description>&lt;img src="https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/msg-intellisense.jpg" alt="Featured image of post 在Windows安裝GNU Compiler" /&gt;&lt;p&gt;在學寫C++的時候，不想用Visual Studio(太肥)，只好拿VSCode來練練手&lt;br&gt;
+        <guid>https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/</guid>
+        <description>&lt;img src="https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/msg-intellisense.jpg" alt="Featured image of post 在Windows安裝C/C&#43;&#43; Compiler" /&gt;&lt;p&gt;在學寫C++的時候，不想用Visual Studio(太肥)，只好拿VSCode來練練手&lt;br&gt;
 這樣的話就要額外裝編譯器了&lt;br&gt;
 想當時裝個MinGW，就不知道如何下手，研究過後寫篇文章幫幫他人&lt;/p&gt;
 &lt;h2 id=&#34;msys2微軟官方推薦安裝&#34;&gt;MSYS2：微軟官方推薦安裝&lt;/h2&gt;
 &lt;p&gt;官網：&lt;a class=&#34;link&#34; href=&#34;https://www.msys2.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;MSYS2 - Getting Started&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;先下載安裝檔，下載位置官網點進去就有，很大很亮眼&lt;br&gt;
-&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/download-installation.jpg&#34;
+&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/download-installation.jpg&#34;
 	width=&#34;799&#34;
 	height=&#34;158&#34;
-	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/download-installation_hu6f1598d14b623a173fc779ff6b4f8a6f_19501_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/download-installation_hu6f1598d14b623a173fc779ff6b4f8a6f_19501_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/download-installation_hu6f1598d14b623a173fc779ff6b4f8a6f_19501_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/download-installation_hu6f1598d14b623a173fc779ff6b4f8a6f_19501_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -197,10 +321,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;按Finish後會跳出一個終端機視窗，請注意紅框中的UCRT64
-&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt.jpg&#34;
+&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/ucrt.jpg&#34;
 	width=&#34;754&#34;
 	height=&#34;448&#34;
-	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -293,10 +417,10 @@
 &lt;li&gt;注意你用的終端機版本&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;這是UCRT64的
-&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt.jpg&#34;
+&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/ucrt.jpg&#34;
 	width=&#34;754&#34;
 	height=&#34;448&#34;
-	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/ucrt_hub40b8a2afc95b30bf8345910412d64c2_28363_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -306,10 +430,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;這是MINGW64的
-&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/mingw.jpg&#34;
+&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/mingw.jpg&#34;
 	width=&#34;753&#34;
 	height=&#34;436&#34;
-	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/mingw_hu81559f0ee1974c479cf134515b3ad964_29147_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/mingw_hu81559f0ee1974c479cf134515b3ad964_29147_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/mingw_hu81559f0ee1974c479cf134515b3ad964_29147_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/mingw_hu81559f0ee1974c479cf134515b3ad964_29147_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -409,10 +533,10 @@
 &lt;p&gt;首先要知道你的MSYS2裝在哪裡&lt;br&gt;
 以剛剛安裝為例，應該是裝在&lt;code&gt;C:\msys64&lt;/code&gt;下&lt;/p&gt;
 &lt;p&gt;然後去資料夾內依照你安裝的版本，尋找&lt;code&gt;\ucrt64&lt;/code&gt;或&lt;code&gt;\mingw64&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/install-folder.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/install-folder.jpg&#34;
 	width=&#34;137&#34;
 	height=&#34;157&#34;
-	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/install-folder_hub3f751866cb868302878cbdc92bfe749_6932_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/install-folder_hub3f751866cb868302878cbdc92bfe749_6932_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/install-folder_hub3f751866cb868302878cbdc92bfe749_6932_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/install-folder_hub3f751866cb868302878cbdc92bfe749_6932_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -441,10 +565,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;找到Path後按編輯&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env1.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/env1.jpg&#34;
 	width=&#34;595&#34;
 	height=&#34;481&#34;
-	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env1_hu61710e0543d3a567e25f2bf4ba52ec26_83992_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env1_hu61710e0543d3a567e25f2bf4ba52ec26_83992_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/env1_hu61710e0543d3a567e25f2bf4ba52ec26_83992_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/env1_hu61710e0543d3a567e25f2bf4ba52ec26_83992_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -454,10 +578,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;進去之後按新增-&amp;gt;貼上剛剛複製的路徑-&amp;gt;確定&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/env2.jpg&#34;
 	width=&#34;514&#34;
 	height=&#34;485&#34;
-	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env2_hue16f418609d12936d6728390fbc8cee6_45760_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dgnu-compiler/img/env2_hue16f418609d12936d6728390fbc8cee6_45760_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/env2_hue16f418609d12936d6728390fbc8cee6_45760_480x0_resize_q75_box.jpg 480w, https://chaoray.github.io/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/img/env2_hue16f418609d12936d6728390fbc8cee6_45760_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -483,7 +607,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;g++ main.c -o main.exe
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;g++ main.cpp -o main.exe
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;mingw-manager坊間古早味&#34;&gt;MinGW Manager：坊間古早味&lt;/h2&gt;

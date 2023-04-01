@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Wanna make the class be able to do a chain-call
-1 2 3 4 5 6 7 8 9 10 11 class TextBox { string text; TextBox addText(const string&amp;amp; append) { text &#43;= append; return this; } }; TextBox textBox1; textBox1.addText(&amp;#34;Text1&amp;#34;).addText(&amp;#34;Text2&amp;#34;).addText(&amp;#34;Text3&amp;#34;); This is not going to work :P
-1 2 3 4 5 6 7 8 9 10 11 class TextBox { string text; TextBox&amp;amp; addText(const string&amp;amp; append) { text &#43;= append; return *this; } }; TextBox textBox1; textBox1.'>
-<title>C&#43;&#43; Class Return Self</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Class{Class{Class{Class{Class{Class{}}}}}}'>
+<title>JS中的巢狀Class</title>
 
-<link rel='canonical' href='https://chaoray.github.io/p/c-class-return-self/'>
+<link rel='canonical' href='https://chaoray.github.io/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css">
 <link rel="stylesheet" href="/css/spoiler_tag.css">
@@ -26,17 +24,14 @@
 <script src="/js/live2d.js"></script>
 
 
-<script src="/js/nest_animation.js"></script><meta property='og:title' content='C&#43;&#43; Class Return Self'>
-<meta property='og:description' content='Wanna make the class be able to do a chain-call
-1 2 3 4 5 6 7 8 9 10 11 class TextBox { string text; TextBox addText(const string&amp;amp; append) { text &#43;= append; return this; } }; TextBox textBox1; textBox1.addText(&amp;#34;Text1&amp;#34;).addText(&amp;#34;Text2&amp;#34;).addText(&amp;#34;Text3&amp;#34;); This is not going to work :P
-1 2 3 4 5 6 7 8 9 10 11 class TextBox { string text; TextBox&amp;amp; addText(const string&amp;amp; append) { text &#43;= append; return *this; } }; TextBox textBox1; textBox1.'>
-<meta property='og:url' content='https://chaoray.github.io/p/c-class-return-self/'>
+<script src="/js/nest_animation.js"></script><meta property='og:title' content='JS中的巢狀Class'>
+<meta property='og:description' content='Class{Class{Class{Class{Class{Class{}}}}}}'>
+<meta property='og:url' content='https://chaoray.github.io/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/'>
 <meta property='og:site_name' content='Hyno&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='C&#43;&#43;' /><meta property='article:tag' content='Class' /><meta property='article:published_time' content='2023-01-15T10:44:46&#43;08:00'/><meta property='article:modified_time' content='2023-01-15T10:44:46&#43;08:00'/>
-<meta name="twitter:title" content="C&#43;&#43; Class Return Self">
-<meta name="twitter:description" content="Wanna make the class be able to do a chain-call
-1 2 3 4 5 6 7 8 9 10 11 class TextBox { string text; TextBox addText(const string&amp;amp; append) { text &#43;= append; return this; } }; TextBox textBox1; textBox1.addText(&amp;#34;Text1&amp;#34;).addText(&amp;#34;Text2&amp;#34;).addText(&amp;#34;Text3&amp;#34;); This is not going to work :P
-1 2 3 4 5 6 7 8 9 10 11 class TextBox { string text; TextBox&amp;amp; addText(const string&amp;amp; append) { text &#43;= append; return *this; } }; TextBox textBox1; textBox1.">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='js' /><meta property='article:tag' content='class' /><meta property='article:published_time' content='2023-04-02T00:04:03&#43;08:00'/><meta property='article:modified_time' content='2023-04-02T00:04:03&#43;08:00'/><meta property='og:image' content='https://chaoray.github.io/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/cover.png' />
+<meta name="twitter:title" content="JS中的巢狀Class">
+<meta name="twitter:description" content="Class{Class{Class{Class{Class{Class{}}}}}}"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://chaoray.github.io/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/cover.png' />
     </head>
     <body class="
     article-page
@@ -225,20 +220,83 @@
     </ol>
 </aside>
 
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#寫法">寫法</a>
+      <ol>
+        <li><a href="#靜態">靜態</a></li>
+        <li><a href="#動態">動態</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
 
             <main class="main full-width">
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/">
+                
+                    
+                        
+                    <img src="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/cover_hu8c7fd172fb3edf68f8584e0253482f85_4423_800x0_resize_box_3.png"
+                        srcset="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/cover_hu8c7fd172fb3edf68f8584e0253482f85_4423_800x0_resize_box_3.png 800w, /p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/cover_hu8c7fd172fb3edf68f8584e0253482f85_4423_1600x0_resize_box_3.png 1600w"
+                        width="800"
+                        height="234"
+                        loading="lazy"
+                        alt="Featured image of post JS中的巢狀Class" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/tutorial/" >
+                tutorial
+            </a>
+        
+    </header>
     
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/c-class-return-self/">C&#43;&#43; Class Return Self</a>
+            <a href="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/">JS中的巢狀Class</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            Class{Class{Class{Class{Class{Class{}}}}}}
+        </h3>
         
     </div>
 
@@ -258,7 +316,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Jan 15, 2023</time>
+                <time class="article-time--published">Apr 02, 2023</time>
             </div>
         
 
@@ -288,7 +346,13 @@
     <section class="article-content">
     
     
-    <p>Wanna make the class be able to do a chain-call</p>
+    <p>自從JS推出Class之後，我就覺得他好原始(x<br>
+說真的，JS裡面的Class真的不成熟，很多東西都沒有<br>
+甚麼public、private、override、virtual<br>
+雖說TS都有，但有些情況下TS開發是災難<br>
+寫起JS的物件導向會掉根頭髮</p>
+<h2 id="寫法">寫法</h2>
+<h3 id="靜態">靜態</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -302,22 +366,36 @@
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TextBox</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">string</span> <span class="n">text</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">Skill</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">use</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">TextBox</span> <span class="nf">addText</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">append</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">text</span> <span class="o">+=</span> <span class="n">append</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">Character</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">skill</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Skill</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">Adventurer</span> <span class="kr">extends</span> <span class="nx">Character</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">static</span> <span class="nx">AdventurerSkill</span> <span class="o">=</span> <span class="kr">class</span> <span class="kr">extends</span> <span class="nx">Skill</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">name</span> <span class="o">=</span> <span class="s2">&#34;Healing&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">use</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;HP+100&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">TextBox</span> <span class="n">textBox1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="n">textBox1</span><span class="p">.</span><span class="n">addText</span><span class="p">(</span><span class="s">&#34;Text1&#34;</span><span class="p">).</span><span class="n">addText</span><span class="p">(</span><span class="s">&#34;Text2&#34;</span><span class="p">).</span><span class="n">addText</span><span class="p">(</span><span class="s">&#34;Text3&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">skill</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Adventurer</span><span class="p">.</span><span class="nx">AdventurerSkill</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>This is not going to work :P</p>
+</div><h3 id="動態">動態</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -331,52 +409,59 @@
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TextBox</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">string</span> <span class="n">text</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">Magician</span> <span class="kr">extends</span> <span class="nx">Character</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">MagicianSkill</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">TextBox</span><span class="o">&amp;</span> <span class="n">addText</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">append</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">text</span> <span class="o">+=</span> <span class="n">append</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">MagicianSkill</span> <span class="o">=</span> <span class="kr">class</span> <span class="kr">extends</span> <span class="nx">Skill</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">name</span> <span class="o">=</span> <span class="s2">&#34;Strengthening&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">use</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;ATK+100&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">skill</span> <span class="o">=</span> <span class="k">new</span> <span class="k">this</span><span class="p">.</span><span class="nx">MagicianSkill</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">TextBox</span> <span class="n">textBox1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="n">textBox1</span><span class="p">.</span><span class="n">addText</span><span class="p">(</span><span class="s">&#34;Text1&#34;</span><span class="p">).</span><span class="n">addText</span><span class="p">(</span><span class="s">&#34;Text2&#34;</span><span class="p">).</span><span class="n">addText</span><span class="p">(</span><span class="s">&#34;Text3&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Works fine!</p>
-<p>Or you can</p>
+</div><p>個人覺得這種寫法很酷，而且可以提高通用性，到時候只要統一呼叫</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TextBox</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">string</span> <span class="n">text</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">TextBox</span><span class="o">*</span> <span class="nf">addText</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">append</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">text</span> <span class="o">+=</span> <span class="n">append</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">TextBox</span> <span class="n">textBox1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">textBox1</span><span class="p">.</span><span class="n">addText</span><span class="p">(</span><span class="s">&#34;Text1&#34;</span><span class="p">)).</span><span class="n">addText</span><span class="p">(</span><span class="s">&#34;Text2&#34;</span><span class="p">)).</span><span class="n">addText</span><span class="p">(</span><span class="s">&#34;Text3&#34;</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">character</span><span class="p">.</span><span class="nx">skill</span><span class="p">.</span><span class="nx">use</span><span class="p">();</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Longer, more verbose.</p>
+</div><p>有趣的是，當VSCode在推斷型別的時候：
+<img src="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/img/static_class.png"
+	width="847"
+	height="158"
+	srcset="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/img/static_class_hud8e8be6a112a447914be1b76512aa856_5180_480x0_resize_box_3.png 480w, /p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/img/static_class_hud8e8be6a112a447914be1b76512aa856_5180_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="536"
+		data-flex-basis="1286px"
+	
+></p>
+<p><img src="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/img/dyamic_class.png"
+	width="732"
+	height="135"
+	srcset="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/img/dyamic_class_hu344b3d28c6c590ef41a8df82828a480e_3453_480x0_resize_box_3.png 480w, /p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/img/dyamic_class_hu344b3d28c6c590ef41a8df82828a480e_3453_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="542"
+		data-flex-basis="1301px"
+	
+></p>
 
 </section>
 
@@ -385,7 +470,7 @@
     
     <section class="article-tags">
         
-            <a href="/tags/c&#43;&#43;/">c&#43;&#43;</a>
+            <a href="/tags/js/">js</a>
         
             <a href="/tags/class/">Class</a>
         
@@ -413,6 +498,87 @@
     
 
     
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E8%B7%A8%E5%9F%9F%E8%AB%8B%E6%B1%82%E9%99%90%E5%88%B6%E5%95%8F%E9%A1%8C/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E8%B7%A8%E5%9F%9F%E8%AB%8B%E6%B1%82%E9%99%90%E5%88%B6%E5%95%8F%E9%A1%8C/cred-req-updated.4b5192c237b29950e8bbd29f414589c5_hu25a6c481aa7bcbf69edaee2bc4b1b897_15187_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 跨域請求限制問題"
+                        
+                        data-hash="md5-S1GSwjeymVDou9KfQUWJxQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">跨域請求限制問題</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/stdthread-%E4%BD%BF%E7%94%A8%E9%A1%9E%E5%88%A5%E6%88%90%E5%93%A1%E5%87%BD%E5%BC%8F/">
+        
+        
+            <div class="article-image">
+                <img src="/p/stdthread-%E4%BD%BF%E7%94%A8%E9%A1%9E%E5%88%A5%E6%88%90%E5%93%A1%E5%87%BD%E5%BC%8F/_hu5fce2522ed51544b0a523eedb70d2a1f_1758880_fa49bafaaa0c1b2efbee6a408ccac384.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post std::thread 使用類別成員函式"
+                        
+                        data-hash="md5-1zIsttKgt3n3idVjV7LLIQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">std::thread 使用類別成員函式</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/msg-intellisense.11badb66e02688687685ab6a9a7bf9a9_hu1da1126b82c3201fcfa749294077f303_65014_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 在Windows安裝C/C&#43;&#43; Compiler"
+                        
+                        data-hash="md5-EbrbZuAmiGh2hatqmnv5qQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">在Windows安裝C/C&#43;&#43; Compiler</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
 
      
     
