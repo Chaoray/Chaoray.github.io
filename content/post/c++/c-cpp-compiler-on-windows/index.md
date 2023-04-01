@@ -1,6 +1,6 @@
 ---
-title: "在Windows安裝GNU Compiler"
-description: ""
+title: "在Windows安裝C/C++ Compiler"
+description: "最近剛好有要重裝，紀錄紀錄"
 date: 2023-02-25T14:16:22+08:00
 tags: [c++]
 categories: [tutorial]
@@ -208,7 +208,7 @@ gcc main.c -o main.exe
 
 編譯C++
 ```
-g++ main.c -o main.exe
+g++ main.cpp -o main.exe
 ```
 
 ## MinGW Manager：坊間古早味

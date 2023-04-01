@@ -1,6 +1,6 @@
 ---
 title: "跨域請求限制問題"
-description: ""
+description: "CORS你不要過來啊！！"
 date: 2023-03-18T15:50:37+08:00
 tags: []
 categories: ["tutorial"]

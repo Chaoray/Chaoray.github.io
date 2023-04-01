@@ -1,6 +1,6 @@
 ---
 title: "怎麼樣學程式"
-description: ""
+description: "有點想法，寫下來說不定能幫到某人"
 date: 2023-02-28T22:23:08+08:00
 tags: []
 categories: ["casual"]

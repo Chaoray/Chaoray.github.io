@@ -1,6 +1,6 @@
 ---
 title: "std::thread 使用類別成員函式"
-description: ""
+description: "C++別再噁心我啦"
 date: 2023-03-13T22:07:54+08:00
 tags: ["c++"]
 categories: ["tutorial"]
