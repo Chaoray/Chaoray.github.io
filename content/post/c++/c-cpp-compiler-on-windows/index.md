@@ -142,6 +142,7 @@ pacman -S mingw-w64-x86_64-gcc
 ```
 gcc --version
 ```
+正確安裝應該會輸出類似下方的文字
 ```
 # gcc --version
 gcc.exe (Rev10, Built by MSYS2：2023-02-19
@@ -206,7 +207,7 @@ rundll32 sysdm.cpl,EditEnvironmentVariables
 gcc main.c -o main.exe
 ```
 
-編譯C++
+編譯C++，注意不要跟gcc搞混了，兩個實務上並不能通用
 ```
 g++ main.cpp -o main.exe
 ```
