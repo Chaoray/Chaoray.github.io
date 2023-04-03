@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='順便寫寫，新手不太知道怎麼設定'>
+<title>在VSCode上開發C&#43;&#43;</title>
+
+<link rel='canonical' href='https://chaoray.github.io/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc-/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css">
+<link rel="stylesheet" href="/css/spoiler_tag.css">
+<link rel="stylesheet" href="/css/code_modify.css">
+<link rel="stylesheet" href="/css/live2d_canvas.css">
+<link rel="stylesheet" href="/css/nest_canvas.css">
+<script defer src="/js/utils.js"></script>
+
+
+<script defer src="/js/spoiler_tag.js"></script>
+
+
+<script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi.js@6.5.2/dist/browser/pixi.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/index.min.js"></script>
+<script src="/js/live2d.js"></script>
+
+
+<script src="/js/nest_animation.js"></script><meta property='og:title' content='在VSCode上開發C&#43;&#43;'>
+<meta property='og:description' content='順便寫寫，新手不太知道怎麼設定'>
+<meta property='og:url' content='https://chaoray.github.io/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc-/'>
+<meta property='og:site_name' content='Hyno&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='c&#43;&#43;' /><meta property='article:tag' content='vscode' /><meta property='article:published_time' content='2023-04-01T19:47:34&#43;08:00'/><meta property='article:modified_time' content='2023-04-01T19:47:34&#43;08:00'/>
+<meta name="twitter:title" content="在VSCode上開發C&#43;&#43;">
+<meta name="twitter:description" content="順便寫寫，新手不太知道怎麼設定">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu1acf05f8135030e4a8407ee14a841768_318745_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">👻</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Hyno&#39;s Blog</a></h1>
+            <h2 class="site-description">Coding from Life.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/Chaoray'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E9%AB%98%E4%B8%AD%E7%AD%86%E8%A8%98%E7%B6%B2%E7%AB%99/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"></path>
+  <line x1="10" y1="14" x2="20" y2="4"></line>
+  <polyline points="15 4 20 4 20 9"></polyline>
+</svg>
+                
+                <span>高中筆記網站</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#準備環境">準備環境</a>
+      <ol>
+        <li><a href="#安裝c編譯器">安裝C++編譯器</a></li>
+        <li><a href="#安裝vscode">安裝VSCode</a></li>
+      </ol>
+    </li>
+    <li><a href="#安裝擴充套件">安裝擴充套件</a></li>
+    <li><a href="#組態設定">組態設定</a>
+      <ol>
+        <li><a href="#編譯器路徑">編譯器路徑</a></li>
+        <li><a href="#intellisense-模式">Intellisense 模式</a></li>
+      </ol>
+    </li>
+    <li><a href="#編譯">編譯</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/tutorial/" >
+                tutorial
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc-/">在VSCode上開發C&#43;&#43;</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            順便寫寫，新手不太知道怎麼設定
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Apr 01, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="準備環境">準備環境</h2>
+<h3 id="安裝c編譯器">安裝C++編譯器</h3>
+<p>關於安裝編譯器的問題之前已經有文章說過了<br>
+傳送門🚪：<a class="link" href="/p/%e5%9c%a8windows%e5%ae%89%e8%a3%9dc/c-compiler/" >在Windows安裝C/C++ Compiler</a></p>
+<blockquote>
+<p><strong>疑難排解</strong></p>
+</blockquote>
+<ul>
+<li>
+<p>Q: 裝錯了或想換版本該如何解安裝？<br>
+把<code>-S</code>參數換成<code>-R</code>即可<br>
+Ex: <code>pacman -S mingw-w64-ucrt-x86_64-gcc</code> -&gt; <code>pacman -R mingw-w64-ucrt-x86_64-gcc</code></p>
+</li>
+<li>
+<p>Q: 裝了C++之後還要裝C嗎?<br>
+不用，會同時安裝<code>g++</code>跟<code>gcc</code>，前者是編譯C++的，後者是編譯C的<br>
+另外請不要拿<code>g++</code>去編譯C，會有意想不到的錯誤</p>
+</li>
+</ul>
+<h3 id="安裝vscode">安裝VSCode</h3>
+<p>VSCode載點：<a class="link" href="https://code.visualstudio.com/"  target="_blank" rel="noopener"
+    >VSCode - Code editing. Redefined.</a><br>
+按鈕很大很顯眼，沒看見我建議你去看醫生</p>
+<p>接下來的步驟就是下一步式點選，不會的我建議你，||算了你大概也聽不懂||</p>
+<p>在安裝過程中有兩個選項大力推薦勾選：<br>
+<img src="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/5.png"
+	width="598"
+	height="430"
+	srcset="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/5_hu2770d7133f57f37b679243f0b6013393_17243_480x0_resize_box_3.png 480w, /p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/5_hu2770d7133f57f37b679243f0b6013393_17243_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="139"
+		data-flex-basis="333px"
+	
+><br>
+為甚麼？||問那麼多幹嘛做就對了||</p>
+<p>這樣可以省去很多不必要的動作，一般來說，想要在VSCode中開啟檔案或資料夾<br>
+沒勾選之前的動作都是：</p>
+<ol>
+<li>開VSCode</li>
+<li>把檔案拖到VSCode視窗中</li>
+</ol>
+<p>但是勾選之後可以變成：</p>
+<ol>
+<li>檔案/資料夾右鍵<br>
+<img src="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/1.png"
+	width="286"
+	height="336"
+	srcset="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/1_hu20fc5af76352dbf3e13f5f1303051df1_11781_480x0_resize_box_3.png 480w, /p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/1_hu20fc5af76352dbf3e13f5f1303051df1_11781_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="85"
+		data-flex-basis="204px"
+	
+></li>
+</ol>
+<p>老實講省很多時間，所以還不勾</p>
+<h2 id="安裝擴充套件">安裝擴充套件</h2>
+<p>如果只是要寫C/C++的話，安裝這個就完全ok了</p>
+<p><img src="https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cpptools-extension-pack/1.3.0/1662069439952/Microsoft.VisualStudio.Services.Icons.Default"
+	
+	
+	
+	loading="lazy"
+	
+	
+><br>
+<a class="link" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack"  target="_blank" rel="noopener"
+    >C/C++ Extension Pack</a></p>
+<p>裝好之後，以防萬一重新開啟VSCode</p>
+<h2 id="組態設定">組態設定</h2>
+<p>之後按F1，打入：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">C/C++: Edit Configurations UI
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>視窗正中央會出現一個選項<br>
+<img src="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/2.png"
+	width="619"
+	height="121"
+	srcset="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/2_huad70574daaf831a250cc4479e88685da_3553_480x0_resize_box_3.png 480w, /p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/2_huad70574daaf831a250cc4479e88685da_3553_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="511"
+		data-flex-basis="1227px"
+	
+></p>
+<p>再來會跳出的視窗，這裡是C/C++編譯、語法的一些設定<br>
+<img src="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/3.png"
+	width="1614"
+	height="565"
+	srcset="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/3_hu6e3656a76598be168146419eb21ad2a1_35881_480x0_resize_box_3.png 480w, /p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/3_hu6e3656a76598be168146419eb21ad2a1_35881_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="285"
+		data-flex-basis="685px"
+	
+></p>
+<h3 id="編譯器路徑">編譯器路徑</h3>
+<p>首先是編譯器路徑，右邊下拉選單應該會有不同種選擇<br>
+<img src="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/4.png"
+	width="830"
+	height="190"
+	srcset="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/4_hu4645f9dbe399703c8102421a576ebd23_9579_480x0_resize_box_3.png 480w, /p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/4_hu4645f9dbe399703c8102421a576ebd23_9579_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="436"
+		data-flex-basis="1048px"
+	
+></p>
+<p>如果一個都沒看到，很大概率是你的系統路徑設定錯誤，可以回去檢視有沒有每項都做到<br>
+傳送門🚪：<a class="link" href="/p/%e5%9c%a8windows%e5%ae%89%e8%a3%9dc/c-compiler/#%E9%87%8D%E9%BB%9E%E5%8A%A0%E5%85%A5%E7%B3%BB%E7%B5%B1%E8%B7%AF%E5%BE%91" >在Windows安裝C/C++ Compiler - 重點：加入系統路徑</a></p>
+<ul>
+<li>編譯C，選擇<code>gcc.exe</code></li>
+<li>編譯C++，選擇<code>g++.exe</code></li>
+</ul>
+<p>這裡講一下畫面中<code>gcc.exe</code>、<code>g++.ex</code>、<code>cpp.exe</code>的不同：</p>
+<ul>
+<li>gcc.exe：編譯C語言，處理.c結尾的檔案</li>
+<li>g++.exe：編譯C++語言，處理.cpp結尾的檔案</li>
+<li>cpp.exe：處理宏(macros)，擔任前置處理器(preprocessor)的角色</li>
+</ul>
+<p>點選正確的編譯器之後，才不會出現一堆錯誤</p>
+<h3 id="intellisense-模式">Intellisense 模式</h3>
+<ul>
+<li>甚麼是Intellisense(智能感知)？<br>
+<strong>簡單來說，就是讓你寫程式不用那麼累</strong></li>
+</ul>
+<p>很多時候我們會用到來自其他函式庫的東西，這時候如果要去尋找這個函式該怎麼使用<br>
+就要一層一層點點點，點到函式宣告的地方，才能真正知道</p>
+<p>有Intellisense之後，IDE就會自動幫我們去完成這件事<br>
+或是在語法上提供一些指引，讓我們寫Code出錯機率不那麼高</p>
+<p>以下是一些Intellisense的實際作用：
+<img src="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/7.png"
+	width="919"
+	height="362"
+	srcset="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/7_huef62c4a9f196c691c4daf5f1962b47d3_8643_480x0_resize_box_3.png 480w, /p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/7_huef62c4a9f196c691c4daf5f1962b47d3_8643_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="253"
+		data-flex-basis="609px"
+	
+><br>
+<img src="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/8.png"
+	width="915"
+	height="191"
+	srcset="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/8_hucf057269f67e7a0ae9efd229c227eb6f_6897_480x0_resize_box_3.png 480w, /p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/8_hucf057269f67e7a0ae9efd229c227eb6f_6897_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="479"
+		data-flex-basis="1149px"
+	
+><br>
+||所以你們還不趕快拜Intellisense||</p>
+<p>Intellisense的模式就很多樣化了<br>
+<img src="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/9.png"
+	width="325"
+	height="565"
+	srcset="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/9_hue0ce69e20b53b8966d6af2211419c1d4_13581_480x0_resize_box_3.png 480w, /p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/9_hue0ce69e20b53b8966d6af2211419c1d4_13581_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="138px"
+	
+><br>
+可以使用下列填空題來找到該選哪個</p>
+<blockquote>
+<p>[系統平台]-[編譯器版本]-[系統架構]</p>
+</blockquote>
+<p>以我用Windows x64 Bit，安裝GCC舉例，就要選</p>
+<blockquote>
+<p>windows-gcc-x64</p>
+</blockquote>
+<p>用MACOS Arm64，安裝CLANG，就要選</p>
+<blockquote>
+<p>macos-clang-arm64</p>
+</blockquote>
+<p>後面的新手盡量不要去動，不然出錯了很難找到原因</p>
+<h2 id="編譯">編譯</h2>
+<p>都設定好後，回到程式碼檔案，按下<code>Ctrl+Shift+B</code>應該會出現<br>
+<img src="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/10.png"
+	width="635"
+	height="221"
+	srcset="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/10_hufe938d25fdc90162afd79821784ee083_7584_480x0_resize_box_3.png 480w, /p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/10_hufe938d25fdc90162afd79821784ee083_7584_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="287"
+		data-flex-basis="689px"
+	
+></p>
+<p>這時候不要著急點，你應該點的是旁邊的齒輪
+<img src="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/11.png"
+	width="625"
+	height="188"
+	srcset="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/11_hu91f4a840601442a6f09e55f96004b3b9_7568_480x0_resize_box_3.png 480w, /p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/11_hu91f4a840601442a6f09e55f96004b3b9_7568_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="332"
+		data-flex-basis="797px"
+	
+></p>
+<p>會多出一個名為<code>tasks.json</code>的檔案
+<img src="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/12.png"
+	width="742"
+	height="578"
+	srcset="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/12_hud21c0a8145660145f0b70e4452705baf_17442_480x0_resize_box_3.png 480w, /p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/12_hud21c0a8145660145f0b70e4452705baf_17442_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="128"
+		data-flex-basis="308px"
+	
+></p>
+<p>這時候再按一次<code>Ctrl+Shift+B</code>，就可以成功編譯</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> *  正在執行的工作: C/C++: g++.exe 建置使用中檔案 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">正在開始建置...
+</span></span><span class="line"><span class="cl">C:\msys64\ucrt64\bin\g++.exe -fdiagnostics-color=always -g C:\...\main.cpp -o C:\...\main.exe
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">已成功完成建置。
+</span></span><span class="line"><span class="cl"> *  工作將被重新啟用.按任意鍵關閉.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>程式碼下方會多出一個跟檔案同名的exe檔，按<code>Ctrl+Shift+~</code>(ESC下方那顆)</p>
+<p>我的cpp檔案叫<code>main.cpp</code>，編譯之後會有<code>main.exe</code><br>
+<img src="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/13.png"
+	width="152"
+	height="84"
+	srcset="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/13_hu057ef8f7632898633d6a529473946d2f_1622_480x0_resize_box_3.png 480w, /p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/13_hu057ef8f7632898633d6a529473946d2f_1622_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="180"
+		data-flex-basis="434px"
+	
+><br>
+在終端打上main.exe，<strong>按下<code>TAB</code></strong><br>
+<img src="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/14.png"
+	width="468"
+	height="156"
+	srcset="/p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/14_hu2dac57b6814e551af2af853879994f27_2056_480x0_resize_box_3.png 480w, /p/%E5%9C%A8vscode%E4%B8%8A%E9%96%8B%E7%99%BCc/img/14_hu2dac57b6814e551af2af853879994f27_2056_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="300"
+		data-flex-basis="720px"
+	
+><br>
+按<code>ENTER</code>就能看到執行結果！</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">PS C:\...\test&gt; .\main.exe
+</span></span><span class="line"><span class="cl">Hello world
+</span></span><span class="line"><span class="cl">PS C:\...\test&gt; 
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/c&#43;&#43;/">c&#43;&#43;</a>
+        
+            <a href="/tags/vscode/">vscode</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-ND-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/stdthread-%E4%BD%BF%E7%94%A8%E9%A1%9E%E5%88%A5%E6%88%90%E5%93%A1%E5%87%BD%E5%BC%8F/">
+        
+        
+            <div class="article-image">
+                <img src="/p/stdthread-%E4%BD%BF%E7%94%A8%E9%A1%9E%E5%88%A5%E6%88%90%E5%93%A1%E5%87%BD%E5%BC%8F/_hu5fce2522ed51544b0a523eedb70d2a1f_1758880_fa49bafaaa0c1b2efbee6a408ccac384.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post std::thread 使用類別成員函式"
+                        
+                        data-hash="md5-1zIsttKgt3n3idVjV7LLIQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">std::thread 使用類別成員函式</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E5%9C%A8windows%E5%AE%89%E8%A3%9Dc/c-compiler/msg-intellisense.11badb66e02688687685ab6a9a7bf9a9_hu1da1126b82c3201fcfa749294077f303_65014_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 在Windows安裝C/C&#43;&#43; Compiler"
+                        
+                        data-hash="md5-EbrbZuAmiGh2hatqmnv5qQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">在Windows安裝C/C&#43;&#43; Compiler</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/">
+        
+        
+            <div class="article-image">
+                <img src="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/cover.f875cf586fd1c0f3ee2deed4fa68efbd_hu8c7fd172fb3edf68f8584e0253482f85_4423_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post JS中的巢狀Class"
+                        
+                        data-hash="md5-&#43;HXPWG/RwPPuLe7U&#43;mjvvQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">JS中的巢狀Class</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E8%B7%A8%E5%9F%9F%E8%AB%8B%E6%B1%82%E9%99%90%E5%88%B6%E5%95%8F%E9%A1%8C/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E8%B7%A8%E5%9F%9F%E8%AB%8B%E6%B1%82%E9%99%90%E5%88%B6%E5%95%8F%E9%A1%8C/cred-req-updated.4b5192c237b29950e8bbd29f414589c5_hu25a6c481aa7bcbf69edaee2bc4b1b897_15187_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 跨域請求限制問題"
+                        
+                        data-hash="md5-S1GSwjeymVDou9KfQUWJxQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">跨域請求限制問題</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2023 Hyno&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        
+            祝你有個美好的一天 <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
