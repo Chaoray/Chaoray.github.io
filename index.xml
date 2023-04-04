@@ -151,7 +151,8 @@ Ex: &lt;code&gt;pacman -S mingw-w64-ucrt-x86_64-gcc&lt;/code&gt; -&amp;gt; &lt;c
 &lt;li&gt;
 &lt;p&gt;Q: 裝了C++之後還要裝C嗎?&lt;br&gt;
 不用，會同時安裝&lt;code&gt;g++&lt;/code&gt;跟&lt;code&gt;gcc&lt;/code&gt;，前者是編譯C++的，後者是編譯C的&lt;br&gt;
-另外請不要拿&lt;code&gt;g++&lt;/code&gt;去編譯C，會有意想不到的錯誤&lt;/p&gt;
+另外請不要拿&lt;code&gt;gcc&lt;/code&gt;去編譯C++，會有意想不到的錯誤&lt;br&gt;
+也不要拿&lt;code&gt;g++&lt;/code&gt;去編譯C，我知道你想這麼做，但是不行&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;安裝vscode&#34;&gt;安裝VSCode&lt;/h3&gt;
