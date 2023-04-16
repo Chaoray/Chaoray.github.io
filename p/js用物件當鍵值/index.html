@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Class{Class{Class{Class{Class{Class{}}}}}}'>
-<title>JS中的巢狀Class</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='前些日子寫出的bug，直接把我搞到瘋掉'>
+<title>JS用物件當鍵值</title>
 
-<link rel='canonical' href='https://chaoray.github.io/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/'>
+<link rel='canonical' href='https://chaoray.github.io/p/js%E7%94%A8%E7%89%A9%E4%BB%B6%E7%95%B6%E9%8D%B5%E5%80%BC/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css">
 <link rel="stylesheet" href="/css/spoiler_tag.css">
@@ -24,14 +24,13 @@
 <script src="/js/live2d.js"></script>
 
 
-<script src="/js/nest_animation.js"></script><meta property='og:title' content='JS中的巢狀Class'>
-<meta property='og:description' content='Class{Class{Class{Class{Class{Class{}}}}}}'>
-<meta property='og:url' content='https://chaoray.github.io/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/'>
+<script src="/js/nest_animation.js"></script><meta property='og:title' content='JS用物件當鍵值'>
+<meta property='og:description' content='前些日子寫出的bug，直接把我搞到瘋掉'>
+<meta property='og:url' content='https://chaoray.github.io/p/js%E7%94%A8%E7%89%A9%E4%BB%B6%E7%95%B6%E9%8D%B5%E5%80%BC/'>
 <meta property='og:site_name' content='Hyno&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='js' /><meta property='article:tag' content='class' /><meta property='article:published_time' content='2023-04-02T00:04:03&#43;08:00'/><meta property='article:modified_time' content='2023-04-02T00:04:03&#43;08:00'/><meta property='og:image' content='https://chaoray.github.io/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/cover.png' />
-<meta name="twitter:title" content="JS中的巢狀Class">
-<meta name="twitter:description" content="Class{Class{Class{Class{Class{Class{}}}}}}"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://chaoray.github.io/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/cover.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='js' /><meta property='article:tag' content='object' /><meta property='article:published_time' content='2023-04-16T18:04:10&#43;08:00'/><meta property='article:modified_time' content='2023-04-16T18:04:10&#43;08:00'/>
+<meta name="twitter:title" content="JS用物件當鍵值">
+<meta name="twitter:description" content="前些日子寫出的bug，直接把我搞到瘋掉">
     </head>
     <body class="
     article-page
@@ -242,10 +241,12 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#寫法">寫法</a>
+    <li><a href="#問題">問題</a></li>
+    <li><a href="#解析">解析</a></li>
+    <li><a href="#解方">解方</a>
       <ol>
-        <li><a href="#靜態">靜態</a></li>
-        <li><a href="#動態">動態</a></li>
+        <li><a href="#map">Map</a></li>
+        <li><a href="#weakmap">WeakMap</a></li>
       </ol>
     </li>
   </ol>
@@ -259,23 +260,8 @@
 
 
             <main class="main full-width">
-    <article class="has-image main-article">
+    <article class="main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/">
-                
-                    
-                        
-                    <img src="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/cover_hu8c7fd172fb3edf68f8584e0253482f85_4423_800x0_resize_box_3.png"
-                        srcset="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/cover_hu8c7fd172fb3edf68f8584e0253482f85_4423_800x0_resize_box_3.png 800w, /p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/cover_hu8c7fd172fb3edf68f8584e0253482f85_4423_1600x0_resize_box_3.png 1600w"
-                        width="800"
-                        height="234"
-                        loading="lazy"
-                        alt="Featured image of post JS中的巢狀Class" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -290,12 +276,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/">JS中的巢狀Class</a>
+            <a href="/p/js%E7%94%A8%E7%89%A9%E4%BB%B6%E7%95%B6%E9%8D%B5%E5%80%BC/">JS用物件當鍵值</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            Class{Class{Class{Class{Class{Class{}}}}}}
+            前些日子寫出的bug，直接把我搞到瘋掉
         </h3>
         
     </div>
@@ -316,7 +302,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Apr 02, 2023</time>
+                <time class="article-time--published">Apr 16, 2023</time>
             </div>
         
 
@@ -331,7 +317,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -346,13 +332,165 @@
     <section class="article-content">
     
     
-    <p>自從JS推出Class之後，我就覺得他好原始(x<br>
-說真的，JS裡面的Class真的不成熟，很多東西都沒有<br>
-甚麼public、private、override、virtual<br>
-雖說TS都有，但有些情況下TS開發是災難<br>
-寫起JS的物件導向會掉根頭髮</p>
-<h2 id="寫法">寫法</h2>
-<h3 id="靜態">靜態</h3>
+    <h2 id="問題">問題</h2>
+<p>事情是怎麼發生的呢? 且聽我娓娓道來&hellip;&hellip;</p>
+<p>當時我就想，為了確保每個屬性的獨特性，我做了這件事</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">fruit</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;Apple&#39;</span><span class="o">:</span> <span class="nx">Symbol</span><span class="p">(</span><span class="s1">&#39;Apple&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;Grape&#39;</span><span class="o">:</span> <span class="nx">Symbol</span><span class="p">(</span><span class="s1">&#39;Grape&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">products</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">fruit</span><span class="p">.</span><span class="nx">Apple</span><span class="p">]</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Apple Juice&#39;</span><span class="p">,</span> <span class="s1">&#39;Apple Pie&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">fruit</span><span class="p">.</span><span class="nx">Grape</span><span class="p">]</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Grape Juice&#39;</span><span class="p">,</span> <span class="s1">&#39;Grape Jam&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>目前為止都很正常，直到&hellip;</p>
+<p>直到我想在每個水果中加個Color屬性&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">fruit</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;Apple&#39;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">symbol</span><span class="o">:</span> <span class="nx">Symbol</span><span class="p">(</span><span class="s1">&#39;Apple&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;Grape&#39;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">symbol</span><span class="o">:</span> <span class="nx">Symbol</span><span class="p">(</span><span class="s1">&#39;Grape&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;Green&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然後products、products他！</p>
+<p>他就、就只剩下一個屬性了！？</p>
+<h2 id="解析">解析</h2>
+<p>為了解釋發生了甚麼，來做幾個測試：</p>
+<ol>
+<li>Key的類型</li>
+<li>何種類型會造成這種結果</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">products</span><span class="p">)[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">keyObj1</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">a</span><span class="o">:</span> <span class="mi">1</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">keyObj2</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">a</span><span class="o">:</span> <span class="mi">1</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">keyArr1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">keyArr2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">keyObj1</span><span class="p">]</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">keyArr1</span><span class="p">]</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">keyObj2</span><span class="p">]</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">keyArr2</span><span class="p">]</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>結果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">string
+</span></span><span class="line"><span class="cl">{ &#39;1&#39;: 4, &#39;[object Object]&#39;: 3 }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>原來，js在創建物件時，<strong>會把輸入值轉成字串</strong><br>
+然而Symbol是個例外，也就是說，<strong>js物件的鍵值可以是Symbol/String</strong></p>
+<p>所以才有剛剛那種<del>慘案</del>發生</p>
+<h2 id="解方">解方</h2>
+<h3 id="map">Map</h3>
+<p>Map應該會是最佳選擇，Map的Key可以是任何類型<br>
+還有Map比起Object，Map中的Key-Value Pair是有順序的，不像Object是無序</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">keyObj1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">keyArr1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">keyObj2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">keyArr2</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">item</span> <span class="k">of</span> <span class="nx">map</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[ { a: 1 }, 1 ]
+</span></span><span class="line"><span class="cl">[ [ 1 ], 2 ]
+</span></span><span class="line"><span class="cl">[ { a: 1 }, 3 ]
+</span></span><span class="line"><span class="cl">[ [ 1 ], 4 ]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="weakmap">WeakMap</h3>
+<p>WeakMap就比較玄了<br>
+<strong>他的Key只能是Object</strong>，當然null不行<br>
+再來他是弱引用，甚麼意思呢?</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -375,93 +513,49 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">Skill</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">name</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">use</span><span class="p">()</span> <span class="p">{}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">Character</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">skill</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Skill</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">Adventurer</span> <span class="kr">extends</span> <span class="nx">Character</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kr">static</span> <span class="nx">AdventurerSkill</span> <span class="o">=</span> <span class="kr">class</span> <span class="kr">extends</span> <span class="nx">Skill</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">name</span> <span class="o">=</span> <span class="s2">&#34;Healing&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">use</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;HP+100&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">a</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">a1</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">skill</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Adventurer</span><span class="p">.</span><span class="nx">AdventurerSkill</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">weakmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WeakMap</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">weakmap</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;123&#39;</span><span class="p">,</span> <span class="s1">&#39;123&#39;</span><span class="p">);</span>  <span class="c1">// TypeError: Invalid value used as weak map key
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">weakmap</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">obj1</span><span class="p">.</span><span class="nx">a</span><span class="p">,</span> <span class="s1">&#39;obj1.a&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">weakmap</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">obj1</span><span class="p">.</span><span class="nx">a</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">weakmap</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">obj1</span><span class="p">.</span><span class="nx">a</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">delete</span> <span class="nx">obj1</span><span class="p">.</span><span class="nx">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">weakmap</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">obj1</span><span class="p">.</span><span class="nx">a</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">weakmap</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">obj1</span><span class="p">.</span><span class="nx">a</span><span class="p">));</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="動態">動態</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">Magician</span> <span class="kr">extends</span> <span class="nx">Character</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">MagicianSkill</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">MagicianSkill</span> <span class="o">=</span> <span class="kr">class</span> <span class="kr">extends</span> <span class="nx">Skill</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">name</span> <span class="o">=</span> <span class="s2">&#34;Strengthening&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">use</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;ATK+100&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">skill</span> <span class="o">=</span> <span class="k">new</span> <span class="k">this</span><span class="p">.</span><span class="nx">MagicianSkill</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>個人覺得這種寫法很酷，而且可以提高通用性，到時候只要統一呼叫</p>
-<div class="highlight"><div class="chroma">
+</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">character</span><span class="p">.</span><span class="nx">skill</span><span class="p">.</span><span class="nx">use</span><span class="p">();</span>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">true
+</span></span><span class="line"><span class="cl">obj1.a
+</span></span><span class="line"><span class="cl">false
+</span></span><span class="line"><span class="cl">undefined
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>有趣的是，當VSCode在推斷型別的時候：
-<img src="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/img/static_class.png"
-	width="847"
-	height="158"
-	srcset="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/img/static_class_hud8e8be6a112a447914be1b76512aa856_5180_480x0_resize_box_3.png 480w, /p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/img/static_class_hud8e8be6a112a447914be1b76512aa856_5180_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="536"
-		data-flex-basis="1286px"
-	
-></p>
-<p><img src="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/img/dyamic_class.png"
-	width="732"
-	height="135"
-	srcset="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/img/dyamic_class_hu344b3d28c6c590ef41a8df82828a480e_3453_480x0_resize_box_3.png 480w, /p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/img/dyamic_class_hu344b3d28c6c590ef41a8df82828a480e_3453_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="542"
-		data-flex-basis="1301px"
-	
-></p>
+</div><p>就是當一個Key被刪除或是被回收時，<strong>WeakMap中的Key-Value Pair也會同時消失</strong><br>
+可以防止內存洩漏的問題<br>
+還有，WeakMap是看不到Key List的，所以他的Key List會取決於Key存不存在<br>
+所以當Key被Garbage Collection回收時，對應的Value會消失</p>
+<p>比較多會用在DOM的處理，DOM元素消失後，Value也消失了||拉人下水||</p>
+<p>題外話：<br>
+我個人覺得應該叫強引用而不是弱<br>
+因為WeakMap實際上加強了對Key的連結<br>
+叫弱引用&hellip;想不太通</p>
 
 </section>
 
@@ -472,7 +566,7 @@
         
             <a href="/tags/js/">js</a>
         
-            <a href="/tags/class/">Class</a>
+            <a href="/tags/object/">object</a>
         
     </section>
 
@@ -505,13 +599,24 @@
         <div class="flex article-list--tile">
             
                 
-<article class="">
-    <a href="/p/js%E7%94%A8%E7%89%A9%E4%BB%B6%E7%95%B6%E9%8D%B5%E5%80%BC/">
+<article class="has-image">
+    <a href="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/">
         
+        
+            <div class="article-image">
+                <img src="/p/js%E4%B8%AD%E7%9A%84%E5%B7%A2%E7%8B%80class/cover.f875cf586fd1c0f3ee2deed4fa68efbd_hu8c7fd172fb3edf68f8584e0253482f85_4423_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post JS中的巢狀Class"
+                        
+                        data-hash="md5-&#43;HXPWG/RwPPuLe7U&#43;mjvvQ==">
+                
+            </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">JS用物件當鍵值</h2>
+            <h2 class="article-title">JS中的巢狀Class</h2>
         </div>
     </a>
 </article>
