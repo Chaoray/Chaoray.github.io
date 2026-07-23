@@ -1,0 +1,188 @@
+.alert {
+  padding: 1rem 1rem;
+  margin: 1rem 0;
+  border-left: 0.25rem solid;
+  /* border-radius: 6px; */
+}
+
+.alert-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.alert-icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+}
+
+.alert-content {
+  line-height: 1.5;
+}
+
+.alert-content > :first-child {
+  margin-top: 0;
+}
+
+.alert-content > :last-child {
+  margin-bottom: 0;
+}
+
+/* Note */
+.alert-note {
+  border-left-color: #0969da;
+}
+
+.alert-note .alert-heading {
+  color: #0969da;
+}
+
+.alert-note .alert-icon {
+  color: #0969da;
+}
+
+/* Tip */
+.alert-tip {
+  border-left-color: #1a7f37;
+}
+
+.alert-tip .alert-heading {
+  color: #1a7f37;
+}
+
+.alert-tip .alert-icon {
+  color: #1a7f37;
+}
+
+/* Important */
+.alert-important {
+  border-left-color: #8250df;
+}
+
+.alert-important .alert-heading {
+  color: #8250df;
+}
+
+.alert-important .alert-icon {
+  color: #8250df;
+}
+
+/* Warning */
+.alert-warning {
+  border-left-color: #9a6700;
+}
+
+.alert-warning .alert-heading {
+  color: #9a6700;
+}
+
+.alert-warning .alert-icon {
+  color: #9a6700;
+}
+
+/* Caution */
+.alert-caution {
+  border-left-color: #cf222e;
+}
+
+.alert-caution .alert-heading {
+  color: #cf222e;
+}
+
+.alert-caution .alert-icon {
+  color: #cf222e;
+}
+
+/* Spoiler */
+.alert-spoiler {
+  border-left-color: var(--secondary);
+  cursor: pointer;
+}
+
+.alert-spoiler .alert-heading {
+  color: var(--secondary);
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.alert-spoiler .alert-heading::-webkit-details-marker {
+  display: none;
+}
+
+.alert-spoiler .alert-heading::marker {
+  content: "";
+}
+
+.alert-spoiler[open] .alert-heading {
+  margin-bottom: 0.5rem;
+}
+
+.alert-spoiler .alert-heading .alert-icon {
+  color: var(--secondary);
+}
+
+.alert-spoiler .alert-content {
+  opacity: 0;
+  animation: spoiler-reveal 0.3s ease forwards;
+}
+
+@keyframes spoiler-reveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+[data-theme="dark"] .alert-spoiler {
+  border-left-color: var(--secondary);
+}
+
+/* Dark mode */
+[data-theme="dark"] .alert-note {
+  border-left-color: #388bfd;
+}
+
+[data-theme="dark"] .alert-note .alert-heading,
+[data-theme="dark"] .alert-note .alert-icon {
+  color: #388bfd;
+}
+
+[data-theme="dark"] .alert-tip {
+  border-left-color: #3fb950;
+}
+
+[data-theme="dark"] .alert-tip .alert-heading,
+[data-theme="dark"] .alert-tip .alert-icon {
+  color: #3fb950;
+}
+
+[data-theme="dark"] .alert-important {
+  border-left-color: #a371f7;
+}
+
+[data-theme="dark"] .alert-important .alert-heading,
+[data-theme="dark"] .alert-important .alert-icon {
+  color: #a371f7;
+}
+
+[data-theme="dark"] .alert-warning {
+  border-left-color: #d29922;
+}
+
+[data-theme="dark"] .alert-warning .alert-heading,
+[data-theme="dark"] .alert-warning .alert-icon {
+  color: #d29922;
+}
+
+[data-theme="dark"] .alert-caution {
+  border-left-color: #f85149;
+}
+
+[data-theme="dark"] .alert-caution .alert-heading,
+[data-theme="dark"] .alert-caution .alert-icon {
+  color: #f85149;
+}

@@ -1,0 +1,80 @@
+{{- if and (eq .Kind "page") (ne .Layout "archives") (ne .Layout "search") -}}
+{{- $headings := findRE `<h[1-6].*?id="([^"]+)".*?>(.*?)</h[1-6]>` .Content -}}
+{{- if gt (len $headings) 1 -}}
+<aside id="progressBar" class="aside-container">
+  <div class="aside-align">
+    <div class="overlap-container">
+      <nav class="progress-toc-nav">
+        {{- range $headings -}}
+        {{- $id := replaceRE `.*id="([^"]+)".*` "$1" . -}}
+        {{- $level := replaceRE `<h([1-6]).*` "$1" . | int -}}
+        {{- $text := replaceRE `<h[1-6][^>]*>(.*?)</h[1-6]>` "$1" . | replaceRE `<[^>]*>` "" -}}
+        <a class="progress-toc-link progress-toc-level-{{ $level }}" href="#{{ $id }}" data-heading-id="{{ $id }}">
+          {{- $text -}}
+        </a>
+        {{- end -}}
+      </nav>
+    </div>
+  </div>
+  <div class="progress-container" tabindex="-1">
+    <div class="track-line" aria-hidden="true">
+      <div id="progressIndicator" class="progress-line"></div>
+    </div>
+  </div>
+</aside>
+<script>
+(function() {
+  var fill = document.getElementById('progressIndicator');
+  var article = document.querySelector('.post-single');
+  var links = document.querySelectorAll('.progress-toc-link');
+  if (!fill || !article || !links.length) return;
+
+  var headings = Array.from(links).map(function(link) {
+    return document.getElementById(link.getAttribute('data-heading-id'));
+  }).filter(Boolean);
+
+  function update() {
+    var rect = article.getBoundingClientRect();
+    var start = rect.top + window.scrollY - window.innerHeight;
+    var end = rect.bottom + window.scrollY - window.innerHeight;
+    if (start < 0) start = 0;
+    var progress = 0;
+    if (end > start) {
+      progress = Math.min(Math.max((window.scrollY - start) / (end - start), 0), 1);
+    }
+    fill.style.height = (progress * 100) + '%';
+
+    var current = null;
+    for (var i = 0; i < headings.length; i++) {
+      var hRect = headings[i].getBoundingClientRect();
+      if (hRect.top <= 100) current = headings[i];
+    }
+    links.forEach(function(link) { link.classList.remove('active'); });
+    if (current) {
+      var active = document.querySelector('.progress-toc-link[data-heading-id="' + current.id + '"]');
+      if (active) {
+        active.classList.add('active');
+        var nav = active.closest('.progress-toc-nav');
+        if (nav) {
+          var linkRect = active.getBoundingClientRect();
+          var navRect = nav.getBoundingClientRect();
+          if (linkRect.top < navRect.top || linkRect.bottom > navRect.bottom) {
+            active.scrollIntoView({ block: 'nearest' });
+          }
+        }
+      }
+    }
+  }
+
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() { update(); ticking = false; });
+      ticking = true;
+    }
+  });
+  update();
+})();
+</script>
+{{- end -}}
+{{- end -}}

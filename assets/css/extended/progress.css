@@ -1,0 +1,131 @@
+.aside-container {
+  position: fixed;
+  left: calc(50vw - 384px - 335px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: stretch;
+  pointer-events: none;
+  max-height: 80vh;
+}
+
+.aside-align {
+  order: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.overlap-container {
+  width: 200px;
+  margin-right: 12px;
+  overflow-y: auto;
+  flex: 1;
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  scrollbar-width: none;
+}
+
+.overlap-container::-webkit-scrollbar {
+  display: none;
+}
+
+.aside-container:hover .overlap-container {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.progress-container {
+  order: 2;
+  pointer-events: auto;
+  flex-shrink: 0;
+}
+
+.track-line {
+  width: 1px;
+  height: 50%;
+  background: var(--tertiary);
+  border-radius: 2px;
+  position: relative;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.aside-container:hover .track-line {
+  opacity: 1;
+}
+
+.progress-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: height 0.1s linear;
+}
+
+.progress-toc-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  scrollbar-width: none;
+}
+
+.progress-toc-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.progress-toc-link {
+  display: block;
+  padding: 4px 8px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--secondary);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.progress-toc-link:hover {
+  color: var(--primary);
+}
+
+.progress-toc-link.active {
+  color: var(--primary);
+  border-left-color: var(--primary);
+  font-weight: 500;
+}
+
+.progress-toc-level-2 {
+  padding-left: 8px;
+}
+
+.progress-toc-level-3 {
+  padding-left: 16px;
+}
+
+.progress-toc-level-4 {
+  padding-left: 24px;
+}
+
+.progress-toc-level-5 {
+  padding-left: 32px;
+}
+
+.progress-toc-level-6 {
+  padding-left: 40px;
+}
+
+@media (max-width: 1200px) {
+  .aside-container {
+    display: none;
+  }
+}

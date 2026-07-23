@@ -1,0 +1,18 @@
+:root {
+  --font-family: "Noto Serif", "Noto Serif TC", Georgia, serif;
+}
+
+body {
+  font-family: var(--font-family);
+}
+
+body:lang(zh),
+body:lang(zh-TW),
+body:lang(zh-HK) {
+  font-family: "Noto Serif", "Noto Serif TC", serif;
+}
+
+code,
+pre {
+  font-family: Monaco, Consolas, "Courier New", monospace;
+}

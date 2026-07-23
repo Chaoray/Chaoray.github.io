@@ -1,0 +1,28 @@
+# Hugo output directory (generated site)
+public/
+resources/
+.hugo_build.lock
+
+# Local development cache
+.sass-cache/
+.cache/
+assets/jsconfig.json
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Environment variables (if using netlify/vercel/etc)
+.env
+.env.*
+
+content/.obsidian
