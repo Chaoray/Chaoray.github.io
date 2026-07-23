@@ -2,6 +2,7 @@ baseURL: https://example.org/
 locale: zh-TW
 title: Ray's Blog
 theme: ["PaperMod"]
+copyright: "© 2026 Chao Ray. All rights reserved. 本站文章版權所有，未經授權禁止轉載"
 
 ignoreFiles:
   - '\/Templates\/.*'
