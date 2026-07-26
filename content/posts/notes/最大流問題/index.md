@@ -101,7 +101,7 @@ return total_flow
 
 且只有一條合法的路徑：$S \to A \to B \to T$。
 
-1. 路徑 $S \to A \to T$
+1. 路徑 $S \to A \to B \to T$
 	- 瓶頸 : $S \to A$ 是 5 ; $A \to B$ 是 5；$B \to T$ 是 5，取最小值 **5**
 	- 更新殘餘容量：$S \to A$ 剩下 0；$A \to B$ 剩下 0；$B \to T$ 剩下 0
 	- 目前總流量 : **15**
@@ -117,7 +117,82 @@ return total_flow
 
 Sample Code:
 ```cpp
+#define MAXN 10005
+#define ll long long
+#define INF 1e18
 
+struct edge {
+    int to;
+    ll cap;
+    int rev; // 反向邊在 mat[to] 的 index
+};
+
+vector<edge> mat[MAXN];
+
+void add_edge(int from, int to, ll cap) {
+    // 此時反向邊將會插在 mat[to] 的末尾，也就是位置 mat[to].size()
+    mat[from].push_back({to, cap, (int)mat[to].size()});
+    // 此時正向邊剛好插在 mat[from] 的最後一個位置，即 mat[from].size() - 1
+    mat[to].push_back({from, 0, (int)mat[from].size() - 1});
+}
+
+int level[MAXN];
+bool bfs(int s, int t) {
+    fill(level, level + MAXN, -1);
+    queue<int> q;
+    q.push(s);
+    level[s] = 0;
+
+    while (!q.empty()) {
+        int curr = q.front();
+        q.pop();
+
+        for (const edge& e : mat[curr]) {
+            // 沒有設定過 level (未被訪問過)或者剩餘容量為 0 者跳過
+            if (level[e.to] < 0 && e.cap > 0) {
+                level[e.to] = level[curr] + 1;
+                q.push(e.to);
+            }
+        }
+    }
+
+    return level[t] >= 0; // bfs 可以抵達匯點
+}
+
+int ptr[MAXN];
+ll dfs(int curr, int t, ll flow) {
+    if (curr == t || flow == 0) return flow;
+
+    // 紀錄上次走過的邊
+    for (int& i = ptr[curr]; i < (int)mat[curr].size(); i++) {
+        edge& e = mat[curr][i];
+
+        // level 不等於當前 level + 1 或者剩餘容量為 0 者跳過
+        if (e.cap <= 0) continue;
+        if (level[e.to] != level[curr] + 1) continue;
+
+        int d = dfs(e.to, t, min(flow, e.cap));  // 更新瓶頸
+        if (d > 0) {
+            e.cap -= d;
+            mat[e.to][e.rev].cap += d;  // 更新反向邊
+            return d;
+        } 
+    }
+
+    return 0;
+}
+
+// 計算從源點 s 到匯點 t 的最大流
+ll max_flow(int s, int t) {
+    ll flow = 0;
+    while (bfs(s, t)) {
+        fill(ptr, ptr + MAXN, 0);
+        while (ll f = dfs(s, t, INF)) {
+            flow += f;
+        }
+    }
+    return flow;
+}
 ```
 ## 二分圖問題
 ### 甚麼是二分圖(Bipartite Graph)
@@ -141,7 +216,7 @@ Sample Code:
 
 思考一下，從 $S$ 出去到一個 $L$ 中的節點 $A$ 只有 1 個單位的流量，那麼 $A$ 最多只能轉移 $1$ 單位流量到 $R$ 中的節點 $B$ ，也就是只配對一個對象 $A \to B$，此時 $T$ 所接收到的流量就是配對數。因此，找該圖的最大流就是找到該二分圖的最大匹配數，在這種圖上， Dinic 算法的效率是 $O(E\sqrt{V})$ 。
 
-如果一個節點可以配對到許多個（如 $n$ 個）節點，只要修改 $S$ 到 $L$ 中節點的邊的容量為 $n$ 就好。
+如果一個節點可以配對到許多個（如 $n$ 個）節點，只要修改 $S$ 到 $L$ 中節點的邊、$R$ 到 $T$ 的邊的容量為 $n$ 就好。
 
 ![](bipartite_example.svg)
 ## Reference
