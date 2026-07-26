@@ -6,6 +6,8 @@ copyright: "© 2026 Chao Ray. All rights reserved. 本站文章版權所有，�
 
 ignoreFiles:
   - '\/Templates\/.*'
+  - '\\/\\.obsidian\\/.*$'
+  - '\\.png$'
 
 outputs:
   home:
