@@ -1,7 +1,10 @@
 ---
 title: "{{title}}"
 description: ""
+summary: ""
 date: "{{date}}"
-tags:
+isCJKLanguage: "true"
+categories: []
+tags: []
 draft: true
 ---
