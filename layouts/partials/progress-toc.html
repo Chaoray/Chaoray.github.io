@@ -10,7 +10,7 @@
         {{- $level := replaceRE `<h([1-6]).*` "$1" . | int -}}
         {{- $text := replaceRE `<h[1-6][^>]*>(.*?)</h[1-6]>` "$1" . | replaceRE `<[^>]*>` "" -}}
         <a class="progress-toc-link progress-toc-level-{{ $level }}" href="#{{ $id }}" data-heading-id="{{ $id }}">
-          {{- $text -}}
+          {{- $text | safeHTML -}}
         </a>
         {{- end -}}
       </nav>

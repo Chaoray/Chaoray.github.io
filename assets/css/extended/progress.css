@@ -1,6 +1,6 @@
 .aside-container {
   position: fixed;
-  left: calc(50vw - 384px - 335px);
+  left: max(12px, calc(50vw - 384px - 335px));
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
