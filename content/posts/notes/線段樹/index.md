@@ -66,7 +66,7 @@ void build(int L, int R, int curr) {
 }
 ```
 
-我覺得要學會線段樹首先要不搞混區分「區間」和「樹上編號」這兩個東西，「區間」指的是在原陣列上的一個範圍；而「樹上編號」指的是，我們為了方便而用陣列儲存線段樹的樹上節點編號，另外，節點是不需要儲存左右子節點在哪裡的。
+我覺得要學會線段樹首先要不搞混「區間」和「樹上編號」這兩個東西，「區間」指的是在原陣列上的一個範圍；而「樹上編號」指的是，我們為了方便而用陣列儲存線段樹的樹上節點編號，另外，節點是不需要儲存左右子節點在哪裡的。
 
 如果有注意到，線段樹陣列自身開點只到 $4N$ 而已。為甚麼呢？
 
@@ -172,7 +172,7 @@ void modify(int l, int r, int L, int R, int curr, int tag) {
 
 查詢時，如果要存取更深層節點的資訊，就需要將標記推送下去，因此查詢操作會是：
 ```cpp
-void query(int l, int r, int L, int R, int curr) {
+int query(int l, int r, int L, int R, int curr) {
     if (l <= L && R <= r) {
         return seg[curr].mx;
     }
@@ -259,7 +259,7 @@ void modify(int l, int r, int L, int R, int curr, int tag) {
 	pull(curr); // 當子節點更新完時，再更新自身標記
 }
 
-void query(int l, int r, int L, int R, int curr) {
+int query(int l, int r, int L, int R, int curr) {
     if (l <= L && R <= r) {
         return seg[curr].mx;
     }
