@@ -7,7 +7,7 @@ tags:
   - 心得
 draft: false
 ---
-之前用 hugo 架站的其中一個痛苦是，我需要用 Vscode 打開 repo 寫文章、開終端機跑 hugo、開 localhost 查看文章效果、放圖片要手動複製、要想 commit message （這大概是最痛苦的），要更新得開多個視窗來達成一件事，所以讓我很不想在上面寫文章。
+之前用 hugo 架站的其中諸多痛苦是，我需要用 Vscode 打開 repo 寫文章、開終端機跑 hugo、開 localhost 查看文章效果、放圖片要手動複製、要想 commit message （這大概是最痛苦的），要更新得開多個視窗來達成一件事，所以讓我很不想在上面寫文章。
 
 那些成熟的部落格網站如 Medium 、Wordpress 我都使用過，不過 Medium 沒辦法很好的支援數學算式還有程式碼、 Wordpress 需要付費才有更多功能與更細緻的個人化，導致我最後還是回到手動架站。
 
