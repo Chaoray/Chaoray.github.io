@@ -30,7 +30,7 @@ System Call 大致分為五類：
 
 比較常見的 System Call 應該是檔案讀寫，如 `read(2)` 、`write(2)` 就是 System Call 的一種，而在 C 中寫的 `fread(3)`、`fwrite(3)` 都是前二者的 wrapper。
 
-> [!INFO] 括號內的數字
+> [!NOTE] 括號內的數字
 > 以 `read(2)` 為例，你可以打開終端機，打入 `man 2 read` ，就可以找到有關 `read` 函式的說明。 `man` 是系統提供的說明手冊指令，而 `2` 是手冊中的分區編號，包含 Kernel 提供的 System calls 說明。
 ## System Call 是怎麼實現的？
 
