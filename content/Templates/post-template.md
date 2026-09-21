@@ -3,7 +3,7 @@ title: "{{title}}"
 description: ""
 summary: ""
 date: "{{date}}"
-isCJKLanguage: "true"
+isCJKLanguage: true
 categories: []
 tags: []
 draft: true
