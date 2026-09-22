@@ -18,18 +18,20 @@ draft: false
 1. File Descriptor Table：
    每個 Process 都有自己獨立的 FD Table，FD Table 實際上只是一個陣列，每個 FD 是一個非零整數用來存取 FD Table。預設情況下，會開啟三個 FD，分別是 `stdin`、`stdout`、`stderr`，由 0、1、2 表示。再往後開啟的檔案，都由 3 往上加。
 2. System-wide Open File Table：
-   當呼叫 `open(2)` 時，Kernel 會建立一個 File Description 結構，這個結構儲存了本次開啟的操作狀態，包含讀寫的 Offset、開啟模式（如唯讀）、Reference Count（有多少個 FD 指向這個 File Description*） 等等。
+   當呼叫 `open(2)` 時，Kernel 會建立一個 File Description 結構，這個結構儲存了本次開啟的操作狀態，包含讀寫的 Offset、開啟模式（如唯讀）、Reference Count（有多少個 FD 指向這個 File Description） 等等。
 3. V-node Table：
    這裡面存的資料代表實體或靜態檔案資源本身，紀錄檔案的 Metadata，包含檔案大小、檔案類型、存取權限、所有者、指向實體磁區的指標等等。
 
-> [!NOTE]
-> 當使用 `dup(2)`，原本的 FD 與新的 FD 便都指向 Open File Table 中的同一個 File Description，兩者的檔案操作也會互相同步。`dup(2)` 是複製一個已有的 FD 到目前最小可用的 FD 數字去。
+> [!NOTE] 複製/繼承FD
+> `dup(2)` 是複製一個已有的 FD 到目前最小可用的 FD 數字去。當使用 `dup(2)`，原本的 FD 與新的 FD 便都指向 Open File Table 中的同一個 File Description，兩者的檔案操作也會互相同步。
+> `fork(2)` 作用是創造一個目前進程的子進程。子進程會繼承父進程的 FD ，所以兩者會有指向同一個 File Description，但是不同的 FD。下圖的 Process A 與 Process B 就有可能是父子進程。
 
 下圖展示了上面三個數據結構的關係：
 ![](file-descriptor-relationship.png)
 
 ###  Source Code Trace
 
+[/include/linux/sched.h](https://github.com/torvalds/linux/blob/master/include/linux/sched.h#L835)
 ```c
 struct task_struct {
     ...
@@ -37,10 +39,10 @@ struct task_struct {
     ...
 };
 ```
-[/include/linux/sched.h](https://github.com/torvalds/linux/blob/master/include/linux/sched.h#L835)
 
-`task_struct` 就是 Process Control Block ，包含該進程的各種資訊。其中的欄位 `files` 指向下面的結構：
+`task_struct` 就是 Process Control Block ，包含該進程的各種資訊。其中的欄位 `files` 指向下面的結構，這就是每個 Process 的 File Descriptior Table：
 
+[/include/linux/fdtable.h](https://github.com/torvalds/linux/blob/master/include/linux/fdtable.h#L26)
 ```c
 struct files_struct {
     ...
@@ -50,8 +52,8 @@ struct files_struct {
     ...
 };
 ```
-[/include/linux/fdtable.h](https://github.com/torvalds/linux/blob/master/include/linux/fdtable.h#L26)
 
+[/include/linux/fdtable.h](https://github.com/torvalds/linux/blob/master/include/linux/fdtable.h#L26)
 ```c
 struct fdtable {
     ...
@@ -59,10 +61,10 @@ struct fdtable {
     ...
 };
 ```
-[/include/linux/fdtable.h](https://github.com/torvalds/linux/blob/master/include/linux/fdtable.h#L26)
 
 初始狀態下， `files_struct.fdt` 指向 `files_struct.fdtab` ，而 `files_struct.fdtab.fd` 又指向 `files_struct.fd_array` 。這樣實作的好處是，大部分進程開啟的檔案數量都很少（<64），所以先以靜態分配出 `NR_OPEN_DEFAULT` 大小，讓 `fdtab.fd` 指向 `fd_array` ，後續擴展再更換 `files_struct.fdt` 所指向的位置，存取時只需要統一讀取 `files_struct.fdt.fd` ，此外還能供多執行緒在無鎖狀態下讀取。
 
+下面的 `struct file` 是存在 Open File Table 中的結構：
 ```c
 struct file {
     ...
@@ -79,9 +81,11 @@ struct file {
 
 ### V-node vs. I-node
 
-V-node(BSD) = I-node + Dentry(linux)
-I-node = Actual disk pointer
-Dentry = Pathname hashtable(dcache), point to I-node
+V-node （Virutal Node）由 Sun Microsystems 為 Solaris / BSD 系統開發，主要由 Unix 系統使用。早期的 UNIX 只支援本地傳統檔案系統（UFS），可以直接使用實體磁碟的 I-node。但後來為了支援網路檔案系統（NFS）以及其他非 UNIX 檔案系統，核心需要一個「抽象介面」來代表「任何檔案物件」。這個抽象介面就被稱為 V-node。
+
+I-node（Index Node） 則是由 Linux 開發，包含儲存檔案的 Metadata，例如：檔案大小、權限、修改時間、存取控制，以及指向該檔案操作 API 的指標。不同於 V-node 的是，Linux 把「由路徑尋找檔案」的功能從 V-node 拆出來設計成 Dentry，而 Dentry 結構再指向 I-node，也就是說 I-node 只儲存檔案的 Metadata，V-node 則還保留著檔案路徑功能。
+
+而 V-node 從路徑轉成檔案指標（以 `/usr/bin/bash` 為例），需要先找到 `/` 的 V-node ，往下找 `/bin` 的 V-node，再往下找到 `/usr/bin/bash` ；而 I-node 要從路徑找，靠的是 Dentry 中的 Hash Table 來快速找到 I-node，相較之下， V-node 結構本身比較冗餘且搜尋速度慢，這也是為什麼 Linux 可以輕鬆創造硬連結，只要將 Dentry 中的不同路徑指向同一個 I-node 就好。
 
 ## 什麼是 IO？
 
