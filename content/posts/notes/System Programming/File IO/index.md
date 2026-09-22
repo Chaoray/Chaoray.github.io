@@ -40,7 +40,7 @@ struct task_struct {
 };
 ```
 
-`task_struct` 就是 Process Control Block ，包含該進程的各種資訊。其中的欄位 `files` 指向下面的結構，這就是每個 Process 的 File Descriptior Table：
+`task_struct` 是 Process Control Block ，包含該進程的各種資訊。其中的欄位 `files` 指向下面的結構，這就是每個 Process 的 File Descriptor Table：
 
 [/include/linux/fdtable.h](https://github.com/torvalds/linux/blob/master/include/linux/fdtable.h#L26)
 ```c
@@ -81,13 +81,13 @@ struct file {
 
 ### V-node vs. I-node
 
-V-node （Virutal Node）由 Sun Microsystems 為 Solaris / BSD 系統開發，主要由 Unix 系統使用。早期的 UNIX 只支援本地傳統檔案系統（UFS），可以直接使用實體磁碟的 I-node。但後來為了支援網路檔案系統（NFS）以及其他非 UNIX 檔案系統，核心需要一個「抽象介面」來代表「任何檔案物件」。這個抽象介面就被稱為 V-node。
+V-node （Virtual Node）由 Sun Microsystems 為 Solaris / BSD 系統開發，主要由 Unix 系統使用。早期的 Unix 只支援本地傳統檔案系統（UFS），可以直接使用實體磁碟上的 I-node。但後來為了支援網路檔案系統（NFS）以及其他非 Unix 檔案系統，引入了 VFS （Virtual File System） 與 V-node 抽象介面。V-node 代表記憶體中的通用檔案物件，封裝跨檔案系統的統一操作介面，並指向底層具體檔案系統的實體 I-node。 I-node 是實際存在磁碟上的，由 OS 從磁碟讀取到記憶體中。
 
-I-node（Index Node） 則是由 Linux 開發，包含儲存檔案的 Metadata，例如：檔案大小、權限、修改時間、存取控制，以及指向該檔案操作 API 的指標。不同於 V-node 的是，Linux 把「由路徑尋找檔案」的功能從 V-node 拆出來設計成 Dentry，而 Dentry 結構再指向 I-node，也就是說 I-node 只儲存檔案的 Metadata，V-node 則還保留著檔案路徑功能。
+Linux 採用的 I-node （Index Node）繼承並改進了 VFS 的思想。Linux 沒有獨立命名為新的結構，而是直接將 V-node 的抽象操作介面整合進記憶體的 I-node 。其包含儲存檔案的 Metadata，例如：檔案大小、權限、修改時間、存取控制等等。此外，Linux 將路徑結構從 I-node 拆分出來，引入了 Dentry（Directory Entry），而 Dentry 結構再指向 I-node。
 
-而 V-node 從路徑轉成檔案指標（以 `/usr/bin/bash` 為例），需要先找到 `/` 的 V-node ，往下找 `/bin` 的 V-node，再往下找到 `/usr/bin/bash` ；而 I-node 要從路徑找，靠的是 Dentry 中的 Hash Table 來快速找到 I-node，相較之下， V-node 結構本身比較冗餘且搜尋速度慢，這也是為什麼 Linux 可以輕鬆創造硬連結，只要將 Dentry 中的不同路徑指向同一個 I-node 就好。
+傳統 V-node 機制在解析路徑時，需透過檔案系統遞迴執行 `VOP_LOOKUP`；而 Linux 透過 Dentry Cache 的 Hash Table，能快速找到對應的 I-node。這也是為什麼 Linux 在記憶體層面可以輕鬆處理硬連結，只要將 Dentry 中的不同路徑指向同一個 I-node 就好。
 
 ## 什麼是 IO？
 
-- Unbuffered I/O： syscall everytime
-- Buffered I/O：no syscall everytime, buffered by c library
+- Unbuffered I/O： syscall everytime, buffered by OS.
+- Buffered I/O：no syscall everytime, buffered by C library.
