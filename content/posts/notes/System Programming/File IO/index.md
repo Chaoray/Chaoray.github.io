@@ -13,13 +13,13 @@ draft: false
 
 在 Unix 系統中，有「everything is a file」的概念，如硬體設備、進程資訊、網路連線、處理器狀態等都抽象化為檔案系統中的一個路徑。透過這種設計，使用者只需要使用一套統一的 API（例如 `open()`, `read()`, `write()`, `close()`），就能操作各種截然不同的系統資源，而不需要為每一種硬體另外撰寫專屬的操作介面。比方說 `/proc/cpuinfo` 這個路徑包含了 CPU 資訊， `/dev/sda` 則代表整顆實體硬碟。
 
-一個檔案通常用一個路徑表示，在程式內則用一個指標（或者稱作 File Descriptor, FD）指著。在作業系統中，一個檔案可能會有很多不同指標指著。當程式開啟一個檔案時， Kernel 會維護三種結構：File Descriptor Table、System-Wide Open File Table、V-node Table（或 I-node Table）。
+一個檔案通常用一個路徑表示，在程式內則用一個指標（或者稱作 File Descriptor, FD）指著。在作業系統中，一個檔案可能會有很多不同指標指著。當程式開啟一個檔案時， Kernel 會維護三種結構：File Descriptor Table、System-Wide Open File Table、Vnode Table（或 Inode Table）。
 
 1. File Descriptor Table：
    每個 Process 都有自己獨立的 FD Table，FD Table 實際上只是一個陣列，每個 FD 是一個非零整數用來存取 FD Table。預設情況下，會開啟三個 FD，分別是 `stdin`、`stdout`、`stderr`，由 0、1、2 表示。再往後開啟的檔案，都由 3 往上加。
 2. System-wide Open File Table：
    當呼叫 `open(2)` 時，Kernel 會建立一個 File Description 結構，這個結構儲存了本次開啟的操作狀態，包含讀寫的 Offset、開啟模式（如唯讀）、Reference Count（有多少個 FD 指向這個 File Description） 等等。
-3. V-node Table：
+3. Vnode Table：
    這裡面存的資料代表實體或靜態檔案資源本身，紀錄檔案的 Metadata，包含檔案大小、檔案類型、存取權限、所有者、指向實體磁區的指標等等。
 
 > [!NOTE] 複製/繼承FD
@@ -65,6 +65,7 @@ struct fdtable {
 初始狀態下， `files_struct.fdt` 指向 `files_struct.fdtab` ，而 `files_struct.fdtab.fd` 又指向 `files_struct.fd_array` 。這樣實作的好處是，大部分進程開啟的檔案數量都很少（<64），所以先以靜態分配出 `NR_OPEN_DEFAULT` 大小，讓 `fdtab.fd` 指向 `fd_array` ，後續擴展再更換 `files_struct.fdt` 所指向的位置，存取時只需要統一讀取 `files_struct.fdt.fd` ，此外還能供多執行緒在無鎖狀態下讀取。
 
 下面的 `struct file` 是存在 Open File Table 中的結構：
+[/include/linux/fs.h](https://github.com/torvalds/linux/blob/master/include/linux/fs.h#L1255)
 ```c
 struct file {
     ...
@@ -72,22 +73,153 @@ struct file {
     ...
 }
 ```
-[/include/linux/fs.h](https://github.com/torvalds/linux/blob/master/include/linux/fs.h#L1255)
 
 而 `struct file` 結構內則有 `f_inode` 指向該檔案的 metadata。實際上， linux 中沒有所謂的 System-wide Open File Table 這個"結構"，他是靠 Mempool 來分配 `struct file` 實際上的空間，以及利用 `f_ref` 追蹤有多少指標指向這塊記憶體，再加上 `fdtable` 來達成 $O(1)$ 存取 `struct file`。
 
 > [!NOTE] 結構儲存位置
-> 進程的虛擬記憶體，被分為三大塊：Kernel Space 下共用的記憶體、禁止存取區（Canonical Hole）、User Space 下的記憶體。而 User Space 下只會知道 `files_struct.fdt.fd` 中的陣列索引值，即先前提到的非負整數；在 Kernel Space 下則存著 `task_struct` 、 `fdtable` 、 `file` 等結構，防止有人惡意篡改導致內核大爆炸。也就是說，這些結構是每個進程都會有一個，但是存在 Kernel Space 中，且由 Kernel 維護。
+> 進程的虛擬記憶體，被分為兩大塊：Kernel Space 下共用的記憶體、User Space 下的記憶體。而 User Space 下只會知道 `files_struct.fdt.fd` 中的陣列索引值，即先前提到的非負整數；在 Kernel Space 下則存著 `task_struct` 、 `fdtable` 、 `file` 等結構，防止有人惡意篡改導致內核大爆炸。也就是說，這些結構是每個進程都會有一個，但是存在 Kernel Space 中，且由 Kernel 維護。
+> ![](memory-layout.png)
 
-### V-node vs. I-node
+### Vnode vs. Inode
 
-V-node （Virtual Node）由 Sun Microsystems 為 Solaris / BSD 系統開發，主要由 Unix 系統使用。早期的 Unix 只支援本地傳統檔案系統（UFS），可以直接使用實體磁碟上的 I-node。但後來為了支援網路檔案系統（NFS）以及其他非 Unix 檔案系統，引入了 VFS （Virtual File System） 與 V-node 抽象介面。V-node 代表記憶體中的通用檔案物件，封裝跨檔案系統的統一操作介面，並指向底層具體檔案系統的實體 I-node。 I-node 是實際存在磁碟上的，由 OS 從磁碟讀取到記憶體中。
+Vnode （Virtual Node）由 Sun Microsystems 為 Solaris / BSD 系統開發，主要由 Unix 系統使用。早期的 Unix 只支援本地傳統檔案系統（UFS），可以直接使用實體磁碟上的 Inode。但後來為了支援網路檔案系統（NFS）以及其他非 Unix 檔案系統，引入了 VFS （Virtual File System） 與 Vnode 抽象介面。Vnode 代表記憶體中的通用檔案物件，封裝跨檔案系統的統一操作介面，並指向底層具體檔案系統的實體 Inode。 Inode 是實際存在磁碟上的，由 OS 從磁碟讀取到記憶體中。
 
-Linux 採用的 I-node （Index Node）繼承並改進了 VFS 的思想。Linux 沒有獨立命名為新的結構，而是直接將 V-node 的抽象操作介面整合進記憶體的 I-node 。其包含儲存檔案的 Metadata，例如：檔案大小、權限、修改時間、存取控制等等。此外，Linux 將路徑結構從 I-node 拆分出來，引入了 Dentry（Directory Entry），而 Dentry 結構再指向 I-node。
+Linux 採用的 Inode （Index Node）繼承並改進了 VFS 的思想，直接將 Vnode 的抽象操作介面整合進記憶體的 Inode 。其包含儲存檔案的 Metadata，例如：檔案大小、權限、修改時間、存取控制等等。此外，Linux 將路徑結構從 Inode 拆分出來，引入了 Dentry（Directory Entry），而 Dentry 結構再指向 Inode。
 
-傳統 V-node 機制在解析路徑時，需透過檔案系統遞迴執行 `VOP_LOOKUP`；而 Linux 透過 Dentry Cache 的 Hash Table，能快速找到對應的 I-node。這也是為什麼 Linux 在記憶體層面可以輕鬆處理硬連結，只要將 Dentry 中的不同路徑指向同一個 I-node 就好。
+傳統 Vnode 機制在解析路徑時，需透過檔案系統遞迴執行 `VOP_LOOKUP`；而 Linux 透過 Dentry Cache 的 Hash Table，能快速找到對應的 Inode。這也是為什麼 Linux 在記憶體層面可以輕鬆處理硬連結，只要將 Dentry 中的不同路徑指向同一個 Inode 就好。
 
-## 什麼是 IO？
+## 什麼是 I/O？
 
-- Unbuffered I/O： syscall everytime, buffered by OS.
-- Buffered I/O：no syscall everytime, buffered by C library.
+I/O（Input/Outputs）指任何與檔案的操作，在 Unix 中， I/O 被分為阻塞式or標準IO（Buffered/Standard I/Os）與非阻塞式 IO （Unbuffered I/Os）。
+
+- Buffered I/Os：存取會儲存輸入在中介的緩衝區中，當某些條件滿足才會呼叫 syscall 。
+- Unbuffered I/O： 每次存取都會呼叫 syscall ，但 Kernel 中還是可以有緩衝區。
+
+舉例來說，常見的 Buffered IO 有 `fread/fwrite` ， C Standard Library 中有對這兩者作一個緩衝區，當緩衝區滿了、程式呼叫 `fflush` 、呼叫 `fclose` 關閉檔案、正常結束時，才會將存在 User Space 下的緩衝區內容用 syscall 實際寫入檔案。
+
+而 `read/write` 等 Syscall 的緩存是存在 Kernel 的 Page Cache 中， `write` 將資料複製到 Kernel 的 Page Cache 後便立即返回，此時資料頁被標記為 Dirty Page，由背景執行緒（如 `flusher`/`pdflush`）非同步寫回磁碟。`read` 會優先從 Page Cache 搜尋，若有則直接複製到 User Space；沒有才從磁碟讀取並載入 Cache。
+## 操作 File Descriptor 的 Syscall
+
+```c
+int open(const char *pathname, int flags, ... /* mode_t mode */ );
+int openat(int dirfd, const char *pathname, int flags, ... /* mode_t mode */ );
+```
+
+```c
+int close(int fd);
+```
+
+```c
+ssize_t read(int fd, void buf[.count], size_t count);
+```
+
+```c
+ssize_t write(int fd, const void buf[.count], size_t count);
+```
+
+```c
+off_t lseek(int fd, off_t offset, int whence);
+```
+
+```c
+int dup(int oldfd);
+int dup2(int oldfd, int newfd);
+```
+
+```c
+int fcntl(int fd, int op, ...);
+```
+
+```c
+int ioctl(int fd, int op, ...);
+```
+
+What is hole in file?
+
+## Atomic Operations & File/Record Locking
+
+考慮有兩個進程 A、B 同時執行這份程式碼，將 `buf` 寫入檔案末尾：
+```c
+if (lseek(fd, 0, SEEK_END) < 0)
+    err_sys("lseek error");
+if (write(fd, buf, 100) < 0)
+    err_sys("write error");
+```
+
+假設 A 寫入：
+```
+There are no race conditions here.\n
+```
+
+假設 B 寫入：
+```
+There are 67
+```
+
+如果 A 先執行 `lseek + write` ，B 再執行 `lseek + write` ，或者反過來。那麼一切安好，兩者寫入的內容會先後出現在檔案中：
+```
+There are no race conditions here.
+There are 67
+```
+
+但我們知道 CPU 會作排程，因此有可能 B 先執行 `lseek` ，換 A 執行 `lseek + write` 再換 B 執行 `write`：
+```
+There are 67 race conditions here.
+
+```
+
+而 A 寫入的東西就被 B 覆蓋掉，這種情況叫做 Race Condition。
+> [!NOTE] Race Condition
+> A race condition occurs when multiple processes are trying to do something with shared
+data and the final outcome depends on the order in which the processes run. (From Chap. 8.9 of the APUE text book)
+
+為了解決這個問題， Unix 引入了兩種操作： Atomic Operation 與 File/Record Locking 。
+
+### Atomic Operations
+
+```c
+ssize_t pread(int fd, void buf[count], size_t count, off_t offset);
+ssize_t pwrite(int fd, const void buf[count], size_t count, off_t offset);
+```
+
+### File/Record Locking
+
+Advisory Lock （僅供參考的鎖）是一種依賴進程之間合作的檔案鎖，所有要存取該資料的進程都要先檢查該檔案是否有鎖、等待鎖釋放再進行存取。之所以說僅供參考，是因為若當一個外來進程不檢查檔案是否有所就直接存取，系統是無法擋下該次操作的。
+
+```c
+int flock(int fd,
+          int op); /* LOCK_SH, LOCK_EX, LOCK_UN */
+```
+對 `fd` 所指的檔案整個加上鎖，成功回傳 `0` ，不成功回傳 `-1` 並設定 `errno`。
+- `LOCK_SH`：共用鎖，同一時間，多個進程可以對該檔案擁有一個共用鎖
+- `LOCK_EX`：排他鎖，同一時間，只有一個進程可以對該檔案擁有一個排他鎖
+- `LOCK_UN`：移除自己擁有的鎖
+
+```c
+int lockf(int fd,
+          int op, /* F_LOCK, F_TLOCK, F_ULOCK, F_TEST */
+          off_t size);
+```
+由 Standard C Library 提供，包裝 `fcntl` 的加鎖功能，對當前檔案 `offset` 後 `size` bytes 加鎖。
+- `F_LOCK`：請求獨佔鎖，若已被其他 Process 鎖定，會持續等待（Sleep）直到鎖釋放
+- `F_TLOCK`：測試並加鎖，若已被鎖定則不等待，立即回傳失敗（`errno` 設為 `EACCES` 或 `EAGAIN`）
+- `F_ULOCK`：解鎖指定範圍，也可以用於將已鎖定的區域解鎖一部份
+- `F_TEST`：測試鎖狀態，僅檢查指定區域是否被其他人鎖定，不會真的加鎖，若已被鎖定回傳 `-1`，未被鎖定回傳 `0`
+
+使用 `fcntl(2)` 實現 `lockf` 操作：
+```c
+#include <fcntl.h>
+struct flock lock;
+lock.l_type = F_RDLCK; /* F_RDLCK, F_WRLCK, F_UNLCK */
+lock.l_start = 0; /* byte offset, relative to l_whence */
+lock.l_whence = SEEK_SET; /* SEEK_SET, SEEK_CUR, SEEK_END */
+lock.l_len = 6767; /* #bytes (0 means to EOF) */
+int ret = fcntl(fd, F_SETLK, &lock);
+```
+
+-  `F_RDLCK` ： Shared Read Lock，多個進程對一個檔案可以擁有一個 Shared Read Lock，當一個區間被 Read lock 鎖起來時，就不能再被 Write lock 鎖。也就是說，如果一個（或多個）進程正在讀取某個區間，那麼該區間就不能被寫入（不能設定 Write lock）。
+- `F_WRLCK` ： Exclusive Write Lock，只有一個進程可以對一個檔案加 Exclusive Write Lock，當一個區間被 Write Lock 鎖起來時，就不能再被 Read Lock 鎖。反之亦然，如果一個區間正在被一個進程寫入，其他進程便不能讀取/寫入該區間（不能再設定 Write Lock 與 Read Lock）。
+
+Mandatory Lock 會讓 Kernel 去檢查該次存取有沒有違反鎖的條件，若違反則強制擋下該操作。
+
+Where is lock stored at?
