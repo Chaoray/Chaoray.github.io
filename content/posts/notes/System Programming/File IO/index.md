@@ -16,11 +16,11 @@ draft: false
 一個檔案通常用一個路徑表示，在程式內則用一個指標（或者稱作 File Descriptor, FD）指著。在作業系統中，一個檔案可能會有很多不同指標指著。當程式開啟一個檔案時， Kernel 會維護三種結構：File Descriptor Table、System-Wide Open File Table、Vnode Table（或 Inode Table）。
 
 1. File Descriptor Table：
-   每個 Process 都有自己獨立的 FD Table，FD Table 實際上只是一個陣列，每個 FD 是一個非零整數用來存取 FD Table。預設情況下，會開啟三個 FD，分別是 `stdin`、`stdout`、`stderr`，由 0、1、2 表示。再往後開啟的檔案，都由 3 往上加。
+   每個 Process 都有自己獨立的 FD Table，FD Table 實際上只是一個陣列，每個 FD 是一個非零整數用來存取 FD Table。預設情況下，會開啟三個 FD，分別是 `stdin`、`stdout`、`stderr`，由 0、1、2 表示。再往後開啟的檔案，都由 3 往上加。每個 FD 會指向 System-wide Open File Table 中的一個 File Description 結構。
 2. System-wide Open File Table：
-   當呼叫 `open(2)` 時，Kernel 會建立一個 File Description 結構，這個結構儲存了本次開啟的操作狀態，包含讀寫的 Offset、開啟模式（如唯讀）、Reference Count（有多少個 FD 指向這個 File Description） 等等。
+   當呼叫 `open(2)` 時，Kernel 會建立一個 File Description 結構，這個結構儲存了本次開啟的操作狀態，包含讀寫的 Offset、開啟模式（如唯讀）、Reference Count（有多少個 FD 指向這個 File Description） 等等。每個 File Description 還會指向 Vnode Table 中的一個 Vnode。
 3. Vnode Table：
-   這裡面存的資料代表實體或靜態檔案資源本身，紀錄檔案的 Metadata，包含檔案大小、檔案類型、存取權限、所有者、指向實體磁區的指標等等。
+   這裡面存的資料代表實體或靜態檔案資源本身，紀錄檔案的 Metadata，包含檔案大小、檔案類型、存取權限、所有者、指向實體磁區的指標（Inode）等等。
 
 > [!NOTE] 複製/繼承FD
 > `dup(2)` 是複製一個已有的 FD 到目前最小可用的 FD 數字去。當使用 `dup(2)`，原本的 FD 與新的 FD 便都指向 Open File Table 中的同一個 File Description，兩者的檔案操作也會互相同步。
@@ -85,14 +85,14 @@ struct file {
 
 ### Vnode vs. Inode
 
-Vnode （Virtual Node）由 Sun Microsystems 為 Solaris / BSD 系統開發，主要由 Unix 系統使用。早期的 Unix 只支援本地傳統檔案系統（UFS），可以直接使用實體磁碟上的 Inode。但後來為了支援網路檔案系統（NFS）以及其他非 Unix 檔案系統，引入了 VFS （Virtual File System） 與 Vnode 抽象介面。Vnode 代表記憶體中的通用檔案物件，封裝跨檔案系統的統一操作介面，並指向底層具體檔案系統的實體 Inode。 Inode 是實際存在磁碟上的，由 OS 從磁碟讀取到記憶體中。
+Vnode （Virtual Node）由 Sun Microsystems 為 Solaris / BSD 系統開發，主要由 Unix 系統使用。早期的 Unix 只支援 Unix 自家的檔案系統（UFS），可以直接使用實體磁碟上的 Inode。但後來為了支援網路檔案系統（NFS）以及其他非 Unix 檔案系統，引入了 VFS （Virtual File System） 與 Vnode 抽象介面。Vnode 代表記憶體中的通用檔案物件，封裝跨檔案系統的統一操作介面，並指向底層具體檔案系統的實體 Inode。 Inode 是實際存在磁碟上的，由 OS 從磁碟讀取到記憶體中。
 
 Linux 採用的 Inode （Index Node）繼承並改進了 VFS 的思想，直接將 Vnode 的抽象操作介面整合進記憶體的 Inode 。其包含儲存檔案的 Metadata，例如：檔案大小、權限、修改時間、存取控制等等。此外，Linux 將路徑結構從 Inode 拆分出來，引入了 Dentry（Directory Entry），而 Dentry 結構再指向 Inode。
 
 傳統 Vnode 機制在解析路徑時，需透過檔案系統遞迴執行 `VOP_LOOKUP`；而 Linux 透過 Dentry Cache 的 Hash Table，能快速找到對應的 Inode。這也是為什麼 Linux 在記憶體層面可以輕鬆處理硬連結，只要將 Dentry 中的不同路徑指向同一個 Inode 就好。
 ## 什麼是 I/O？
 
-I/O（Input/Outputs）指任何與檔案的操作，在 Unix 中， I/O 被分為阻塞式or標準IO（Buffered/Standard I/Os）與非阻塞式 IO （Unbuffered I/Os）。
+I/O（Input/Outputs）指任何與檔案的操作，在 Unix 中， I/O 被分為阻塞式 IO（Buffered/Standard I/Os）與非阻塞式 IO （Unbuffered I/Os）。
 
 - Buffered I/Os：存取會儲存輸入在中介的緩衝區中，當某些條件滿足才會呼叫 syscall 
 - Unbuffered I/O： 每次存取都會呼叫 syscall ，但 Kernel 中還是可以有緩衝區
@@ -151,7 +151,7 @@ int close(int fd);
 ```
 
 關閉指定的 `fd`，釋放 Kernel 中對應的資源與系統檔案結構參考次數。
-> [!WARNING] 
+> [!WARNING] Warning
 > 當該檔案的參考計數歸零時，Kernel 才會真正釋放實體資源；成功關閉並不保證 Page Cache 中的資料已被寫到磁碟上（要確保寫入搭配 `fsync(2)`）。
 
 ---
@@ -284,8 +284,7 @@ There are 67 race conditions here.
 > [!NOTE] Race Condition
 > A race condition occurs when multiple processes are trying to do something with shared data and the final outcome depends on the order in which the processes run. (From Chap. 8.9 of the APUE text book)
 
-為了解決這個問題， Unix 引入了兩種操作： Atomic Operation 與 File/Record Locking 。
-
+如果有多個使用者同時執行一個寫入紀錄檔到同一個檔案的程式，這些紀錄就有可能互相覆蓋。為了解決這個問題， Unix 引入了兩種操作： Atomic Operation 與 File/Record Locking 。
 ### Atomic Operations
 
 ```c
@@ -307,28 +306,35 @@ Mandatory Lock 會讓 Kernel 去檢查該次存取有沒有違反鎖的條件，
 以下介紹給檔案上鎖的 Functions：
 
 ```c
-int flock(int fd,
-          int op); /* LOCK_SH, LOCK_EX, LOCK_UN */
+int flock(int fd, int op);
 ```
-對 `fd` 所指的檔案整個加上鎖，成功回傳 `0` ，不成功回傳 `-1` 並設定 `errno`。
-- `LOCK_SH`：共用鎖，同一時間，多個進程可以對該檔案擁有一個共用鎖
-- `LOCK_EX`：排他鎖，同一時間，只有一個進程可以對該檔案擁有一個排他鎖
+對 `fd` 所指的檔案整個加上鎖，成功回傳 `0` ，不成功回傳 `-1` 並設定 `errno`。`op` 可以是以下多個值：
+- `LOCK_SH`：請求共用鎖，同一時間，多個進程可以對該檔案擁有一個共用鎖
+- `LOCK_EX`：請求排他鎖，同一時間，只有一個進程可以對該檔案擁有一個排他鎖，排他鎖與共用鎖不能共存
 - `LOCK_UN`：移除自己擁有的鎖
+- `LOCK_NB`：當有其他進程持有排他鎖時，不等待該進程釋放鎖就返回，須搭配其他參數使用
 
 ---
 
 ```c
-int lockf(int fd,
-          int op, /* F_LOCK, F_TLOCK, F_ULOCK, F_TEST */
-          off_t size);
+int lockf(int fd, int op, off_t size);
 ```
-由 Standard C Library 提供，包裝 `fcntl` 的加鎖功能，對當前檔案 `offset` 後 `size` bytes 加鎖。
-- `F_LOCK`：請求獨佔鎖，若已被其他 Process 鎖定，會持續等待（Sleep）直到鎖釋放
+由 Standard C Library 提供，包裝 `fcntl` 的區域加鎖功能，對當前檔案 `offset` 後 `size` bytes 加鎖。`op` 可以是以下多個值：
+- `F_LOCK`：請求排他鎖，若已被其他進程鎖定，會持續等待直到鎖釋放
 - `F_TLOCK`：測試並加鎖，若已被鎖定則不等待，立即回傳失敗（`errno` 設為 `EACCES` 或 `EAGAIN`）
 - `F_ULOCK`：解鎖指定範圍，也可以用於將已鎖定的區域解鎖一部份
 - `F_TEST`：測試鎖狀態，僅檢查指定區域是否被其他人鎖定，不會真的加鎖，若已被鎖定回傳 `-1`，未被鎖定回傳 `0`
 
 使用 `fcntl(2)` 實現 `lockf` 操作：
+```c
+struct flock {
+    short l_type; /* F_RDLCK, F_WRLCK, F_UNLCK */
+    short l_whence; /* SEEK_SET, SEEK_CUR, or SEEK_END, same as the whence in lseek*/
+    off_t l_start; /* offset in bytes relative to whence */
+    off_t l_len; /* length, in bytes, 0 means lock to EOF */
+    pid_t l_pid; /* filled in by F_GETLK, ignore otherwise */
+}
+```
 ```c
 #include <fcntl.h>
 struct flock lock;
@@ -336,12 +342,31 @@ lock.l_type = F_RDLCK; /* F_RDLCK, F_WRLCK, F_UNLCK */
 lock.l_start = 0; /* byte offset, relative to l_whence */
 lock.l_whence = SEEK_SET; /* SEEK_SET, SEEK_CUR, SEEK_END */
 lock.l_len = 6767; /* #bytes (0 means to EOF) */
-int ret = fcntl(fd, F_SETLK, &lock);
+int ret = fcntl(fd, F_SETLK, &lock);  /* F_SETLK: set the lock */
 ```
--  `F_RDLCK` ： Shared Read Lock，多個進程對一個檔案可以擁有一個 Shared Read Lock，當一個區間被 Read lock 鎖起來時，就不能再被 Write lock 鎖。也就是說，如果一個（或多個）進程正在讀取某個區間，那麼該區間就不能被寫入（不能設定 Write lock）。
-- `F_WRLCK` ： Exclusive Write Lock，只有一個進程可以對一個檔案加 Exclusive Write Lock，當一個區間被 Write Lock 鎖起來時，就不能再被 Read Lock 鎖。白話說，如果一個區間正在被一個進程寫入，其他進程便不能讀取/寫入該區間（不能再設定 Write Lock 與 Read Lock）。
+-  `F_RDLCK` ： Shared Read Lock 共用鎖，多個進程對一個檔案可以擁有一個 Shared Read Lock，當一個區間被 Read lock 鎖起來時，就不能再被 Write lock 鎖。也就是說，如果一個（或多個）進程正在讀取某個區間，那麼該區間就不能被寫入。
+- `F_WRLCK` ： Exclusive Write Lock 排他鎖，只有一個進程可以對一個檔案加 Exclusive Write Lock，當一個區間被 Write Lock 鎖起來時，就不能再被 Read Lock 鎖。白話說，如果一個區間正在被一個進程寫入，其他進程便不能讀取/寫入該區間。
 
-Where is lock stored at?
+`fcntl` 還支持 `F_GETLK` 參數，用來測試目前給定的鎖能否被放置，如果可以，便把 `lock.l_type` 改成 `F_UNLCK` ；不行的話就把 `lock` 的各參數改為目前放在檔案上的鎖的細節。此外，`F_SETLKW` 參數會等待其他進程釋放鎖再設置請求的鎖。
+
+在 Linux 中， File Locks 被存在 inode 中：
+[](https://github.com/torvalds/linux/blob/master/include/linux/fs.h#L850)
+```c
+struct inode {
+    ...
+    struct file_lock_context	*i_flctx;
+    ...
+};
+```
+
+```c
+struct file_lock_context {
+    spinlock_t          flc_lock;   /* Protects the fields/lists below */
+    struct list_head    flc_flock;  /* Head of the list for flock(2) locks */
+    struct list_head    flc_posix;  /* Head of the list for fcntl(2) / POSIX locks */
+    struct list_head    flc_lease;  /* Head of the list for file leases */
+};
+```
 ## Blocking vs. Nonblocking I/O
 
 Fast system calls:
@@ -353,3 +378,9 @@ Slow system calls:
 pipe (chap. 15), waiting for a network connection, etc.
 
 ## I/O Multiplexing
+
+`select`
+`poll`
+`epoll`
+
+### 簡單伺服器實作
