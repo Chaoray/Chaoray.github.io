@@ -92,7 +92,7 @@ Linux 採用的 Inode （Index Node）繼承並改進了 VFS 的思想，直接�
 傳統 Vnode 機制在解析路徑時，需透過檔案系統遞迴執行 `VOP_LOOKUP`；而 Linux 透過 Dentry Cache 的 Hash Table，能快速找到對應的 Inode。這也是為什麼 Linux 在記憶體層面可以輕鬆處理硬連結，只要將 Dentry 中的不同路徑指向同一個 Inode 就好。
 ## 什麼是 I/O？
 
-I/O（Input/Outputs）指任何與檔案的操作，在 Unix 中， I/O 被分為阻塞式 IO（Buffered/Standard I/Os）與非阻塞式 IO （Unbuffered I/Os）。
+I/O（Input/Outputs）指任何與檔案的操作，在 Unix 中， I/O 被分為緩衝式 IO（Buffered/Standard I/Os）與非緩衝式 IO （Unbuffered I/Os）。
 
 - Buffered I/Os：存取會儲存輸入在中介的緩衝區中，當某些條件滿足才會呼叫 syscall 
 - Unbuffered I/O： 每次存取都會呼叫 syscall ，但 Kernel 中還是可以有緩衝區
@@ -144,13 +144,16 @@ int openat(int dirfd, const char *pathname, int flags, ... /* mode_t mode */ );
 * 若 `pathname` 為相對路徑：相對於 `dirfd` 所指向的目錄進行路徑解析。
 * 若 `pathname` 為絕對路徑：忽略 `dirfd` 參數。
 
+較新版的 Unix 系統提供以 `/dev/fd/x` 開啟 File Descriptor `x` 。比方說，以 `open` 打開 `/dev/fd/0` 等同於 `dup(0)`。
+
 ---
 
 ```c
 int close(int fd);
 ```
 
-關閉指定的 `fd`，釋放 Kernel 中對應的資源與系統檔案結構參考次數。
+關閉指定的 `fd`，釋放 Kernel 中對應的資源與減少系統檔案結構參考次數，相關的 File Description 直到所有指向他的 `fd` 都關閉了才會釋放。
+
 > [!WARNING] Warning
 > 當該檔案的參考計數歸零時，Kernel 才會真正釋放實體資源；成功關閉並不保證 Page Cache 中的資料已被寫到磁碟上（要確保寫入搭配 `fsync(2)`）。
 
@@ -303,6 +306,9 @@ Advisory Lock （僅供參考的鎖）是一種依賴進程之間合作的檔案
 
 Mandatory Lock 會讓 Kernel 去檢查該次存取有沒有違反鎖的條件，若違反則強制擋下該操作。現在 Linux 已經捨棄 Mandatory Lock ，因為 Kernel 必須在每次 `read()` 與 `write()` 呼叫時都檢查檔案鎖狀態，極度消耗系統資源。
 
+- File Locking：確保只有特定程式能夠存取整個檔案的機制
+- Record locking (or byte range locking)： 確保只有特定程式能夠存取*部份檔案區塊*的機制
+
 以下介紹給檔案上鎖的 Functions：
 
 ```c
@@ -349,8 +355,20 @@ int ret = fcntl(fd, F_SETLK, &lock);  /* F_SETLK: set the lock */
 
 `fcntl` 還支持 `F_GETLK` 參數，用來測試目前給定的鎖能否被放置，如果可以，便把 `lock.l_type` 改成 `F_UNLCK` ；不行的話就把 `lock` 的各參數改為目前放在檔案上的鎖的細節。此外，`F_SETLKW` 參數會等待其他進程釋放鎖再設置請求的鎖。
 
-在 Linux 中， File Locks 被存在 inode 中：
-[](https://github.com/torvalds/linux/blob/master/include/linux/fs.h#L850)
+> [!WARNING] `fctnl` 與 `lockf` 等 POSIX 檔案鎖的注意事項
+> 如果有進程關閉它擁有的任何一個指向該檔案的 File Descriptor ，那麼系統會釋放該進程在這個檔案上擁有的所有鎖，不論這個鎖是否與關閉的 File Descriptor 有關聯。
+> 考慮這段程式碼：
+> ```c
+> fd1 = open(filename, ...);
+> lockf(fd1, ...);
+> fd2 = open(filename, ...);
+> close(fd2);
+> ```
+> 在 `close(fd2)` 時，從 `fd1` 獲得的鎖便會被移除。*但是*由 `flock` 所加的鎖不會被移除，因為 `flock` 的鎖的擁有者是綁定在 File Description 上，而 `fcntl` 所加的鎖綁在 File Descriptor Table 上。簡單來說，`fcntl/lockf`的鎖只要有一個 `fd` 被關掉了，這個檔案上的全部鎖都會釋放。而 `flock` 的鎖會等到所有 `fd` 被關掉了，或者主動釋放鎖，鎖才會消失。
+
+#### Source Code Trace
+在 Linux 中，  File Locks 被存在 inode 中：
+[/inclue/linux/fs.h](https://github.com/torvalds/linux/blob/master/include/linux/fs.h#L850)
 ```c
 struct inode {
     ...
@@ -367,20 +385,223 @@ struct file_lock_context {
     struct list_head    flc_lease;  /* Head of the list for file leases */
 };
 ```
+
+#### 程式實作
+
+這個程式讀取使用者輸入並寫入到檔案末尾，同時會給檔案加上 Exclusive Lock 防止其他程式同時寫入。
+
+```c
+char buf[100];
+
+int main() {
+    int fd;
+    if ((fd = open("log", O_WRONLY | O_CREAT, 0644)) < 0)
+        err_sys("open error");
+
+    printf("waiting for exclusive lock... ");
+    fflush(stdout);
+    if (flock(fd, LOCK_EX) < 0)  // wait for exclusive lock
+        err_sys("flock error");
+    printf("lock acquired.\n");
+
+    printf("content to write: ");
+    scanf("%s", buf);
+
+    if (lseek(fd, 0, SEEK_END) < 0)
+        err_sys("lseek error");
+    if (write(fd, buf, sizeof(buf)) < 0)
+        err_sys("write error");
+
+    if (flock(fd, LOCK_UN) < 0) // release lock
+        err_sys("flock error");
+    printf("lock released.\n");
+
+    if (close(fd) < 0)
+        err_sys("close error");
+}
+```
+
+如果同時執行兩個程式：
+```
+$ ./write_log
+waiting for exclusive lock... lock acquired.
+content to write: 
+```
+
+```
+$ ./write_log
+waiting for exclusive lock...
+```
+
+第二個 Process 會卡在等待 Exclusive Lock 的過程直到第一個 Process 完成寫入。
+
+```
+$ ./write_log
+waiting for exclusive lock... lock acquired.
+content to write: There are no race conditions here.
+lock released.
+```
+
+```
+$ ./write_log
+waiting for exclusive lock...
+content to write: 
+```
+
 ## Blocking vs. Nonblocking I/O
 
-Fast system calls:
-• Those who take a known amount of time to finish: do not block by external resources
-• Example: read files from a local disk
-Slow system calls:
-• Those who wait for an indefinite amount of time to finish (e.g., block forever)
-• Examples: reading from terminal devices or network devices, reading from or writing to a
-pipe (chap. 15), waiting for a network connection, etc.
+Slow System Call 指會需要不確定時間來完成的 Syscall ，比方說 `read` 從終端機讀取使用者輸入就要等待使用者按下 Enter。而 Fast System Call 指一定會在確定的時間內完成的 Syscall ，例如 `lseek` 。
 
+而 Blocking IO 就像 Slow System Call，直到所有操作都做完了才會回傳結果，讓呼叫該 Syscall 的程式卡著。
+
+![](https://img.draven.co/2020-02-09-15812482347815-blocking-io-model.png)
+
+反之， Nonblocking IO 讓我們發起一個操作請求，然後直接回傳**請求能否執行的結果**（Ex: `EAGAIN`）。舉例來說，Nonblocking read 可以盡量讀取資料而不會卡住整個進程，但同時讀取也可能是什麼都沒有，此時 `errno` 會說明操作無法完成。
+
+![](https://img.draven.co/2020-02-09-15812482347824-non-blocking-io-model.png)
+來源：[Go 语言网络轮询器的实现原理](https://draven.co/golang/docs/part3-runtime/ch06-concurrency/golang-netpoller/)
+
+要讓某個 FD 開啟 Nonblocking 模式，可以在 `open` 時加上 `O_NONBLOCK` 標誌，或者後面使用 `fcntl` 加上 `O_NONBLOCK`：
+
+```c
+open(filename, O_WRONLY | O_NONBLOCK, ...);
+// or
+fcntl(fd, F_SETFL, O_NONBLOCK);
+```
+
+程式實作：
+```c
+char buf[500000];
+
+void set_fl(int fd, int flags) {
+    int val;
+    val = fcntl(fd, F_GETFL, 0);
+    val |= flags;
+    fcntl(fd, F_SETFL, val);
+}
+
+int main() {
+    int bytes_read = read(STDIN_FILENO, buf, sizeof(buf));
+    fprintf(stderr, "read %d bytes from stdin\n", bytes_read);
+
+    char* ptr = buf;
+    set_fl(STDOUT_FILENO, O_NONBLOCK);
+
+    int bytes_left = bytes_read;
+    int eagain = 0;
+    while (bytes_left > 0) { // 一直等待寫入的過程就叫 polling
+        errno = 0;
+        int bytes_written = write(STDOUT_FILENO, ptr, bytes_left);
+        if (errno == EAGAIN) {
+            eagain++;
+        } else {
+            if (eagain > 0) {
+                fprintf(stderr, "EAGAIN * %d...\n", eagain);
+                eagain = 0;
+            }
+            fprintf(stderr, "write %d bytes, errno = %d\n", bytes_written, errno);
+        }
+        if (bytes_written > 0) {
+            ptr += bytes_written;
+            bytes_left -= bytes_written;
+        }
+    }
+    exit(0);
+}
+```
+
+執行：
+```
+$ ./a.out < /var/log/syslog 2>stderr.out
+```
+
+`stderr` 輸出：
+```
+read 500000 bytes from stdin
+write 20204 bytes, errno = 0
+EAGAIN * 13...
+write 6027 bytes, errno = 0
+EAGAIN * 1...
+write 93152 bytes, errno = 0
+EAGAIN * 23...
+write 3868 bytes, errno = 0
+EAGAIN * 19759...
+write 4357 bytes, errno = 0
+EAGAIN * 22...
+write 4025 bytes, errno = 0
+EAGAIN * 8...
+write 4417 bytes, errno = 0
+write 97453 bytes, errno = 0
+EAGAIN * 14178...
+write 3500 bytes, errno = 0
+write 87348 bytes, errno = 0
+EAGAIN * 14785...
+write 3436 bytes, errno = 0
+write 104257 bytes, errno = 0
+EAGAIN * 12351...
+write 4750 bytes, errno = 0
+EAGAIN * 7...
+write 5021 bytes, errno = 0
+EAGAIN * 14...
+write 3193 bytes, errno = 0
+EAGAIN * 258...
+write 54992 bytes, errno = 0
+```
 ## I/O Multiplexing
 
-`select`
-`poll`
-`epoll`
+你正在開發一個線上聊天程式，當使用者發送訊息的時候，會將內容廣播給所有人，而其他人發送的訊息也要同步給使用者看到。因此，這個程式會需要從 `stdin` 讀取使用者的輸入內容，同時從網路 socket 讀取伺服器傳給使用者的其他聊天訊息。
 
+你自然而然的寫：
+```c
+read(STDIN_FILENO, buf, sizeof(buf));
+...
+read(socket_fd, netbuf, sizeof(netbuf));
+```
+
+但 Blocking IO 沒辦法同時讀取兩個輸入，也就是必須等到使用者輸入完內容，才會將網路內容讀入 `netbuf`。所以你順勢改為使用 Nonblocking IO：
+```c
+set_fl(STDIN_FILENO, O_NONBLOCK);
+set_fl(socket_fd, O_NONBLOCK);
+...
+while (1) {
+	read(STDIN_FILENO, buf, sizeof(buf));
+	...
+	read(socket_fd, netbuf, sizeof(netbuf));
+}
+```
+
+確實可以同時讀取了，但你看著高漲的 CPU 使用量，陷入了沉思。在一番思索後，你選擇將讀取 `stdin` 與 socket 的程式分為兩個線程，不過，你並沒有處理多線程溝通的經驗，各種 Race Condition 在你眼前炸開，這個方案似乎不夠優雅。
+
+針對這個情境，在單一進程中*高雅*解決這個問題的正解是使用 **IO Multiplexing（IO 多路復用）**。其核心思想是讓 Kernel 幫你監視多個 File Descriptor，所以他的好處有系統開銷小、不必維護多線程/進程。以上述例子，當 `STDIN_FILENO` 或 `socket_fd` 有資料可讀時，Kernel 才會喚醒你的程式，否則程式會進入睡眠（Suspended）。
+
+IO Multiplexing 常見的使用場景包含：
+- 需要同時處理多個 File Descriptor
+- 等待任一個 File Descriptor 可以讀寫會導致阻塞
+
+而使用 IO Multiplexing 的 Syscall 有 `select`、`poll`：
+```c
+int select(int nfds,
+           fd_set *readfds, fd_set *writefds, fd_set *exceptfds,
+           struct timeval *timeout);
+```
+監聽多個 FD 的事件狀態（可讀、可寫、異常），當有 FD 準備就緒或逾時，將就緒的 FD 集合保留於傳入的集合中並返回。成功即回傳就緒 FD 的總數，逾時回傳 0，失敗回傳 -1 並設定 `errno`。
+- `nfds`：要檢查的 FD 數量上限，必須設為所有集合中**最大的 FD 值 + 1**
+- `readfds`：請求監聽**可讀**事件的 FD 集合；當核心發現有資料可讀時會保留相應 FD
+- `writefds`：請求監聽**可寫**事件的 FD 集合；當核心發現可寫入（緩衝區有空間）時會保留相應 FD
+- `exceptfds`：請求監聽**異常**事件的 FD 集合
+- `timeout`：等待的最大時間長度；若傳入 `NULL` 則無限期阻塞，直到有事件發生為止
+
+---
+
+```c
+int poll(struct pollfd *fds, nfds_t nfds, int timeout);
+```
+
+監聽結構陣列中指定的多個 FD 事件狀態，改善 `select` 能夠指定的 FD 數量上限的問題。當有事件觸發或逾時會返回，成功回傳就緒 FD 的總數，逾時回傳 0，失敗回傳 -1 並設定 `errno`。
+- `fds`：指向 `struct pollfd` 陣列的指標，每個結構包含以下欄位：
+    - `fd`：要監聽的檔案描述符
+    - `events`：請求監聽的事件遮罩（如 `POLLIN` 代表可讀、`POLLOUT` 代表可寫）
+    - `revents`：核心實際回傳的事件遮罩（有事件觸發時由核心寫入，如 `POLLIN`、`POLLHUP` 等）
+- `nfds`：`fds` 陣列中的元素個數
+- `timeout`：等待時間的毫秒數；傳入 `-1` 表示無限期阻塞直到事件發生，傳入 `0` 表示立即返回
 ### 簡單伺服器實作

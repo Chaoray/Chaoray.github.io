@@ -39,10 +39,11 @@ ignoreFiles:
 ---
 title: "{{title}}"
 description: ""
-summary:
+summary: ""
 date: "{{date}}"
-categories:
-tags:
+isCJKLanguage: true
+categories: []
+tags: []
 draft: true
 ---
 ```
