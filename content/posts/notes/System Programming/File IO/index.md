@@ -584,13 +584,43 @@ int select(int nfds,
            fd_set *readfds, fd_set *writefds, fd_set *exceptfds,
            struct timeval *timeout);
 ```
-監聽多個 FD 的事件狀態（可讀、可寫、異常），當有 FD 準備就緒或逾時，將就緒的 FD 集合保留於傳入的集合中並返回。成功即回傳就緒 FD 的總數，逾時回傳 0，失敗回傳 -1 並設定 `errno`。
+監聽多個 FD 的事件狀態（可讀、可寫、異常），當有 FD 準備就緒或逾時，傳入的集合中就緒的 FD 會被設為 1 並返回， FD 的最大可設置值為 `FD_SETSIZE-1` 。成功即回傳就緒 FD 的總數，逾時回傳 0，失敗回傳 -1 並設定 `errno`。
 - `nfds`：要檢查的 FD 數量上限，必須設為所有集合中**最大的 FD 值 + 1**
 - `readfds`：請求監聽**可讀**事件的 FD 集合；當核心發現有資料可讀時會保留相應 FD
 - `writefds`：請求監聽**可寫**事件的 FD 集合；當核心發現可寫入（緩衝區有空間）時會保留相應 FD
 - `exceptfds`：請求監聽**異常**事件的 FD 集合
 - `timeout`：等待的最大時間長度；若傳入 `NULL` 則無限期阻塞，直到有事件發生為止
 
+此外，`fd_set` 可以用以下四個宏操作：
+```c
+fd_set set;
+FD_ZERO(&set);            // 清空集合
+FD_SET(fd, &set);         // 將 fd 加入集合之中
+if (FD_ISSET(fd, &set));  // 檢查集合中是否有 fd
+FD_CLR(fd, &set);         // 將 fd 從集合中移除
+```
+
+簡單實作：
+```c
+int main() {
+	fd_set read_set, ret_set;
+	FD_ZERO(&read_set);
+	FD_ZERO(&ret_set);
+	
+	FD_SET(0, &read_set);
+	int nfds = 0 + 1; // 最大 fd + 1
+	
+	while (true) {
+		memcpy(&ret_set, &read_set, sizeof(fd_set)); // 讓 read_set 不要被覆蓋
+		select(nfds, &ret_set, NULL, NULL, NULL); // 無限等待
+		for (int i = 0; i < nfds; i++) {
+			if (!FD_ISSET(i, &read_set) || !FD_ISSET(i, &ret_set)) continue;
+			char buf[100];
+			read(fd, buf, sizeof(buf)); // 對 fd 做點啥
+		}
+	}
+}
+```
 ---
 
 ```c
@@ -604,4 +634,27 @@ int poll(struct pollfd *fds, nfds_t nfds, int timeout);
     - `revents`：核心實際回傳的事件遮罩（有事件觸發時由核心寫入，如 `POLLIN`、`POLLHUP` 等）
 - `nfds`：`fds` 陣列中的元素個數
 - `timeout`：等待時間的毫秒數；傳入 `-1` 表示無限期阻塞直到事件發生，傳入 `0` 表示立即返回
-### 簡單伺服器實作
+
+簡單實作：
+```c
+int main() {
+	int nfds = 1;
+    struct pollfd fds[nfds];
+    fds[0].fd = STDIN_FILENO;
+    fds[0].events = POLLIN;     // 請求監聽可讀事件
+    fds[0].revents = 0;         // 實際發生的事件
+
+    while (true) {
+        int ret = poll(fds, nfds, -1); // 無限期等待
+        if (ret < 0) break;
+
+        for (int i = 0; i < nfds; i++) {
+            if (fds[i].revents & POLLIN) {
+                char buf[100];
+                read(fds[i].fd, buf, sizeof(buf) - 1);
+            }
+        }
+    }
+}
+```
+
