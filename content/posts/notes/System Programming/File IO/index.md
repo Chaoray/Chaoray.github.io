@@ -13,14 +13,19 @@ draft: false
 
 在 Unix 系統中，有「everything is a file」的概念，如硬體設備、進程資訊、網路連線、處理器狀態等都抽象化為檔案系統中的一個路徑。透過這種設計，使用者只需要使用一套統一的 API（例如 `open()`, `read()`, `write()`, `close()`），就能操作各種截然不同的系統資源，而不需要為每一種硬體另外撰寫專屬的操作介面。比方說 `/proc/cpuinfo` 這個路徑包含了 CPU 資訊， `/dev/sda` 則代表整顆實體硬碟。
 
-一個檔案通常用一個路徑表示，在程式內則用一個指標（或者稱作 File Descriptor, FD）指著。在作業系統中，一個檔案可能會有很多不同指標指著。當程式開啟一個檔案時， Kernel 會維護三種結構：File Descriptor Table、System-Wide Open File Table、Vnode Table（或 Inode Table）。
+對於使用者來說，一個檔案通常用一個路徑表示；在大部分 C 程式內，則用一個 `FILE*` 指標表示。而在作業系統中，則是用 File Descriptor 、 File Description 、 V-node 三個分層架構來代表一個檔案。
 
-1. File Descriptor Table：
-   每個 Process 都有自己獨立的 FD Table，FD Table 實際上只是一個陣列，每個 FD 是一個非零整數用來存取 FD Table。預設情況下，會開啟三個 FD，分別是 `stdin`、`stdout`、`stderr`，由 0、1、2 表示。再往後開啟的檔案，都由 3 往上加。每個 FD 會指向 System-wide Open File Table 中的一個 File Description 結構。
-2. System-wide Open File Table：
-   當呼叫 `open(2)` 時，Kernel 會建立一個 File Description 結構，這個結構儲存了本次開啟的操作狀態，包含讀寫的 Offset、開啟模式（如唯讀）、Reference Count（有多少個 FD 指向這個 File Description） 等等。每個 File Description 還會指向 Vnode Table 中的一個 Vnode。
-3. Vnode Table：
-   這裡面存的資料代表實體或靜態檔案資源本身，紀錄檔案的 Metadata，包含檔案大小、檔案類型、存取權限、所有者、指向實體磁區的指標（Inode）等等。
+File Descriptor (檔案描述符，簡稱 FD)，存在於進程內部（User Space 下），只是一個整數索引值。當一個程式用 `fopen` 開啟一個檔案並回傳 `FILE*` 指標時， 一個新的 FD 會被加入到每個進程獨立的 File Descriptor Table 中。實際上， `FILE*` 指標也只是對 FD 的包裝。
+FD 的用途，是當程式要求對檔案進行操作時，讓 Kernel 知道順著該索引值，從 File Descriptor Table 知道要去存取哪個 File Description。對進程來說，它不需要知道硬碟在哪裡、檔案系統是什麼。它只要拿到這個整數代號，就能透過 Syscall 告訴核心要對代號 `3` 寫入資料。
+
+File Description (檔案描述項)，儲存了本次開啟的操作狀態，包含讀寫的 Offset、開啟模式（如唯讀）、Reference Count（有多少個 FD 指向這個 File Description）。當 Kernel 對檔案進行操作時，需要知道寫入的位置在哪（例如寫入第 `6767` byte），如果每次存取都需要重新指定位置、或者明明不該寫入卻有實習生 vibe 出來， File Description 解決諸如此類問題。
+而且 File Description 可以是每個進程各有一個，或者多個進程共用一個，因此進程們可以選擇「各自擁有獨立的狀態」，也可以選擇「多個進程一起共用同一個狀態」。可以想像，多個進程如果他們的*不同* FD 都指向同一個 File Desctiption，那麼 A 讀取到第 1000 bytes， B 也會從 1000 bytes 開始讀取。
+
+V-node，檔案的實體指標，儲存檔案的擁有者、權限、檔案大小、修改時間，以及資料實際儲存在硬碟哪些磁區的對應指標，由 File Description 指著，實際存在硬碟上。他會在檔案開啟時由 Kernel 從硬碟上複製到記憶體中，可以加快檔案存取速度。
+
+Kernel 會分別維護三種結構來儲存上面三個東西：File Descriptor Table、Open File Table、V-node Table（或 I-node Table）。
+
+FD Table 每個進程都會有一個，他實際上只是一個陣列，所以可以用整數 FD 存取。預設情況下，該 Table 會預先開啟三個 FD，分別是 `stdin`、`stdout`、`stderr`，由 0、1、2 表示。再往後開啟的檔案，都由 3 往上加。其他兩者都是整個系統共用的，不會有其他副本。
 
 > [!NOTE] 複製/繼承FD
 > `dup(2)` 是複製一個已有的 FD 到目前最小可用的 FD 數字去。當使用 `dup(2)`，原本的 FD 與新的 FD 便都指向 Open File Table 中的同一個 File Description，兩者的檔案操作也會互相同步。
@@ -31,6 +36,7 @@ draft: false
 來源：[lusp_fileio_slides.pdf](https://man7.org/training/download/lusp_fileio_slides-mkerrisk-man7.org.pdf)
 ###  Source Code Trace
 
+`task_struct` 是 Process Control Block ，每個進程都有一個，包含該進程的各種資訊，當中的 `files` 是一個指向 File Descriptor Table 的指標：
 [/include/linux/sched.h](https://github.com/torvalds/linux/blob/master/include/linux/sched.h#L835)
 ```c
 struct task_struct {
@@ -40,8 +46,7 @@ struct task_struct {
 };
 ```
 
-`task_struct` 是 Process Control Block ，包含該進程的各種資訊。其中的欄位 `files` 指向下面的結構，這就是每個 Process 的 File Descriptor Table：
-
+這就是每個 Process 的 File Descriptor Table，可以看到 `fd_array` 是一個陣列：
 [/include/linux/fdtable.h](https://github.com/torvalds/linux/blob/master/include/linux/fdtable.h#L26)
 ```c
 struct files_struct {
@@ -77,10 +82,10 @@ struct file {
 }
 ```
 
-而 `struct file` 結構內則有 `f_inode` 指向該檔案的 metadata。實際上， linux 中沒有所謂的 System-wide Open File Table 這個"結構"，他是靠 Mempool 來分配 `struct file` 實際上的空間，以及利用 `f_ref` 追蹤有多少指標指向這塊記憶體，再加上 `fdtable` 來達成 $O(1)$ 存取 `struct file`。
+而 `struct file` 結構內則有 `f_inode` 指向該檔案的 metadata。實際上， linux 中沒有所謂的  Open File Table 這個"結構"，他是靠 Mempool 來分配 `struct file` 實際上的空間，以及利用 `f_ref` 追蹤有多少指標指向這塊記憶體，再加上 `fdtable` 來達成 $O(1)$ 存取 `struct file`。
 
 > [!NOTE] 結構儲存位置
-> 進程的虛擬記憶體，被分為兩大塊：Kernel Space 下共用的記憶體、User Space 下的記憶體。而 User Space 下只會知道 `files_struct.fdt.fd` 中的陣列索引值，即先前提到的非負整數；在 Kernel Space 下則存著 `task_struct` 、 `fdtable` 、 `file` 等結構，防止有人惡意篡改導致內核大爆炸。也就是說，這些結構是每個進程都會有一個，但是存在 Kernel Space 中，且由 Kernel 維護。
+> 進程的虛擬記憶體，被分為兩大塊：Kernel Space 下共用的記憶體、User Space 下的記憶體。而 User Space 下只會知道 `files_struct.fdt.fd` 中的陣列索引值，即先前提到的 FD；在 Kernel Space 下則存著 `task_struct` 、 `files_struct` 、 `fdtable` 、 `file` 等結構，防止有人惡意篡改導致內核大爆炸。也就是說，這些結構是每個進程都會有一個，但是存在 Kernel Space 中，且由 Kernel 維護。
 > ![](memory-layout.png)
 
 ### Vnode vs. Inode
