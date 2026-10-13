@@ -314,14 +314,17 @@ Mandatory Lock 會讓 Kernel 去檢查該次存取有沒有違反鎖的條件，
 - File Locking：確保只有特定程式能夠存取整個檔案的機制
 - Record locking (or byte range locking)： 確保只有特定程式能夠存取*部份檔案區塊*的機制
 
+鎖還有共用（Shared）與排他（Exclusive）的區別，這種區別的核心思想是：寫入時其他人不能讀取或寫入；讀取時其他人也能讀取，但不能寫入。如果可以同時寫入，就會出現上面的 `There are 67 race conditions` ；同時讀取與寫入，就不保證讀取那方接收到的是正確的資料，唯一能接受的就是同時讀取，因為資料不會變。
+共用鎖，就是保證大家可以同時讀取到對的資料；排他鎖，就是保證同時只有一個人能寫入與讀取。因此共用鎖可以多人擁有，而排他鎖與共用鎖不能共存。
+
 以下介紹給檔案上鎖的 Functions：
 
 ```c
 int flock(int fd, int op);
 ```
 對 `fd` 所指的檔案整個加上鎖，成功回傳 `0` ，不成功回傳 `-1` 並設定 `errno`。`op` 可以是以下多個值：
-- `LOCK_SH`：請求共用鎖，同一時間，多個進程可以對該檔案擁有一個共用鎖
-- `LOCK_EX`：請求排他鎖，同一時間，只有一個進程可以對該檔案擁有一個排他鎖，排他鎖與共用鎖不能共存
+- `LOCK_SH`：請求共用鎖
+- `LOCK_EX`：請求排他鎖
 - `LOCK_UN`：移除自己擁有的鎖
 - `LOCK_NB`：當有其他進程持有排他鎖時，不等待該進程釋放鎖就返回，須搭配其他參數使用
 
@@ -355,8 +358,8 @@ lock.l_whence = SEEK_SET; /* SEEK_SET, SEEK_CUR, SEEK_END */
 lock.l_len = 6767; /* #bytes (0 means to EOF) */
 int ret = fcntl(fd, F_SETLK, &lock);  /* F_SETLK: set the lock */
 ```
--  `F_RDLCK` ： Shared Read Lock 共用鎖，多個進程對一個檔案可以擁有一個 Shared Read Lock，當一個區間被 Read lock 鎖起來時，就不能再被 Write lock 鎖。也就是說，如果一個（或多個）進程正在讀取某個區間，那麼該區間就不能被寫入。
-- `F_WRLCK` ： Exclusive Write Lock 排他鎖，只有一個進程可以對一個檔案加 Exclusive Write Lock，當一個區間被 Write Lock 鎖起來時，就不能再被 Read Lock 鎖。白話說，如果一個區間正在被一個進程寫入，其他進程便不能讀取/寫入該區間。
+- `F_RDLCK` ： 請求 Read Lock ，也就是共用鎖。
+- `F_WRLCK` ： 請求 Write Lock 排他鎖，也就是排他鎖。
 
 `fcntl` 還支持 `F_GETLK` 參數，用來測試目前給定的鎖能否被放置，如果可以，便把 `lock.l_type` 改成 `F_UNLCK` ；不行的話就把 `lock` 的各參數改為目前放在檔案上的鎖的細節。此外，`F_SETLKW` 參數會等待其他進程釋放鎖再設置請求的鎖。
 
@@ -369,7 +372,7 @@ int ret = fcntl(fd, F_SETLK, &lock);  /* F_SETLK: set the lock */
 > fd2 = open(filename, ...);
 > close(fd2);
 > ```
-> 在 `close(fd2)` 時，從 `fd1` 獲得的鎖便會被移除。*但是*由 `flock` 所加的鎖不會被移除，因為 `flock` 的鎖的擁有者是綁定在 File Description 上，而 `fcntl` 所加的鎖綁在 File Descriptor Table 上。簡單來說，`fcntl/lockf`的鎖只要有一個 `fd` 被關掉了，這個檔案上的全部鎖都會釋放。而 `flock` 的鎖會等到所有 `fd` 被關掉了，或者主動釋放鎖，鎖才會消失。
+> 在 `close(fd2)` 時，從 `fd1` 獲得的鎖便會被移除。*但是*由 `flock` 所加的鎖不會被移除，因為 `flock` 的鎖的擁有者是綁定在 File Description 上，而 `fcntl` 所加的鎖綁在 File Descriptor Table 上。簡單來說，`fcntl/lockf`的鎖只要有一個 `fd` 被關掉了，這個檔案上的全部鎖都會釋放。而 `flock` 的鎖會等到所有 `fd` 被關掉了，鎖才會不預期消失。
 
 #### Source Code Trace
 在 Linux 中，  File Locks 被存在 inode 中：
