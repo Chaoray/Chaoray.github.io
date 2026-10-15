@@ -851,6 +851,11 @@ Kernel 在檢查進程能否存取一個檔案時，會查看：
 // returns 0 if OK, -1 on error  
 int access(const char *pathname, int mode);
 ```
+用來檢測 Real ID 能否存取給定檔案路徑。`mode` 可以是以下多個值 bitwise OR：
+- `F_OK`：檢測檔案是否存在
+- `R_OK`：檢測是否有讀取權限
+- `W_OK`：檢測是否有寫入權限
+- `X_OK`：檢測是否有執行權限
 
 ---
 
@@ -859,6 +864,8 @@ int access(const char *pathname, int mode);
 // returns previous file mode creation mask  
 mode_t umask(mode_t cmask);
 ```
+用來更改 file mode creation mask，並回傳更改前的 mask。file mode creation mask 會在進程創建檔案時，將不想要的權限移除掉。
+Kernel 在創建**檔案**時，預設的權限是 `perm = rw-rw-rw-`，接著會把這個權限跟 `mask = ---rwxrwx` 做 `new = perm & (~mask)` ， `new = rw-------` 是新檔案真正的權限；而在創建**資料夾**時，預設的權限 `perm = rwxrwxrwx`。
 
 ---
 
@@ -867,7 +874,12 @@ mode_t umask(mode_t cmask);
 // returns 0 if OK, -1 on error  
 int chmod(const char *pathname, mode_t mode);  
 int fchmod(int fd, mode_t mode);
+
 ```
+用來變更檔案的存取權限，進程的 Effective ID 必須是 root 或是檔案的擁有者。
+* `chmod`：透過檔案路徑 `pathname` 變更權限。
+* `fchmod`：透過已開啟的檔案描述子 `fd` 變更權限。
+* `mode`：傳入權限值（如 `0644`、`S_IRUSR | S_IWUSR` 等）以覆蓋原有的存取權限。
 
 ---
 
@@ -878,13 +890,24 @@ int chown(const char *pathname, uid_t owner, gid_t group);
 int fchown(int fd, uid_t owner, gid_t group);  
 int lchown(const char *pathname, uid_t owner, gid_t group);
 ```
+用來變更檔案的擁有者 ID 與群組 ID。若參數傳入 `-1` 則表示該項保持不變，進程的 Effective ID 必須是 root 或是檔案的擁有者。
+* `chown`：透過檔案路徑變更擁有者，若路徑為 Symbolic Link，會追蹤並變更指向的檔案。
+* `fchown`：透過已開啟的檔案描述子 `fd` 變更擁有者。
+* `lchown`：透過檔案路徑變更擁有者，若路徑為符號連結，只會變更符號連結本身的擁有者。
 
----
-
-```c
-#include <unistd.h>
-int setuid(uid_t uid);
-int setgid(gid_t gid);
-```
 #### Sticky Bit
-### Symbolic Links
+Sticky Bit 是資料夾的一種屬性，用來保護資料夾下的檔案不被刪除。如果一個資料夾設定了 Sticky Bit，那麼除非使用者擁有**資料夾的寫入權限**，或：
+- 使用者擁有該檔案
+- 使用者擁有該資料夾
+- 使用者是 root
+才可以刪除該資料夾下的檔案。
+
+舉例來說，`/tmp` 便設定了 Sticky Bit：
+```
+$ ls -ld /tmp
+drwxrwxrwt 17 root root 380 Oct 15 14:50 /tmp
+         ^
+```
+`t` 便是設定 Sticky Bit 的意思。所以使用者可以在 `/tmp` 裡創建或刪除檔案，但不能刪除其他人的檔案。
+## 檔案系統
+
