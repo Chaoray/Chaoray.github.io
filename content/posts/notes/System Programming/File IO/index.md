@@ -13,7 +13,7 @@ draft: false
 
 在 Unix 系統中，有「everything is a file」的概念，如硬體設備、進程資訊、網路連線、處理器狀態等都抽象化為檔案系統中的一個路徑。透過這種設計，使用者只需要使用一套統一的 API（例如 `open()`, `read()`, `write()`, `close()`），就能操作各種截然不同的系統資源，而不需要為每一種硬體另外撰寫專屬的操作介面。比方說 `/proc/cpuinfo` 這個路徑包含了 CPU 資訊， `/dev/sda` 則代表整顆實體硬碟。
 
-對於使用者來說，一個檔案通常用一個路徑表示；在大部分 C 程式內，則用一個 `FILE*` 指標表示。而在作業系統中，則是用 File Descriptor 、 File Description 、 V-node 三個分層架構來代表一個檔案。
+對於使用者來說，一個檔案通常用一個路徑表示；在大部分 C 程式內，則用一個 `FILE*` 指標表示。而在作業系統中，則是用 File Descriptor 、 File Description 、 Vnode 三個分層架構來代表一個檔案。
 
 File Descriptor (檔案描述符，簡稱 FD)，存在於進程內部（User Space 下），只是一個整數索引值。當一個程式用 `fopen` 開啟一個檔案並回傳 `FILE*` 指標時， 一個新的 FD 會被加入到每個進程獨立的 File Descriptor Table 中。實際上， `FILE*` 指標也只是對 FD 的包裝。
 FD 的用途，是當程式要求對檔案進行操作時，讓 Kernel 知道順著該索引值，從 File Descriptor Table 知道要去存取哪個 File Description。對進程來說，它不需要知道硬碟在哪裡、檔案系統是什麼。它只要拿到這個整數代號，就能透過 Syscall 告訴核心要對代號 `3` 寫入資料。
@@ -21,9 +21,9 @@ FD 的用途，是當程式要求對檔案進行操作時，讓 Kernel 知道順
 File Description (檔案描述項)，儲存了本次開啟的操作狀態，包含讀寫的 Offset、開啟模式（如唯讀）、Reference Count（有多少個 FD 指向這個 File Description）。當 Kernel 對檔案進行操作時，需要知道寫入的位置在哪（例如寫入第 `6767` byte），如果每次存取都需要重新指定位置、或者明明不該寫入卻有實習生 vibe 出來， File Description 解決諸如此類問題。
 而且 File Description 可以是每個進程各有一個，或者多個進程共用一個，因此進程們可以選擇「各自擁有獨立的狀態」，也可以選擇「多個進程一起共用同一個狀態」。可以想像，多個進程如果他們的*不同* FD 都指向同一個 File Desctiption，那麼 A 讀取到第 1000 bytes， B 也會從 1000 bytes 開始讀取。
 
-V-node，檔案的實體指標，儲存檔案的擁有者、權限、檔案大小、修改時間，以及資料實際儲存在硬碟哪些磁區的對應指標，由 File Description 指著，實際存在硬碟上。他會在檔案開啟時由 Kernel 從硬碟上複製到記憶體中，可以加快檔案存取速度。
+Vnode，檔案的實體指標，儲存檔案的擁有者、權限、檔案大小、修改時間，以及資料實際儲存在硬碟哪些磁區的對應指標，由 File Description 指著，實際存在硬碟上。他會在檔案開啟時由 Kernel 從硬碟上複製到記憶體中，可以加快檔案存取速度。
 
-Kernel 會分別維護三種結構來儲存上面三個東西：File Descriptor Table、Open File Table、V-node Table（或 I-node Table）。
+Kernel 會分別維護三種結構來儲存上面三個東西：File Descriptor Table、Open File Table、Vnode Table（或 Inode Table）。
 
 FD Table 每個進程都會有一個，他實際上只是一個陣列，所以可以用整數 FD 存取。預設情況下，該 Table 會預先開啟三個 FD，分別是 `stdin`、`stdout`、`stderr`，由 0、1、2 表示。再往後開啟的檔案，都由 3 往上加。其他兩者都是整個系統共用的，不會有其他副本。
 
@@ -90,9 +90,9 @@ struct file {
 
 ### Vnode vs. Inode
 
-Vnode （Virtual Node）由 Sun Microsystems 為 Solaris / BSD 系統開發，主要由 Unix 系統使用。早期的 Unix 只支援 Unix 自家的檔案系統（UFS），可以直接使用實體磁碟上的 Inode。但後來為了支援網路檔案系統（NFS）以及其他非 Unix 檔案系統，引入了 VFS （Virtual File System） 與 Vnode 抽象介面。Vnode 代表記憶體中的通用檔案物件，封裝跨檔案系統的統一操作介面，並指向底層具體檔案系統的實體 Inode。 Inode 是實際存在磁碟上的，由 OS 從磁碟讀取到記憶體中。
+Vnode （Virtual Node）由 Sun Microsystems 為 Solaris / BSD 系統開發，主要由 Unix 系統使用。早期的 Unix 只支援 Unix 自家的檔案系統（UFS），可以直接使用實體磁碟上的 Inode。但後來為了支援網路檔案系統（NFS）以及其他非 Unix 檔案系統，引入了 VFS （Virtual File System） 與 Vnode 抽象介面。Vnode 代表記憶體中的通用檔案物件，封裝不同檔案系統的 IO 操作，並指向底層具體檔案系統的實體 Inode。 Inode 是實際存在磁碟上的，由 OS 從磁碟讀取到記憶體中。
 
-Linux 採用的 Inode （Index Node）繼承並改進了 VFS 的思想，直接將 Vnode 的抽象操作介面整合進記憶體的 Inode 。其包含儲存檔案的 Metadata，例如：檔案大小、權限、修改時間、存取控制等等。此外，Linux 將路徑結構從 Inode 拆分出來，引入了 Dentry（Directory Entry），而 Dentry 結構再指向 Inode。
+Linux 採用的 Inode （Index Node）繼承並改進了 VFS 的思想，直接將 Vnode 的抽象操作介面整合進記憶體中的 Inode 。其包含儲存檔案的 Metadata，例如：檔案大小、權限、修改時間、存取控制等等。此外，Linux 將路徑結構從 Inode 拆分出來，引入了 Dentry（Directory Entry），而 Dentry 結構再指向 Inode。
 
 傳統 Vnode 機制在解析路徑時，需透過檔案系統遞迴執行 `VOP_LOOKUP`；而 Linux 透過 Dentry Cache 的 Hash Table，能快速找到對應的 Inode。這也是為什麼 Linux 在記憶體層面可以輕鬆處理硬連結，只要將 Dentry 中的不同路徑指向同一個 Inode 就好。
 ## 什麼是 I/O？
@@ -256,7 +256,7 @@ int ioctl(int fd, int op, ...);
 
 設備驅動程式的萬用控制介面，用於處理無法映射到一般 `read`/`write` 的硬體設備與特殊檔案操作。通常來說， `op` 會根據寫入的驅動程式有所不同，且驅動可以自定義 `op`。
 例如：查詢/設定網路卡介面參數（如 MAC/IP）、控制 Serial Port 傳送速率、取得終端機視窗大小（`TIOCGWINSZ`）、控制驅動特有硬體行為。
-## Atomic Operations & File/Record Locking
+## 同時讀寫
 
 考慮有兩個進程 A、B 同時執行這份程式碼，將 `buf` 寫入檔案末尾：
 ```c
@@ -456,18 +456,28 @@ waiting for exclusive lock...
 content to write: 
 ```
 
-## Blocking vs. Nonblocking I/O
+### Nonblocking I/O
 
-Slow System Call 指會需要不確定時間來完成的 Syscall ，比方說 `read` 從終端機讀取使用者輸入就要等待使用者按下 Enter。而 Fast System Call 指一定會在確定的時間內完成的 Syscall ，例如 `lseek` 。
+如果有嘗試使用 `read` 讀取 `stdin` ，會發現如果使用者沒在 Terminal 輸入東西，那麼程式就會一直卡在 `read` 中，沒辦法處理其他事情：
 
-而 Blocking IO 就像 Slow System Call，直到所有操作都做完了才會回傳結果，讓呼叫該 Syscall 的程式卡著。
+```c
+char buf[100];
+int n = read(STDIN_FILENO, buf, sizeof(buf)); // <-- 卡在這
+...
+```
+
+Nonblocking IO 讓我們發起一個操作請求，然後直接回傳**請求能否執行的結果**，該請求後續會由 Kernel 完成。舉例來說，Nonblocking read 可以盡量讀取資料而不會卡住整個進程，但同時讀取結果也可能是什麼都沒有，此時 `errno` 會說明操作無法完成（`EAGAIN`）。
+
+![](https://img.draven.co/2020-02-09-15812482347824-non-blocking-io-model.png)
+
+而 Blocking IO 會等 Kernel 所有操作都做完了才會回傳結果，讓呼叫該 Syscall 的程式卡著。
 
 ![](https://img.draven.co/2020-02-09-15812482347815-blocking-io-model.png)
 
-反之， Nonblocking IO 讓我們發起一個操作請求，然後直接回傳**請求能否執行的結果**（Ex: `EAGAIN`）。舉例來說，Nonblocking read 可以盡量讀取資料而不會卡住整個進程，但同時讀取也可能是什麼都沒有，此時 `errno` 會說明操作無法完成。
-
-![](https://img.draven.co/2020-02-09-15812482347824-non-blocking-io-model.png)
 來源：[Go 语言网络轮询器的实现原理](https://draven.co/golang/docs/part3-runtime/ch06-concurrency/golang-netpoller/)
+
+> [!Note] Slow/Fast System Call
+> Slow System Call 指會需要不確定時間來完成的 Syscall ，比方說 `read` 從終端機讀取使用者輸入就要等待使用者按下 Enter。而 Fast System Call 指一定會在確定的時間內完成的 Syscall ，例如 `lseek` 。
 
 要讓某個 FD 開啟 Nonblocking 模式，可以在 `open` 時加上 `O_NONBLOCK` 標誌，或者後面使用 `fcntl` 加上 `O_NONBLOCK`：
 
@@ -555,7 +565,9 @@ write 3193 bytes, errno = 0
 EAGAIN * 258...
 write 54992 bytes, errno = 0
 ```
-## I/O Multiplexing
+### I/O Multiplexing
+
+Nonblocking IO 似乎很好，當 Kernel 回傳 `EAGAIN` 時，程式可以先去處理其他事情，再回來嘗試讀取檔案。不過，用 `while` 迴圈頻繁檢查寫入，會佔用大量 CPU 資源。有沒有一種方法， 讓程式只在有資料可讀取、可寫入時佔用資源，其他時間就像不存在一樣？有的，兄弟，有的，考慮以下情境：
 
 你正在開發一個線上聊天程式，當使用者發送訊息的時候，會將內容廣播給所有人，而其他人發送的訊息也要同步給使用者看到。因此，這個程式會需要從 `stdin` 讀取使用者的輸入內容，同時從網路 socket 讀取伺服器傳給使用者的其他聊天訊息。
 
@@ -666,3 +678,213 @@ int main() {
 }
 ```
 
+## 檔案屬性
+
+在 Unix 系統中，有許多不同檔案類型，包含：
+- Regular Files：一般的二進制檔案
+- Directory Files：資料夾類型
+- Block Special Files：如磁碟 `/dev/sda`
+- Character Special Files：如 `/dev/tty` 、`/dev/zero`
+- FIFO：給進程間溝通用的訊息通道，之所以叫 FIFO 是因為傳輸的文字接收時會照原本順序
+- Sockets：專給進程間網路溝通用的通道
+- Symbolic Links：指向其他檔案的檔案
+
+除了檔案類型，一個檔案還有許多屬性，如擁有者、修改時間、硬碟儲存位置等，可以用`stat(2)`、`fstat(2)`、`lstat(2)` 來獲得一個檔案的屬性：
+
+```c
+int stat(const char *restrict path, struct stat *restrict statbuf);
+int fstat(int fd, struct stat *statbuf);
+int lstat(const char *restrict path, struct stat *restrict statbuf);
+```
+將傳入的 `struct stat*` 設定為該檔案的屬性，成功回傳 0 ，錯誤回傳 -1。其中 `lstat` 與 `stat`、`fstat` 的不同是，如果指定的路徑是一個 Symbolic Links ，它會回傳該 Symbolic Links 檔案的屬性，而非 Symbolic Links 指向的檔案的屬性。
+
+Unix 中 `struct stat` 的結構細節：
+```c
+struct stat {
+    mode_t st_mode; /* file type & mode (permissions) */
+    ino_t st_ino; /* i-node number (serial number) */
+    dev_t st_dev; /* device number (file system) */
+    dev_t st_rdev; /* device number for special files */
+    nlink_t st_nlink; /* number of links */
+    uid_t st_uid; /* user ID of owner */
+    gid_t st_gid; /* group ID of owner */
+    off_t st_size; /* size in bytes, for regular files */
+    struct timespec st_atim; /* time of last access */
+    struct timespec st_mtim; /* time of last modification */
+    struct timespec st_ctim; /* time of last file status change */
+    blksize_t st_blksize; /* best I/O block size */
+    blkcnt_t st_blocks; /* number of disk blocks allocated */
+};
+```
+
+`st_mode` 實際上是一個 bitmask，所以 `<sys/stat.h>` 中提供了許多宏來判斷檔案類型：
+```c
+struct stat buf;
+stat("/path/to/file", &buf);
+S_ISREG(buf.st_mode);  // Regular Files
+S_ISDIR(buf.st_mode);  // Directory Files
+S_ISCHR(buf.st_mode);  // Character Special Files
+S_ISBLK(buf.st_mode);  // Block Special Files
+S_ISFIFO(buf.st_mode); // FIFO Pipes
+S_ISLNK(buf.st_mode);  // Symbolic Link
+S_ISSOCK(buf.st_mode); // Socket
+```
+### 檔案存取權限
+
+在終端機中可以打 `ls -l` 列出當前目錄下的所有檔案，以及他們的詳細資訊：
+```
+$ ls -l
+total 4
+-rwxrw-r-- 1 admin admin    0 Oct 15 10:29 bin
+drwxrwxr-x 2 admin admin 4096 Oct 15 10:29 dir
+-rw-rw-r-- 1 admin admin    0 Oct 15 10:29 txt
+```
+由左至右分別是：檔案類型與權限、硬連結數量、擁有者、群組、大小、時間戳、名稱
+
+其中檔案類型與權限，以 `bin` 的 `-rwxrw-r--` 為例，他的解讀方法要分成四塊：
+```
+-    <-- 檔案類型
+rwx  <-- 擁有者權限
+rw-  <-- 群組權限
+r--  <-- 其他使用者權限
+```
+
+`-` 表示的是 Regular Files，如果是 Directory 會是 `d`、Symbolic Link 是 `l` 、 Character Special Files 是 `c` 等等。
+`rwx` 表示該使用者，有讀取、寫入、執行這三種權限，若缺一個，比方說 `rw-` 就代表沒有執行權限，`r--` 表示沒有讀取以外的權限。
+
+然而對於 Directory File，Read 權限代表的是可以取得資料夾內的檔案清單，Write 權限表示可以更新資料夾的屬性或內容，Execute 權限則代表可以進入（`cd`）該資料夾、解析路徑、獲取該資料夾的屬性（即使用 `stat`）。
+因此，如果要刪除或創建一個檔案，需要的是該資料夾的 Write 與 Execute 權限，*不需要檔案本身的讀取寫入權限*。如果要開啟檔案的話，需要該檔案路徑上的所有父資料夾的 Execute 權限，以 `/usr/include/stdio.h` 來說，就會需要 `/` 、`/usr` 、`/usr/include` 的 Execute 權限。
+
+```
+$ mkdir dir
+$ chmod u-x dir
+$ cd dir
+bash: cd: dir: Permission denied
+```
+
+介紹一下 `chmod`：
+```
+$ chmod [MODE] [FILE]
+```
+`chmod`（**Ch**ange **Mod**e 的縮寫）是一個用來修改檔案或目錄權限的指令。上面的指令 `chmod u-x dir` 是把使用者 `u` 的執行 `x` 權限拔掉 `-`，加回去的話就是 `chmod u+x dir`。
+更改對象除了 User `u`，還有 Group `g`、Others `o` 和 All `a`，更多例子：
+```sh
+$ chmod a+r # 所有人可讀
+$ chmod a-r # 所有人不可讀
+$ chmod a-rwx # 0人有任何權限
+$ chmod g+rx # 群組可讀可寫
+$ chmod ug+rw # 使用者與群組可讀可寫
+```
+
+檔案權限實際上也是一個 bitmask，只是進制轉換太麻煩不多贅述，可以看看 [chmod-calculator](https://chmod-calculator.com/)
+
+```sh
+$ chmod 660 # 等同於 ug+rw
+```
+#### SUID/SGID
+
+查看一下 `/etc/passwd` 的權限：
+```
+$ ls -l /etc/passwd
+-rw-r--r-- 1 root root 3083 Sep 30 22:07 /etc/passwd
+```
+
+說明擁有者（`root`） 可讀可寫，群組與其他人只可讀，那一般使用者為什麼可以用 `passwd` 指令更新自己的密碼呢？這就要講到進程在讀寫檔案時的權限了。
+
+進程有三組 ID 來指定他以什麼身份運作：Real、Effective、Saved Set。
+- Real：進程的實際執行者。
+- Effective、Supplementary：Kernel 檢查權限時真正會看 Effective 與 Supplementary，Supplementary 讓進程可以以多個 Group 的身份運行。
+- Saved Set：若檔案有設定 Set-User/Group ID ，在執行時 Effective 會被 Set-User/Group ID 覆蓋， 原先的 Effective 會被存在 Saved Set。
+
+![](process-identity.png)
+來源：APUE 3rd Edition Figure 4.5
+
+這個 Set-User/Group ID 是什麼？先前說到一般使用者可以用 `passwd` 改密碼，來看看 `/usr/bin/passwd` 的權限：
+```
+$ ls -l /usr/bin/passwd
+-rwsr-xr-x 1 root root 93640 Feb  3  2026 /usr/bin/passwd
+```
+注意到使用者權限那欄，`rws` 執行的 `x` 變成 `s` 了，表示該檔案有設定 Set-User/Group ID。
+如果有設定該 `s` 屬性（？），其他使用者在執行該程式時，可以以**檔案擁有者**的身份執行。具體來說，就是 Effective 會被改成該檔案擁有者的 ID，以上面的 `passwd` 來看，會以 `root` 身份執行。
+
+因此，一般使用者就可以用 `root` 權限執行 `passwd` 了。
+
+```sh
+$ chmod u+s # 給檔案加上 set-user-id 標籤
+$ chmod g+s # 給檔案加上 set-group-id 標籤
+$ chmod a+s # 給檔案加上 set-user-id 與 set-group-id 標籤
+```
+順帶一提，如果該檔案沒有 `x` 權限，卻仍設定 `s` ，那麼 `s` 會變成大寫表示該標籤無效：
+```
+$ chmod u-x txt
+$ chmod u+s txt
+$ ls -l
+-rwSrw-r-- 1 admin admin 0 Oct 15 11:43 txt
+```
+
+在 `struct stat` 中，有 `uid_t`、`gid_t` 這兩個欄位：
+```c
+struct stat {
+	...
+    uid_t st_uid; /* user ID of owner */
+    gid_t st_gid; /* group ID of owner */
+    ...
+};
+```
+
+Kernel 在檢查進程能否存取一個檔案時，會查看：
+- Effective 是否等於 0（root）
+- Effective UID 是否等於 st_uid
+- Effective GID 是否等於 st_gid
+- Supplementary GID 其一是否等於 st_gid
+如果有一條符合，那麼就會繼續檢查該身份是否有相對應的權限（可讀、可寫、可執行），如果都不符合，那會檢查 `other` 部份有沒有權限。
+
+同樣的， `<sys/stat.h>` 也提供了許多宏來檢查權限：
+![](check-permission-macros.png)
+來源：[https://man7.org/linux/man-pages/man7/inode.7.html](https://man7.org/linux/man-pages/man7/inode.7.html)
+
+由進程新創的檔案，`st_uid` 會是 Effective UID，而 `st_gid` 會是 Effective GID 或者目錄的 GID，後者要看系統支援哪個。
+
+一些有關檔案權限的 Function：
+```c
+#include <unistd.h>  
+// returns 0 if OK, -1 on error  
+int access(const char *pathname, int mode);
+```
+
+---
+
+```c
+#include <sys/stat.h>  
+// returns previous file mode creation mask  
+mode_t umask(mode_t cmask);
+```
+
+---
+
+```c
+#include <sys/stat.h>  
+// returns 0 if OK, -1 on error  
+int chmod(const char *pathname, mode_t mode);  
+int fchmod(int fd, mode_t mode);
+```
+
+---
+
+```c
+#include <unistd.h>  
+// returns 0 if OK, -1 on error  
+int chown(const char *pathname, uid_t owner, gid_t group);  
+int fchown(int fd, uid_t owner, gid_t group);  
+int lchown(const char *pathname, uid_t owner, gid_t group);
+```
+
+---
+
+```c
+#include <unistd.h>
+int setuid(uid_t uid);
+int setgid(gid_t gid);
+```
+#### Sticky Bit
+### Symbolic Links
