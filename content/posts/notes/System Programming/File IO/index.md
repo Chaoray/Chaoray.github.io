@@ -94,7 +94,8 @@ Vnode （Virtual Node）由 Sun Microsystems 為 Solaris / BSD 系統開發，�
 
 Linux 採用的 Inode （Index Node）繼承並改進了 VFS 的思想，直接將 Vnode 的抽象操作介面整合進記憶體中的 Inode 。其包含儲存檔案的 Metadata，例如：檔案大小、權限、修改時間、存取控制等等。此外，Linux 將路徑結構從 Inode 拆分出來，引入了 Dentry（Directory Entry），而 Dentry 結構再指向 Inode。
 
-傳統 Vnode 機制在解析路徑時，需透過檔案系統遞迴執行 `VOP_LOOKUP`；而 Linux 透過 Dentry Cache 的 Hash Table，能快速找到對應的 Inode。這也是為什麼 Linux 在記憶體層面可以輕鬆處理硬連結，只要將 Dentry 中的不同路徑指向同一個 Inode 就好。
+在傳統 Vnode 架構中，路徑解析會逐層查找目錄，並透過檔案系統提供的 Lookup 操作找到對應的檔案物件。在 Linux 中，VFS 利用 Dentry Cache 及其 Hash Table 加速路徑查找；若找到快取的 Dentry，就能透過它取得對應的 Inode，否則可能需要呼叫底層檔案系統進行查找。對於 Hard Link，不同的目錄項目可以對應到同一個 inode，因此同一個檔案可以有多個名稱。
+
 ## 什麼是 I/O？
 
 I/O（Input/Outputs）指任何與檔案的操作，在 Unix 中， I/O 被分為緩衝式 IO（Buffered/Standard I/Os）與非緩衝式 IO （Unbuffered I/Os）。
@@ -896,7 +897,8 @@ int lchown(const char *pathname, uid_t owner, gid_t group);
 * `lchown`：透過檔案路徑變更擁有者，若路徑為符號連結，只會變更符號連結本身的擁有者。
 
 #### Sticky Bit
-Sticky Bit 是資料夾的一種屬性，用來保護資料夾下的檔案不被刪除。如果一個資料夾設定了 Sticky Bit，那麼除非使用者擁有**資料夾的寫入權限**，或：
+Sticky Bit 是資料夾的一種屬性，用來保護資料夾下的檔案不被刪除。如果一個資料夾設定了 Sticky Bit，那麼除非：
+- 使用者擁有資料夾的寫入權限
 - 使用者擁有該檔案
 - 使用者擁有該資料夾
 - 使用者是 root
@@ -909,5 +911,151 @@ drwxrwxrwt 17 root root 380 Oct 15 14:50 /tmp
          ^
 ```
 `t` 便是設定 Sticky Bit 的意思。所以使用者可以在 `/tmp` 裡創建或刪除檔案，但不能刪除其他人的檔案。
-## 檔案系統
 
+## 檔案系統結構
+
+檔案系統透過目錄區塊（Directory Block）、索引節點（i-node）與資料區塊（Data Block）三個層級，將檔案的名稱、屬性與內容分離儲存。
+
+- **Directory Block**：儲存「檔案名稱/路徑」與「i-node 編號」的映射對照表。檔案名稱僅存在於目錄區塊中，並不包含在檔案自身的元資料內。
+- **i-node**：儲存檔案的屬性與管理資訊，包括權限、擁有者、檔案大小、時間戳記等，以及指向 Data Block 的區塊位址指標。i-node 不會儲存檔名與實際檔案內容。
+- **Data Block**： 磁碟上實際存放檔案原始資料（文字、圖片、二進位數據等）的最小劃分單位。
+
+也就是說，檔案系統在找檔案時，會先走到 directory block ，然後根據 directory Block 裡面的檔案名稱條目，找到對應的 i-node 編號，接著訪問 i-node 找到 data blocks。因為有 i-node 的存在，所以一個檔案的 data blocks 不需要連續儲存，可以分散在磁碟各處，增加空間利用效率。
+
+![](inode-and-datablocks.png)
+
+### Hard Link
+
+Hard Link 硬連結，創建他時會在 Directory Block 中新增一筆檔名紀錄，並將其指向同一個 i-node ，接著將 i-node 內部的連結計數 +1。Hard Link 不能用在資料夾上。
+
+如果還記得檔案屬性的 `struct stat` ，其中有一個欄位是 `st_nlink`， 這便是指有多少 Directory Block 指向該 i-node。
+```c
+struct stat {
+	...
+    nlink_t st_nlink; /* number of links */
+    ...
+};
+```
+
+![](hard-link.png)
+
+在刪除檔案時，會把連結計數 -1 並將 Directory Block 中的條目刪除，如果這個 i-node 的連結計數沒有歸零，也就是還有其他 Hard Link 仍指向該 i-node ，那麼檔案便不會真正刪除。
+
+可以用 `ln` 指令創建硬連結：
+```
+$ echo 滾滾長江東逝水 > file
+$ ln file file-hard
+$ ls -l file file-hard 
+-rw-rw-r-- 2 admin admin 22 Oct 23 18:46 file
+-rw-rw-r-- 2 admin admin 22 Oct 23 18:46 file-hard
+```
+
+來試試將 `file` 刪除：
+```
+$ rm file
+$ cat file-hard
+滾滾長江東逝水
+```
+
+再將 `file` 加回來：
+```
+$ echo 1919810 > file
+$ cat file-hard
+滾滾長江東逝水
+```
+此時 `file` 指向的 i-node 與 `file-hard` 指向的 `i-node` 就不同了。
+
+Unix 提供了 `link` 與 `unlink` 兩個 Syscall 來管理硬連結：
+```c
+#include <unistd.h>  
+// returns 0 if OK, -1 on error  
+int link(const char *existingpath, const char *newpath);  
+int unlink(const char *pathname);
+```
+`link` 負責創造硬連結， `unlink` 負責刪除硬連結（即從 Directory Block 中刪掉該條目）。其實也可以把一般檔案想成是普通的硬連結，移除所有硬連結該檔案便會被刪除，也就是說你可以用 `unlink` 刪檔案。
+
+> [!Note] Link./Unlink 的注意事項
+> 當一個檔案的 File Description 被關閉時， Kernel 首先會檢查有多少進程還持有該檔案的 File Description，如果沒有進程持有，則會檢查檔案的連結計數，計數為 0 才會將檔案刪除。
+> 
+> 要為一個檔案創造/刪除硬連結，需要存有檔案的目錄的 Write 與 Execute 權限。如果目錄有設定 Sticky Bit，那麼會跟隨 Sticky Bit 的規則。也就是說，基本等於新增一個檔案所需要的權限。
+### Soft Link / Symbolic Link
+
+Soft Link 軟連結，又名 Symbolic Link，創建時會建立一個新檔案，該檔案裡面儲存指向檔案的路徑。若刪除原始檔案，軟連結依然存在，但開啟時會因為找不到目標路徑而報錯，稱為死連結 Dangling Link。Soft Link 可以用在資料夾上。
+
+![](soft-link.png)
+
+同樣是 `ln` 指令，只要加上 `-s` 選項便改為創造軟連結：
+```
+$ echo 滾滾長江東逝水 > file
+$ ln -s file file-soft
+$ ls -l file file-soft 
+-rw-rw-r-- 1 admin admin 22 Oct 23 18:55 file
+lrwxrwxrwx 1 admin admin  4 Oct 23 18:55 file-soft -> file
+```
+
+做點小實驗，看看刪除 `file` 會如何：
+```
+$ cat file-soft 
+滾滾長江東逝水
+$ rm file
+$ ls -l file-soft 
+lrwxrwxrwx 1 admin admin 4 Oct 23 18:56 file-soft -> file (字會變紅色)
+$ cat file-soft 
+cat: file-soft: No such file or directory
+```
+
+雖然 `file` 被刪除，`cat file-soft` 便讀不到東西，只要將 `file` 加回來就可以正常讀取了：
+```
+$ echo 滾滾長江東逝水 > file
+$ cat file-soft 
+滾滾長江東逝水
+```
+
+如果給 Soft Link 創造 Hard Link，那麼兩個 Link 都會是 Soft Link：
+```
+$ ln file-soft file-soft-hard
+$ ls -l file-soft file-soft-hard
+lrwxrwxrwx 2 admin admin 4 Oct 23 18:56 file-soft -> file
+lrwxrwxrwx 2 admin admin 4 Oct 23 18:56 file-soft-hard -> file
+$ cat file-soft-hard
+滾滾長江東逝水
+
+$ rm file
+$ cat file-soft-hard
+cat: file-soft-hard: No such file or directory
+```
+
+以下是 File Syscall 對 Soft Link 的處理：
+![](syscall-on-soft-link.png)
+
+同樣的， Unix 提供了 `symlink` 來創建 Soft Link：
+```c
+#include <unistd.h>
+// return 0 if OK, -1 on error
+int symlink(const char *target, const char *linkpath);
+```
+特別的是，即便 `target` 不存在，仍會執行成功，這是因為 Soft Link 只儲存檔案路徑。
+
+`readlink` 則讓我們可以讀取 Soft Link 指向的路徑內容：
+```c
+#include <unistd.h>  
+// returns the number of bytes read if OK, -1 on error  
+int readlink(const char *restrict pathname, char *restrict buf, size_t bufsize);
+```
+
+因為 `ln` 指令只是將路徑寫入 Soft Link，所以路徑可以亂打：
+```
+$ ln /no/such/file soft
+$ cat soft
+cat: soft: No such file or directory
+```
+
+前面說過 Soft Link 可以用在資料夾上，可以創造出類似迴圈的東西：
+```
+$ mkdir dir
+$ ln -s ../dir dir/link
+$ ls -l dir
+total 0
+lrwxrwxrwx 1 admin admin 6 Oct 23 19:23 link -> ../dir
+```
+其中 `/dir/link` 指向父資料夾 `dir`。
