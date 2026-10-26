@@ -963,7 +963,7 @@ $ echo 1919810 > file
 $ cat file-hard
 滾滾長江東逝水
 ```
-此時 `file` 指向的 i-node 與 `file-hard` 指向的 `i-node` 就不同了。
+此時 `file` 指向的 i-node 與 `file-hard` 指向的 i-node 就不同了。
 
 Unix 提供了 `link` 與 `unlink` 兩個 Syscall 來管理硬連結：
 ```c
