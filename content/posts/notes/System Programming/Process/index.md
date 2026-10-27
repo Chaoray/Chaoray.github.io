@@ -213,9 +213,14 @@ child: x = 1919810
 
 ---
 
-`vfork` 與 `fork` 相似，但有一個差異：
-`fork` 讓父、子進程擁有各自的邏輯記憶體空間；`vfork` 則暫時讓子進程在父進程的位止空間中執行，並暫停父進程，直到子進程呼叫 `exec` 系列函式或 `_exit`。
+與 `fork` 很像的是 `vfork`：
 
+```c
+#include <unistd.h>
+// returns: 0 in child, process ID of child in parent, -1 on error
+pid_t vfork(void);
+```
+`fork` 讓父、子進程擁有各自的邏輯記憶體空間；`vfork` 則暫時讓子進程在父進程的位止空間中執行，並暫停父進程，直到子進程呼叫 `exec` 系列函式或 `_exit`。
 `vfork` 的設計目的，是讓子進程可以快速呼叫 `exec` 執行另一個程式，免去了繼承父進程記憶體的開銷。不過，現在 `fork` 通常已實裝 COW 機制，因此 `vfork()` 的效能優勢不像早期那麼重要。
 
 舉例：
