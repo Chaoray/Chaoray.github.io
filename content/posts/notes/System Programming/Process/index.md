@@ -91,7 +91,12 @@ int execvp(const char *filename, char *const argv[]);
 - `e`：可以指定新程式的環境變數
 比較常用的有 `execve` 與 `execvp`。
 
-環境變數只是一堆字串，如 `{"A=1", "B=2", ...}` ，使用者需要自行解析並找出變數帶有的值。
+環境變數只是一堆字串，如 `{"A=1", "B=2", ...}` ，可以用 `getenv("VARIABLE_NAME")` 找出 `VARIABLE_NAME` 的值：
+```c
+#include <stdlib.h>
+char* NAME = getenv("NAME");
+if (NAME != NULL) printf("my name is %s\n", NAME);
+```
 
 舉例來說，讓程式執行 `ls`：
 ```c
@@ -485,10 +490,25 @@ $ gcc pipe.c && ./a.out
 child received: hello from parent
 ```
 
-一些 Remark：
-- 如果目前 buffer 沒有東西可以讀取，那 `read(fd[0], ...)` 會卡著直到有人寫入 `fd[1]` 。相反地，如果 buffer 滿了（常數 `PIPE_BUF` 通常設為 4KB），`write(fd[1], ...)`  也會卡著直到有人讀取 `fd[0]`。因為 Pipe 也是檔案的一種，也可以設定 `O_NONBLOCK`，但哎喲你幹嘛...。
-- 如果 parent 與 child 都關閉 `fd[1]`，那嘗試讀取 `fd[0]` 會讀到 EOF；如果 parent 與 child 都關閉 `fd[0]`，那嘗試寫入 `fd[1]` 會導致 `SIGPIPE` 發生，寫入的進程異常終止。
-- 如果嘗試寫入超過 `PIPE_BUF` 大小的數據，那寫入的數據可能會跟其他寫入的數據混合；如果寫入的數據小於等於 `PIPE_BUF` ，那保證寫入的數據是一塊連在一起的（Atomic Operation）。
+Pipe IO 操作的行為會根據有沒有另一端而有所不同：
+
+| Reader/Writer     | `read` 結果          | `write` 結果                          |
+| ----------------- | ------------------ | ----------------------------------- |
+| 有 Reader 有 Writer | 有資料就讀，沒資料就阻塞       | 有空間就寫，空間滿時阻塞                        |
+| 有 Reader 沒 Writer | 有資料就讀，沒資料回傳 0（EOF） | X                                   |
+| 沒 Reader 有 Writer | X                  | 觸發 `SIGPIPE`，寫入進程異常中止，`errno=EPIPE` |
+| 沒 Reader 沒 Writer | Pipe 關閉            | Pipe 關閉                             |
+
+開啟 `O_NONBLOCK` 後行為也會改變：
+
+| Reader/Writer     | `read` 結果          | `write` 結果            |
+| ----------------- | ------------------ | --------------------- |
+| 有 Reader 有 Writer | 沒資料回傳 `EAGAIN`     | 空間滿時可能 `EAGAIN` 或部份寫入 |
+| 有 Reader 沒 Writer | 有資料就讀，沒資料回傳 0（EOF） | X                     |
+| 沒 Reader 有 Writer | X                  | 觸發 `SIGPIPE`          |
+| 沒 Reader 沒 Writer | Pipe 關閉            | Pipe 關閉               |
+
+如果嘗試寫入超過 `PIPE_BUF` 大小的數據，那寫入的數據可能會跟其他寫入的數據混合（有空間時多筆寫入會競爭）；如果寫入的數據小於等於 `PIPE_BUF` ，那保證寫入的數據是一塊連在一起的（Atomic Operation）。
 
 要避免數據混合，就要避免寫入超過 `PIPE_BUF` 大小的數據，或者將一串數據拆成兩個 Pipe 來傳輸，舉例：
 ```c
@@ -508,7 +528,7 @@ void write_data(const void *data, size_t len) {
 
 --- 
 
-FIFO 其實就是有名稱的 Pipes（Named Pipes），與 Pipe 不同的是，FIFO 可以透過路徑存取：
+FIFO 其實就是有路徑的 Pipes（Named Pipes），與 Pipe 不同的是，FIFO 可以透過路徑存取：
 ```c
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -518,7 +538,63 @@ int mkfifo(const char *path, mode_t mode);
 `path` 是 FIFO 的路徑，`mode` 是 FIFO 的檔案權限，`mode` 一定要包含 Read/Write。
 FIFO 的好處是，他不只有相同祖先的進程可以使用，只要知道該 FIFO 路徑的進程都可以使用 `open/read/write` 來操作。
 與 Pipe 一樣，FIFO 的 buffer 是存在 Kernel Space 的記憶體中，所以 FIFO 檔案實際上不儲存內容到硬碟。
-FIFO 的其他行為與 Pipe 一樣，沒有寫入會卡著讀取端、可以用 `O_NONBLOCK`、寫入超過 `PIPE_BUF` 數據會混合…等等。
+FIFO 的其他行為與 Pipe 一樣：
+- 如果目前 buffer 沒有東西可以讀取，那 `read(fd[0], ...)` 會卡著直到有人寫入 `fd[1]` 。相反地，如果 buffer 滿了（常數 `PIPE_BUF` 通常設為 4KB），`write(fd[1], ...)`  也會卡著直到有人讀取 `fd[0]`。可以設定 `O_NONBLOCK`。
+- 如果 parent 與 child 都關閉 `fd[1]`，那嘗試讀取 `fd[0]` 會讀到 EOF；如果 parent 與 child 都關閉 `fd[0]`，那嘗試寫入 `fd[1]` 會導致 `SIGPIPE` 發生，寫入的進程異常終止。
+- 如果嘗試寫入超過 `PIPE_BUF` 大小的數據，那寫入的數據可能會跟其他寫入的數據混合；如果寫入的數據小於等於 `PIPE_BUF` ，那保證寫入的數據是一塊連在一起的（Atomic Operation）。
+
+比較特殊的是， 在使用 `open` 開啟 FIFO 時，讀取端會等待寫入端開啟、寫入端會等待讀取端開啟，同時，有沒有設定 `O_NONBLOCK` 也會有區別：
+
+| 開啟方式                                 | 沒有對應的另一端時                     |
+| ------------------------------------ | ----------------------------- |
+| `open(FIFO, O_RDONLY)`               | 阻塞等待 Writer                   |
+| `open(FIFO, O_WRONLY)`               | 阻塞等待 Reader                   |
+| `open(FIFO, O_RDONLY \| O_NONBLOCK)` | 立即成功                          |
+| `open(FIFO, O_WRONLY \| O_NONBLOCK)` | 立即失敗，回傳 `-1`， `errno = ENXIO` |
+
+舉例：
+```c
+// writer
+int main() {
+    char fifo_path[] = "/tmp/my_fifo";
+    char message[] = "Hello World!";
+    mode_t fifo_mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH;
+    mkfifo(fifo_path, fifo_mode);
+    printf("Waiting for a reader to join...\n");
+    int fd = open(fifo_path, O_WRONLY);
+    write(fd, message, sizeof(message));
+    printf("Sent: %s\n", message);
+    close(fd);
+    return 0;
+}
+```
+
+```c
+// reader
+int main() {
+    char fifo_path[] = "/tmp/my_fifo";
+    char buf[128];
+    printf("Waiting for a writer to join...\n");
+    int fd = open(fifo_path, O_RDONLY);
+    read(fd, buf, sizeof(buf));
+    printf("Received: %s\n", buf);
+    close(fd);
+    return 0;
+}
+```
+
+因為 FIFO 開啟會有互相等待的行為，所以可以在 `open` 成功後立刻移除 FIFO 的**路徑**，也不會造成 FIFO 失效：
+```c
+// writer
+int main() {
+    ...
+    printf("Waiting for a reader to join...\n");
+    int fd = open(fifo_path, O_WRONLY);
+    unlink(fifo_path);
+    write(fd, message, sizeof(message));
+    ...
+}
+```
 
 ---
 ### Synchronization

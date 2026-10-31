@@ -152,6 +152,13 @@ int openat(int dirfd, const char *pathname, int flags, ... /* mode_t mode */ );
 
 較新版的 Unix 系統提供以 `/dev/fd/x` 開啟 File Descriptor `x` 。比方說，以 `open` 打開 `/dev/fd/0` 等同於 `dup(0)`。
 
+一些比較特殊的 flag：
+- `O_APPEND` ：忽略 `lseek` 對 `write` 的影響，保證永遠寫入檔案末尾
+- `O_NONBLOCK`：開啟非阻塞 I/O
+- `O_TRUNC`：開啟檔案時清空檔案內容
+- `O_SYNC`：讓寫入操作不經過 Page Cache 直接寫入硬碟
+- `O_EXCL`：與 `O_CREAT` 混用，若檔案已創建則 `open` 失敗，用來避免建立檔案時的 Race Condition
+
 ---
 
 ```c
@@ -308,7 +315,7 @@ ssize_t pwrite(int fd, const void buf[.count], size_t count, off_t offset);
 
 ### File/Record Locking
 
-Advisory Lock （僅供參考的鎖）是一種依賴進程之間合作的檔案鎖，所有要存取該資料的進程都要先檢查該檔案是否有鎖、等待鎖釋放再進行存取。之所以說僅供參考，是因為若當一個外來進程不檢查檔案是否有所就直接存取，系統是無法擋下該次操作的。
+Advisory Lock （僅供參考的鎖）是一種依賴進程之間合作的檔案鎖，所有要存取該資料的進程都要先檢查該檔案是否有鎖、等待鎖釋放再進行存取。之所以說僅供參考，是因為若當一個外來進程不檢查檔案是否有所就直接存取，系統是無法擋下該次操作的，不過只要外來進程純讀取那也沒什麼影響。
 
 Mandatory Lock 會讓 Kernel 去檢查該次存取有沒有違反鎖的條件，若違反則強制擋下該操作。現在 Linux 已經捨棄 Mandatory Lock ，因為 Kernel 必須在每次 `read()` 與 `write()` 呼叫時都檢查檔案鎖狀態，極度消耗系統資源。
 
@@ -566,6 +573,11 @@ write 3193 bytes, errno = 0
 EAGAIN * 258...
 write 54992 bytes, errno = 0
 ```
+
+> [!WARNING] `O_NONBLOCK` 的使用場景
+> 手冊中有寫到，對於一般二進制檔案（Regular Files）來說，開啟 `O_NONBLOCK` 沒有作用。這是因為讀取一般檔案的內容已經存在檔案系統中。對於系統而言，該次 `read/write` 操作的結果已經確定了，不需要等待其他 process 提供資料或釋放空間，所以不會有阻塞等待的情況。
+> 比方說，`read` 若有資料就讀取、資料不足就回傳較少 bytes、到達 EOF 就回傳 0，根本沒有需要等待其他 process 寫入的情況出現。
+> 所以 `O_NONBLOCK` 會用在 Pipe/FIFO/Stdio 等檔案類型上，這類檔案在未開啟 `O_NONBLOCK` 時需要等待其他 process 寫入資料、或者等待其他 process 讀取釋出空間，所以會有實質意義上的阻塞發生。
 ### I/O Multiplexing
 
 Nonblocking IO 似乎很好，當 Kernel 回傳 `EAGAIN` 時，程式可以先去處理其他事情，再回來嘗試讀取檔案。不過，用 `while` 迴圈頻繁檢查寫入，會佔用大量 CPU 資源。有沒有一種方法， 讓程式只在有資料可讀取、可寫入時佔用資源，其他時間就像不存在一樣？有的，兄弟，有的，考慮以下情境：
@@ -678,7 +690,6 @@ int main() {
     }
 }
 ```
-
 ## 檔案屬性
 
 在 Unix 系統中，有許多不同檔案類型，包含：
