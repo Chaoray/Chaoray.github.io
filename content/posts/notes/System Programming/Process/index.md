@@ -225,7 +225,7 @@ child: x = 1919810
 // returns: 0 in child, process ID of child in parent, -1 on error
 pid_t vfork(void);
 ```
-`fork` 讓父、子進程擁有各自的邏輯記憶體空間；`vfork` 則暫時讓子進程在父進程的位止空間中執行，並暫停父進程，直到子進程呼叫 `exec` 系列函式或 `_exit`。
+`fork` 讓父、子進程擁有各自的記憶體空間；`vfork` 則暫時讓子進程在父進程的位址空間中執行，並暫停父進程，直到子進程呼叫 `exec` 系列函式或 `_exit`。
 `vfork` 的設計目的，是讓子進程可以快速呼叫 `exec` 執行另一個程式，免去了複製父進程程式碼、記憶體的開銷。不過，現在 `fork` 通常已實裝 COW 機制，因此 `vfork()` 的效能優勢不像早期那麼重要。
 
 舉例：
@@ -250,7 +250,7 @@ if (pid == 0) {
 }
 ```
 
-注意應該呼叫 `_exit` 來結束，不應該呼叫 `exit` 或 `return 0`，這些方式會清除 `atexit` 註冊的函式導致父進程結束的行為改變。
+注意應該呼叫 `_exit` 來結束，不應該呼叫 `exit` 或 `return 0`，這些方式會清除 `atexit` 註冊的函式導致父進程結束的行為改變，即將介紹 `_exit` 。
 因為 `vfork` 預設使用者大概會呼叫 `exec` ，所以可以省去先複製父進程 Program 再切換到 `exec` 的 Program 的開銷。可以說 `vfork` 的限制比 `fork` 多，且現在 `fork` 也優化了，一般情況下不建議用。
 
 ---
@@ -410,13 +410,13 @@ if (pid < 0) perror("fork");
 if (pid == 0) {
     pid_t daemon = fork(); // parent -> child -> grandchild
     if (daemon < 0) perror("daemon fork");
-    if (daemon == 0) exit(0); // parent -> child(x) -> grandchild
+    if (daemon > 0) exit(0); // parent -> child(x) -> grandchild
     
     // daemon task here...
     exit(0);
 }
 
-if (waitpid(pid, NULL, 0) != pid) perror("waitpid");
+if (waitpid(pid, NULL, 0) != pid) perror("waitpid"); // wait for child
 
 // parent task continue...
 exit(0);
