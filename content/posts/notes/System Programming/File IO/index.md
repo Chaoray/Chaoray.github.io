@@ -130,7 +130,9 @@ I/O（Input/Outputs）指任何與檔案的操作，在 Unix 中， I/O 被分�
 > user 0m0.004s
 > sys  0m0.009s
 > ```
-> `real` 是實際花費的總時間，`user` 是程式在 User Space 下花的時間， `sys` 是程式在 Kernel Space 下花的時間。
+> `real` 是實際花費的總時間，`user` 是 CPU 在 User Space 下花的時間， `sys` 是 CPU 在 Kernel Space 下花的時間。
+> 對於單執行緒來說，通常會有 `real >= user + sys` ，這是因為在某些時刻，程式可能不使用 CPU ，而在等待某些操作完成，所以會有這樣的結果。
+> 對於多執行緒來說，這三者的關係不一定，因為有可能在兩顆核心上各花費 1 秒，所以 `user + sys = 2`，但因為兩顆核心可以同步處理，所以 `real = 1`。
 ## 操作檔案的 Syscall
 
 ```c
@@ -315,7 +317,7 @@ ssize_t pwrite(int fd, const void buf[.count], size_t count, off_t offset);
 
 ### File/Record Locking
 
-Advisory Lock （僅供參考的鎖）是一種依賴進程之間合作的檔案鎖，所有要存取該資料的進程都要先檢查該檔案是否有鎖、等待鎖釋放再進行存取。之所以說僅供參考，是因為若當一個外來進程不檢查檔案是否有所就直接存取，系統是無法擋下該次操作的，不過只要外來進程純讀取那也沒什麼影響。
+Advisory Lock （僅供參考的鎖）是一種依賴進程之間合作的檔案鎖，所有要存取該資料的進程都要先檢查該檔案是否有鎖、等待鎖釋放再進行存取。之所以說僅供參考，是因為若當一個外來進程不檢查檔案是否有所就直接存取，系統是無法擋下該次操作的，不過只要外來進程純讀取那也沒什麼影響，只是有可能它讀到錯誤的資料。
 
 Mandatory Lock 會讓 Kernel 去檢查該次存取有沒有違反鎖的條件，若違反則強制擋下該操作。現在 Linux 已經捨棄 Mandatory Lock ，因為 Kernel 必須在每次 `read()` 與 `write()` 呼叫時都檢查檔案鎖狀態，極度消耗系統資源。
 
@@ -764,8 +766,8 @@ r--  <-- 其他使用者權限
 `-` 表示的是 Regular Files，如果是 Directory 會是 `d`、Symbolic Link 是 `l` 、 Character Special Files 是 `c` 等等。
 `rwx` 表示該使用者，有讀取、寫入、執行這三種權限，若缺一個，比方說 `rw-` 就代表沒有執行權限，`r--` 表示沒有讀取以外的權限。
 
-然而對於 Directory File，Read 權限代表的是可以取得資料夾內的檔案清單，Write 權限表示可以更新資料夾的屬性或內容，Execute 權限則代表可以進入（`cd`）該資料夾、解析路徑、獲取該資料夾的屬性（即使用 `stat`）。
-因此，如果要刪除或創建一個檔案，需要的是該資料夾的 Write 與 Execute 權限，*不需要檔案本身的讀取寫入權限*。如果要開啟檔案的話，需要該檔案路徑上的所有父資料夾的 Execute 權限，以 `/usr/include/stdio.h` 來說，就會需要 `/` 、`/usr` 、`/usr/include` 的 Execute 權限。
+然而對於 Directory File， `rwx` 的意義不同。可以先把資料夾想成是一個清單，擁有該資料夾的 Read 權限表示可以讀取該**清單上有什麼**，擁有 Write 權限表示可以修改**清單上的內容**，擁有 Execute 權限表示可以**從清單找到檔案的 inode**。
+因此，如果要刪除或創建一個檔案（修改清單），需要的是該資料夾的 Write 與 Execute 權限，*不需要檔案本身的讀取寫入權限*。如果要開啟檔案（找到 inode）的話，需要該檔案路徑上的所有父資料夾的 Execute 權限，以 `/usr/include/stdio.h` 來說，就會需要 `/` 、`/usr` 、`/usr/include` 的 Execute 權限。
 
 ```
 $ mkdir dir
@@ -908,8 +910,7 @@ int lchown(const char *pathname, uid_t owner, gid_t group);
 * `lchown`：透過檔案路徑變更擁有者，若路徑為符號連結，只會變更符號連結本身的擁有者。
 
 #### Sticky Bit
-Sticky Bit 是資料夾的一種屬性，用來保護資料夾下的檔案不被刪除。如果一個資料夾設定了 Sticky Bit，那麼除非：
-- 使用者擁有資料夾的寫入權限
+Sticky Bit 是資料夾的一種屬性，用來保護資料夾下的檔案不被刪除。如果一個資料夾設定了 Sticky Bit，那麼除非使用者擁有資料夾的寫入權限，並且：
 - 使用者擁有該檔案
 - 使用者擁有該資料夾
 - 使用者是 root
@@ -988,7 +989,22 @@ int unlink(const char *pathname);
 > [!Note] Link./Unlink 的注意事項
 > 當一個檔案的 File Description 被關閉時， Kernel 首先會檢查有多少進程還持有該檔案的 File Description，如果沒有進程持有，則會檢查檔案的連結計數，計數為 0 才會將檔案刪除。
 > 
-> 要為一個檔案創造/刪除硬連結，需要存有檔案的目錄的 Write 與 Execute 權限。如果目錄有設定 Sticky Bit，那麼會跟隨 Sticky Bit 的規則。也就是說，基本等於新增一個檔案所需要的權限。
+> 要為一個檔案創造/刪除硬連結，需要存有檔案的目錄的 Write 與 Execute 權限。如果目錄有設定 Sticky Bit，那麼會跟隨 Sticky Bit 的規則。也就是說，基本等於新增/刪除一個檔案所需要的權限。
+
+此外， `unlink` 也常被用來立刻刪除 temporary files，若開啟該 temporary file 的進程崩潰了，可以確保這些檔案不會被留下來。舉例來說：
+```c
+int main(void) {
+    char* tmpfile = tmpnam(NULL); // returns a filename that is unused
+    int fd = open(tmpfile, O_RDWR | O_CREAT, 0x600);
+    unlink(tmpfile);
+    
+    write(fd, ...);
+	...
+    read(fd, ...);
+    return 0;
+}
+```
+因為 hard link 的特性， Kernel 會檢查是否還有進程持有該檔案，所以 `unlink(tmpfile)` 僅僅只是移除該路徑，使其他進程無法再透過該路徑打開檔案。
 ### Soft Link / Symbolic Link
 
 Soft Link 軟連結，又名 Symbolic Link，創建時會建立一個新檔案，該檔案裡面儲存指向檔案的路徑。若刪除原始檔案，軟連結依然存在，但開啟時會因為找不到目標路徑而報錯，稱為死連結 Dangling Link。Soft Link 可以用在資料夾上。
