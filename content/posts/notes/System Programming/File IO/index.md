@@ -121,6 +121,17 @@ I/O（Input/Outputs）指任何與檔案的操作，在 Unix 中， I/O 被分�
 - Read Ahead：當 Kernel 注意到有人在依序讀取一個檔案的內容時，會事先讀取更多內容到 Page Cache 中，未來的讀取操作只在記憶體中完成。可以用 `posix_fadvise(2)` ，主動通知 Kernel 提前將資料從磁碟載入 Page Cache。
 - Delayed Write：當一個程式多次寫入同一個檔案區塊時， Kernel 不會每次都實際存取硬碟，而是先覆蓋掉先前的 Page Cache 之後再一次寫入到磁碟中。可以用 `fsync(2)` ，強制將 Dirty Page 立即刷回實體磁碟。
 
+```c
+#include <unistd.h>
+void sync(void);
+// For both fsync and fdatasync, 0 is returned on a success call; -1 is returned on error
+int fsync(int fd);
+int fdatasync(int fd);
+```
+- `sync()`：
+- `fsync()`：
+- `fdatasync()`：
+
 > [!NOTE] 測時間
 > 可以使用 shell 指令 `time` 來測試執行一個程式所需的時間
 > ```
@@ -767,13 +778,20 @@ r--  <-- 其他使用者權限
 `rwx` 表示該使用者，有讀取、寫入、執行這三種權限，若缺一個，比方說 `rw-` 就代表沒有執行權限，`r--` 表示沒有讀取以外的權限。
 
 然而對於 Directory File， `rwx` 的意義不同。可以先把資料夾想成是一個清單，擁有該資料夾的 Read 權限表示可以讀取該**清單上有什麼**，擁有 Write 權限表示可以修改**清單上的內容**，擁有 Execute 權限表示可以**從清單找到檔案的 inode**。
-因此，如果要刪除或創建一個檔案（修改清單），需要的是該資料夾的 Write 與 Execute 權限，*不需要檔案本身的讀取寫入權限*。如果要開啟檔案（找到 inode）的話，需要該檔案路徑上的所有父資料夾的 Execute 權限，以 `/usr/include/stdio.h` 來說，就會需要 `/` 、`/usr` 、`/usr/include` 的 Execute 權限。
+![](directory-permission.png)
 
+因此，如果要刪除或創建一個檔案（修改清單 + 確認 inode 連結），需要的是該資料夾的 Write 與 Execute 權限，*不需要檔案本身的讀取寫入權限*。如果要開啟檔案（找到 inode）的話，需要該檔案路徑上的所有父資料夾的 Execute 權限，以 `/usr/include/stdio.h` 來說，就會需要 `/` 、`/usr` 、`/usr/include` 的 Execute 權限。
+
+因為缺少 Execute 權限而只能知道檔案名稱的情況：
 ```
 $ mkdir dir
+$ touch dir/file
 $ chmod u-x dir
 $ cd dir
 bash: cd: dir: Permission denied
+$ ls -l dir
+total 0
+-????????? ? ? ? ?            ? file
 ```
 
 介紹一下 `chmod`：
