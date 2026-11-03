@@ -1146,7 +1146,7 @@ int readlink(const char *restrict pathname, char *restrict buf, size_t bufsize);
 
 因為 `ln` 指令只是將路徑寫入 Soft Link，所以路徑可以亂打：
 ```
-$ ln /no/such/file soft
+$ ln -s /no/such/file soft
 $ cat soft
 cat: soft: No such file or directory
 ```
@@ -1159,4 +1159,14 @@ $ ls -l dir
 total 0
 lrwxrwxrwx 1 admin admin 6 Oct 23 19:23 link -> ../dir
 ```
-其中 `/dir/link` 指向父資料夾 `dir`。
+其中 `/dir/link` 指向父資料夾 `dir`。如果路徑是像 `../dir` 一樣的相對路徑，那會以 symbolic link 存在的資料夾當作相對路徑的基準。
+
+雖然說 symbolic links 也是檔案，也有自己的 permission bits ，但系統會直接忽略 symbolic link 的權限，會顯示 `rwxrwxrwx`：
+```
+$ ln -s path symlink
+$ ls -l symlink
+lrwxrwxrwx 1 admin admin 4 Nov  3 21:08 symlink -> path
+$ chmod u-rwx symlink 
+chmod: cannot operate on dangling symlink 'symlink'
+```
+因為 chmod 會跟隨 symbolic link，所以無法修改它的權限。此外，如果連結是在設有 sticky bit 的資料夾下，那刪除 symbolic link 還是會跟隨 sticky bit 的規則，也就是會看 owner。
