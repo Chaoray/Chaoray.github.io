@@ -103,7 +103,7 @@ I/O（Input/Outputs）指任何與檔案的操作，在 Unix 中， I/O 被分�
 - Buffered I/Os：存取會儲存輸入在中介的緩衝區中，當某些條件滿足才會呼叫 syscall 
 - Unbuffered I/O： 每次存取都會呼叫 syscall ，但 Kernel 中還是可以有緩衝區
 
-舉例來說，常見的 Buffered IO 有 `fread/fwrite` ， C Standard Library 中有對這兩者作一個存在 User Space 下的緩衝區，當緩衝區滿了、程式呼叫 `fflush` 、呼叫 `fclose` 關閉檔案、正常結束時，才會將緩衝區內容用 Syscall 實際寫入檔案。
+舉例來說，常見的 Buffered IO 有 `fread/fwrite` ， C Standard Library 中有對這兩者作一個存在 User Space 下的緩衝區，當緩衝區滿了、程式呼叫 `fflush` 、呼叫 `fclose` 關閉檔案、正常結束時，才會將緩衝區內容用 Syscall 實際寫入檔案。（注：輸出到 terminal 的 `printf/puts` 等操作是當換行時 flush 到 kernel）
 
 而 `read/write` 等 Syscall 的緩存是存在 Kernel 的 Page Cache 中， `write` 將資料複製到 Kernel 的 Page Cache 後便立即返回，此時資料頁被標記為 Dirty Page，由背景執行緒（如 `flusher`/`pdflush`）非同步寫回磁碟。`read` 會優先從 Page Cache 搜尋，若有則直接複製到 User Space；沒有才從磁碟讀取並載入 Cache。
 
@@ -128,9 +128,9 @@ void sync(void);
 int fsync(int fd);
 int fdatasync(int fd);
 ```
-- `sync()`：
-- `fsync()`：
-- `fdatasync()`：
+- `sync()`：請 Kernel 將所有未同步到磁碟的 Page Cache 排入同步行程
+- `fsync()`：將 `fd` 所指的檔案 Metadata （如 access time）與檔案資料同步到磁碟
+- `fdatasync()`：將 `fd` 所指的檔案資料同步到磁碟
 
 > [!NOTE] 測時間
 > 可以使用 shell 指令 `time` 來測試執行一個程式所需的時間
@@ -144,6 +144,7 @@ int fdatasync(int fd);
 > `real` 是實際花費的總時間，`user` 是 CPU 在 User Space 下花的時間， `sys` 是 CPU 在 Kernel Space 下花的時間。
 > 對於單執行緒來說，通常會有 `real >= user + sys` ，這是因為在某些時刻，程式可能不使用 CPU ，而在等待某些操作完成，所以會有這樣的結果。
 > 對於多執行緒來說，這三者的關係不一定，因為有可能在兩顆核心上各花費 1 秒，所以 `user + sys = 2`，但因為兩顆核心可以同步處理，所以 `real = 1`。
+
 ## 操作檔案的 Syscall
 
 ```c
@@ -169,7 +170,9 @@ int openat(int dirfd, const char *pathname, int flags, ... /* mode_t mode */ );
 - `O_APPEND` ：忽略 `lseek` 對 `write` 的影響，保證永遠寫入檔案末尾
 - `O_NONBLOCK`：開啟非阻塞 I/O
 - `O_TRUNC`：開啟檔案時清空檔案內容
-- `O_SYNC`：讓寫入操作不經過 Page Cache 直接寫入硬碟
+- `O_DSYNC`：檔案資料的寫入操作直接寫入硬碟
+- `O_RSYNC`：等到檔案的寫入操作先完成才讀取
+- `O_SYNC`：讓所有寫入操作直接寫入硬碟
 - `O_EXCL`：與 `O_CREAT` 混用，若檔案已創建則 `open` 失敗，用來避免建立檔案時的 Race Condition
 
 ---
@@ -258,6 +261,14 @@ int dup2(int oldfd, int newfd);
 
 將 `oldfd` 複製到指定編號的 `newfd` 上（常用於 Shell 的 Redirection，如重導向 stdout 到檔案）。若 `newfd` 已經被開啟，`dup2` 會先自動且原子性地將 `newfd` 關閉再進行複製；若 `oldfd == newfd` 則直接回傳 `newfd`。
 
+舉例將檔案接到程式的輸入輸出：
+```c
+int fd1 = open(file1, O_RDONLY);
+int fd2 = open(file2, O_WRONLY);
+dup2(fd1, STDIN_FILENO);
+dup2(fd2, STDOUT_FILENO);
+```
+
 ---
 
 ```c
@@ -266,6 +277,7 @@ int fcntl(int fd, int op, ...);
 
 對已開啟的 `fd` 進行低階屬性控制與操作，有許多種 `op` 可選，後面再加上該 `op` 指定的參數，以下列出其中幾種 `op`。
 * `F_GETFL` / `F_SETFL`：取得或修改檔案 Status Flags（如切換是否為 `O_NONBLOCK` 非阻塞模式）。
+* `F_GETFD` / `F_SETFD`：
 * `F_DUPFD` / `F_DUPFD_CLOEXEC`：複製 FD 並設定指定下限。
 * `F_SETLK` / `F_SETLKW`：對檔案區域進行加鎖。
 
@@ -852,6 +864,18 @@ $ chmod u-x txt
 $ chmod u+s txt
 $ ls -l
 -rwSrw-r-- 1 admin admin 0 Oct 15 11:43 txt
+```
+若使用者 A 擁有該檔案，但檔案的群組跟使用者群組不同，那麼嘗試設定 sgid bit 會失敗：
+```
+$ sudo touch file
+$ ls -l file
+-rw-r--r-- 1 root root 0 Nov  3 11:32 file
+$ sudo chown user:root file # 將擁有者改為 user，群組改成 root
+$ ls -l file
+-rw-r--r-- 1 user sudo 0 Nov  3 11:32 file
+$ chmod g+s file
+$ ls -l file
+-rw-r--r-- 1 user root 0 Nov  3 11:32 file # 無法設定 sgid
 ```
 
 在 `struct stat` 中，有 `uid_t`、`gid_t` 這兩個欄位：
