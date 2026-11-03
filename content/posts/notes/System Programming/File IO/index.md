@@ -766,6 +766,36 @@ S_ISFIFO(buf.st_mode); // FIFO Pipes
 S_ISLNK(buf.st_mode);  // Symbolic Link
 S_ISSOCK(buf.st_mode); // Socket
 ```
+
+`st_atim`、`st_mtim`、`st_ctim` 是系統紀錄與檔案有關的時間：
+- `st_atim`：最後存取檔 datablock 的時間，如 `read`
+- `st_mtim`：最後修改 datablock 的時間，如 `write`
+- `st_ctm`：最後修改 inode 的時間，如 `chown`、`chmod`
+下表是常見 File Syscall 對這三個時間的影響：
+![](syscall-filetime.png)
+
+比較特殊的是 `access()` 與 `stat()`，由於他們不會修改檔案內容與 Metadata，系統也不會紀錄 inode 的存取時間，所以三個檔案時間都不會被修改。同時，目標檔案/資料夾的父資料夾的 access time 大多也不會修改，這是因為我們僅通過 parent directory 的清單去找到底下的 inode，而 parent directory 的整份清單沒有被讀取，因此 atime 不會改變。
+不過指令如 `ls` 就會改變 directory 的 atime：
+```
+$ mkdir dir
+$ stat dir
+Access: 2026-11-03 16:46:13.144744182 +0800
+$ ls dir
+$ stat dir
+Access: 2026-11-03 16:46:45.423919084 +0800 # changed
+```
+
+可以使用 `utime` 與 `utimes` 來更新檔案的 atime 與 mtime：
+```c
+#include <sys/time.h>
+// returns 0 if OK, -1 on error
+int utime(const char *pathname, const struct utimbuf *times);
+int utimes(const char *pathname, const struct timeval times[2]);
+struct utimbuf { time_t actime; time_t modtime; };
+struct timeval { time_t tv_sec; long tv_usec; };
+```
+`utimes` 支援以 ms 為單位的時間修改，而 `utime` 僅支援以秒為單位的時間修改。
+
 ### 檔案存取權限
 
 在終端機中可以打 `ls -l` 列出當前目錄下的所有檔案，以及他們的詳細資訊：
@@ -975,9 +1005,11 @@ drwxrwxrwt 17 root root 380 Oct 15 14:50 /tmp
 - **Data Block**： 磁碟上實際存放檔案原始資料（文字、圖片、二進位數據等）的最小劃分單位。
 
 也就是說，檔案系統在找檔案時，會先走到 directory block ，然後根據 directory Block 裡面的檔案名稱條目，找到對應的 i-node 編號，接著訪問 i-node 找到 data blocks。因為有 i-node 的存在，所以一個檔案的 data blocks 不需要連續儲存，可以分散在磁碟各處，增加空間利用效率。
+因為 Directory 的特殊性質，所以只有 Kernel 能夠改動 Directory Block 的內容來維護系統的完整性，因此操作如 `echo hi > dir` 是不合法的。
+
+另外，在 Directory Block 創建之初就有兩個 Entry：`.` 與 `..`，分別指向當前目錄與當前目錄的父目錄。所以在寫相對路徑時， `./file` 與 `file` 都是合法的，前者會先找到 `.` 這個條目再找到 `file`，後者會直接找到 `file` 這個條目。
 
 ![](inode-and-datablocks.png)
-
 ### Hard Link
 
 Hard Link 硬連結，創建他時會在 Directory Block 中新增一筆檔名紀錄，並將其指向同一個 i-node ，接著將 i-node 內部的連結計數 +1。Hard Link 不能用在資料夾上。
