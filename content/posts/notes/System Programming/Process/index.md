@@ -53,6 +53,14 @@ pid_t getpid(void);
 // Return: the parent process ID of calling process
 pid_t getppid(void);
 ```
+
+一些有關進程的身份組的 syscall：
+```c
+uid_t getuid(void); // return the real uid 
+uid_t geteuid(void); // return the effective uid
+gid_t getgid(void); // return the real gid
+gid_t getegid(void); // return the effective gid
+```
 ## Process Lifecycle
 
 前面提到 Process 會有執行狀態，分別是 New、Ready、Running、Waiting、Terminated：
@@ -350,9 +358,10 @@ pid_t waitpid(int pid, int *statloc, int options);
 ```
 - `wait` 用於等待**任一**子進程發生狀態改變，回傳改變後的狀態
 - `waitpid` 用於等待**指定的**子進程發生狀態改變，回傳改變後的狀態，可傳入 `option` 參數
+`statloc` 傳入 `NULL` 可以忽略 child 的狀態回傳值。注意這裡的「子進程」不包含孫子進程，只能是該 parent 的 direct child。
+
 這裡的狀態改變是指以下任一發生：子進程終止（terminated）、子進程被信號暫停（stopped by signal）、暫停中的子進程被信號恢復（resumed by signal）。
-`statloc` 傳入 `NULL` 可以忽略 child 的狀態回傳值。
-注意這裡的「子進程」不包含孫子進程，只能是該 parent 的 direct child。
+在子進程狀態改變後， Kernel 會傳送 `SIGCHLD` 信號給 parent，預設是會忽略這個信號。
 
 其中 `waitpid` 會根據傳入的 `pid` 改變行為：
 - `pid == -1`：等待所有子進程
@@ -740,7 +749,7 @@ int main(void) {
 
 ---
 
-同步處理有個重要的問題叫做 Deadlock（死鎖），是當雙方都必須等待對方完成才能執行時，無限互相等待的迴圈。
+同步處理有個重要的問題叫做 Deadlock（死鎖），是當多個工作都必須互相等待對方完成才能執行時，無限互相等待的迴圈。（a situation wherein two or more competing actions are waiting for the other to finish, and thus neither ever does.）
 前面的 code 不會產生 deadlock 的原因是，雙方的工作是在等待對方之前就已經完成，而 Deadlock 是因為在**等待之後**才能完成。
 
 以 `vfork` 來舉例：
