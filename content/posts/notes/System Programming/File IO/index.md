@@ -918,6 +918,13 @@ $ ./exe
 bash: ./exe: Permission denied
 ```
 
+suid 在 8 進制中是 `001` ，sgid 在 8 進制中是 `010`：
+```sh
+chmod 1000 file # 相當於 u+s
+chmod 2000 file # 相當於 g+s
+chmod 3000 file # 相當於 ug+s
+```
+
 在 `struct stat` 中，有 `uid_t`、`gid_t` 這兩個欄位：
 ```c
 struct stat {
@@ -1005,6 +1012,20 @@ drwxrwxrwt 17 root root 380 Oct 15 14:50 /tmp
          ^
 ```
 `t` 便是設定 Sticky Bit 的意思。所以使用者可以在 `/tmp` 裡創建或刪除檔案，但不能刪除其他人的檔案。
+
+也可以用 `chmod` 設定 sticky bit，在 8 進制中 sticky bit 是 `100`：
+```
+$ chmod 0000 file
+$ chmod 4000 file # 相當於 +t
+$ ls -l file
+---------T 1 admin admin 0 Nov  4 16:43 lol
+$ chmod o+x file
+---------t 1 admin admin 0 Nov  4 16:43 lol
+$ chmod 7000 file # 相當於 ug+st
+$ ls -l lol
+---S--S--T 1 admin admin 0 Nov  4 16:43 lol
+```
+大寫 T 表示 other 沒有 execute ，小寫表示 other 有 execute 權限。
 
 ## 檔案系統結構
 
