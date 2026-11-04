@@ -81,13 +81,14 @@ int execle(const char *pathname, const char *arg0, … /* (char *)0, char *const
 int execve(const char *pathname, char *const argv[], char *const envp[]);
 int execlp(const char *filename, const char *arg0, … /* (char *)0 */ );
 int execvp(const char *filename, char *const argv[]);
+int execvpe(const char *file, char *const argv[], char *const envp[]);
 ```
 
 `exec` 函式家族的功能是以指定的 Program 取代目前進程，然後分配新的記憶體、暫存器等，但是進程本身的 PID 與父進程不會變，就像是把進程的外包裝留著，換掉內部的東西。
 這些函式的功能大同小異，差別主要在於參數的傳遞方式，以及如何指定環境變數與搜尋執行檔。可以透過函式名稱中的字母來記憶：
 - `l`：個別傳入參數
 - `v`：以陣列傳入參數，注意最後一個參數後必須加上 `NULL`
-- `p`：支援透過 PATH 搜尋執行檔（不用指定 `/bin/ls` 這類完整路徑）
+- `p`：支援透過 PATH 搜尋執行檔（不用指定 `/bin/ls` 這類完整路徑），並將全域環境變數加入新程式的環境變數
 - `e`：可以指定新程式的環境變數
 比較常用的有 `execve` 與 `execvp`。
 
@@ -118,7 +119,19 @@ total 20
 ```
 
 因為`execvp()` 成功時，會以新的 Program 取代目前進程，所以 `After execvp` 並不會被輸出。雖然說原進程大部分的屬性都會消失，但是有些屬性，如未設定 `FD_CLOEXEC` 標籤的 FD 還會繼續保留。如果沒使用帶有 `e` 的 `exec` ，那麼環境變數也會保留。注意如果執行的是帶有 `setuid/gid` 的 Program，那麼進程的 Effective UID/GID 也會改變。
-此外，由 `fcntl` 設定的鎖也會保留，一個簡單判斷鎖會不會保留的方法就是看 PID 有沒有變。
+
+`exec` 後會保留的東西：
+
+| 屬性                        | 是否保留                                           |
+| ------------------------- | ---------------------------------------------- |
+| PID                       | Yes                                            |
+| Effective ID              | Yes, unless suid/sgid is set on the executable |
+| Real ID                   | Yes                                            |
+| Address Space             | No                                             |
+| Open FDs                  | Yes, unless `F_CLOEXEC` is set                 |
+| Current Working Directory | Yes                                            |
+| Environment Vars          | Yes, unless `e` is part of `exec`.             |
+| POSIX File Locks          | Yes                                            |
 
 `exec` 詳細的用法，以下程式都執行 `ls -l`：
 ```c
@@ -339,6 +352,7 @@ pid_t waitpid(int pid, int *statloc, int options);
 - `waitpid` 用於等待**指定的**子進程發生狀態改變，回傳改變後的狀態，可傳入 `option` 參數
 這裡的狀態改變是指以下任一發生：子進程終止（terminated）、子進程被信號暫停（stopped by signal）、暫停中的子進程被信號恢復（resumed by signal）。
 `statloc` 傳入 `NULL` 可以忽略 child 的狀態回傳值。
+注意這裡的「子進程」不包含孫子進程，只能是該 parent 的 direct child。
 
 其中 `waitpid` 會根據傳入的 `pid` 改變行為：
 - `pid == -1`：等待所有子進程
@@ -697,6 +711,35 @@ all done.
 ```
 
 所以可以用 Pipe 來解 Race Condition，但蠻蠢的。
+
+考慮以下程式：
+```c
+int main(void) {
+    if (fork() == 0) {
+	    int pfd[2];
+	    pipe(pfd);
+	    if (fork() == 0) {
+	        close(pfd[1]);
+	        char buf[128];
+	        read(pfd[0], buf, sizeof(buf));
+	        close(pfd[0]);
+	        
+	        // daemon job...
+	    }
+	    close(pfd[0]);
+	    char msg[] = "Ok";
+	    write(pfd[1], msg, sizeof(msg));
+	    close(pfd[1]);
+	    exit(0);
+    }
+    wait(NULL);
+}
+```
+這個程式的作用是讓 grandchild 等 child 結束再開始執行，**但是 grandchild 接收到消息的那一刻不代表 child 真的結束了**，因為有可能在接收完訊息後，CPU 讓 grandchild 開始執行，而不去執行 child 的 `exit(0)`，所以 child 實際上還沒結束。
+一個解決辦法就是讓 parent 與 grandchild 通訊，讓 parent 在 `wait(NULL)` 結束後再發送訊息給 grandchild。
+
+---
+
 同步處理有個重要的問題叫做 Deadlock（死鎖），是當雙方都必須等待對方完成才能執行時，無限互相等待的迴圈。
 前面的 code 不會產生 deadlock 的原因是，雙方的工作是在等待對方之前就已經完成，而 Deadlock 是因為在**等待之後**才能完成。
 
