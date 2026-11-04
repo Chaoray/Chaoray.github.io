@@ -103,7 +103,7 @@ I/O（Input/Outputs）指任何與檔案的操作，在 Unix 中， I/O 被分�
 - Buffered I/Os：存取會儲存輸入在中介的緩衝區中，當某些條件滿足才會呼叫 syscall 
 - Unbuffered I/O： 每次存取都會呼叫 syscall ，但 Kernel 中還是可以有緩衝區
 
-舉例來說，常見的 Buffered IO 有 `fread/fwrite` ， C Standard Library 中有對這兩者作一個存在 User Space 下的緩衝區，當緩衝區滿了、程式呼叫 `fflush` 、呼叫 `fclose` 關閉檔案、正常結束時，才會將緩衝區內容用 Syscall 實際寫入檔案。（注：輸出到 terminal 的 `printf/puts` 等操作是當換行時 flush 到 kernel）
+舉例來說，常見的 Buffered IO 有 `fread/fwrite` ， C Standard Library 中有對這兩者作一個存在 User Space 下的緩衝區，當緩衝區滿了、程式呼叫 `fflush` 、呼叫 `fclose` 關閉檔案、正常結束時，才會將緩衝區內容用 Syscall 實際寫入檔案。（注：輸出到 terminal 的 `printf/puts` 等操作是當換行時，或讀取輸入時 flush 到 kernel）
 
 而 `read/write` 等 Syscall 的緩存是存在 Kernel 的 Page Cache 中， `write` 將資料複製到 Kernel 的 Page Cache 後便立即返回，此時資料頁被標記為 Dirty Page，由背景執行緒（如 `flusher`/`pdflush`）非同步寫回磁碟。`read` 會優先從 Page Cache 搜尋，若有則直接複製到 User Space；沒有才從磁碟讀取並載入 Cache。
 
@@ -246,6 +246,16 @@ $ ls -ls file.hole file.nohole
 > 稀疏檔案與「預先分配（Preallocation）」的概念相反，它們實現了所謂的精簡自動配置（Thin provisioning），有時也被稱為磁碟超額承諾（Disk overcommitment）。這讓你能建立出超越實際實體硬體容量的「虛擬磁碟空間」，並只在有必要時才擴充實體磁碟來增長檔案系統。
 
 譯自：[linux - what is file hole and how can it be used?](https://stackoverflow.com/a/13982618)
+
+---
+
+```c
+#include <unistd.h>
+// Return 0 on success, -1 on error
+int truncate(const char *path, off_t length);
+int ftruncate(int fd, off_t length);
+```
+將檔案大小截至指定大小 `length`，若檔案大小小於 `length` 會用 `'\0'` 填滿檔案至 `length`。**不會改變 `fd` 的 offset**。
 
 ---
 
@@ -920,9 +930,9 @@ bash: ./exe: Permission denied
 
 suid 在 8 進制中是 `001` ，sgid 在 8 進制中是 `010`：
 ```sh
-chmod 1000 file # 相當於 u+s
+chmod 4000 file # 相當於 u+s
 chmod 2000 file # 相當於 g+s
-chmod 3000 file # 相當於 ug+s
+chmod 6000 file # 相當於 ug+s
 ```
 
 在 `struct stat` 中，有 `uid_t`、`gid_t` 這兩個欄位：
@@ -1013,10 +1023,10 @@ drwxrwxrwt 17 root root 380 Oct 15 14:50 /tmp
 ```
 `t` 便是設定 Sticky Bit 的意思。所以使用者可以在 `/tmp` 裡創建或刪除檔案，但不能刪除其他人的檔案。
 
-也可以用 `chmod` 設定 sticky bit，在 8 進制中 sticky bit 是 `100`：
+也可以用 `chmod` 設定 sticky bit，在 8 進制中 sticky bit 是 `001`：
 ```
 $ chmod 0000 file
-$ chmod 4000 file # 相當於 +t
+$ chmod 1000 file # 相當於 +t
 $ ls -l file
 ---------T 1 admin admin 0 Nov  4 16:43 lol
 $ chmod o+x file
