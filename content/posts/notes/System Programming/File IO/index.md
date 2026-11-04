@@ -908,6 +908,16 @@ $ ls -l file
 -rw-r--r-- 1 user root 0 Nov  3 11:32 file # 無法設定 sgid
 ```
 
+注意「設定了 suid/gid bit」不表示「可執行該檔案」，考慮以下例子：
+```
+$ ls -l exe
+-rws------ 1 root root 45 Nov  4 14:55 exe
+$ whoami
+admin
+$ ./exe
+bash: ./exe: Permission denied
+```
+
 在 `struct stat` 中，有 `uid_t`、`gid_t` 這兩個欄位：
 ```c
 struct stat {
