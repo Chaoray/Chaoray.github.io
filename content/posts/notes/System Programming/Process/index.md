@@ -768,3 +768,7 @@ int main() {
 ```
 
 因為 `vfork` 會卡著父進程，而子進程又必須等待 `var >= 20` 才能繼續執行，所以屬於雙方互卡的操作，死機了。解決 Deadlock 的辦法就是定義好程式的行為，搞清楚誰該先等待，或者使用其他機制，從編寫時就避免掉。
+
+---
+
+一段（File IO & Process）的 Cheatsheet：[SP-Midterm-Cheatsheet](SP-Midterm-Cheatsheet.md) ，每頁 4 面可以壓到 2 頁以下。
