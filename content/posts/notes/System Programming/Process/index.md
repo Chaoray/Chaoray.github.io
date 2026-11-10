@@ -771,4 +771,4 @@ int main() {
 
 ---
 
-一段（File IO & Process）的 Cheatsheet：[SP-Midterm-Cheatsheet](SP-Midterm-Cheatsheet.md) ，每頁 4 面可以壓到 2 頁以下。
+一段（File IO & Process）的 Cheatsheet：[SP-Midterm-Cheatsheet](SP-Midterm-Cheatsheet.txt) ，每頁 4 面可以壓到 2 頁以下。
